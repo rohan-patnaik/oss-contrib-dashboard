@@ -1,26 +1,26 @@
 {
-  "generated": "2026-09-24T19:38:01+00:00",
+  "generated": "2026-09-24T19:53:37+00:00",
   "campaign": {
     "phase": "repository admission",
     "note": "Bootstrap complete. Contribution baseline refreshed; repository admission and issue research beginning. Eligible-issue counts cover NEW opportunities only; 26 previously contributed external repositories are excluded and tracked separately. All counts are truthful current values, not projections."
   },
   "summary": {
-    "eligible": 16,
+    "eligible": 24,
     "target": 100,
     "companies": 20,
     "repos_admitted": 27,
     "importance": {
-      "low": 5,
-      "medium": 9,
+      "low": 7,
+      "medium": 15,
       "high": 2
     },
-    "reproduced": 2,
+    "reproduced": 3,
     "authored": 2,
     "open_prs": 2,
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T19:38:01+00:00",
+    "last_refresh": "2026-09-24T19:53:37+00:00",
     "excluded_prior_repos": 26
   },
   "repos": [
@@ -951,6 +951,126 @@
       "ownership_check": "Unassigned; ready-for-dev; filed by maintainer neubig as a spec'd small fix with acceptance criteria (including 'A failed attach does not register'); no claim comments.",
       "competing_prs": [],
       "platform_plan": "Mac ARM64, CPU only: pure pytest with a mocked workspace client following the existing RemoteConversation test patterns - assert attach() registers the ID on success and does not register on HTTP failure, and that the completion callback carries the attached ID; uv run pytest openhands-sdk tests. No Docker, no credentials."
+    },
+    {
+      "company": "Meta/PyTorch",
+      "repo": "meta-pytorch/botorch",
+      "number": 3144,
+      "url": "https://github.com/meta-pytorch/botorch/issues/3144",
+      "title": "[Bug]: TruncatedMultivariateNormal does not respect nonzero batch size",
+      "importance": "medium",
+      "importance_rationale": "Any batched TruncatedMultivariateNormal (batch of means/covariances, the natural shape coming out of batched GP posteriors) crashes in rsample with a broadcast ValueError; users must fall back to per-element Python loops. Maintainer hvarfner explicitly invited a community PR.",
+      "difficulty": "high",
+      "status": "vetted",
+      "verified_at": "2026-09-24T19:49:43Z",
+      "ownership_check": "Open, unassigned, bug label. Reporter mathDR claimed 2026-01-16 and iterated through 2026-02-03 ('I have some cycles... Do you have a draft PR?') with no PR ever opened - claim stale >7 months (>90d window). Balandat's 2026-01-18 'let me give it a shot' also produced no PR. hvarfner (CONTRIBUTOR/maintainer) invited a PR 2026-01-16T21:38:54Z: 'Would you be interested in fixing the issue by contributing a PR?'",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64 CPU: pip install -e . (pure PyTorch); reproduce with the issue's 10x25 batched snippet; implement leading-batch-dim support in LinearEllipticalSliceSampler + TruncatedMultivariateNormal.rsample per kayween's in-thread shape plan (x:(batch,d,chains), A:(batch,m,d)); pytest test/utils/probability/test_truncated_multivariate_normal.py test/utils/probability/test_lin_ess.py."
+    },
+    {
+      "company": "Meta/PyTorch",
+      "repo": "meta-pytorch/botorch",
+      "number": 2624,
+      "url": "https://github.com/meta-pytorch/botorch/issues/2624",
+      "title": "[Bug] `batch_initial_conditions` shouldn't have to satisfy `nonlinear_inequality_constraints`",
+      "importance": "medium",
+      "importance_rationale": "optimize_acqf with nonlinear inequality constraints hard-fails unless the user can hand-construct feasible initial conditions - exactly the situations where the feasible region is hard to find are the ones blocked; recurring user pain (maintainer esantorella linked a second occurrence, discussion #3074, in 2025-11).",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-24T19:49:43Z",
+      "ownership_check": "Open, unassigned, bug label. No claim comments. Maintainer esantorella re-upped the issue 2025-11-12 by linking discussion #3074 - no 'we'll handle this' plan.",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64 CPU: run the issue's 1-d SingleTaskGP+UCB repro (CPU, seconds); change gen_candidates_scipy/make_scipy_nonlinear_inequality_constraints to defer the feasibility check to the returned candidate (raise only if the optimizer's result is infeasible); pytest test/optim/test_parameter_constraints.py test/generation/test_gen.py test/optim/test_optimize.py."
+    },
+    {
+      "company": "Meta/PyTorch",
+      "repo": "meta-pytorch/botorch",
+      "number": 2253,
+      "url": "https://github.com/meta-pytorch/botorch/issues/2253",
+      "title": "[Bug] An exception should be raised when the training data has requires_grad=True",
+      "importance": "low",
+      "importance_rationale": "Users who feed model outputs as GP training data (e.g. MPC / risk-averse BO, the reporter's real case) get a deep, opaque RuntimeError from the fitting internals instead of a clear message; maintainers agreed an informative check is wanted.",
+      "difficulty": "low",
+      "status": "vetted",
+      "verified_at": "2026-09-24T19:49:43Z",
+      "ownership_check": "Open, unassigned, bug label. No active claim; the one fix attempt, PR #2444 (by maintainer saitcakmak), was closed unmerged 2024-07-24 because the constructor-level check broke fantasize - the correct fix location is documented and unowned.",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64 CPU: reproduce with the issue's 12-line snippet (pure CPU); add a train-inputs/targets requires_grad check with an actionable error (or detach+warn per maintainer preference) inside fit_gpytorch_mll before dispatch; regression test asserting fantasize paths still work (the exact failure mode of #2444); pytest test/test_fit.py."
+    },
+    {
+      "company": "Meta/PyTorch",
+      "repo": "meta-pytorch/botorch",
+      "number": 1860,
+      "url": "https://github.com/meta-pytorch/botorch/issues/1860",
+      "title": "[Bug] `sample_all_priors` doesn't work with `KroneckerMultiTaskGP`",
+      "importance": "medium",
+      "importance_rationale": "fit_gpytorch_mll's retry-on-failure path calls sample_all_priors, so any KroneckerMultiTaskGP whose first fit attempt fails crashes outright ('Must provide inverse transform to be able to sample from prior') instead of retrying - multi-output GP users lose the fitting robustness every other model has.",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-24T19:49:43Z",
+      "ownership_check": "Open, unassigned, bug label. vmallela0's claim is from 2023-06 (3+ years stale, no PR). No maintainer plan.",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64 CPU: run the issue's repro (KroneckerMultiTaskGP + sample_all_priors, pure CPU, seconds); register the LKJCovariancePrior (and MultitaskGaussianLikelihood noise prior if needed) with a setting_closure botorch-side after kernel construction, per Balandat's factoring plan; pytest test/optim/utils/test_model_utils.py test/models/test_multitask.py."
+    },
+    {
+      "company": "Hugging Face",
+      "repo": "huggingface/diffusers",
+      "number": 8384,
+      "url": "https://github.com/huggingface/diffusers/issues/8384",
+      "title": "[Community] Help us fix the LR schedulers when `num_train_epochs` is passed in a distributed training env - remaining research_projects scripts",
+      "importance": "low",
+      "importance_rationale": "Long-running per-file community tracker: the affected research_projects training scripts under-count LR scheduler steps in distributed runs when num_train_epochs is used (scheduler stops short of the schedule / warmup mis-scaled). Maintainer marked research_projects 'low-priority' but the tracker explicitly remains open for contributions.",
+      "difficulty": "low",
+      "status": "vetted",
+      "verified_at": "2026-09-24T19:49:43Z",
+      "ownership_check": "Tracker open, unassigned. Every mainline script is claimed (<90d) or covered by an open PR (see competition_note); the research_projects slice is NOT: no claim exists for realfill/train_realfill.py or consistency_training/train_cm_ct_unconditional.py (only multi_subject_dreambooth was claimed, by Alphaxiaoteng 2026-08-30). Candidate scope = ONE unclaimed research_projects script (recommend realfill/train_realfill.py), per the one-script-per-PR rule.",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64 CPU: two-process CPU/Gloo run via 'accelerate launch --cpu --num_processes 2' on train_realfill.py with a tiny local dataset and --num_train_epochs, asserting scheduler step count and final LR before/after the fix (same proof pattern prior claimants used and sayakpaul accepted); ruff/make style + the minimal training command required by the tracker."
+    },
+    {
+      "company": "Hugging Face",
+      "repo": "huggingface/diffusers",
+      "number": 11497,
+      "url": "https://github.com/huggingface/diffusers/issues/11497",
+      "title": "SD3 ControlNet Script (and others?): dataset preprocessing cache depends on unrelated arguments",
+      "importance": "medium",
+      "importance_rationale": "Eight training scripts fingerprint the precomputed-embedding cache with Hasher.hash(args), so changing ANY runtime argument (learning rate, output dir, checkpointing steps...) forces a full re-encode of the dataset - hours of wasted CPU/GPU time on every tweaked rerun for ControlNet SD3/SDXL/Flux and SDXL t2i trainers.",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-24T19:49:43Z",
+      "ownership_check": "Open, unassigned. Reporter kentdan3msu accepted 2025-05-06 but last progress update was 2025-06-02 ('trying a rewrite of my dataset loader') - stale >15 months, no PR. No other claim; stale-bot pings only since.",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64 CPU: add the lhoestq-blessed hash (training_utils helper + call-site change in the affected scripts, or start with train_controlnet_sd3.py per maintainer preference for scoped PRs); validate with a tiny hf-internal-testing SD3 pipe + 8-sample local dataset entirely on CPU: run preprocessing twice with only --learning_rate changed and assert datasets map cache HIT (no recompute), then change --pretrained_model_name_or_path/--max_sequence_length and assert MISS; run the existing examples/controlnet tests."
+    },
+    {
+      "company": "Microsoft AI / DeepSpeed (LF)",
+      "repo": "deepspeedai/DeepSpeed",
+      "number": 7255,
+      "url": "https://github.com/deepspeedai/DeepSpeed/issues/7255",
+      "title": "[BUG] Missing grad_norm in logs when using stage0, while other stages have it.",
+      "importance": "medium",
+      "importance_rationale": "Every ZeRO stage-0 (plain fp32) training run silently loses gradient-norm observability: engine.get_global_grad_norm() stays None, so HF Trainer / monitoring integrations that read it log nothing (grad_norm None/0) while stages 1-3 report it - users lose a primary divergence-debugging signal exactly when comparing against stage 0 baselines.",
+      "difficulty": "low",
+      "status": "vetted",
+      "verified_at": "2026-09-24T19:49:43Z",
+      "ownership_check": "Open, unassigned, bug+training labels, zero comments, zero timeline cross-references since 2025-04-28. No claim, no maintainer plan.",
+      "competing_prs": [],
+      "platform_plan": "Linux CPU container (DeepSpeed does not support macOS natively): docker run python:3.11 + pip install torch --index-url cpu + pip install -e .; DS_ACCELERATOR=cpu single-process gloo init, deepspeed.initialize with {'train_batch_size':1, 'gradient_clipping':1.0} and a torch.optim.SGD (stage 0), one forward/backward/step, assert engine.get_global_grad_norm() is not None and matches torch.nn.utils.clip_grad_norm_'s value; unit test alongside tests/unit/runtime/test_ds_config* patterns. DCO sign-off required on commits."
+    },
+    {
+      "company": "Microsoft AI",
+      "repo": "microsoft/onnxruntime",
+      "number": 25306,
+      "url": "https://github.com/microsoft/onnxruntime/issues/25306",
+      "title": "[Feature Request] CPU EP `Where` data type registration, add int8 and uint32",
+      "importance": "medium",
+      "importance_rationale": "Models containing Where over int8/uint32 tensors (common in quantized models and in WebNN-on-CPU, per the reporter - a Microsoft DirectML/WebNN engineer) fail outright on the CPU EP with 'Could not find an implementation'; the requested types are bitcast-aliases of already-registered uint8/int32 kernels, so the reporter pre-empted the usual binary-size objection in the issue itself.",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-24T19:49:43Z",
+      "ownership_check": "Open, unassigned, feature-request label. Only comments are the reporter's own label housekeeping and an FYI ping to WebNN folks (2025-07-07). No claim, no maintainer objection; note ORT's stated type-registration policy (skottmckay on #32719: types added when a production scenario requires them) - this issue documents that scenario (WebNN decomposition on CPU) and the zero-bloat bitcast argument up front.",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64 CPU: build from source (./build.sh --config RelWithDebInfo --build_wheel --parallel, CPU-only, no EP flags; long but pure CPU); enable the registrations via the existing bitcast/alias pattern (uint8_t kernel for int8, int32_t for uint32, as the issue and onnx#6887 outline), regenerate docs/OperatorKernels.md, add cases to onnxruntime/test/providers/cpu/tensor/where_op_test.cc; validate end-to-end with a python onnx.helper model running Where(int8)/Where(uint32) through InferenceSession on CPUExecutionProvider."
     }
   ],
   "holds": [
@@ -1187,6 +1307,10 @@
       "ts": "2026-09-24T19:37:30+00:00",
       "text": "SECOND PR PUBLISHED: EleutherAI/gpt-neox PR #1437 (issue #1364 — top-k MoE routing silently trains without load-balancing loss; warning + docs + CPU regression tests). Review verdict APPROVE; competition re-check clean at 19:36Z; T3-registered.",
       "repo": "EleutherAI/gpt-neox"
+    },
+    {
+      "ts": "2026-09-24T19:53:37+00:00",
+      "text": "Batch-5: +8 eligible — botorch 4 (TruncatedMVN batch crash, optimize_acqf infeasible-IC rejection, fit_gpytorch_mll validation, KroneckerMultiTaskGP prior sampling; maintenance-mode SLA risk recorded), diffusers 2 (gate met with maintainer in-thread invitations), DeepSpeed 1 (#7255 ZeRO-0 grad norm never recorded — zero competition), onnxruntime 1 (#25306 CPU Where int8/uint32). 38 rejections + 6 holds documented. DeepSpeed recent queue saturation confirmed; older backlog yields."
     }
   ]
 }

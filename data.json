@@ -1,7 +1,7 @@
 {
-  "generated": "2026-09-24T17:54:05+00:00",
+  "generated": "2026-09-24T18:00:36+00:00",
   "campaign": {
-    "phase": "research starting",
+    "phase": "repository admission",
     "note": "Bootstrap complete. Contribution baseline refreshed; repository admission and issue research beginning. Eligible-issue counts cover NEW opportunities only; 26 previously contributed external repositories are excluded and tracked separately. All counts are truthful current values, not projections."
   },
   "summary": {
@@ -20,23 +20,240 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T17:54:05+00:00",
+    "last_refresh": "2026-09-24T18:00:36+00:00",
     "excluded_prior_repos": 26
   },
-  "repos": [],
+  "repos": [
+    {
+      "company": "MCP",
+      "repo": "modelcontextprotocol/inspector",
+      "url": "https://github.com/modelcontextprotocol/inspector",
+      "relevance": "Official MCP debugging/inspection tool",
+      "stars": 10947,
+      "maintenance": "active (pushed 2026-09-24)",
+      "previous_contribution": "none",
+      "policy": "External PRs NOT accepted: PRs are opened by repo maintainers only; outside contributors file detailed issues (optionally with diffs/prompts).",
+      "policy_links": [
+        "https://github.com/modelcontextprotocol/inspector/blob/main/CONTRIBUTING.md"
+      ],
+      "decision": "rejected",
+      "checked_at": "2026-09-24T18:00:36+00:00"
+    },
+    {
+      "company": "MCP",
+      "repo": "modelcontextprotocol/registry",
+      "url": "https://github.com/modelcontextprotocol/registry",
+      "relevance": "Official MCP server registry backend (Go)",
+      "stars": 7282,
+      "maintenance": "active (pushed 2026-09-23)",
+      "previous_contribution": "none",
+      "policy": "Codebase contributions welcomed; issues track well-scoped work; PRs contribute toward issues. No AI prohibition found.",
+      "policy_links": [
+        "https://github.com/modelcontextprotocol/registry/blob/main/CONTRIBUTING.md"
+      ],
+      "decision": "in-review",
+      "checked_at": "2026-09-24T18:00:36+00:00"
+    },
+    {
+      "company": "Google/DeepMind",
+      "repo": "google-deepmind/optax",
+      "url": "https://github.com/google-deepmind/optax",
+      "relevance": "DeepMind's core JAX optimization library",
+      "stars": 2342,
+      "maintenance": "active (pushed 2026-09-24)",
+      "previous_contribution": "none",
+      "policy": "Standard Google CLA CONTRIBUTING; no issue-first gate or AI prohibition found; JAX-org policy does NOT automatically apply (separate org).",
+      "policy_links": [
+        "https://github.com/google-deepmind/optax/blob/main/CONTRIBUTING.md"
+      ],
+      "decision": "in-review",
+      "checked_at": "2026-09-24T18:00:36+00:00"
+    },
+    {
+      "company": "Google/DeepMind",
+      "repo": "google/langextract",
+      "url": "https://github.com/google/langextract",
+      "relevance": "Google's flagship LLM information-extraction library",
+      "stars": 38683,
+      "maintenance": "active (pushed 2026-09-21)",
+      "previous_contribution": "none (other google/* repos contributed; this is a new repo at existing org)",
+      "policy": "'Would love to accept your patches'; Google CLA; issue templates; no AI prohibition found in CONTRIBUTING.",
+      "policy_links": [
+        "https://github.com/google/langextract/blob/main/CONTRIBUTING.md"
+      ],
+      "decision": "in-review",
+      "checked_at": "2026-09-24T18:00:36+00:00"
+    },
+    {
+      "company": "UK AISI",
+      "repo": "UKGovernmentBEIS/inspect_ai",
+      "url": "https://github.com/UKGovernmentBEIS/inspect_ai",
+      "relevance": "UK AI Safety Institute's evaluation framework",
+      "stars": 2854,
+      "maintenance": "active (pushed 2026-09-24)",
+      "previous_contribution": "none",
+      "policy": "Issue-first: non-qualified contributors may only PR against maintainer-'accepted'-labeled issues; duplicates auto-closed. Eligible via accepted-labeled existing issues only.",
+      "policy_links": [
+        "https://github.com/UKGovernmentBEIS/inspect_ai/blob/main/CONTRIBUTING.md"
+      ],
+      "decision": "in-review",
+      "checked_at": "2026-09-24T18:00:36+00:00"
+    },
+    {
+      "company": "OpenAI",
+      "repo": "openai/tiktoken",
+      "url": "https://github.com/openai/tiktoken",
+      "relevance": "OpenAI's official BPE tokenizer library",
+      "stars": 19319,
+      "maintenance": "batch-maintained (merges ~every 2-3 months; last push 2026-08)",
+      "previous_contribution": "none",
+      "policy": "No CONTRIBUTING file; de facto accepts external PRs (multiple external authors in last 15 merged). Slow review cadence.",
+      "policy_links": [
+        "https://github.com/openai/tiktoken"
+      ],
+      "decision": "in-review",
+      "checked_at": "2026-09-24T18:00:36+00:00"
+    },
+    {
+      "company": "OpenAI",
+      "repo": "openai/gpt-oss",
+      "url": "https://github.com/openai/gpt-oss",
+      "relevance": "OpenAI's open-weights model reference implementation",
+      "stars": 20427,
+      "maintenance": "active (pushed 2026-07)",
+      "previous_contribution": "none",
+      "policy": "README: bug fixes accepted; new features not accepted. GPU-heavy; CPU-verifiable scope must be established per issue.",
+      "policy_links": [
+        "https://github.com/openai/gpt-oss#contributing"
+      ],
+      "decision": "in-review",
+      "checked_at": "2026-09-24T18:00:36+00:00"
+    },
+    {
+      "company": "NVIDIA",
+      "repo": "NVIDIA-NeMo/Speech",
+      "url": "https://github.com/NVIDIA-NeMo/Speech",
+      "relevance": "NVIDIA NeMo speech toolkit (ASR/TTS), successor to NVIDIA/NeMo speech collections",
+      "stars": 18502,
+      "maintenance": "active (pushed 2026-09-24)",
+      "previous_contribution": "none",
+      "policy": "External fork PRs accepted; strict DCO sign-off; CI requires maintainer /ok-to-test for untrusted PRs; AGENTS.md provides agent workflow (no prohibition).",
+      "policy_links": [
+        "https://github.com/NVIDIA-NeMo/Speech/blob/main/CONTRIBUTING.md",
+        "https://github.com/NVIDIA-NeMo/Speech/blob/main/AGENTS.md"
+      ],
+      "decision": "in-review",
+      "checked_at": "2026-09-24T18:00:36+00:00"
+    },
+    {
+      "company": "Prime Intellect",
+      "repo": "PrimeIntellect-ai/prime-rl",
+      "url": "https://github.com/PrimeIntellect-ai/prime-rl",
+      "relevance": "Prime Intellect's decentralized RL training framework",
+      "stars": 2084,
+      "maintenance": "active (pushed 2026-09-24)",
+      "previous_contribution": "none",
+      "policy": "AGENTS.md is agent-friendly guidance (no prohibition); external-PR route needs confirmation; RL core is GPU-leaning, CPU test scope per issue.",
+      "policy_links": [
+        "https://github.com/PrimeIntellect-ai/prime-rl/blob/main/AGENTS.md"
+      ],
+      "decision": "in-review",
+      "checked_at": "2026-09-24T18:00:36+00:00"
+    },
+    {
+      "company": "OpenHands",
+      "repo": "OpenHands/software-agent-sdk",
+      "url": "https://github.com/OpenHands/software-agent-sdk",
+      "relevance": "OpenHands' rebuilt agent SDK foundation",
+      "stars": 1165,
+      "maintenance": "active (pushed 2026-09-24)",
+      "previous_contribution": "none",
+      "policy": "'We welcome all contributions big or small'; AGENTS.md for AI agents (no OpenHands/OpenHands human-PR-section rule found here).",
+      "policy_links": [
+        "https://github.com/OpenHands/software-agent-sdk/blob/main/CONTRIBUTING.md"
+      ],
+      "decision": "in-review",
+      "checked_at": "2026-09-24T18:00:36+00:00"
+    }
+  ],
   "issues": [],
-  "holds": [],
+  "holds": [
+    {
+      "company": "MCP",
+      "item": "modelcontextprotocol/inspector",
+      "url": "https://github.com/modelcontextprotocol/inspector",
+      "reason": "External PRs not accepted — maintainers open all PRs; outside contributors limited to issues.",
+      "ts": "2026-09-24T18:00:36+00:00"
+    },
+    {
+      "company": "Cohere",
+      "item": "cohere-ai/cohere-python",
+      "url": "https://github.com/cohere-ai/cohere-python",
+      "reason": "400 stars — below 1,000-star default hold; no stronger Cohere OSS flagship identified yet.",
+      "ts": "2026-09-24T18:00:36+00:00"
+    },
+    {
+      "company": "Together AI",
+      "item": "togethercomputer/together-python",
+      "url": "https://github.com/togethercomputer/together-python",
+      "reason": "81 stars — below default hold threshold.",
+      "ts": "2026-09-24T18:00:36+00:00"
+    },
+    {
+      "company": "Qwen",
+      "item": "QwenLM/Qwen-Agent",
+      "url": "https://github.com/QwenLM/Qwen-Agent",
+      "reason": "17.1k stars but last push 2026-03-04 — stale maintenance signal; qwen-code held (issue-first + feedback wait).",
+      "ts": "2026-09-24T18:00:36+00:00"
+    },
+    {
+      "company": "Nous",
+      "item": "NousResearch/atropos",
+      "url": "https://github.com/NousResearch/atropos",
+      "reason": "Archived/read-only.",
+      "ts": "2026-09-24T18:00:36+00:00"
+    },
+    {
+      "company": "DeepSeek",
+      "item": "deepseek-ai/DeepSeek-V3",
+      "url": "https://github.com/deepseek-ai/DeepSeek-V3",
+      "reason": "Model-release repo, last push 2025-08; deepseek-harness rejects external PRs (2026-09-23 audit).",
+      "ts": "2026-09-24T18:00:36+00:00"
+    },
+    {
+      "company": "OpenAI",
+      "item": "openai/whisper",
+      "url": "https://github.com/openai/whisper",
+      "reason": "109k stars but effectively frozen for external code; evals repo stale since 2026-04.",
+      "ts": "2026-09-24T18:00:36+00:00"
+    }
+  ],
   "active": [
     {
-      "what": "Repository admission: policy + maintenance checks for priority organizations",
+      "what": "Worker A: admission refresh (anthropic SDKs, tokenizers, OLMo, hermes-agent, mini-swe-agent, cline)",
+      "owner": "fable-worker-A",
+      "since": "2026-09-24T18:00:36+00:00"
+    },
+    {
+      "what": "Worker B: admission refresh (mcp ts-sdk, aider, langchain, langgraph, faiss, markitdown, agent-framework, gpt-neox)",
+      "owner": "fable-worker-B",
+      "since": "2026-09-24T18:00:36+00:00"
+    },
+    {
+      "what": "Coordinator: new-org discovery + policy spot checks",
       "owner": "coordinator",
-      "since": "2026-09-24T17:51:58+00:00"
+      "since": "2026-09-24T18:00:36+00:00"
     }
   ],
   "updates": [
     {
       "ts": "2026-09-24T17:51:58+00:00",
       "text": "Dashboard deployed in truthful research-starting state. GitHub contribution baseline refreshed (267 authored PRs; 26 external repos excluded as prior contributions). Historical target-policy evidence loaded for dedup; it will be independently re-verified before any admission."
+    },
+    {
+      "ts": "2026-09-24T18:00:36+00:00",
+      "text": "Wave-1 policy research: 10 repos in review across MCP, Google/DeepMind, UK AISI, OpenAI, NVIDIA, Prime Intellect, OpenHands. MCP inspector rejected (maintainer-only PRs). inspect_ai gated on maintainer-accepted issues. tiktoken accepts external PRs de facto. 7 holds recorded with reasons.",
+      "repo": null
     }
   ]
 }

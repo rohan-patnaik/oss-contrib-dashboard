@@ -1,18 +1,18 @@
 {
-  "generated": "2026-09-24T21:47:18+00:00",
+  "generated": "2026-09-24T22:04:45+00:00",
   "campaign": {
     "phase": "pausing — draining final two vetting batches (user request)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
   },
   "summary": {
-    "eligible": 42,
+    "eligible": 50,
     "target": 100,
     "companies": 21,
     "repos_admitted": 28,
     "importance": {
       "low": 11,
-      "medium": 27,
-      "high": 4
+      "medium": 33,
+      "high": 6
     },
     "reproduced": 5,
     "authored": 4,
@@ -20,9 +20,9 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T21:47:18+00:00",
+    "last_refresh": "2026-09-24T22:04:45+00:00",
     "excluded_prior_repos": 26,
-    "pr_qualified": 24
+    "pr_qualified": 28
   },
   "repos": [
     {
@@ -1515,6 +1515,152 @@
       "ownership_check": "Open, unassigned, 'enhancement' label. loadams (COLLABORATOR) triaged 2025-07-22..2025-08-05 asking whether a latest-version-only fix works; reporter RyanPham19092002 agreed 2025-08-09 ('I'm fine with trying the latest version... It would be great if you could also include the patch in the next release') - no one claimed implementation; idle 13.5 months.",
       "competing_prs": [],
       "platform_plan": "Pure CPU: DS_ACCELERATOR=cpu, single-rank gloo, zero stage 3 config; tiny model whose forward returns 'class SlotsOut: __slots__=(\"feats\",)' wrapping a tensor; deepspeed.initialize + one forward reproduces the TypeError at parameter_offload.py:375 on HEAD (ZeRO-3 init and hooks run fine on the CPU accelerator); after the guard, forward completes. Unit test needs no GPU, no MinkowskiEngine."
+    },
+    {
+      "company": "Meta",
+      "repo": "facebookresearch/faiss",
+      "number": 3495,
+      "url": "https://github.com/facebookresearch/faiss/issues/3495",
+      "title": "Merging indices with IDMap2",
+      "importance": "high",
+      "importance_rationale": "Silent index corruption in a documented sharded-build workflow (train once, add to clones, merge): after IndexIDMap2-over-IVF merge_from, inner stored ids collide (both sides keep 0..n-1), so make_direct_map/reconstruct fails with \"-1 entry in direct_map\" and any id-addressed operation on the merged half is wrong. Open 2+ years with multiple affected users (reporter nkpart, chaitanya-meesho 2025-03-02, prabhaks repro on 1.13.0 2026-07-12).",
+      "career_signal": "high",
+      "career_signal_rationale": "Root-causing and fixing silent ID-mapping corruption across composite index merge in the most widely used vector-search library: requires reasoning about explicit vs positional id storage (IVF vs FlatCodes), DirectMap invariants, and a backward-compatible API contract for merge_from(add_id) — concrete, interview-defensible correctness work on a core ML-infra data path.",
+      "career_assessed_at": "2026-09-24T22:00:00Z",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-24T21:58:32Z",
+      "ownership_check": "Reporter nkpart inactive in-thread since 2024. prabhaks diagnosed but did not claim and has no faiss PRs (checked 2026-09-24T21:56Z).",
+      "competing_prs": [],
+      "platform_plan": "CPU-only, Mac ARM64 or Linux container. Build: `git clone --branch main ... && cmake -B build -DFAISS_ENABLE_GPU=OFF -DFAISS_ENABLE_PYTHON=ON -DBUILD_TESTING=ON -DCMAKE_BUILD_TYPE=Release . && make -C build -j8 swigfaiss && (cd build/faiss/python && pip install -e .)` (needs libomp: `brew install libomp` on macOS). Repro: run the issue's script (two IDMap2,IVF32,Flat shards of 500 vectors each, merge_from, make_direct_map, reconstruct_batch(all_ids)) -> RuntimeError '-1 entry in direct_map' before fix, clean reconstruction after. Regression: `pytest tests/test_index_composite.py -x` plus new test."
+    },
+    {
+      "company": "Meta",
+      "repo": "facebookresearch/faiss",
+      "number": 3828,
+      "url": "https://github.com/facebookresearch/faiss/issues/3828",
+      "title": "HNSWFlat index with JensenShannon metric brings program stuck",
+      "importance": "high",
+      "importance_rationale": "Silent infinite hang (no error, no crash) in IndexHNSWFlat.add() with METRIC_JensenShannon whenever any vector component is 0 or negative — and zero components are squarely in-domain for JS (sparse probability vectors). Maintainer asadoughi reproduced it (2024-09-26: 'I am able to reproduce the issue with the code provided') but declined to prioritize; bug label, 2 years open. The repo's own JS-vs-scipy test is disabled (tests/test_extra_distances.py:84 'xx_test_jensenshannon').",
+      "career_signal": "high",
+      "career_signal_rationale": "Numerical correctness of a distance-metric kernel in the canonical similarity-search library, with a user-visible failure mode (unbounded hang) traced through NaN propagation into graph-search termination conditions; the fix re-enables a disabled upstream correctness test against scipy — defensible, quantitative ML-infrastructure work.",
+      "career_assessed_at": "2026-09-24T22:00:00Z",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-24T21:58:32Z",
+      "ownership_check": "Reporter qwevdb inactive since 2024-09-26 ping. No other claimants.",
+      "competing_prs": [],
+      "platform_plan": "CPU-only. Same source build as #3495. Repro (must run under `timeout 60`): issue's script — IndexHNSWFlat(2, 10, faiss.METRIC_JensenShannon), add randint(0,10) data -> hangs before fix, completes after. Correctness: compare faiss.pairwise_distances(xq, yb, METRIC_JensenShannon) against scipy.spatial.distance.jensenshannon(x,y)**2 on vectors containing zeros (L1-normalized rows with sparse zeros). Regression: `pytest tests/test_extra_distances.py -x`."
+    },
+    {
+      "company": "Meta",
+      "repo": "facebookresearch/faiss",
+      "number": 3559,
+      "url": "https://github.com/facebookresearch/faiss/issues/3559",
+      "title": "SearchParametersPQ not usable for IndexPQ",
+      "importance": "medium",
+      "importance_rationale": "Filtered (IDSelector) search — a first-class faiss feature supported by IndexFlat, IndexScalarQuantizer and the generic IndexFlatCodes path — hard-fails on IndexPQ ('selector not supported'), which also breaks the common composite 'IDMap2,PQ32x8' pattern the reporter used. Users must fall back to unfiltered search plus post-filtering with wrong k semantics.",
+      "career_signal": "high",
+      "career_signal_rationale": "Closing a filtered-search capability gap in a core CPU quantized index by routing through the library's existing distance-computer/result-handler architecture — demonstrates understanding of faiss's search dispatch design and selector semantics rather than bolt-on code; clear user-facing impact in an established ML framework.",
+      "career_assessed_at": "2026-09-24T22:00:00Z",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-24T21:58:32Z",
+      "ownership_check": "Reporter xianglous inactive since filing; no claimants.",
+      "competing_prs": [],
+      "platform_plan": "CPU-only. Same source build as #3495. Repro: index_factory(64, 'IDMap2,PQ8x8') (train/add random data), search with SearchParametersPQ(sel=IDSelectorBatch([...])) -> RuntimeError 'selector not supported' before fix; after fix, results equal brute-force search restricted to the selected ids (allowing PQ quantization error: compare against IndexPQ search over only the selected subset). Regression: `pytest tests/test_index.py -k PQ -x` and tests/test_search_params.py if present (`pytest tests/test_search_params.py`)."
+    },
+    {
+      "company": "Meta",
+      "repo": "facebookresearch/faiss",
+      "number": 5566,
+      "url": "https://github.com/facebookresearch/faiss/issues/5566",
+      "title": "IndexIVFFlatDedup.remove_ids returns 0 and does not decrement ntotal after removing a duplicate-vector ID",
+      "importance": "medium",
+      "importance_rationale": "Silent cardinality corruption: removing an ID held only in the dedup instances map (or an ID whose physical slot is inherited by its duplicate) succeeds logically but remove_ids returns an undercount and ntotal never decreases, so callers sizing searches/allocations by ntotal get -1 padding and drifting bookkeeping. Deterministic reproducer with nprobe==nlist provided by reporter.",
+      "career_signal": "high",
+      "career_signal_rationale": "Correctness of deletion accounting in a deduplicating IVF index: the fix requires establishing the logical-vs-physical cardinality invariant across an unordered multimap of duplicate chains and the inverted-list compaction pass — real data-structure invariant work in core faiss, with a crisp deterministic regression test.",
+      "career_assessed_at": "2026-09-24T22:00:00Z",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-24T21:58:32Z",
+      "ownership_check": "Reporter leemeii: no claim comment, no linked PR (timeline empty of PRs at 21:51Z; their open fix PRs cover other issues only).",
+      "competing_prs": [
+        "https://github.com/facebookresearch/faiss/pull/5609"
+      ],
+      "platform_plan": "CPU-only. Same source build as #3495. Repro: run the issue's script verbatim (d=4, nlist=2, nprobe=2, ids [10,20,30] with vec(20)==vec(10)); before fix: remove_ids returns 0, ntotal stays 3, search padded with -1; after fix: returns 1, ntotal 2, clean search. Regression: `pytest tests/test_index_composite.py -k Dedup -x` (TestIVFFlatDedup at tests/test_index_composite.py:436)."
+    },
+    {
+      "company": "Meta",
+      "repo": "facebookresearch/faiss",
+      "number": 5577,
+      "url": "https://github.com/facebookresearch/faiss/issues/5577",
+      "title": "IndexIVFIndependentQuantizer leaves its public ntotal stale after add",
+      "importance": "medium",
+      "importance_rationale": "Public metadata correctness: the wrapper reports ntotal==0 after successful adds while the inner IVF holds all vectors, breaking any lifecycle logic keyed on Index::ntotal (capacity checks, serialization sanity, k clamping); reset()/constructor DO sync it, so the API is internally inconsistent.",
+      "career_signal": "medium",
+      "career_signal_rationale": "Valid API-contract fix but essentially a one-line metadata sync plus test; limited engineering depth to defend in an interview beyond spotting the lifecycle inconsistency. Graded conservatively; not PR-qualified under the High/Very-High gate.",
+      "career_assessed_at": "2026-09-24T22:00:00Z",
+      "difficulty": "low",
+      "status": "vetted",
+      "verified_at": "2026-09-24T21:58:32Z",
+      "ownership_check": "No claimants; leemeii inactive on this one.",
+      "competing_prs": [],
+      "platform_plan": "CPU-only. Same source build as #3495. Repro: issue's script (wrapper over IndexIVFFlat, train, add 4 vectors) -> assert index.ntotal == inner.ntotal fails before fix, passes after. Regression: `pytest tests/test_index_composite.py -x`."
+    },
+    {
+      "company": "Meta",
+      "repo": "facebookresearch/faiss",
+      "number": 5608,
+      "url": "https://github.com/facebookresearch/faiss/issues/5608",
+      "title": "Compilation fails when compiled with -march=znver4: error: no member named 'clear' in 'faiss::simd32uint16_tpl<faiss::SIMDLevel::AVX512>'",
+      "importance": "medium",
+      "importance_rationale": "Source builds with -march=znver4 (or any flag set defining __AVX512F__ without faiss's COMPILE_SIMD_AVX512 cmake configuration) fail outright in fast_scan — reported from the FreeBSD ports tree, affects packagers and performance-tuned downstream builds of a very widely built library.",
+      "career_signal": "medium",
+      "career_signal_rationale": "Build-configuration/SIMD-dispatch guard fix — requires understanding the two-axis (compiler-macro vs cmake-define) SIMD gating but is compile-only with no runtime ML behavior change; conservatively medium, not PR-qualified.",
+      "career_assessed_at": "2026-09-24T22:00:00Z",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-24T21:58:32Z",
+      "ownership_check": "No claimants.",
+      "competing_prs": [],
+      "platform_plan": "CPU-only, no x86 hardware needed: the failing configuration cross-compiles from Mac ARM64 (`clang++ -std=c++17 -fsyntax-only -target x86_64-apple-macos12 -march=znver4 -I. faiss/impl/fast_scan/fast_scan.cpp` — currently fails, must pass after fix), plus a normal `cmake -DFAISS_ENABLE_GPU=OFF` build+ctest on the host to prove no regression, plus a Linux x86_64 container build with CXXFLAGS=-march=znver4 for end-to-end confirmation."
+    },
+    {
+      "company": "Meta",
+      "repo": "facebookresearch/faiss",
+      "number": 3866,
+      "url": "https://github.com/facebookresearch/faiss/issues/3866",
+      "title": "Conversion of np int64 and float64 to SWIG int and float",
+      "importance": "medium",
+      "importance_rationale": "Maintainer-filed (mdouze) papercut affecting virtually every Python user: numpy scalar ints/floats (e.g. `d = a[0]`, `xb.shape` products) are rejected by SWIG-wrapped constructors and methods, forcing int()/float() casts; also the probable root cause behind confused reports like #3229. Maintainer states 'It should be possible to fix it with SWIG typemaps'.",
+      "career_signal": "medium",
+      "career_signal_rationale": "High-visibility Python-bindings usability/compat work (SWIG typemaps, numpy protocol), but mechanical once the typemap pattern is settled and with modest ML-engineering depth; conservatively medium, not PR-qualified despite maintainer demand.",
+      "career_assessed_at": "2026-09-24T22:00:00Z",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-24T21:58:32Z",
+      "ownership_check": "Filed by maintainer mdouze as a request-for-implementation; 2 years unassigned and unclaimed.",
+      "competing_prs": [],
+      "platform_plan": "CPU-only. Source build with -DFAISS_ENABLE_PYTHON=ON (SWIG regeneration happens in the cmake python target). Validate: `python -c \"import numpy as np, faiss; faiss.IndexFlatL2(np.int64(4))\"` plus np.int64 k in index.search and np.float64 radius in range_search; full `pytest tests/` to catch typemap over-reach."
+    },
+    {
+      "company": "Meta",
+      "repo": "facebookresearch/faiss",
+      "number": 3832,
+      "url": "https://github.com/facebookresearch/faiss/issues/3832",
+      "title": "Support `remove_ids` for `IndexRefine`",
+      "importance": "medium",
+      "importance_rationale": "Maintainer-filed (mdouze) API-completion request: IndexRefine/IndexRefineFlat currently inherit the Index::remove_ids throw, so any pipeline using refine-on-top-of-quantized indexes cannot delete vectors at all without rebuilding.",
+      "career_signal": "medium",
+      "career_signal_rationale": "Useful API completion requiring a real alignment-invariant argument (order-preserving compaction across two internal indexes), but scoped feature work rather than a correctness fix on a core execution path; conservatively medium, not PR-qualified.",
+      "career_assessed_at": "2026-09-24T22:00:00Z",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-24T21:58:32Z",
+      "ownership_check": "Maintainer-filed request, unclaimed for 2 years.",
+      "competing_prs": [],
+      "platform_plan": "CPU-only. Same source build as #3495. Validate: IndexRefineFlat over IndexPQ (train/add 1000 vectors), remove_ids(IDSelectorBatch) -> compare post-removal search and reconstruct against an index rebuilt without the removed vectors; assert base and refine ntotal equal. `pytest tests/test_refine.py -x` if present, else tests/test_index_composite.py."
     }
   ],
   "holds": [
@@ -1802,6 +1948,10 @@
     {
       "ts": "2026-09-24T21:47:18+00:00",
       "text": "PAUSE requested by campaign owner: no new research dispatches; the two in-flight vetting batches (new ML-infra orgs; round-2 refreshes) will drain and be merged, then the thread holds until explicit resume."
+    },
+    {
+      "ts": "2026-09-24T22:04:45+00:00",
+      "text": "Batch-12 (round-2 refreshes): +8 faiss at HEAD b1c1496 — 4 HIGH career (#3495 IDMap2 merge_from id corruption, #3828 JensenShannon NaN hangs HNSW add, #3559 IndexPQ selector support, #5566 IVFFlatDedup remove_ids undercount) + 4 medium inventory. markitdown/software-agent-sdk/mcp-registry refreshes dry (~3h window, all blocking PRs still open). faiss vein durable: aged backlog + freed-internal-fix checks; fresh reports contested within days by an external bug-finder campaign."
     }
   ],
   "companies": [

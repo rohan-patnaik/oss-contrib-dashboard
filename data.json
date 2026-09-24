@@ -1,7 +1,7 @@
 {
-  "generated": "2026-09-24T21:45:32+00:00",
+  "generated": "2026-09-24T21:47:18+00:00",
   "campaign": {
-    "phase": "research-only (find + validate); implementation handed to separate thread",
+    "phase": "pausing — draining final two vetting batches (user request)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
   },
   "summary": {
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T21:45:32+00:00",
+    "last_refresh": "2026-09-24T21:47:18+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 24
   },
@@ -1798,6 +1798,10 @@
     {
       "ts": "2026-09-24T21:45:32+00:00",
       "text": "Batch-9: +4 DeepSpeed (3 HIGH: #6699 zero_to_fp32 rejects ZeRO-0/BF16 checkpoints; #6969 activation checkpointing silently corrupts caller tensors; #7357 pipeline recv discards requires_grad across PP stages; +#7442 medium vars() TypeError). lerobot: 0 of 42 examined — fully saturated by competing AI-contribution campaigns; every aged dataset/config bug has 1-3 open fix PRs. DeepSpeed remains the deepest productive vein."
+    },
+    {
+      "ts": "2026-09-24T21:47:18+00:00",
+      "text": "PAUSE requested by campaign owner: no new research dispatches; the two in-flight vetting batches (new ML-infra orgs; round-2 refreshes) will drain and be merged, then the thread holds until explicit resume."
     }
   ],
   "companies": [

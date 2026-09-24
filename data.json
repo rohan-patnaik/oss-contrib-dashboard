@@ -1,8 +1,8 @@
 {
-  "generated": "2026-09-24T21:03:13+00:00",
+  "generated": "2026-09-24T21:23:59+00:00",
   "campaign": {
-    "phase": "repository admission",
-    "note": "Career-signal policy active (2026-09-25): every issue carries a separate career-signal grade with rationale; ONLY High/Very High issues may enter authoring or produce new PRs. Eligible-issue counts cover NEW opportunities only; totals and PR-qualified counts are shown separately. All counts truthful."
+    "phase": "research-only (find + validate); implementation handed to separate thread",
+    "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
   },
   "summary": {
     "eligible": 36,
@@ -14,13 +14,13 @@
       "medium": 22,
       "high": 3
     },
-    "reproduced": 4,
-    "authored": 3,
+    "reproduced": 3,
+    "authored": 4,
     "open_prs": 3,
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T21:03:13+00:00",
+    "last_refresh": "2026-09-24T21:23:59+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 19
   },
@@ -974,14 +974,15 @@
       "importance": "high",
       "importance_rationale": "priority:high by maintainers: with OH_CONVERSATION_RUNTIME=docker + worktree=true, the created worktree is immediately 'prunable' from the host - routine host-side git gc/worktree prune severs the conversation's working tree, risking loss of in-progress agent work and breaking the worktree feature for every docker-runtime user.",
       "difficulty": "high",
-      "status": "authoring",
+      "status": "authored",
       "verified_at": "2026-09-24T19:05:00Z",
       "ownership_check": "Unassigned; ready-for-dev label applied by the readiness bot; only comment is the reporter's re-reproduction; no claim, no maintainer plan.",
       "competing_prs": [],
       "platform_plan": "Mac ARM64, CPU only: unit-test the worktree path/gitdir portability logic (pytest openhands-agent-server tests) with plain git - e.g. relative gitdir links or locating the worktree under the shared bind-mounted namespace - then end-to-end with Docker Desktop (CPU): run agent-server with OH_CONVERSATION_RUNTIME=docker against a host repo, create a conversation with worktree=true, assert 'git worktree list' on the host shows a valid (non-prunable) worktree. No GPU, no credentials.",
       "career_signal": "very_high",
       "career_signal_rationale": "Agent-runtime data-integrity fix: docker runtime's git worktrees span host/container namespaces and are prunable from the host, risking work loss — consequential execution-environment correctness requiring cross-namespace design.",
-      "career_assessed_at": "2026-09-24T20:38:31+00:00"
+      "career_assessed_at": "2026-09-24T20:38:31+00:00",
+      "outcome": "author-complete commit 5112c9f preserved; awaiting implementation-thread review+publication (HUMAN template section needs Rohan)"
     },
     {
       "company": "OpenHands",
@@ -1235,7 +1236,8 @@
       "platform_plan": "Mac ARM64 CPU: source install; run the issue's pure-Python reproducer (any_locale_word_tokenize on 'coeur'-with-ligature/'Viet'-accented/'STRASSE'-eszett; GRAPHEME_CHARACTER_SETS coverage check; temp lexicon file showing 5-line file parsing fewer entries). Fix: extend char ranges (e.g. Latin Extended-A/B/Additional or \\w-based Unicode classes) + warn/count dropped lexicon lines; pytest tests/collections/tts and common/tokenizers. DCO sign-off required.",
       "career_signal": "high",
       "career_signal_rationale": "Multilingual TTS data-processing correctness: phoneme-dict entries above U+00FF silently dropped, excluding 51/93 declared Vietnamese graphemes; unicode-boundary fix with clear international impact.",
-      "career_assessed_at": "2026-09-24T20:38:31+00:00"
+      "career_assessed_at": "2026-09-24T20:38:31+00:00",
+      "outcome": "mid-work edits preserved uncommitted in repos/nemo-speech; handed to implementation thread"
     },
     {
       "company": "NVIDIA",
@@ -1381,7 +1383,7 @@
       "difficulty": "low",
       "status": "vetted",
       "verified_at": "2026-09-24T21:00:13Z",
-      "ownership_check": "Discussion open (discussions have no assignee/label mechanics). Commenter noahvandal said 'A PR could be made' on 2024-10-30 but never opened one (verified via PR search); ~23 months stale, no active claim. No maintainer response in thread.",
+      "ownership_check": "Discussion open (discussions have no assignee/label mechanics). Commenter noahvandal said 'A PR could be made' on 2024-10-30 but never opened one (verified via PR search); ~23 months stale, no active claim. No maintainer response in thread. | USER-AUTHORIZED GATE EXCEPTION 2026-09-25 IST: PR-eligible despite medium career signal (control/exceptions.json).",
       "competing_prs": [],
       "platform_plan": "Mac ARM64 CPU (or Linux CPU container): venv + pip install -e local whisper clone + torch CPU wheel; download tiny model (~39MB, allowed). Failing repro: model.transcribe(torch.zeros(2, 16000)) and model.transcribe(torch.zeros(1, 16000)) → AttributeError at transcribe.py:206. Write regression test alongside existing tests/test_transcribe.py (which already runs tiny on CPU) asserting either a clear ValueError naming the expected shape or correct mono-downmix output; verify unchanged behavior for str path, 1-D np.ndarray, and 1-D tensor inputs."
     },
@@ -1548,14 +1550,14 @@
   ],
   "active": [
     {
-      "what": "Authoring OpenHands#5307 (VH: worktree host/container namespace)",
-      "owner": "fable-author",
-      "since": "2026-09-24T21:03:13+00:00"
+      "what": "Vet-9: DeepSpeed wide round-2 (1,110-issue backlog) + lerobot first pass",
+      "owner": "fable-worker",
+      "since": "2026-09-24T21:23:59+00:00"
     },
     {
-      "what": "Authoring NeMo-Speech#16083 (high: phoneme-dict unicode bound)",
-      "owner": "fable-author",
-      "since": "2026-09-24T21:03:13+00:00"
+      "what": "Vet-10: goose Ready refresh, Curator round-2, hermes-agent round-2, inspect_ai re-check",
+      "owner": "fable-worker",
+      "since": "2026-09-24T21:23:59+00:00"
     }
   ],
   "updates": [
@@ -1673,6 +1675,10 @@
     {
       "ts": "2026-09-24T21:02:36+00:00",
       "text": "Whisper (Discussions-sourced) vetted: 1 eligible (#2333 batched-audio decode crash, medium/medium — below PR gate), 1 hold (#2693 MPS fp16 NaN: upstream PyTorch, not reproducible within small-model limits), 30 rejections — every strong bug has a live competing PR (all 4 shortlist standouts contested; 2 leads empirically disconfirmed on this Mac). Zero PR-qualified at OpenAI despite Very High fit; repo stays on re-scan rotation."
+    },
+    {
+      "ts": "2026-09-24T21:23:59+00:00",
+      "text": "MODE CHANGE (user): Fable thread is now find-and-validate only; implementation moves to a separate GPT 5.6 Sol thread when the user signals. jobs/IMPLEMENTATION-HANDOFF.md created: global rules (attribution, gates, DCO/CLA, review flow) + 17 queued entries with minimal-fix sketches. whisper Discussion #2333 granted a user-authorized gate exception (OpenAI PR on the board via the implementation thread). Stopped-mid-session author work preserved: OpenHands#5307 commit 5112c9f complete with test logs; NeMo-Speech#16083 mid-work edits intact. Two vetting workers relaunched in max-find mode with mandatory fix_approach output."
     }
   ],
   "companies": [

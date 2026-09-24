@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-24T18:20:30+00:00",
+  "generated": "2026-09-24T18:26:13+00:00",
   "campaign": {
     "phase": "repository admission",
     "note": "Bootstrap complete. Contribution baseline refreshed; repository admission and issue research beginning. Eligible-issue counts cover NEW opportunities only; 26 previously contributed external repositories are excluded and tracked separately. All counts are truthful current values, not projections."
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T18:20:30+00:00",
+    "last_refresh": "2026-09-24T18:26:13+00:00",
     "excluded_prior_repos": 26
   },
   "repos": [
@@ -650,6 +650,11 @@
       "ts": "2026-09-24T18:20:30+00:00",
       "text": "Wave-2 admission: OLMo-core, optax, mcp/registry, OpenHands/software-agent-sdk, prime-rl, ShinkaEvolve, NVIDIA-NeMo/Speech admitted; inspect_ai admitted gated to its 27 unassigned maintainer-accepted issues; goose Ready-board route confirmed (19 unassigned Ready issues); trl rejected (no fully-AI PRs from first-time contributors); kimi-code /approve route never exercised in practice; langextract + semantic-kernel held.",
       "repo": null
+    },
+    {
+      "ts": "2026-09-24T18:26:13+00:00",
+      "text": "inspect_ai accepted-issue vein fully vetted: 0 eligible of 27 — 22 have open competing PRs, 2 active claims, 1 fixed at HEAD, 1 maintainer-deferred, 1 reporter-owned. Pre-approved queues are the most farmed. optax + mcp/registry deep-backlog vetting still in progress; markitdown/ts-sdk/gpt-neox/faiss batch running.",
+      "repo": "UKGovernmentBEIS/inspect_ai"
     }
   ]
 }

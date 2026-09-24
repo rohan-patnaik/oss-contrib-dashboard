@@ -219,9 +219,11 @@ let DATA = null;
 const sortState = {};
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const fmtTs = t => t ? new Date(t).toLocaleString(undefined, {dateStyle:"medium", timeStyle:"short"}) : "–";
-const fmtD = t => t ? new Date(t).toLocaleDateString(undefined, {dateStyle:"medium"}) : "–";
-const today = new Date(); $("dTo").value = today.toISOString().slice(0,10);
+/* All datetimes render in IST (Asia/Kolkata) regardless of viewer timezone */
+const TZ = { timeZone: "Asia/Kolkata" };
+const fmtTs = t => t ? new Date(t).toLocaleString("en-IN", {dateStyle:"medium", timeStyle:"short", ...TZ}) + " IST" : "–";
+const fmtD = t => t ? new Date(t).toLocaleDateString("en-IN", {dateStyle:"medium", ...TZ}) : "–";
+$("dTo").value = new Date().toLocaleDateString("en-CA", TZ);
 
 const STAGE_BADGE = {
   "candidate": "b-plain", "vetted": "b-plain", "reproduced": "b-warn",
@@ -267,18 +269,24 @@ function issuePasses(i) {
 }
 
 /* ---------- render ---------- */
-function tiles(s) {
+/* Summary tiles reflect the active filters AND the date range:
+   eligibility/repro/authored count by verified_at, open PRs by pr_raised_at,
+   merged/landed by merged_at, repo admissions by checked_at. */
+const ELIGIBLE_SET = new Set(["vetted","reproduced","authoring","authored","in-review","pr-open","merged","landed"]);
+const REPRO_SET = new Set(["reproduced","authoring","authored","in-review","pr-open","merged","landed"]);
+const AUTH_SET = new Set(["authored","in-review","pr-open","merged","landed"]);
+function tiles(s, c) {
   const t = [
-    [`${s.eligible}<small>/${s.target}</small>`, "eligible issues"],
-    [s.companies, "companies"],
-    [s.repos_admitted, "repos admitted"],
-    [`${s.importance.low}·${s.importance.medium}·${s.importance.high}`, "L·M·H distribution"],
-    [s.reproduced, "reproduced bugs"],
-    [s.authored, "authored"],
-    [s.open_prs, "open PRs"],
-    [s.merged, "merged (GitHub)"],
-    [s.landed_other, "landed otherwise"],
-    [s.active_work, "active work"],
+    [`${c.eligible}<small>/${s.target}</small>`, "eligible issues"],
+    [c.companies, "companies"],
+    [c.repos_admitted, "repos admitted"],
+    [`${c.imp.low}·${c.imp.medium}·${c.imp.high}`, "L·M·H distribution"],
+    [c.reproduced, "reproduced bugs"],
+    [c.authored, "authored"],
+    [c.open_prs, "open PRs"],
+    [c.merged, "merged (GitHub)"],
+    [c.landed_other, "landed otherwise"],
+    [c.active_work, "active work"],
     [s.excluded_prior_repos ?? 0, "prior-contribution repos (excluded)"]
   ];
   $("tiles").innerHTML = t.map(([v,k]) => `<div class="tile"><div class="v">${v}</div><div class="k">${k}</div></div>`).join("");
@@ -311,7 +319,11 @@ function render() {
   $("phase").textContent = "· " + (DATA.campaign?.phase || "");
   $("campaignNote").textContent = DATA.campaign?.note || "";
   $("dataTs").textContent = fmtTs(DATA.generated);
-  tiles(s);
+
+  /* date range interpreted in IST; compare parsed dates, not strings */
+  const from = new Date($("dFrom").value + "T00:00:00+05:30");
+  const to = new Date($("dTo").value + "T23:59:59.999+05:30");
+  const inRange = t => { const d = new Date(t); return !isNaN(d) && d >= from && d <= to; };
 
   /* company dropdown */
   const companies = [...new Set([...(DATA.repos||[]).map(r=>r.company), ...(DATA.issues||[]).map(i=>i.company)])].filter(Boolean).sort();
@@ -338,6 +350,25 @@ function render() {
 
   /* repos */
   const repos = (DATA.repos||[]).filter(r => passes(r, ["company","repo","relevance","decision","policy"]));
+
+  /* summary tiles reflect active filters + date range */
+  const base = (DATA.issues||[]).filter(issuePasses);
+  const elig = base.filter(i => ELIGIBLE_SET.has(i.status) && inRange(i.verified_at));
+  const admitted = repos.filter(r => r.decision === "admitted" && inRange(r.checked_at));
+  tiles(s, {
+    eligible: elig.length,
+    imp: { low: elig.filter(i=>i.importance==="low").length,
+           medium: elig.filter(i=>i.importance==="medium").length,
+           high: elig.filter(i=>i.importance==="high").length },
+    companies: new Set(admitted.map(r=>r.company)).size,
+    repos_admitted: admitted.length,
+    reproduced: base.filter(i => REPRO_SET.has(i.status) && inRange(i.verified_at)).length,
+    authored: base.filter(i => AUTH_SET.has(i.status) && inRange(i.pr_raised_at || i.verified_at)).length,
+    open_prs: base.filter(i => i.status==="pr-open" && inRange(i.pr_raised_at)).length,
+    merged: base.filter(i => i.status==="merged" && inRange(i.merged_at)).length,
+    landed_other: base.filter(i => i.status==="landed" && inRange(i.merged_at || i.verified_at)).length,
+    active_work: (DATA.active||[]).length
+  });
   renderTable("repoTable","repoEmpty", repos, r => `<tr>
     <td>${esc(r.company)}</td>
     <td>${repoLink(r.repo)}</td>
@@ -396,11 +427,7 @@ function render() {
   $("updates").innerHTML = (DATA.updates||[]).slice().reverse().map(u =>
     `<li><span class="ts">${fmtTs(u.ts)}</span>${linkRefs(u.text, u.repo)}</li>`).join("") || '<li class="empty">No updates yet.</li>';
 
-  /* PR activity within date range (raised uses raise date, merged uses merge date);
-     compare parsed dates, not ISO strings, so timezone offsets are handled */
-  const from = new Date($("dFrom").value + "T00:00:00");
-  const to = new Date($("dTo").value + "T23:59:59.999");
-  const inRange = t => { const d = new Date(t); return !isNaN(d) && d >= from && d <= to; };
+  /* PR activity within date range (raised uses raise date, merged uses merge date) */
   let raised = 0, merged = 0;
   for (const i of (DATA.issues||[])) {
     if (i.pr_raised_at && inRange(i.pr_raised_at)) raised++;

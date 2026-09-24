@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-24T19:53:37+00:00",
+  "generated": "2026-09-24T20:06:22+00:00",
   "campaign": {
     "phase": "repository admission",
     "note": "Bootstrap complete. Contribution baseline refreshed; repository admission and issue research beginning. Eligible-issue counts cover NEW opportunities only; 26 previously contributed external repositories are excluded and tracked separately. All counts are truthful current values, not projections."
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T19:53:37+00:00",
+    "last_refresh": "2026-09-24T20:06:22+00:00",
     "excluded_prior_repos": 26
   },
   "repos": [

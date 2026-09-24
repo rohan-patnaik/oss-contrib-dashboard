@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-24T19:32:40+00:00",
+  "generated": "2026-09-24T19:37:30+00:00",
   "campaign": {
     "phase": "repository admission",
     "note": "Bootstrap complete. Contribution baseline refreshed; repository admission and issue research beginning. Eligible-issue counts cover NEW opportunities only; 26 previously contributed external repositories are excluded and tracked separately. All counts are truthful current values, not projections."
@@ -15,12 +15,12 @@
       "high": 2
     },
     "reproduced": 2,
-    "authored": 1,
-    "open_prs": 1,
+    "authored": 2,
+    "open_prs": 2,
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T19:32:40+00:00",
+    "last_refresh": "2026-09-24T19:37:30+00:00",
     "excluded_prior_repos": 26
   },
   "repos": [
@@ -778,11 +778,14 @@
       "importance": "medium",
       "importance_rationale": "Silent misconfiguration: the docs say the TopK MoE router is unsupported for training ('only used for inference/eval'), yet training configs with moe_router_type='topk' are accepted without any error or warning — users can burn large training runs on a router path that has no load-balancing loss, getting degenerate expert routing with no signal that anything is wrong.",
       "difficulty": "low",
-      "status": "in-review",
+      "status": "pr-open",
       "verified_at": "2026-09-24T18:35:00Z",
       "ownership_check": "Unassigned; 0 comments since filing (2025-08-11, ~13.5 months); no claims, no maintainer response.",
       "competing_prs": [],
-      "platform_plan": "CPU-only (Mac ARM64 or Linux CPU container): the fix and test live entirely in pure-Python config parsing. Unit test via NeoXArgs.from_dict/from_ymls with moe_num_experts>1 and moe_router_type='topk', assert calculate_derived raises/warns; run `pytest tests/unit/test_arguments.py`. The repo already runs these arg tests CPU-only (tests/unit/test_eval_loss_logging.py explicitly notes 'Avoid hardware discovery in NeoXArgs.calculate_derived during CPU unit tests'). No GPU, no training run needed."
+      "platform_plan": "CPU-only (Mac ARM64 or Linux CPU container): the fix and test live entirely in pure-Python config parsing. Unit test via NeoXArgs.from_dict/from_ymls with moe_num_experts>1 and moe_router_type='topk', assert calculate_derived raises/warns; run `pytest tests/unit/test_arguments.py`. The repo already runs these arg tests CPU-only (tests/unit/test_eval_loss_logging.py explicitly notes 'Avoid hardware discovery in NeoXArgs.calculate_derived during CPU unit tests'). No GPU, no training run needed.",
+      "pr_url": "https://github.com/EleutherAI/gpt-neox/pull/1437",
+      "pr_raised_at": "2026-09-24T19:37:30+00:00",
+      "outcome": "PR #1437 open (review: APPROVE)"
     },
     {
       "company": "Block/Goose",
@@ -1096,12 +1099,7 @@
     {
       "what": "Vet-5: DeepSpeed, onnxruntime, diffusers (ack-gated), botorch",
       "owner": "fable-worker",
-      "since": "2026-09-24T19:32:40+00:00"
-    },
-    {
-      "what": "Independent review of gpt-neox#1364 fix (a0cf135)",
-      "owner": "fable-reviewer",
-      "since": "2026-09-24T19:32:40+00:00"
+      "since": "2026-09-24T19:37:30+00:00"
     }
   ],
   "updates": [
@@ -1178,6 +1176,11 @@
     {
       "ts": "2026-09-24T19:32:40+00:00",
       "text": "gpt-neox#1364 authored: calculate_derived warning when topk MoE router configured with >1 experts (no load-balancing loss), docstring + generated docs aligned, 2 CPU regression tests fail-before/pass-after; full CPU suite 34 passed/19 xfailed. Warning (not error) chosen because the validation path is shared with inference where topk is the documented router. Now in independent review.",
+      "repo": "EleutherAI/gpt-neox"
+    },
+    {
+      "ts": "2026-09-24T19:37:30+00:00",
+      "text": "SECOND PR PUBLISHED: EleutherAI/gpt-neox PR #1437 (issue #1364 — top-k MoE routing silently trains without load-balancing loss; warning + docs + CPU regression tests). Review verdict APPROVE; competition re-check clean at 19:36Z; T3-registered.",
       "repo": "EleutherAI/gpt-neox"
     }
   ]

@@ -1,8 +1,8 @@
 {
-  "generated": "2026-09-24T20:30:59+00:00",
+  "generated": "2026-09-24T20:39:59+00:00",
   "campaign": {
     "phase": "repository admission",
-    "note": "Bootstrap complete. Contribution baseline refreshed; repository admission and issue research beginning. Eligible-issue counts cover NEW opportunities only; 26 previously contributed external repositories are excluded and tracked separately. All counts are truthful current values, not projections."
+    "note": "Career-signal policy active (2026-09-25): every issue carries a separate career-signal grade with rationale; ONLY High/Very High issues may enter authoring or produce new PRs. Eligible-issue counts cover NEW opportunities only; totals and PR-qualified counts are shown separately. All counts truthful."
   },
   "summary": {
     "eligible": 32,
@@ -20,8 +20,9 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T20:30:59+00:00",
-    "excluded_prior_repos": 26
+    "last_refresh": "2026-09-24T20:39:59+00:00",
+    "excluded_prior_repos": 26,
+    "pr_qualified": 18
   },
   "repos": [
     {
@@ -734,7 +735,10 @@
       "verified_at": "2026-09-24T18:27:51Z",
       "ownership_check": "Open, unassigned, zero comments/claims. No maintainer triage yet on this issue (sibling #1102 Maven is help-wanted; analogous Go PR #1321 unreviewed since 2026-06 — review-latency risk recorded). No matching PR found as of 2026-09-24T18:26:29Z; queries: search 1582 / rubygems / ruby / gem in:title.",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64 CPU: go build ./...; go test ./internal/validators/... with mocked-HTTP validator tests; make check."
+      "platform_plan": "Mac ARM64 CPU: go build ./...; go test ./internal/validators/... with mocked-HTTP validator tests; make check.",
+      "career_signal": "medium",
+      "career_signal_rationale": "Go validator integration extending the MCP registry's package ecosystem; useful protocol-infra work but routine integration engineering without deep AI-path ownership.",
+      "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
       "company": "MCP",
@@ -749,7 +753,10 @@
       "verified_at": "2026-09-24T18:27:51Z",
       "ownership_check": "Open, unassigned; stale claim by issue author 2025-11-19 (>10 months, outside 90-day window); maintainer domdomegg 2025-11-17 explicitly invited a PR with acceptance conditions. No matching PR found as of 2026-09-24T18:26:29Z; queries: search 759 / testcontainers.",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64 + Docker CPU: baseline timing of compose+sleep suite vs testcontainers-go refactor; benchmark required by maintainer; make check."
+      "platform_plan": "Mac ARM64 + Docker CPU: baseline timing of compose+sleep suite vs testcontainers-go refactor; benchmark required by maintainer; make check.",
+      "career_signal": "medium",
+      "career_signal_rationale": "Test-infrastructure modernization with a maintainer-requested benchmark; demonstrates engineering hygiene, limited AI differentiation.",
+      "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
       "company": "MCP",
@@ -764,7 +771,10 @@
       "verified_at": "2026-09-24T18:27:51Z",
       "ownership_check": "Open, unassigned, zero comments (created 2026-09-21). Issue headline partially overstated (remote-servers.mdx exists) — fix shape corrected to cross-link + gap notes. No matching PR found as of 2026-09-24T18:26:29Z; queries: search 1656 / remote-only.",
       "competing_prs": [],
-      "platform_plan": "CPU-only doc edits; verify with grep against quickstart.mdx and schema files; make check."
+      "platform_plan": "CPU-only doc edits; verify with grep against quickstart.mdx and schema files; make check.",
+      "career_signal": "low",
+      "career_signal_rationale": "Documentation gap fix; no engineering-depth signal.",
+      "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
       "company": "Microsoft AI",
@@ -782,7 +792,10 @@
       "platform_plan": "Mac ARM64 (or Linux CPU container), pure CPU: `python3.12 -m venv v && v/bin/pip install -e 'packages/markitdown[all]'`; add failing test fixture docx with a fldSimple MACROBUTTON and a fldChar/instrText MACROBUTTON, assert converted markdown contains the display text; `v/bin/pytest packages/markitdown/tests` for regressions. Failing conversion already demonstrated locally at HEAD on 2026-09-24.",
       "pr_url": "https://github.com/microsoft/markitdown/pull/2553",
       "pr_raised_at": "2026-09-24T19:14:07+00:00",
-      "outcome": "PR #2553 open (review passed: APPROVE, 16 adversarial checks + property test)"
+      "outcome": "PR #2553 open (review passed: APPROVE, 16 adversarial checks + property test)",
+      "career_signal": "high",
+      "career_signal_rationale": "Silent data-loss correctness fix in Microsoft's LLM document-ingestion tool: OOXML field semantics, minimal preprocessor design, adversarially reviewed regression tests — a defensible data-processing ownership story.",
+      "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
       "company": "EleutherAI",
@@ -800,7 +813,10 @@
       "platform_plan": "CPU-only (Mac ARM64 or Linux CPU container): the fix and test live entirely in pure-Python config parsing. Unit test via NeoXArgs.from_dict/from_ymls with moe_num_experts>1 and moe_router_type='topk', assert calculate_derived raises/warns; run `pytest tests/unit/test_arguments.py`. The repo already runs these arg tests CPU-only (tests/unit/test_eval_loss_logging.py explicitly notes 'Avoid hardware discovery in NeoXArgs.calculate_derived during CPU unit tests'). No GPU, no training run needed.",
       "pr_url": "https://github.com/EleutherAI/gpt-neox/pull/1437",
       "pr_raised_at": "2026-09-24T19:37:30+00:00",
-      "outcome": "PR #1437 open (review: APPROVE)"
+      "outcome": "PR #1437 open (review: APPROVE)",
+      "career_signal": "high",
+      "career_signal_rationale": "Training-correctness guard in EleutherAI's LLM pretraining framework: caught MoE router misconfiguration that silently wastes training compute; shows understanding of MoE load-balancing internals.",
+      "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
       "company": "Block/Goose",
@@ -815,7 +831,10 @@
       "verified_at": "2026-09-24T19:08:00Z",
       "ownership_check": "Unassigned (past maintainer assignments removed; board shows Assignees []). Reporter arohou explicitly declined 2026-09-16T17:42:59Z: 'I'm swamped so I'll have to just sit back and observe'. No other claim.",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64, CPU only: cargo test -p goose. Add failing tests using the existing mock-provider harnesses (crates/goose/src/agents/state_machine/tests/provider_lifecycle.rs already builds thinking-content responses; legacy-loop tests around agent.rs:5288 cover the zero-content variant) that return a stream containing exactly one non-empty Thinking block and assert the loop performs the continuation-recovery instead of exiting silently. The issue additionally ships a stdlib-only python mock OpenAI endpoint (repro.py) for a manual end-to-end check with goose CLI - no credentials or GPU."
+      "platform_plan": "Mac ARM64, CPU only: cargo test -p goose. Add failing tests using the existing mock-provider harnesses (crates/goose/src/agents/state_machine/tests/provider_lifecycle.rs already builds thinking-content responses; legacy-loop tests around agent.rs:5288 cover the zero-content variant) that return a stream containing exactly one non-empty Thinking block and assert the loop performs the continuation-recovery instead of exiting silently. The issue additionally ships a stdlib-only python mock OpenAI endpoint (repro.py) for a manual end-to-end check with goose CLI - no credentials or GPU.",
+      "career_signal": "very_high",
+      "career_signal_rationale": "Core agent-loop reliability fix in a 54k-star agent platform: bounded recovery for thinking-only turns implemented across both execution engines (incl. a new state-machine operation) to a maintainer-agreed design — consequential agent-execution correctness with substantial implementation.",
+      "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
       "company": "Block/Goose",
@@ -830,7 +849,10 @@
       "verified_at": "2026-09-24T19:06:00Z",
       "ownership_check": "Unassigned (jamadeo assigned 2026-09-15, later removed). Reporter rookiejet made no claim; sole comment is jamadeo's fix guidance.",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64, CPU only: extend crates/goose/tests/session_id_propagation_test.rs with a wiremock EnforceSessionId fixture that resumes a session with a different provider and asserts the header on the first request (including fetch_model_info); hoist with_session_id to Agent::reply / resume_state_machine_turn per jamadeo's guidance; cargo test -p goose."
+      "platform_plan": "Mac ARM64, CPU only: extend crates/goose/tests/session_id_propagation_test.rs with a wiremock EnforceSessionId fixture that resumes a session with a different provider and asserts the header on the first request (including fetch_model_info); hoist with_session_id to Agent::reply / resume_state_machine_turn per jamadeo's guidance; cargo test -p goose.",
+      "career_signal": "high",
+      "career_signal_rationale": "Agent session-state correctness (resume path loses session header) on goose's provider/session boundary; maintainer-confirmed fix with clear user impact.",
+      "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
       "company": "Block/Goose",
@@ -845,7 +867,10 @@
       "verified_at": "2026-09-24T19:06:30Z",
       "ownership_check": "Unassigned (filipkujawa assigned 2026-09-14, later removed). Reporter clouatre made no claim.",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64, CPU only: unit tests on the anthropic engine payload builder asserting the declared/normalized ThinkingEffort serializes to thinking.budget_tokens (and that Off is normalized to low per the scoped policy, avoiding Z.AI HTTP 400 code 1210); recipe Settings round-trip test for the new field; cargo test -p goose-providers -p goose. No live Z.AI key required for the unit level."
+      "platform_plan": "Mac ARM64, CPU only: unit tests on the anthropic engine payload builder asserting the declared/normalized ThinkingEffort serializes to thinking.budget_tokens (and that Off is normalized to low per the scoped policy, avoiding Z.AI HTTP 400 code 1210); recipe Settings round-trip test for the new field; cargo test -p goose-providers -p goose. No live Z.AI key required for the unit level.",
+      "career_signal": "high",
+      "career_signal_rationale": "LLM provider-integration correctness: reasoning-effort config ignored for zai/GLM engines causing silent quota burn at max reasoning; transferable provider-abstraction work.",
+      "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
       "company": "Block/Goose",
@@ -860,7 +885,10 @@
       "verified_at": "2026-09-24T19:07:00Z",
       "ownership_check": "Unassigned (alexhancock/jbg assignments removed). No claim comments. Risk note: author jbg runs an active remediation pipeline (his sibling-issue PRs #11850/#12441 exist) but has published no branch or PR for this issue.",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64, CPU only: cargo test -p goose --lib config::extensions::tests. Add failing unit tests: store an entry under key A with embedded name B, then assert lookup/enable/disable/remove all target exactly that entry (including when another entry occupies name_to_key(B)), plus a legacy-migration/rejection test per the issue's acceptance list."
+      "platform_plan": "Mac ARM64, CPU only: cargo test -p goose --lib config::extensions::tests. Add failing unit tests: store an entry under key A with embedded name B, then assert lookup/enable/disable/remove all target exactly that entry (including when another entry occupies name_to_key(B)), plus a legacy-migration/rejection test per the issue's acceptance list.",
+      "career_signal": "medium",
+      "career_signal_rationale": "Extension-identity bookkeeping fix (listing vs mutation key mismatch); solid software engineering, limited AI-specific depth.",
+      "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
       "company": "Block/Goose",
@@ -875,7 +903,10 @@
       "verified_at": "2026-09-24T19:07:30Z",
       "ownership_check": "Unassigned (jamadeo/jbg assignments removed). Reporter A-Sverdrup made no claim.",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64, CPU only: vitest for the new Desktop list entry/persistence/unavailable-state components (cd ui/desktop && npm test), Rust unit tests around explicit_model_path listing/persistence with a small dummy .gguf fixture file (no inference run needed to validate add/persist/missing-file states); manual smoke via the desktop app with a real small GGUF is optional and still CPU-capable (llama.cpp Metal/CPU)."
+      "platform_plan": "Mac ARM64, CPU only: vitest for the new Desktop list entry/persistence/unavailable-state components (cd ui/desktop && npm test), Rust unit tests around explicit_model_path listing/persistence with a small dummy .gguf fixture file (no inference run needed to validate add/persist/missing-file states); manual smoke via the desktop app with a real small GGUF is optional and still CPU-capable (llama.cpp Metal/CPU).",
+      "career_signal": "medium",
+      "career_signal_rationale": "Desktop UI entry for local GGUF models; backend already accepts paths — mostly UI plumbing despite local-model relevance.",
+      "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
       "company": "Block/Goose",
@@ -890,7 +921,10 @@
       "verified_at": "2026-09-24T19:08:30Z",
       "ownership_check": "Unassigned (jbg assignment removed). Reporter SyncNovate made no claim.",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64, CPU only: implement in ui/desktop React components; vitest unit tests for the selection-action (multiline, existing-draft preservation, code-block quoting per jbg's verification list); manual check via the desktop dev app. No backend, no GPU, no credentials."
+      "platform_plan": "Mac ARM64, CPU only: implement in ui/desktop React components; vitest unit tests for the selection-action (multiline, existing-draft preservation, code-block quoting per jbg's verification list); manual check via the desktop dev app. No backend, no GPU, no credentials.",
+      "career_signal": "low",
+      "career_signal_rationale": "UI convenience feature (quote-selection into composer); no ML/agent engineering signal.",
+      "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
       "company": "Block/Goose",
@@ -905,7 +939,10 @@
       "verified_at": "2026-09-24T19:07:45Z",
       "ownership_check": "Unassigned (jamadeo assignment removed). Author jbg; no claim comments.",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64, CPU only: cargo test -p goose-cli with unit tests around the elicitation input dispatch (non-terminal stdin => explicit error instead of consuming queued input; terminal path unchanged); manual check by piping stdin to 'goose run --interactive --text ...' with an extension form fixture. Both agent-loop paths per the issue's verification list."
+      "platform_plan": "Mac ARM64, CPU only: cargo test -p goose-cli with unit tests around the elicitation input dispatch (non-terminal stdin => explicit error instead of consuming queued input; terminal path unchanged); manual check by piping stdin to 'goose run --interactive --text ...' with an extension form fixture. Both agent-loop paths per the issue's verification list.",
+      "career_signal": "medium",
+      "career_signal_rationale": "Input-ownership guard for MCP elicitation in non-terminal contexts; small protocol-adjacent reliability fix.",
+      "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
       "company": "NVIDIA",
@@ -920,7 +957,10 @@
       "verified_at": "2026-09-24T19:01:30Z",
       "ownership_check": "Unassigned; 0 comments; no claim of any age; no maintainer plan comment. Filed by the team (2025-09-30) as an acknowledged gap - deep backlog is explicitly acceptable per the repo's small-fix on-ramp.",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64 / Linux CPU container, pure CPU: uv/pip install the text-cpu extra; add supported_backends (default: all three) to ProcessingStage, executor-side validation raising a clear error, and mark actor-pool-only dedup stages; pytest tests/ for the attribute, the validation error path, and no-regression on existing CPU stage tests. No GPU/RAPIDS needed for the attribute+validation mechanism."
+      "platform_plan": "Mac ARM64 / Linux CPU container, pure CPU: uv/pip install the text-cpu extra; add supported_backends (default: all three) to ProcessingStage, executor-side validation raising a clear error, and mark actor-pool-only dedup stages; pytest tests/ for the attribute, the validation error path, and no-regression on existing CPU stage tests. No GPU/RAPIDS needed for the attribute+validation mechanism.",
+      "career_signal": "high",
+      "career_signal_rationale": "ML data-curation pipeline correctness: stages silently run on incompatible executors; adds backend-compatibility validation in NVIDIA's curation infrastructure.",
+      "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
       "company": "OpenHands",
@@ -935,7 +975,10 @@
       "verified_at": "2026-09-24T19:05:00Z",
       "ownership_check": "Unassigned; ready-for-dev label applied by the readiness bot; only comment is the reporter's re-reproduction; no claim, no maintainer plan.",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64, CPU only: unit-test the worktree path/gitdir portability logic (pytest openhands-agent-server tests) with plain git - e.g. relative gitdir links or locating the worktree under the shared bind-mounted namespace - then end-to-end with Docker Desktop (CPU): run agent-server with OH_CONVERSATION_RUNTIME=docker against a host repo, create a conversation with worktree=true, assert 'git worktree list' on the host shows a valid (non-prunable) worktree. No GPU, no credentials."
+      "platform_plan": "Mac ARM64, CPU only: unit-test the worktree path/gitdir portability logic (pytest openhands-agent-server tests) with plain git - e.g. relative gitdir links or locating the worktree under the shared bind-mounted namespace - then end-to-end with Docker Desktop (CPU): run agent-server with OH_CONVERSATION_RUNTIME=docker against a host repo, create a conversation with worktree=true, assert 'git worktree list' on the host shows a valid (non-prunable) worktree. No GPU, no credentials.",
+      "career_signal": "very_high",
+      "career_signal_rationale": "Agent-runtime data-integrity fix: docker runtime's git worktrees span host/container namespaces and are prunable from the host, risking work loss — consequential execution-environment correctness requiring cross-namespace design.",
+      "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
       "company": "OpenHands",
@@ -950,7 +993,10 @@
       "verified_at": "2026-09-24T19:05:30Z",
       "ownership_check": "Unassigned; ready-for-dev; no comments beyond the readiness bot; no claim, no maintainer plan.",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64, CPU only: pytest unit test that docker provisioning materializes (or proxies) the referenced LLM profile for the inner store - the profile store and provisioning env assembly are plain Python and testable without containers; e2e confirmation with Docker Desktop (CPU) by configuring title_llm_profile and asserting the inner server resolves it. No GPU; LLM call itself can be mocked."
+      "platform_plan": "Mac ARM64, CPU only: pytest unit test that docker provisioning materializes (or proxies) the referenced LLM profile for the inner store - the profile store and provisioning env assembly are plain Python and testable without containers; e2e confirmation with Docker Desktop (CPU) by configuring title_llm_profile and asserting the inner server resolves it. No GPU; LLM call itself can be mocked.",
+      "career_signal": "medium",
+      "career_signal_rationale": "Config-provisioning gap (LLM profiles not materialized into the inner store); useful integration fix, moderate depth.",
+      "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
       "company": "OpenHands",
@@ -965,7 +1011,10 @@
       "verified_at": "2026-09-24T19:05:45Z",
       "ownership_check": "Unassigned; ready-for-dev; filed by maintainer neubig as a spec'd small fix with acceptance criteria (including 'A failed attach does not register'); no claim comments.",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64, CPU only: pure pytest with a mocked workspace client following the existing RemoteConversation test patterns - assert attach() registers the ID on success and does not register on HTTP failure, and that the completion callback carries the attached ID; uv run pytest openhands-sdk tests. No Docker, no credentials."
+      "platform_plan": "Mac ARM64, CPU only: pure pytest with a mocked workspace client following the existing RemoteConversation test patterns - assert attach() registers the ID on success and does not register on HTTP failure, and that the completion callback carries the attached ID; uv run pytest openhands-sdk tests. No Docker, no credentials.",
+      "career_signal": "low",
+      "career_signal_rationale": "Maintainer-specified one-call registration fix; mechanical.",
+      "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
       "company": "Meta/PyTorch",
@@ -980,7 +1029,10 @@
       "verified_at": "2026-09-24T19:49:43Z",
       "ownership_check": "Open, unassigned, bug label. Reporter mathDR claimed 2026-01-16 and iterated through 2026-02-03 ('I have some cycles... Do you have a draft PR?') with no PR ever opened - claim stale >7 months (>90d window). Balandat's 2026-01-18 'let me give it a shot' also produced no PR. hvarfner (CONTRIBUTOR/maintainer) invited a PR 2026-01-16T21:38:54Z: 'Would you be interested in fixing the issue by contributing a PR?'",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64 CPU: pip install -e . (pure PyTorch); reproduce with the issue's 10x25 batched snippet; implement leading-batch-dim support in LinearEllipticalSliceSampler + TruncatedMultivariateNormal.rsample per kayween's in-thread shape plan (x:(batch,d,chains), A:(batch,m,d)); pytest test/utils/probability/test_truncated_multivariate_normal.py test/utils/probability/test_lin_ess.py."
+      "platform_plan": "Mac ARM64 CPU: pip install -e . (pure PyTorch); reproduce with the issue's 10x25 batched snippet; implement leading-batch-dim support in LinearEllipticalSliceSampler + TruncatedMultivariateNormal.rsample per kayween's in-thread shape plan (x:(batch,d,chains), A:(batch,m,d)); pytest test/utils/probability/test_truncated_multivariate_normal.py test/utils/probability/test_lin_ess.py.",
+      "career_signal": "high",
+      "career_signal_rationale": "Numerical correctness in Meta's Bayesian-optimization framework: batched truncated-MVN sampling collapses batch dimensions; requires distribution/shape-semantics ownership.",
+      "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
       "company": "Meta/PyTorch",
@@ -995,7 +1047,10 @@
       "verified_at": "2026-09-24T19:49:43Z",
       "ownership_check": "Open, unassigned, bug label. No claim comments. Maintainer esantorella re-upped the issue 2025-11-12 by linking discussion #3074 - no 'we'll handle this' plan.",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64 CPU: run the issue's 1-d SingleTaskGP+UCB repro (CPU, seconds); change gen_candidates_scipy/make_scipy_nonlinear_inequality_constraints to defer the feasibility check to the returned candidate (raise only if the optimizer's result is infeasible); pytest test/optim/test_parameter_constraints.py test/generation/test_gen.py test/optim/test_optimize.py."
+      "platform_plan": "Mac ARM64 CPU: run the issue's 1-d SingleTaskGP+UCB repro (CPU, seconds); change gen_candidates_scipy/make_scipy_nonlinear_inequality_constraints to defer the feasibility check to the returned candidate (raise only if the optimizer's result is infeasible); pytest test/optim/test_parameter_constraints.py test/generation/test_gen.py test/optim/test_optimize.py.",
+      "career_signal": "high",
+      "career_signal_rationale": "Optimizer API correctness for nonlinear-constraint initial conditions, maintainer-endorsed fix shape, on the core optimize_acqf path.",
+      "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
       "company": "Meta/PyTorch",
@@ -1010,7 +1065,10 @@
       "verified_at": "2026-09-24T19:49:43Z",
       "ownership_check": "Open, unassigned, bug label. No active claim; the one fix attempt, PR #2444 (by maintainer saitcakmak), was closed unmerged 2024-07-24 because the constructor-level check broke fantasize - the correct fix location is documented and unowned.",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64 CPU: reproduce with the issue's 12-line snippet (pure CPU); add a train-inputs/targets requires_grad check with an actionable error (or detach+warn per maintainer preference) inside fit_gpytorch_mll before dispatch; regression test asserting fantasize paths still work (the exact failure mode of #2444); pytest test/test_fit.py."
+      "platform_plan": "Mac ARM64 CPU: reproduce with the issue's 12-line snippet (pure CPU); add a train-inputs/targets requires_grad check with an actionable error (or detach+warn per maintainer preference) inside fit_gpytorch_mll before dispatch; regression test asserting fantasize paths still work (the exact failure mode of #2444); pytest test/test_fit.py.",
+      "career_signal": "medium",
+      "career_signal_rationale": "Input-validation guard in fit_gpytorch_mll with placement constraints learned from a failed prior attempt; useful but narrow.",
+      "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
       "company": "Meta/PyTorch",
@@ -1025,7 +1083,10 @@
       "verified_at": "2026-09-24T19:49:43Z",
       "ownership_check": "Open, unassigned, bug label. vmallela0's claim is from 2023-06 (3+ years stale, no PR). No maintainer plan.",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64 CPU: run the issue's repro (KroneckerMultiTaskGP + sample_all_priors, pure CPU, seconds); register the LKJCovariancePrior (and MultitaskGaussianLikelihood noise prior if needed) with a setting_closure botorch-side after kernel construction, per Balandat's factoring plan; pytest test/optim/utils/test_model_utils.py test/models/test_multitask.py."
+      "platform_plan": "Mac ARM64 CPU: run the issue's repro (KroneckerMultiTaskGP + sample_all_priors, pure CPU, seconds); register the LKJCovariancePrior (and MultitaskGaussianLikelihood noise prior if needed) with a setting_closure botorch-side after kernel construction, per Balandat's factoring plan; pytest test/optim/utils/test_model_utils.py test/models/test_multitask.py.",
+      "career_signal": "high",
+      "career_signal_rationale": "GP prior-sampling correctness for Kronecker multi-task models (LKJ prior registered without setting_closure); genuine GPyTorch-internals work.",
+      "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
       "company": "Hugging Face",
@@ -1040,7 +1101,10 @@
       "verified_at": "2026-09-24T19:49:43Z",
       "ownership_check": "Tracker open, unassigned. Every mainline script is claimed (<90d) or covered by an open PR (see competition_note); the research_projects slice is NOT: no claim exists for realfill/train_realfill.py or consistency_training/train_cm_ct_unconditional.py (only multi_subject_dreambooth was claimed, by Alphaxiaoteng 2026-08-30). Candidate scope = ONE unclaimed research_projects script (recommend realfill/train_realfill.py), per the one-script-per-PR rule.",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64 CPU: two-process CPU/Gloo run via 'accelerate launch --cpu --num_processes 2' on train_realfill.py with a tiny local dataset and --num_train_epochs, asserting scheduler step count and final LR before/after the fix (same proof pattern prior claimants used and sayakpaul accepted); ruff/make style + the minimal training command required by the tracker."
+      "platform_plan": "Mac ARM64 CPU: two-process CPU/Gloo run via 'accelerate launch --cpu --num_processes 2' on train_realfill.py with a tiny local dataset and --num_train_epochs, asserting scheduler step count and final LR before/after the fix (same proof pattern prior claimants used and sayakpaul accepted); ruff/make style + the minimal training command required by the tracker.",
+      "career_signal": "medium",
+      "career_signal_rationale": "LR-scheduler bug in an unclaimed research_projects script; real but peripheral to the core library.",
+      "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
       "company": "Hugging Face",
@@ -1055,7 +1119,10 @@
       "verified_at": "2026-09-24T19:49:43Z",
       "ownership_check": "Open, unassigned. Reporter kentdan3msu accepted 2025-05-06 but last progress update was 2025-06-02 ('trying a rewrite of my dataset loader') - stale >15 months, no PR. No other claim; stale-bot pings only since.",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64 CPU: add the lhoestq-blessed hash (training_utils helper + call-site change in the affected scripts, or start with train_controlnet_sd3.py per maintainer preference for scoped PRs); validate with a tiny hf-internal-testing SD3 pipe + 8-sample local dataset entirely on CPU: run preprocessing twice with only --learning_rate changed and assert datasets map cache HIT (no recompute), then change --pretrained_model_name_or_path/--max_sequence_length and assert MISS; run the existing examples/controlnet tests."
+      "platform_plan": "Mac ARM64 CPU: add the lhoestq-blessed hash (training_utils helper + call-site change in the affected scripts, or start with train_controlnet_sd3.py per maintainer preference for scoped PRs); validate with a tiny hf-internal-testing SD3 pipe + 8-sample local dataset entirely on CPU: run preprocessing twice with only --learning_rate changed and assert datasets map cache HIT (no recompute), then change --pretrained_model_name_or_path/--max_sequence_length and assert MISS; run the existing examples/controlnet tests.",
+      "career_signal": "high",
+      "career_signal_rationale": "Training-data caching correctness/perf across eight diffusers training scripts (cache fingerprint forces full dataset re-encode); maintainer-blessed hashing fix with measurable impact.",
+      "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
       "company": "Microsoft AI / DeepSpeed (LF)",
@@ -1070,7 +1137,10 @@
       "verified_at": "2026-09-24T19:49:43Z",
       "ownership_check": "Open, unassigned, bug+training labels, zero comments, zero timeline cross-references since 2025-04-28. No claim, no maintainer plan.",
       "competing_prs": [],
-      "platform_plan": "Linux CPU container (DeepSpeed does not support macOS natively): docker run python:3.11 + pip install torch --index-url cpu + pip install -e .; DS_ACCELERATOR=cpu single-process gloo init, deepspeed.initialize with {'train_batch_size':1, 'gradient_clipping':1.0} and a torch.optim.SGD (stage 0), one forward/backward/step, assert engine.get_global_grad_norm() is not None and matches torch.nn.utils.clip_grad_norm_'s value; unit test alongside tests/unit/runtime/test_ds_config* patterns. DCO sign-off required on commits."
+      "platform_plan": "Linux CPU container (DeepSpeed does not support macOS natively): docker run python:3.11 + pip install torch --index-url cpu + pip install -e .; DS_ACCELERATOR=cpu single-process gloo init, deepspeed.initialize with {'train_batch_size':1, 'gradient_clipping':1.0} and a torch.optim.SGD (stage 0), one forward/backward/step, assert engine.get_global_grad_norm() is not None and matches torch.nn.utils.clip_grad_norm_'s value; unit test alongside tests/unit/runtime/test_ds_config* patterns. DCO sign-off required on commits.",
+      "career_signal": "high",
+      "career_signal_rationale": "Training-observability correctness in DeepSpeed's core engine: ZeRO stage-0 discards the global grad norm on the optimizer step path of a flagship distributed-training framework.",
+      "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
       "company": "Microsoft AI",
@@ -1085,7 +1155,10 @@
       "verified_at": "2026-09-24T19:49:43Z",
       "ownership_check": "Open, unassigned, feature-request label. Only comments are the reporter's own label housekeeping and an FYI ping to WebNN folks (2025-07-07). No claim, no maintainer objection; note ORT's stated type-registration policy (skottmckay on #32719: types added when a production scenario requires them) - this issue documents that scenario (WebNN decomposition on CPU) and the zero-bloat bitcast argument up front.",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64 CPU: build from source (./build.sh --config RelWithDebInfo --build_wheel --parallel, CPU-only, no EP flags; long but pure CPU); enable the registrations via the existing bitcast/alias pattern (uint8_t kernel for int8, int32_t for uint32, as the issue and onnx#6887 outline), regenerate docs/OperatorKernels.md, add cases to onnxruntime/test/providers/cpu/tensor/where_op_test.cc; validate end-to-end with a python onnx.helper model running Where(int8)/Where(uint32) through InferenceSession on CPUExecutionProvider."
+      "platform_plan": "Mac ARM64 CPU: build from source (./build.sh --config RelWithDebInfo --build_wheel --parallel, CPU-only, no EP flags; long but pure CPU); enable the registrations via the existing bitcast/alias pattern (uint8_t kernel for int8, int32_t for uint32, as the issue and onnx#6887 outline), regenerate docs/OperatorKernels.md, add cases to onnxruntime/test/providers/cpu/tensor/where_op_test.cc; validate end-to-end with a python onnx.helper model running Where(int8)/Where(uint32) through InferenceSession on CPUExecutionProvider.",
+      "career_signal": "high",
+      "career_signal_rationale": "CPU execution-provider kernel coverage (Where int8/uint32) in a flagship inference runtime, with the binary-size trade-off already framed by a Microsoft engineer.",
+      "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
       "company": "NVIDIA",
@@ -1100,7 +1173,10 @@
       "verified_at": "2026-09-24T20:05:11Z",
       "ownership_check": "Open, unassigned, 0 comments, labels community-request/waiting-on-maintainers. Reporter udsy19's own fix PR #16074 was voluntarily withdrawn closed-unmerged 2026-09-18 ('happy to reopen and rebase if anyone wants it picked up') - explicit relinquishment, no active claim.",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64 CPU: pip install -e '.[asr]' from source (no CUDA extra; macOS install path exists). Reproduce with the issue's pure-CPU snippet (builds Hypothesis objects and calls join_char_level_timestamps; expected 43483 vs exact 43512.5). Add regression test comparing accumulated offset to sum(chunk_offsets)//subsamp; run pytest tests/collections/asr -k chunking. Gate: strict DCO (git commit -s); copy-pr-bot review-latency risk recorded."
+      "platform_plan": "Mac ARM64 CPU: pip install -e '.[asr]' from source (no CUDA extra; macOS install path exists). Reproduce with the issue's pure-CPU snippet (builds Hypothesis objects and calls join_char_level_timestamps; expected 43483 vs exact 43512.5). Add regression test comparing accumulated offset to sum(chunk_offsets)//subsamp; run pytest tests/collections/asr -k chunking. Gate: strict DCO (git commit -s); copy-pr-bot review-latency risk recorded.",
+      "career_signal": "high",
+      "career_signal_rationale": "Quantified numerical-accumulation bug (2.36 s/hour timestamp drift) in NeMo's long-audio ASR chunking; subtle floor-division-order correctness with measured user impact.",
+      "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
       "company": "NVIDIA",
@@ -1117,7 +1193,10 @@
       "competing_prs": [
         "https://github.com/NVIDIA-NeMo/Speech/pull/15186"
       ],
-      "platform_plan": "Mac ARM64 CPU: same source install as 16072. Unit test: call merge_hypotheses_of_same_audio with two synthetic chunk hypotheses (chunk_duration_seconds=3600, subsampling_factor=8) and assert start_offset*window_stride*subsampling_factor ~= start (issue shows 450010 vs expected 45001). Fix requires threading window_stride through the signature. DCO sign-off required."
+      "platform_plan": "Mac ARM64 CPU: same source install as 16072. Unit test: call merge_hypotheses_of_same_audio with two synthetic chunk hypotheses (chunk_duration_seconds=3600, subsampling_factor=8) and assert start_offset*window_stride*subsampling_factor ~= start (issue shows 450010 vs expected 45001). Fix requires threading window_stride through the signature. DCO sign-off required.",
+      "career_signal": "medium",
+      "career_signal_rationale": "Frame-offset scaling bug in the same chunk-merge family; real but small, and conflict-watched (a stalled PR deletes the function).",
+      "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
       "company": "NVIDIA",
@@ -1132,7 +1211,10 @@
       "verified_at": "2026-09-24T20:05:11Z",
       "ownership_check": "Open, unassigned, 0 comments. Reporter udsy19's fix PR #16105 withdrawn closed-unmerged 2026-09-18 with explicit relinquishment; no active claim.",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64 CPU: source install; run the issue's 6-line reproducer (AudioSegment of 5s zeros + RandomSegmentPerturbation(duration_sec=32.0, pad_to_duration=True) -> TypeError) plus the process_augmentations YAML-path variant. Fix: round pad_size to int; add regression test in tests/collections/asr for perturb. Optional docs fix for pad_to_duration default. DCO sign-off required."
+      "platform_plan": "Mac ARM64 CPU: source install; run the issue's 6-line reproducer (AudioSegment of 5s zeros + RandomSegmentPerturbation(duration_sec=32.0, pad_to_duration=True) -> TypeError) plus the process_augmentations YAML-path variant. Fix: round pad_size to int; add regression test in tests/collections/asr for perturb. Optional docs fix for pad_to_duration default. DCO sign-off required.",
+      "career_signal": "medium",
+      "career_signal_rationale": "Augmentation crash (float pad_size TypeError) in the training data pipeline; straightforward type fix.",
+      "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
       "company": "NVIDIA",
@@ -1147,7 +1229,10 @@
       "verified_at": "2026-09-24T20:05:11Z",
       "ownership_check": "Open, unassigned, 0 comments. Reporter udsy19's fix PR #16084 withdrawn closed-unmerged 2026-09-18; no active claim.",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64 CPU: source install; run the issue's pure-Python reproducer (any_locale_word_tokenize on 'coeur'-with-ligature/'Viet'-accented/'STRASSE'-eszett; GRAPHEME_CHARACTER_SETS coverage check; temp lexicon file showing 5-line file parsing fewer entries). Fix: extend char ranges (e.g. Latin Extended-A/B/Additional or \\w-based Unicode classes) + warn/count dropped lexicon lines; pytest tests/collections/tts and common/tokenizers. DCO sign-off required."
+      "platform_plan": "Mac ARM64 CPU: source install; run the issue's pure-Python reproducer (any_locale_word_tokenize on 'coeur'-with-ligature/'Viet'-accented/'STRASSE'-eszett; GRAPHEME_CHARACTER_SETS coverage check; temp lexicon file showing 5-line file parsing fewer entries). Fix: extend char ranges (e.g. Latin Extended-A/B/Additional or \\w-based Unicode classes) + warn/count dropped lexicon lines; pytest tests/collections/tts and common/tokenizers. DCO sign-off required.",
+      "career_signal": "high",
+      "career_signal_rationale": "Multilingual TTS data-processing correctness: phoneme-dict entries above U+00FF silently dropped, excluding 51/93 declared Vietnamese graphemes; unicode-boundary fix with clear international impact.",
+      "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
       "company": "NVIDIA",
@@ -1162,7 +1247,10 @@
       "verified_at": "2026-09-24T20:05:11Z",
       "ownership_check": "Open, unassigned, 0 comments. Reporter udsy19's fix PR #16101 withdrawn closed-unmerged 2026-09-18; no active claim.",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64 CPU: source install + lhotse; build the sampler twice with rank-0/rank-1 env (per the issue's CPU-only snippet using lhotse DummyManifest) and assert the ReverbWithImpulseResponse RNG state differs after the fix / is identical before. pytest tests/collections/common -k lhotse dataloader seeds. DCO sign-off required."
+      "platform_plan": "Mac ARM64 CPU: source install + lhotse; build the sampler twice with rank-0/rank-1 env (per the issue's CPU-only snippet using lhotse DummyManifest) and assert the ReverbWithImpulseResponse RNG state differs after the fix / is identical before. pytest tests/collections/common -k lhotse dataloader seeds. DCO sign-off required.",
+      "career_signal": "high",
+      "career_signal_rationale": "Distributed-training data-diversity bug: RIR augmentation seeded identically across data-parallel ranks; subtle shard-seed correctness in Lhotse dataloading.",
+      "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
       "company": "NVIDIA",
@@ -1177,7 +1265,10 @@
       "verified_at": "2026-09-24T20:05:11Z",
       "ownership_check": "Open, unassigned, 0 comments. Reporter udsy19's fix PR #16094 withdrawn closed-unmerged 2026-09-18; no active claim.",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64 CPU: source install; run the issue's CPU-only reproducer driving OfflineDiarWithASR.evaluate() with 3 synthetic CTM sessions pinned to the cross-boundary scenario from tests/collections/speaker_tasks/utils/test_cpwer.py; assert corpus average_cpWER equals the mean of per-session MeetEval cpWERs after fix. DCO sign-off required."
+      "platform_plan": "Mac ARM64 CPU: source install; run the issue's CPU-only reproducer driving OfflineDiarWithASR.evaluate() with 3 synthetic CTM sessions pinned to the cross-boundary scenario from tests/collections/speaker_tasks/utils/test_cpwer.py; assert corpus average_cpWER equals the mean of per-session MeetEval cpWERs after fix. DCO sign-off required.",
+      "career_signal": "high",
+      "career_signal_rationale": "Evaluation-validity fix: corpus average_cpWER still uses the algorithm PR #15573 replaced, so reported diarization error rates are wrong; aligns the metric with the accepted implementation.",
+      "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
       "company": "NVIDIA",
@@ -1192,7 +1283,10 @@
       "verified_at": "2026-09-24T20:05:11Z",
       "ownership_check": "Open, unassigned, 0 comments. Reporter udsy19's fix PR #16090 withdrawn closed-unmerged 2026-09-18; no active claim.",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64 CPU: source install; no data/checkpoints needed - OmegaConf.load each yaml and Serialization.from_config_dict the modality_adapter/channel_augment nodes; assert construction succeeds after correcting paths (and class+kwargs for multilayerproj, matching tests/collections/speechlm2/test_salm_asr_decoder_multilayerproj.py:103). DCO sign-off required."
+      "platform_plan": "Mac ARM64 CPU: source install; no data/checkpoints needed - OmegaConf.load each yaml and Serialization.from_config_dict the modality_adapter/channel_augment nodes; assert construction succeeds after correcting paths (and class+kwargs for multilayerproj, matching tests/collections/speechlm2/test_salm_asr_decoder_multilayerproj.py:103). DCO sign-off required.",
+      "career_signal": "low",
+      "career_signal_rationale": "Shipped configs referencing nonexistent _target_ classes; mechanical config repair.",
+      "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
       "company": "Nous",
@@ -1211,7 +1305,10 @@
         "https://github.com/NousResearch/hermes-agent/pull/117143",
         "https://github.com/NousResearch/hermes-agent/pull/119086"
       ],
-      "platform_plan": "Mac ARM64 CPU (pure Python): editable install of hermes-agent; write a SKILL.md directly to the local skills dir (the reporter's distinguishing property), then A/B the two resolution paths in-process - build_preloaded_skills_prompt/_load_skill_payload with CLI-like cwd vs cron/scheduler_prompt._load_cron_skill_parts with a cron-session TERMINAL_CWD/workdir - asserting the cron path reports not-found while CLI resolves; then pin and fix the divergence with a pytest covering both surfaces. No GPU/credentials needed."
+      "platform_plan": "Mac ARM64 CPU (pure Python): editable install of hermes-agent; write a SKILL.md directly to the local skills dir (the reporter's distinguishing property), then A/B the two resolution paths in-process - build_preloaded_skills_prompt/_load_skill_payload with CLI-like cwd vs cron/scheduler_prompt._load_cron_skill_parts with a cron-session TERMINAL_CWD/workdir - asserting the cron path reports not-found while CLI resolves; then pin and fix the divergence with a pytest covering both surfaces. No GPU/credentials needed.",
+      "career_signal": "high",
+      "career_signal_rationale": "Agent-runtime correctness: cron jobs silently skip attached skills due to scan-set divergence between cron and CLI paths; high-difficulty root-cause work in an agent execution environment.",
+      "career_assessed_at": "2026-09-24T20:38:31+00:00"
     }
   ],
   "holds": [
@@ -1466,6 +1563,202 @@
       "ts": "2026-09-24T20:30:59+00:00",
       "text": "openai/whisper hold CORRECTED and repo admitted: the earlier 'frozen for external code' reason was wrong (external bug-fix merges verified Aug/Jul/Jun 2026, no AI prohibition). Actual constraint: GitHub Issues disabled. Campaign owner amended sourcing for this repo: existing public Discussions (real user bug reports) serve as the candidate source — no invented reports. Whisper vetting queued next (Discussions bug reports x 152 open-PR competition screening).",
       "repo": "openai/whisper"
+    },
+    {
+      "ts": "2026-09-24T20:38:31+00:00",
+      "text": "CAREER-SIGNAL AMENDMENT applied: all 32 eligible issues backfilled with career-signal grades + rationales (2 Very High, 16 High, 10 Medium, 4 Low -> 18 PR-qualified), 38 company fit assessments added, and a hard authoring/publication gate now admits only High/Very High issues. Existing lower-signal findings remain visible and auditable; the 3 published/in-flight items (markitdown#1247 high, gpt-neox#1364 high, goose#11975 very_high) all pass the gate retroactively."
+    }
+  ],
+  "companies": [
+    {
+      "company": "OpenAI",
+      "fit": "very_high",
+      "rationale": "Aspirational destination; whisper is a flagship, massively used speech model repo (admitted via Discussions sourcing)."
+    },
+    {
+      "company": "Anthropic",
+      "fit": "very_high",
+      "rationale": "Aspirational destination; official SDKs admitted with hand-written-lib scope."
+    },
+    {
+      "company": "Google/DeepMind",
+      "fit": "very_high",
+      "rationale": "Leading lab; optax (core JAX optimization) admitted, langextract held on its vote gate."
+    },
+    {
+      "company": "Microsoft AI",
+      "fit": "high",
+      "rationale": "Mainstream ML-infra breadth (onnxruntime, markitdown, agent-framework) with demonstrated fast external merges."
+    },
+    {
+      "company": "NVIDIA",
+      "fit": "high",
+      "rationale": "Core speech and data-curation ML stacks with the deepest eligible bug inventory found so far."
+    },
+    {
+      "company": "Meta/PyTorch",
+      "fit": "high",
+      "rationale": "botorch/faiss framework-correctness surface; pytorch/pytorch itself policy-held."
+    },
+    {
+      "company": "Hugging Face",
+      "fit": "high",
+      "rationale": "diffusers core training scripts and tokenizers admitted; trl rejected by its AI policy."
+    },
+    {
+      "company": "EleutherAI",
+      "fit": "high",
+      "rationale": "Respected open research lab; gpt-neox pretraining framework admitted, PR already open."
+    },
+    {
+      "company": "Microsoft AI / DeepSpeed (LF)",
+      "fit": "high",
+      "rationale": "Flagship distributed-training framework, community-governed merges (27/30 external)."
+    },
+    {
+      "company": "Block/Goose",
+      "fit": "high",
+      "rationale": "Major agent platform (54.6k stars) with a maintainer-curated Ready pipeline; agent-systems relevance."
+    },
+    {
+      "company": "OpenHands",
+      "fit": "high",
+      "rationale": "Prominent agent-runtime SDK with high-signal runtime-correctness bugs."
+    },
+    {
+      "company": "MCP",
+      "fit": "high",
+      "rationale": "De-facto agent-protocol standard; registry and typescript-sdk admitted."
+    },
+    {
+      "company": "UK AISI",
+      "fit": "high",
+      "rationale": "Evaluation-validity org; gated to maintainer-accepted issues (queue currently fully contested)."
+    },
+    {
+      "company": "Ai2",
+      "fit": "medium",
+      "rationale": "OLMo-core admitted but the precise-bug backlog is fully farmed; limited actionable surface today."
+    },
+    {
+      "company": "SWE-agent",
+      "fit": "medium",
+      "rationale": "mini-swe-agent admitted but small and saturated."
+    },
+    {
+      "company": "Nous",
+      "fit": "medium",
+      "rationale": "hermes-agent active with one high-signal candidate; bot-inflated metrics noted."
+    },
+    {
+      "company": "Sakana",
+      "fit": "medium",
+      "rationale": "ShinkaEvolve small; zero open issues limits the eligible surface."
+    },
+    {
+      "company": "Prime Intellect",
+      "fit": "medium",
+      "rationale": "prime-rl backlog farmed; GPU-leaning validation."
+    },
+    {
+      "company": "Cline",
+      "fit": "medium",
+      "rationale": "AI IDE relevance but only the small-fix exception applies and the queue is saturated."
+    },
+    {
+      "company": "LangChain",
+      "fit": "medium",
+      "rationale": "Mainstream framework but hard approval+assignment gate blocks the campaign route."
+    },
+    {
+      "company": "Ollama",
+      "fit": "medium",
+      "rationale": "Mainstream local inference, but 0/30 recent external merges."
+    },
+    {
+      "company": "ggml/llama.cpp",
+      "fit": "medium",
+      "rationale": "Flagship local inference; explicit ban on agent contributions."
+    },
+    {
+      "company": "Moonshot AI",
+      "fit": "low",
+      "rationale": "kimi-code approval route has never been exercised in practice."
+    },
+    {
+      "company": "Aider",
+      "fit": "low",
+      "rationale": "Repo dormant since May 2026."
+    },
+    {
+      "company": "Cognition",
+      "fit": "low",
+      "rationale": "No eligible mainstream OSS surface found."
+    },
+    {
+      "company": "Cursor",
+      "fit": "low",
+      "rationale": "No eligible mainstream OSS surface found."
+    },
+    {
+      "company": "Perplexity",
+      "fit": "low",
+      "rationale": "Active repos are endpoint-security tools, not core AI paths."
+    },
+    {
+      "company": "xAI",
+      "fit": "low",
+      "rationale": "Only a small SDK (578 stars) below the campaign bar."
+    },
+    {
+      "company": "Mistral",
+      "fit": "low",
+      "rationale": "mistral-vibe rejects code contributions; remaining repos below star bar."
+    },
+    {
+      "company": "Together AI",
+      "fit": "low",
+      "rationale": "SDK far below star bar."
+    },
+    {
+      "company": "Cohere",
+      "fit": "low",
+      "rationale": "SDK below star bar; no stronger OSS flagship found."
+    },
+    {
+      "company": "Thinking Machines",
+      "fit": "low",
+      "rationale": "SDK below the campaign popularity bar."
+    },
+    {
+      "company": "DeepSeek",
+      "fit": "low",
+      "rationale": "Model-release repos; harness rejects external PRs."
+    },
+    {
+      "company": "Z.ai",
+      "fit": "low",
+      "rationale": "Stale model-release repos; no contribution route established."
+    },
+    {
+      "company": "MiniMax",
+      "fit": "low",
+      "rationale": "Code repos collaborator-only; others stale."
+    },
+    {
+      "company": "Qwen",
+      "fit": "low",
+      "rationale": "qwen-code issue-first with feedback wait; Qwen-Agent stale."
+    },
+    {
+      "company": "Unsloth",
+      "fit": "low",
+      "rationale": "GPU-centric core without genuine CPU validation scope."
+    },
+    {
+      "company": "Harbor/Terminal Bench",
+      "fit": "low",
+      "rationale": "Requires human-written issues/PR text; unattended authoring held."
     }
   ]
 }

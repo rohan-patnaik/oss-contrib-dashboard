@@ -138,6 +138,14 @@ footer { color: var(--muted); font-size: 11.5px; padding: 18px 20px; text-align:
         <option value="">All importance</option>
         <option>high</option><option>medium</option><option>low</option>
       </select>
+      <select id="fCareer">
+        <option value="">All career signals</option>
+        <option value="qualified">PR-qualified (VH+H)</option>
+        <option value="very_high">Very High</option>
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+      </select>
       <select id="fStage"><option value="">All stages</option></select>
       <label>PR activity from <input type="date" id="dFrom" value="2026-09-15"></label>
       <label>to <input type="date" id="dTo"></label>
@@ -146,12 +154,12 @@ footer { color: var(--muted); font-size: 11.5px; padding: 18px 20px; text-align:
   </section>
 
   <section>
-    <h2>Per-company 2–2–2 portfolio</h2>
+    <h2>Companies — career fit & 2–2–2 portfolio (descending fit)</h2>
     <div class="tablewrap"><table id="portfolioTable">
-      <thead><tr><th data-k="company">Company</th><th class="num">Low C/R/A/P/M</th><th class="num">Med C/R/A/P/M</th><th class="num">High C/R/A/P/M</th><th class="num">Deficit vs 2–2–2</th></tr></thead>
+      <thead><tr><th data-k="company">Company</th><th data-k="fitRank">Career fit</th><th data-k="eligible" class="num">Eligible</th><th data-k="vh" class="num">Very High</th><th data-k="hi" class="num">High</th><th data-k="prq" class="num">PR-qualified</th><th class="num">Low C/R/A/P/M</th><th class="num">Med C/R/A/P/M</th><th class="num">High C/R/A/P/M</th><th class="num">Deficit vs 2–2–2</th></tr></thead>
       <tbody></tbody>
     </table><div class="empty" id="portfolioEmpty" hidden></div></div>
-    <p class="note">C = vetted candidates, R = reproduced, A = authored, P = open PRs, M = merged/landed. Candidates are not PRs; PRs are not merges.</p>
+    <p class="note">Career fit is a transparent prioritization judgment (mainstream relevance, engineering-ownership opportunity, target roles) — not a hiring score, and it never overrides an issue's own signal. Default order: fit desc, then Very High count, then PR-qualified count, then name. C = vetted candidates, R = reproduced, A = authored, P = open PRs, M = merged/landed. Only High/Very High issues may enter authoring or produce PRs.</p>
   </section>
 
   <section>
@@ -159,7 +167,7 @@ footer { color: var(--muted); font-size: 11.5px; padding: 18px 20px; text-align:
     <div class="tablewrap"><table id="issueTable">
       <thead><tr>
         <th data-k="company">Company</th><th data-k="repo">Repo</th><th data-k="title">Issue</th>
-        <th data-k="importance">Importance</th><th data-k="difficulty">Difficulty</th><th data-k="status">Stage</th>
+        <th data-k="importance">Importance</th><th data-k="career_signal">Career signal</th><th data-k="difficulty">Difficulty</th><th data-k="status">Stage</th>
         <th data-k="verified_at">Verified</th><th>Ownership / competition</th><th>Platform plan</th><th>Our PR / outcome</th>
       </tr></thead>
       <tbody></tbody>
@@ -232,6 +240,11 @@ const STAGE_BADGE = {
   "hold": "b-serious", "rejected": "b-critical", "superseded": "b-critical", "lost-to-competitor": "b-critical"
 };
 const IMP_BADGE = { high: "b-critical", medium: "b-serious", low: "b-plain" };
+const CAREER_LABEL = { very_high: "Very High", high: "High", medium: "Medium", low: "Low" };
+const CAREER_BADGE = { very_high: "b-good", high: "b-good", medium: "b-plain", low: "b-plain" };
+const CAREER_RANK = { very_high: 4, high: 3, medium: 2, low: 1 };
+const IMP_RANK = { high: 3, medium: 2, low: 1 };
+const QUALIFIED = s => s === "very_high" || s === "high";
 
 /* linkify a repo string like "owner/name" */
 const repoLink = r => r ? `<a href="https://github.com/${esc(r)}" target="_blank" rel="noopener">${esc(r)}</a>` : "";
@@ -262,9 +275,12 @@ function passes(row, fields) {
   return true;
 }
 function issuePasses(i) {
-  if (!passes(i, ["company","repo","title","importance_rationale","status","ownership_check","platform_plan"])) return false;
+  if (!passes(i, ["company","repo","title","importance_rationale","status","ownership_check","platform_plan","career_signal_rationale"])) return false;
   const imp = $("fImportance").value; if (imp && i.importance !== imp) return false;
   const st = $("fStage").value; if (st && i.status !== st) return false;
+  const cs = $("fCareer").value;
+  if (cs === "qualified") { if (!QUALIFIED(i.career_signal)) return false; }
+  else if (cs && i.career_signal !== cs) return false;
   return true;
 }
 
@@ -278,6 +294,7 @@ const AUTH_SET = new Set(["authored","in-review","pr-open","merged","landed"]);
 function tiles(s, c) {
   const t = [
     [`${c.eligible}<small>/${s.target}</small>`, "eligible issues"],
+    [c.pr_qualified, "PR-qualified (VH+H)"],
     [c.companies, "companies"],
     [c.repos_admitted, "repos admitted"],
     [`${c.imp.low}·${c.imp.medium}·${c.imp.high}`, "L·M·H distribution"],
@@ -333,13 +350,20 @@ function render() {
   const stSel = $("fStage"), stPrev = stSel.value;
   stSel.innerHTML = '<option value="">All stages</option>' + stages.map(x=>`<option${x===stPrev?" selected":""}>${esc(x)}</option>`).join("");
 
-  /* issues */
-  const issues = (DATA.issues||[]).filter(issuePasses);
+  /* issues — default order: career signal desc, then importance desc */
+  let issues = (DATA.issues||[]).filter(issuePasses);
+  if (!sortState["issueTable"]) {
+    issues = [...issues].sort((a,b) =>
+      (CAREER_RANK[b.career_signal]||0) - (CAREER_RANK[a.career_signal]||0) ||
+      (IMP_RANK[b.importance]||0) - (IMP_RANK[a.importance]||0) ||
+      String(a.repo).localeCompare(String(b.repo)));
+  }
   renderTable("issueTable","issueEmpty", issues, i => `<tr>
     <td>${esc(i.company)}</td>
     <td>${repoLink(i.repo)}</td>
     <td><a href="${esc(i.url)}" target="_blank" rel="noopener">#${esc(i.number)}</a> ${esc(i.title)}</td>
     <td>${badge(IMP_BADGE[i.importance]||"b-plain", i.importance)}<div class="note">${esc(i.importance_rationale||"")}</div></td>
+    <td>${i.career_signal ? badge(CAREER_BADGE[i.career_signal], CAREER_LABEL[i.career_signal]) + (QUALIFIED(i.career_signal) ? ' <span class="note">PR-qualified</span>' : '') : badge("b-serious","unassessed")}<div class="note">${esc(i.career_signal_rationale||"")}</div></td>
     <td>${esc(i.difficulty||"")}</td>
     <td>${badge(STAGE_BADGE[i.status]||"b-plain", i.status)}</td>
     <td>${fmtD(i.verified_at)}</td>
@@ -362,6 +386,7 @@ function render() {
            high: elig.filter(i=>i.importance==="high").length },
     companies: new Set(admitted.map(r=>r.company)).size,
     repos_admitted: admitted.length,
+    pr_qualified: elig.filter(i => QUALIFIED(i.career_signal)).length,
     reproduced: base.filter(i => REPRO_SET.has(i.status) && inRange(i.verified_at)).length,
     authored: base.filter(i => AUTH_SET.has(i.status) && inRange(i.pr_raised_at || i.verified_at)).length,
     open_prs: base.filter(i => i.status==="pr-open" && inRange(i.pr_raised_at)).length,
@@ -398,13 +423,27 @@ function render() {
     if (st === "pr-open") b.p++;
     if (["merged","landed"].includes(st)) b.m++;
   }
-  const pRows = Object.entries(perCo).map(([company,v]) => ({
-    company, ...v,
-    deficit: Math.max(0,2-v.low.c) + Math.max(0,2-v.medium.c) + Math.max(0,2-v.high.c)
-  })).filter(r => passes(r, ["company"]));
+  const fitMap = Object.fromEntries((DATA.companies||[]).map(x=>[x.company, x]));
+  const pRows = Object.entries(perCo).map(([company,v]) => {
+    const eligCo = (DATA.issues||[]).filter(i => i.company===company && ELIGIBLE_SET.has(i.status));
+    const fit = fitMap[company]?.fit;
+    return { company, ...v,
+      fit, fitRank: CAREER_RANK[fit]||0, fitRationale: fitMap[company]?.rationale||"",
+      eligible: eligCo.length,
+      vh: eligCo.filter(i=>i.career_signal==="very_high").length,
+      hi: eligCo.filter(i=>i.career_signal==="high").length,
+      prq: eligCo.filter(i=>QUALIFIED(i.career_signal)).length,
+      deficit: Math.max(0,2-v.low.c) + Math.max(0,2-v.medium.c) + Math.max(0,2-v.high.c) };
+  }).filter(r => passes(r, ["company","fitRationale"]));
+  if (!sortState["portfolioTable"]) {
+    pRows.sort((a,b) => b.fitRank - a.fitRank || b.vh - a.vh || b.prq - a.prq || a.company.localeCompare(b.company));
+  }
   const cell = b => `${b.c}/${b.r}/${b.a}/${b.p}/${b.m}`;
   renderTable("portfolioTable","portfolioEmpty", pRows, r => `<tr>
-    <td>${esc(r.company)}</td><td class="num">${cell(r.low)}</td><td class="num">${cell(r.medium)}</td>
+    <td>${esc(r.company)}</td>
+    <td>${r.fit ? badge(CAREER_BADGE[r.fit], CAREER_LABEL[r.fit]) : badge("b-serious","unassessed")}<div class="note">${esc(r.fitRationale)}</div></td>
+    <td class="num">${r.eligible}</td><td class="num">${r.vh}</td><td class="num">${r.hi}</td><td class="num">${r.prq}</td>
+    <td class="num">${cell(r.low)}</td><td class="num">${cell(r.medium)}</td>
     <td class="num">${cell(r.high)}</td><td class="num">${r.deficit ? badge("b-serious","−"+r.deficit) : badge("b-good","0 ✓")}</td>
   </tr>`, "No company portfolios yet.");
 
@@ -449,7 +488,7 @@ document.querySelectorAll("thead th[data-k]").forEach(th => {
 });
 
 /* ---------- filter events ---------- */
-["q","fCompany","fImportance","fStage","dFrom","dTo"].forEach(id => $(id).addEventListener("input", render));
+["q","fCompany","fImportance","fCareer","fStage","dFrom","dTo"].forEach(id => $(id).addEventListener("input", render));
 
 /* ---------- export ---------- */
 function download(name, text, type) {
@@ -460,7 +499,7 @@ function download(name, text, type) {
 $("exportJson").onclick = () => DATA && download("oss-research-data.json", JSON.stringify(DATA, null, 2), "application/json");
 $("exportCsv").onclick = () => {
   if (!DATA) return;
-  const cols = ["company","repo","number","url","title","importance","importance_rationale","difficulty","status","verified_at","ownership_check","platform_plan","pr_url","pr_raised_at","merged_at","outcome"];
+  const cols = ["company","repo","number","url","title","importance","importance_rationale","career_signal","career_signal_rationale","career_assessed_at","difficulty","status","verified_at","ownership_check","platform_plan","pr_url","pr_raised_at","merged_at","outcome"];
   const csv = [cols.join(",")].concat((DATA.issues||[]).map(i =>
     cols.map(c => `"${String(i[c] ?? "").replace(/"/g,'""')}"`).join(","))).join("\n");
   download("oss-research-issues.csv", csv, "text/csv");

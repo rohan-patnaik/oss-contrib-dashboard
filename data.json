@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-24T18:04:12+00:00",
+  "generated": "2026-09-24T18:07:03+00:00",
   "campaign": {
     "phase": "repository admission",
     "note": "Bootstrap complete. Contribution baseline refreshed; repository admission and issue research beginning. Eligible-issue counts cover NEW opportunities only; 26 previously contributed external repositories are excluded and tracked separately. All counts are truthful current values, not projections."
@@ -7,8 +7,8 @@
   "summary": {
     "eligible": 0,
     "target": 100,
-    "companies": 5,
-    "repos_admitted": 6,
+    "companies": 9,
+    "repos_admitted": 11,
     "importance": {
       "low": 0,
       "medium": 0,
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T18:04:12+00:00",
+    "last_refresh": "2026-09-24T18:07:03+00:00",
     "excluded_prior_repos": 26
   },
   "repos": [
@@ -291,6 +291,142 @@
       ],
       "decision": "admitted",
       "checked_at": "2026-09-24T18:01:52Z"
+    },
+    {
+      "company": "Anthropic / Model Context Protocol",
+      "repo": "modelcontextprotocol/typescript-sdk",
+      "url": "https://github.com/modelcontextprotocol/typescript-sdk",
+      "relevance": "Official TypeScript SDK of the Model Context Protocol, the flagship client/server SDK for the Anthropic-backed MCP ecosystem.",
+      "stars": 13451,
+      "maintenance": "pushed 2026-09-24",
+      "previous_contribution": "none",
+      "policy": "Issue-first for features/significant changes ('We'll close PRs for undiscussed features'). Explicit exception: 'Straightforward bug fixes (a few lines of code with tests demonstrating the fix) can skip this step.' For existing issues: 'Before starting work, comment on the issue so we can assign it to you.' Issues labeled needs-confirmation/needs-repro/needs-design are not ready for work. Two branc",
+      "policy_links": [
+        "https://github.com/modelcontextprotocol/typescript-sdk/blob/7f7a94c22017e121a960e071bb50ec75e34450bd/CONTRIBUTING.md",
+        "https://github.com/modelcontextprotocol/typescript-sdk/blob/7f7a94c22017e121a960e071bb50ec75e34450bd/CLAUDE.md",
+        "https://github.com/modelcontextprotocol/typescript-sdk/blob/7f7a94c22017e121a960e071bb50ec75e34450bd/README.md"
+      ],
+      "decision": "admitted",
+      "checked_at": "2026-09-24T18:04:35Z"
+    },
+    {
+      "company": "Aider-AI",
+      "repo": "Aider-AI/aider",
+      "url": "https://github.com/Aider-AI/aider",
+      "relevance": "Aider is the company's flagship (and essentially only) product: one of the best-known open-source AI pair-programming CLIs, ~49k stars.",
+      "stars": 49155,
+      "maintenance": "pushed 2026-05-22",
+      "previous_contribution": "none",
+      "policy": "'For small changes, feel free to submit a PR directly. If you are considering a large or significant change, please discuss it in a GitHub issue before submitting the PR.' No assignment requirement. AI policy: No AI/agent-contribution restriction found in CONTRIBUTING.md or README.md.",
+      "policy_links": [
+        "https://github.com/Aider-AI/aider/blob/5dc9490bb35f9729ef2c95d00a19ccd30c26339c/CONTRIBUTING.md",
+        "https://github.com/Aider-AI/aider/blob/5dc9490bb35f9729ef2c95d00a19ccd30c26339c/README.md",
+        null
+      ],
+      "decision": "hold",
+      "checked_at": "2026-09-24T18:04:35Z"
+    },
+    {
+      "company": "LangChain",
+      "repo": "langchain-ai/langchain",
+      "url": "https://github.com/langchain-ai/langchain",
+      "relevance": "LangChain's namesake flagship LLM-application framework, ~147k stars, the company's core open-source product.",
+      "stars": 146993,
+      "maintenance": "pushed 2026-09-24",
+      "previous_contribution": "none",
+      "policy": "HARD GATE (org CONTRIBUTING, current): 'All pull requests must link to an issue or discussion where a solution has been approved by a maintainer. PRs without prior approval will be closed.' PR template adds: '...and you must be assigned to that issue.' NO small-bug-fix exception exists in the current text — the historical 'small fixes allowed without approval' note is OUTDATED. AI policy: Restrict",
+      "policy_links": [
+        "https://github.com/langchain-ai/.github/blob/main/CONTRIBUTING.md",
+        "https://github.com/langchain-ai/langchain/blob/5704d9d4813f8c0527f04e2662cf313e1350f96f/AGENTS.md",
+        "https://github.com/langchain-ai/langchain/blob/5704d9d4813f8c0527f04e2662cf313e1350f96f/.github/PULL_REQUEST_TEMPLATE.md"
+      ],
+      "decision": "hold",
+      "checked_at": "2026-09-24T18:04:35Z"
+    },
+    {
+      "company": "LangChain",
+      "repo": "langchain-ai/langgraph",
+      "url": "https://github.com/langchain-ai/langgraph",
+      "relevance": "LangChain's flagship agent-orchestration framework (~42k stars), the company's primary product for production agent workflows.",
+      "stars": 42229,
+      "maintenance": "pushed 2026-09-23",
+      "previous_contribution": "none",
+      "policy": "Same org-level HARD GATE as langchain: 'All external PRs must link to an issue or discussion where a solution has been approved by a maintainer, and you must be assigned to that issue. PRs without prior approval will be closed.' (repeated verbatim in this repo's own PR template). No small-bug-fix exception. AI policy: Same as langchain: PR template warns 'If you paste a large clearly AI generated ",
+      "policy_links": [
+        "https://github.com/langchain-ai/.github/blob/main/CONTRIBUTING.md",
+        "https://github.com/langchain-ai/langgraph/blob/7daa3ab49d678a5da75edb08baa87db4a2be52c3/AGENTS.md",
+        "https://github.com/langchain-ai/langgraph/blob/7daa3ab49d678a5da75edb08baa87db4a2be52c3/.github/PULL_REQUEST_TEMPLATE.md"
+      ],
+      "decision": "hold",
+      "checked_at": "2026-09-24T18:04:35Z"
+    },
+    {
+      "company": "Meta (Facebook Research)",
+      "repo": "facebookresearch/faiss",
+      "url": "https://github.com/facebookresearch/faiss",
+      "relevance": "Meta's flagship open-source vector similarity-search library (~41k stars), foundational infrastructure for the vector-DB/RAG ecosystem.",
+      "stars": 40972,
+      "maintenance": "pushed 2026-09-24",
+      "previous_contribution": "none",
+      "policy": "'We welcome pull requests that add significant value to Faiss. If you plan to do a major development... please contact us first.' No issue-first gate for bug fixes. Note: 'There is a Facebook internal test suite for Faiss, and we need to run all changes to Faiss through it' — PRs land via meta-codesync internal import (GitHub PR shows as Closed with a bot comment 'merged this pull request in faceb",
+      "policy_links": [
+        "https://github.com/facebookresearch/faiss/blob/2496f63f764595b10a8c0bc8eeb1ccf54a36b897/CONTRIBUTING.md",
+        "https://github.com/facebookresearch/faiss/blob/2496f63f764595b10a8c0bc8eeb1ccf54a36b897/README.md",
+        "https://github.com/facebookresearch/faiss/blob/2496f63f764595b10a8c0bc8eeb1ccf54a36b897/CODE_OF_CONDUCT.md"
+      ],
+      "decision": "admitted",
+      "checked_at": "2026-09-24T18:04:35Z"
+    },
+    {
+      "company": "Microsoft",
+      "repo": "microsoft/markitdown",
+      "url": "https://github.com/microsoft/markitdown",
+      "relevance": "Microsoft's wildly popular file-to-Markdown conversion library for LLM pipelines (~187k stars), one of the org's highest-visibility OSS repos.",
+      "stars": 186787,
+      "maintenance": "pushed 2026-09-21",
+      "previous_contribution": "none",
+      "policy": "No issue-first or approval gate. Scope gate only: in-scope = converter fidelity, 'Bug fixes, performance improvements, and security fixes', CLI, markitdown-mcp, tests/docs/tooling; out of scope = new apps/servers/frontends, and 'New formats are added sparingly — especially if they incur new dependencies.' CONTRIBUTING.md does not exist (404 at HEAD; community profile confirms no contributing file)",
+      "policy_links": [
+        null,
+        "https://github.com/microsoft/markitdown/blob/b8f79c57ebc0044be41323d89b2a45d3fda8460e/README.md",
+        "https://github.com/microsoft/markitdown/blob/b8f79c57ebc0044be41323d89b2a45d3fda8460e/CODE_OF_CONDUCT.md"
+      ],
+      "decision": "admitted",
+      "checked_at": "2026-09-24T18:04:35Z"
+    },
+    {
+      "company": "Microsoft",
+      "repo": "microsoft/agent-framework",
+      "url": "https://github.com/microsoft/agent-framework",
+      "relevance": "Microsoft's canonical open-source agent framework for .NET and Python, the flagship successor consolidating Semantic Kernel and AutoGen.",
+      "stars": 13778,
+      "maintenance": "pushed 2026-09-24",
+      "previous_contribution": "none",
+      "policy": "Issue-link expected: PR template says 'PRs that are not linked to an issue may be closed, no matter how valid the change is.' DOs/DON'Ts: 'DO clearly state on an issue that you are going to take on implementing it'; 'DON'T surprise us with big pull requests... file an issue and start a discussion'; 'DON'T make new APIs without filing an issue and discussing with us first.' Breaking changes rejecte",
+      "policy_links": [
+        "https://github.com/microsoft/agent-framework/blob/2c46deb91e70ea6d7bbc99263147e0f470d52546/CONTRIBUTING.md",
+        "https://github.com/microsoft/agent-framework/blob/2c46deb91e70ea6d7bbc99263147e0f470d52546/.github/pull_request_template.md",
+        "https://github.com/microsoft/agent-framework/blob/2c46deb91e70ea6d7bbc99263147e0f470d52546/.github/copilot-instructions.md"
+      ],
+      "decision": "admitted",
+      "checked_at": "2026-09-24T18:04:35Z"
+    },
+    {
+      "company": "EleutherAI",
+      "repo": "EleutherAI/gpt-neox",
+      "url": "https://github.com/EleutherAI/gpt-neox",
+      "relevance": "EleutherAI's flagship large-scale autoregressive LLM training framework (GPT-NeoX-20B lineage), the org's core training codebase.",
+      "stars": 7461,
+      "maintenance": "pushed 2026-09-04",
+      "previous_contribution": "org has prior satellite contribution",
+      "policy": "Bug fixes: no gate — 'Unlike bug fix or improving existing feature (where users usually directly submit a PR and we review it), adding a new feature to GPT-NeoX requires several steps: (1) proposal and discussion, (2) implementation and verification, (3) release and maintenance.' New features require an issue with design + planned convergence/performance experiments before implementation. Pre-comm",
+      "policy_links": [
+        "https://github.com/EleutherAI/gpt-neox/blob/cf40e42142694e40aab158b6c81ff3f1d4fc921a/CONTRIBUTING.md",
+        "https://github.com/EleutherAI/gpt-neox/blob/cf40e42142694e40aab158b6c81ff3f1d4fc921a/README.md",
+        null
+      ],
+      "decision": "admitted",
+      "checked_at": "2026-09-24T18:04:35Z"
     }
   ],
   "issues": [],
@@ -350,23 +486,39 @@
       "url": "https://github.com/allenai/OLMo",
       "reason": "README on current main: repository out of date and no longer active; superseded by allenai/OLMo-core (queued for wave-2 admission check).",
       "ts": "2026-09-24T18:04:12+00:00"
+    },
+    {
+      "company": "LangChain",
+      "item": "langchain-ai/langchain",
+      "url": "https://github.com/langchain-ai/langchain",
+      "reason": "Policy changed since 2026-09-23 audit: ALL PRs require maintainer-approved issue AND assignment; no small-fix exception; AI-generated description warning. Unapproved PRs closed.",
+      "ts": "2026-09-24T18:07:03+00:00"
+    },
+    {
+      "company": "LangChain",
+      "item": "langchain-ai/langgraph",
+      "url": "https://github.com/langchain-ai/langgraph",
+      "reason": "Same org-wide mandatory approval+assignment gate (verbatim in PR template).",
+      "ts": "2026-09-24T18:07:03+00:00"
+    },
+    {
+      "company": "Aider",
+      "item": "Aider-AI/aider",
+      "url": "https://github.com/Aider-AI/aider",
+      "reason": "Policy friendly but repo dormant: zero pushes/merges since 2026-05-22.",
+      "ts": "2026-09-24T18:07:03+00:00"
     }
   ],
   "active": [
     {
-      "what": "Worker A: admission refresh (anthropic SDKs, tokenizers, OLMo, hermes-agent, mini-swe-agent, cline)",
-      "owner": "fable-worker-A",
-      "since": "2026-09-24T18:00:36+00:00"
+      "what": "Issue vetting: hf/tokenizers, mini-swe-agent, anthropic-sdk-python",
+      "owner": "fable-worker",
+      "since": "2026-09-24T18:07:03+00:00"
     },
     {
-      "what": "Worker B: admission refresh (mcp ts-sdk, aider, langchain, langgraph, faiss, markitdown, agent-framework, gpt-neox)",
-      "owner": "fable-worker-B",
-      "since": "2026-09-24T18:00:36+00:00"
-    },
-    {
-      "what": "Coordinator: new-org discovery + policy spot checks",
-      "owner": "coordinator",
-      "since": "2026-09-24T18:00:36+00:00"
+      "what": "Wave-2 admission: OLMo-core, semantic-kernel, langextract, optax, mcp/registry, software-agent-sdk, prime-rl, ShinkaEvolve, trl, NeMo-Speech",
+      "owner": "fable-worker",
+      "since": "2026-09-24T18:07:03+00:00"
     }
   ],
   "updates": [
@@ -382,6 +534,11 @@
     {
       "ts": "2026-09-24T18:04:12+00:00",
       "text": "Admission batch A complete: anthropic-sdk-python, anthropic-sdk-typescript (both scoped to hand-written lib/ code), huggingface/tokenizers, NousResearch/hermes-agent, SWE-agent/mini-swe-agent admitted; cline/cline admitted scoped to its small-bug-fix exception; allenai/OLMo rejected (deprecated, superseded by OLMo-core). hermes-agent metrics flagged anomalous.",
+      "repo": null
+    },
+    {
+      "ts": "2026-09-24T18:07:03+00:00",
+      "text": "Admission batch B: modelcontextprotocol/typescript-sdk, facebookresearch/faiss (external PRs land via meta-codesync import), microsoft/markitdown, microsoft/agent-framework, EleutherAI/gpt-neox admitted. langchain + langgraph moved to hold (new hard approved-issue+assignment gate since the 2026-09-23 audit); aider held as dormant since 2026-05.",
       "repo": null
     }
   ]

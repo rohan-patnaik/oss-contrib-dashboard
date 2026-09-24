@@ -1,26 +1,26 @@
 {
-  "generated": "2026-09-24T21:00:11+00:00",
+  "generated": "2026-09-24T21:02:36+00:00",
   "campaign": {
     "phase": "repository admission",
     "note": "Career-signal policy active (2026-09-25): every issue carries a separate career-signal grade with rationale; ONLY High/Very High issues may enter authoring or produce new PRs. Eligible-issue counts cover NEW opportunities only; totals and PR-qualified counts are shown separately. All counts truthful."
   },
   "summary": {
-    "eligible": 35,
+    "eligible": 36,
     "target": 100,
     "companies": 21,
     "repos_admitted": 28,
     "importance": {
       "low": 11,
-      "medium": 21,
+      "medium": 22,
       "high": 3
     },
-    "reproduced": 3,
+    "reproduced": 4,
     "authored": 3,
     "open_prs": 3,
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T21:00:11+00:00",
+    "last_refresh": "2026-09-24T21:02:36+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 19
   },
@@ -1366,6 +1366,42 @@
       "ownership_check": "Open, unassigned, single maintainer comment (above), no claim comments, feature-request label (mislabel: it is a config-type defect against documented usage). Not among batch-5's examined ORT issues.",
       "competing_prs": [],
       "platform_plan": "Mac ARM64 CPU: reproduce on the pip wheel with the issue's 2-line snippet (OrtArenaCfg({'initial_chunk_size_bytes': 2*1024**3}) throws). Fix: widen initial_chunk_size_bytes (and the parallel chunk fields where safe) to int64_t/size_t through allocator.h, allocator.cc from_string, bfc_arena.h/.cc, and the pybind casts at onnxruntime_pybind_state.cc:2364/2381; C API CreateArenaCfgV2 already passes size_t values so no C API signature change. Build CPU-only wheel: ./build.sh --config Release --build_shared_lib --build_wheel --parallel (macOS ARM64 is a supported CPU build); validate with the repro plus onnxruntime/test/python/onnxruntime_test_python.py arena-cfg tests and a new >2GiB-config test (config-accepting path only; no need to actually commit 4 GiB). Public-struct/ABI note for reviewers: OrtArenaCfg is created via the opaque C API in supported flows."
+    },
+    {
+      "company": "OpenAI",
+      "repo": "openai/whisper",
+      "number": 2333,
+      "url": "https://github.com/openai/whisper/discussions/2333",
+      "title": "transcribe.py decode_with_fallback() only expects a single DecodingResult from model.decode() but it can be a list of DecodingResult",
+      "importance": "medium",
+      "importance_rationale": "Passing a natural tensor input to model.transcribe() — e.g. torchaudio.load()'s (channels, samples) stereo tensor or a (1, samples) batched tensor — crashes deep inside decode_with_fallback with AttributeError: 'list' object has no attribute 'compression_ratio', far from the actual cause. Reported 2024-09-10 and independently confirmed by two more users (2024-10-30, 2025-02-05); still crashes identically at HEAD.",
+      "career_signal": "medium",
+      "career_signal_rationale": "Genuine input-contract robustness fix at the flagship model's main inference entrypoint (the (C, N) torchaudio convention makes this a common trap), but the diagnosis is already spelled out in the thread and the defensible change is shape validation/downmix plus tests — limited ML engineering depth, so conservatively Medium rather than High.",
+      "career_assessed_at": "2026-09-24T21:00:13Z",
+      "difficulty": "low",
+      "status": "vetted",
+      "verified_at": "2026-09-24T21:00:13Z",
+      "ownership_check": "Discussion open (discussions have no assignee/label mechanics). Commenter noahvandal said 'A PR could be made' on 2024-10-30 but never opened one (verified via PR search); ~23 months stale, no active claim. No maintainer response in thread.",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64 CPU (or Linux CPU container): venv + pip install -e local whisper clone + torch CPU wheel; download tiny model (~39MB, allowed). Failing repro: model.transcribe(torch.zeros(2, 16000)) and model.transcribe(torch.zeros(1, 16000)) → AttributeError at transcribe.py:206. Write regression test alongside existing tests/test_transcribe.py (which already runs tiny on CPU) asserting either a clear ValueError naming the expected shape or correct mono-downmix output; verify unchanged behavior for str path, 1-D np.ndarray, and 1-D tensor inputs."
+    },
+    {
+      "company": "OpenAI",
+      "repo": "openai/whisper",
+      "number": 2693,
+      "url": "https://github.com/openai/whisper/discussions/2693",
+      "title": "Apple Silicon MPS NaN error (medium/large models crash with NaN logits)",
+      "importance": "medium",
+      "importance_rationale": "On Apple Silicon with --device mps and default fp16=True, medium/large models crash after minutes with 'Expected parameter logits ... found invalid values: tensor([[nan, ...]], device=mps:0)'; turbo and base complete fine. Reproduced by a second user on whisper 20250625/PyTorch 2.12.1 (2026-06-30 comment). Breaks the biggest models for all MPS users unless they know to pass fp16=False.",
+      "career_signal": "medium",
+      "career_signal_rationale": "Inference-reliability work on a flagship speech model sounds strong, but without a local reproduction the defensible contribution is a speculative NaN guard around an upstream PyTorch MPS fp16 issue — conservatively Medium; would rise to High only with a real reproduction plus a measured, tested fallback path.",
+      "career_assessed_at": "2026-09-24T21:00:13Z",
+      "difficulty": "high",
+      "status": "hold",
+      "verified_at": "2026-09-24T21:00:13Z",
+      "ownership_check": "Discussion open since 2025-11-21, no maintainer response; second reporter janngobble (2026-06-30) said 'More info to come' but filed nothing since (verified via PR search).",
+      "competing_prs": [],
+      "platform_plan": "HOLD. Would require medium model (~1.4GB) on this Mac's MPS to reproduce the NaN, exceeding the tiny/base allowance; a NaN-guard unit test could run CPU-only with synthetic NaN logits, but shipping a mitigation without reproducing the real failure is not defensible."
     }
   ],
   "holds": [
@@ -1633,6 +1669,10 @@
       "ts": "2026-09-24T20:59:25+00:00",
       "text": "THIRD PR PUBLISHED (first Very High): aaif-goose/goose PR #12499 — thinking-only provider turns now recover per the maintainer-agreed design instead of silently ending the agent turn (issue #11975, Ready board). Independent review APPROVE (4 adversarial probes, e2e byte-identical across both engines); career gate passed (very_high); competition re-check clean at 20:58Z.",
       "repo": "aaif-goose/goose"
+    },
+    {
+      "ts": "2026-09-24T21:02:36+00:00",
+      "text": "Whisper (Discussions-sourced) vetted: 1 eligible (#2333 batched-audio decode crash, medium/medium — below PR gate), 1 hold (#2693 MPS fp16 NaN: upstream PyTorch, not reproducible within small-model limits), 30 rejections — every strong bug has a live competing PR (all 4 shortlist standouts contested; 2 leads empirically disconfirmed on this Mac). Zero PR-qualified at OpenAI despite Very High fit; repo stays on re-scan rotation."
     }
   ],
   "companies": [

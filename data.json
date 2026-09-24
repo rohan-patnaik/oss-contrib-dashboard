@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-24T18:41:42+00:00",
+  "generated": "2026-09-24T18:53:01+00:00",
   "campaign": {
     "phase": "repository admission",
     "note": "Bootstrap complete. Contribution baseline refreshed; repository admission and issue research beginning. Eligible-issue counts cover NEW opportunities only; 26 previously contributed external repositories are excluded and tracked separately. All counts are truthful current values, not projections."
@@ -7,8 +7,8 @@
   "summary": {
     "eligible": 5,
     "target": 100,
-    "companies": 17,
-    "repos_admitted": 19,
+    "companies": 20,
+    "repos_admitted": 27,
     "importance": {
       "low": 2,
       "medium": 3,
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T18:41:42+00:00",
+    "last_refresh": "2026-09-24T18:53:01+00:00",
     "excluded_prior_repos": 26
   },
   "repos": [
@@ -500,6 +500,209 @@
       ],
       "decision": "rejected",
       "checked_at": "2026-09-24T18:20:30+00:00"
+    },
+    {
+      "company": "Google (Keras team; stewardship evidence: CONTRIBUTING requires the `cla/google` Contributor License Agreement check; PR-policy issue #23601 authored by Google Keras lead divyashreepathihalli; keras-team org, keras.io)",
+      "repo": "keras-team/keras",
+      "url": "https://github.com/keras-team/keras",
+      "relevance": "Google-stewarded flagship deep-learning API library; extremely high visibility ML target.",
+      "stars": 64336,
+      "maintenance": "pushed 2026-09-24",
+      "previous_contribution": "none",
+      "policy": "Hard assignment gate: PR template requires 'This PR is linked to an issue that has been assigned to me'; PRs without a linked assigned issue are converted to draft; max 3 PRs ready for review per contributor; stale-close after 7+7 days. No small-fix exception stated. AI policy: AI-assisted contributions allowed with mandatory disclosure ('If you used an AI coding agent in any capacity in the proce",
+      "policy_links": [
+        "https://github.com/keras-team/keras/blob/master/CONTRIBUTING.md",
+        "https://github.com/keras-team/keras/blob/master/README.md",
+        "https://github.com/keras-team/keras/blob/master/.github/PULL_REQUEST_TEMPLATE.md"
+      ],
+      "decision": "hold",
+      "checked_at": "2026-09-24T18:49:49Z"
+    },
+    {
+      "company": "Microsoft",
+      "repo": "microsoft/onnxruntime",
+      "url": "https://github.com/microsoft/onnxruntime",
+      "relevance": "Microsoft's cross-platform ONNX inference/training engine; core mainstream ML infrastructure.",
+      "stars": 21927,
+      "maintenance": "pushed 2026-09-24",
+      "previous_contribution": "none",
+      "policy": "Small-fix exception is explicit: 'If your change is non-trivial or introduces new public facing APIs ... discuss it with the team and get consensus on the basic design and direction first. For all other changes, you can directly create a pull request (PR) and we'll be happy to take a look.' New public APIs require issue + API review before merging. AI policy: No prohibition. AGENTS.md is affirmati",
+      "policy_links": [
+        "https://github.com/microsoft/onnxruntime/blob/main/CONTRIBUTING.md",
+        "https://github.com/microsoft/onnxruntime/blob/main/AGENTS.md",
+        "https://github.com/microsoft/onnxruntime/blob/main/.github/pull_request_template.md"
+      ],
+      "decision": "admitted",
+      "checked_at": "2026-09-24T18:49:49Z"
+    },
+    {
+      "company": "Linux Foundation AI & Data (Microsoft-originated; ownership evidence: GOVERNANCE.md is an LF Projects TSC charter — 'the primary communication contact between the Project and AI & Data, a directed fund of The Linux Foundation' and 'This Charter is subject to the Series Agreement for the Project and the Operating Agreement of LF Projects'; README community meeting hosted on zoom-lfx.platform.linuxfoundation.org; repo moved from microsoft/DeepSpeed to the deepspeedai org; CONTRIBUTING still references the Microsoft Open Source Code of Conduct)",
+      "repo": "deepspeedai/DeepSpeed",
+      "url": "https://github.com/deepspeedai/DeepSpeed",
+      "relevance": "Flagship distributed-training/inference optimization library used across the LLM training ecosystem.",
+      "stars": 43157,
+      "maintenance": "pushed 2026-09-24",
+      "previous_contribution": "none",
+      "policy": "Small-fix exception explicit: 'Unlike bug fix or improving existing feature (where users usually directly submit a PR and we review it), adding a new feature to DeepSpeed requires several steps: (1) proposal and discussion...'. New features need a proposal issue with experimental evidence. AI policy: No prohibition. AGENTS.md/CLAUDE.md is written for AI coding agents ('AGENTS.md — Workspace-level ",
+      "policy_links": [
+        "https://github.com/deepspeedai/DeepSpeed/blob/master/CONTRIBUTING.md",
+        "https://github.com/deepspeedai/DeepSpeed/blob/master/AGENTS.md",
+        "https://github.com/deepspeedai/DeepSpeed/blob/master/GOVERNANCE.md"
+      ],
+      "decision": "admitted",
+      "checked_at": "2026-09-24T18:49:49Z"
+    },
+    {
+      "company": "Meta / PyTorch Foundation",
+      "repo": "pytorch/vision",
+      "url": "https://github.com/pytorch/vision",
+      "relevance": "Canonical PyTorch computer-vision datasets/models/transforms library.",
+      "stars": 17926,
+      "maintenance": "pushed 2026-09-24",
+      "previous_contribution": "none",
+      "policy": "Bug fixes: 'please pick one from the list of open issues labelled as help wanted / comment on the issue that you want to work on this issue / send a PR with your fix'. New features require prior issue discussion. Small-fix exception for docs: 'If you find a typo in the documentation, do not hesitate to submit a GitHub pull request.' AI policy: CRITICAL CHECK RESULT: the pytorch org AI policy does ",
+      "policy_links": [
+        "https://github.com/pytorch/vision/blob/main/CONTRIBUTING.md",
+        "https://github.com/pytorch/vision/blob/main/CONTRIBUTING_MODELS.md",
+        "https://github.com/pytorch/vision/blob/main/.github/PULL_REQUEST_TEMPLATE.md"
+      ],
+      "decision": "hold",
+      "checked_at": "2026-09-24T18:49:49Z"
+    },
+    {
+      "company": "Meta",
+      "repo": "meta-pytorch/botorch",
+      "url": "https://github.com/meta-pytorch/botorch",
+      "relevance": "Meta's Bayesian-optimization library on PyTorch; respected research-infra target.",
+      "stars": 3601,
+      "maintenance": "pushed 2026-09-23",
+      "previous_contribution": "org has prior satellite contribution (torchft)",
+      "policy": "Standard fork-and-PR flow; new-feature contributors must commit to ~1 year of maintenance support ('expect a resolution of the issues within 90 days'); no issue-assignment gate; no AI-specific gate. No AGENTS.md/CLAUDE.md/AI policy exists. AI policy: None found — no AI/agent/LLM language in CONTRIBUTING.md, PR template, or repo root.",
+      "policy_links": [
+        "https://github.com/meta-pytorch/botorch/blob/main/CONTRIBUTING.md",
+        "https://github.com/meta-pytorch/botorch/blob/main/.github/PULL_REQUEST_TEMPLATE.md"
+      ],
+      "decision": "admitted",
+      "checked_at": "2026-09-24T18:49:49Z"
+    },
+    {
+      "company": "NVIDIA",
+      "repo": "NVIDIA-NeMo/Curator",
+      "url": "https://github.com/NVIDIA-NeMo/Curator",
+      "relevance": "NVIDIA's data-curation pipeline library for LLM training data; growing NeMo-ecosystem repo.",
+      "stars": 1780,
+      "maintenance": "pushed 2026-09-23",
+      "previous_contribution": "none",
+      "policy": "Claim-by-comment gate: 'Comment on the issue to claim it before you start work'; non-trivial features: 'Open a Discussion or a draft Issue describing the design first'. Small-fix exception explicit: 'Good starter areas if no labeled issue catches your eye: docs typos and clarifications, missing docstrings, additional unit-test coverage, and small isolated Python-stage fixes.' Commits must be both ",
+      "policy_links": [
+        "https://github.com/NVIDIA-NeMo/Curator/blob/main/CONTRIBUTING.md",
+        "https://github.com/NVIDIA-NeMo/Curator/blob/main/AGENTS.md",
+        "https://github.com/NVIDIA-NeMo/Curator/blob/main/.github/PULL_REQUEST_TEMPLATE.md"
+      ],
+      "decision": "admitted",
+      "checked_at": "2026-09-24T18:49:49Z"
+    },
+    {
+      "company": "NVIDIA",
+      "repo": "NVIDIA-NeMo/RL",
+      "url": "https://github.com/NVIDIA-NeMo/RL",
+      "relevance": "NVIDIA's post-training/RLHF framework (GRPO/DPO/SFT) — highly current LLM-training infra.",
+      "stars": 2031,
+      "maintenance": "pushed 2026-09-24",
+      "previous_contribution": "none",
+      "policy": "DCO hard gate: 'Any contribution which contains commits that are not Signed-Off will not be accepted.' CI on external PRs requires an NVIDIA developer to comment '/ok to test <commit-sha>'. New key features must include design documentation. No explicit small-fix exception, but no issue-assignment requirement either. AI policy: No prohibition. AGENTS.md is agent-enabling and even mandates a skills",
+      "policy_links": [
+        "https://github.com/NVIDIA-NeMo/RL/blob/main/CONTRIBUTING.md",
+        "https://github.com/NVIDIA-NeMo/RL/blob/main/AGENTS.md",
+        "https://github.com/NVIDIA-NeMo/RL/blob/main/.github/PULL_REQUEST_TEMPLATE.md"
+      ],
+      "decision": "admitted",
+      "checked_at": "2026-09-24T18:49:49Z"
+    },
+    {
+      "company": "Hugging Face",
+      "repo": "huggingface/diffusers",
+      "url": "https://github.com/huggingface/diffusers",
+      "relevance": "Hugging Face's flagship diffusion-models library; premier generative-AI target with explicit agent onboarding.",
+      "stars": 34598,
+      "maintenance": "pushed 2026-09-24",
+      "previous_contribution": "none",
+      "policy": "For AI-assisted work, a maintainer-acknowledgment gate: 'Coordinate before opening a PR. Find or open an issue, review similar PRs (open and recently closed), and wait for an explicit acknowledgment from a maintainer on that issue before opening a PR.' PR description must include the coordination link, test commands+results, and self-review notes. 'PRs that do not follow these guidelines may be cl",
+      "policy_links": [
+        "https://github.com/huggingface/diffusers/blob/main/docs/source/en/conceptual/contribution.md",
+        "https://github.com/huggingface/diffusers/blob/main/.ai/AGENTS.md",
+        "https://github.com/huggingface/diffusers/blob/main/.github/PULL_REQUEST_TEMPLATE.md"
+      ],
+      "decision": "admitted",
+      "checked_at": "2026-09-24T18:49:49Z"
+    },
+    {
+      "company": "Hugging Face",
+      "repo": "huggingface/lerobot",
+      "url": "https://github.com/huggingface/lerobot",
+      "relevance": "Hugging Face's real-world robotics/embodied-AI library, a fast-growing high-visibility project.",
+      "stars": 27759,
+      "maintenance": "pushed 2026-09-24",
+      "previous_contribution": "none",
+      "policy": "PR checklist includes a reciprocal-review gate: 'Community Review: I have reviewed another contributor's open PR and linked it here'. No issue-assignment requirement; no CLA/DCO. AI policy: Pro-AI with disclosure, no first-timer ban. CRITICAL CHECK RESULT: no trl-style 'no fully AI-generated PRs from first-time contributors' clause. Key sentences: 'Please disclose significant AI assistance. If you",
+      "policy_links": [
+        "https://github.com/huggingface/lerobot/blob/main/CONTRIBUTING.md",
+        "https://github.com/huggingface/lerobot/blob/main/AI_POLICY.md",
+        "https://github.com/huggingface/lerobot/blob/main/AGENTS.md"
+      ],
+      "decision": "admitted",
+      "checked_at": "2026-09-24T18:49:49Z"
+    },
+    {
+      "company": "ggml (org: ggml-org; project ggml/llama.cpp)",
+      "repo": "ggml-org/llama.cpp",
+      "url": "https://github.com/ggml-org/llama.cpp",
+      "relevance": "The dominant local-LLM inference engine; policy-incompatible with agent-driven contribution despite high external merge rates.",
+      "stars": 129429,
+      "maintenance": "pushed 2026-09-24",
+      "previous_contribution": "none",
+      "policy": "Features must begin with an issue; bug-fix PRs must include a reproducible issue and a regression test; new contributors limited to 1 open PR and told 'Do not submit trivial fixes (e.g. typos, formatting changes)' — the opposite of a small-fix exception. AI policy: Decisive prohibitions. CONTRIBUTING.md: 'AI-generated code is allowed. You are 100% responsible for every line, however it was produce",
+      "policy_links": [
+        "https://github.com/ggml-org/llama.cpp/blob/master/CONTRIBUTING.md",
+        "https://github.com/ggml-org/llama.cpp/blob/master/AGENTS.md",
+        "https://github.com/ggml-org/llama.cpp/blob/master/CLAUDE.md"
+      ],
+      "decision": "rejected",
+      "checked_at": "2026-09-24T18:49:49Z"
+    },
+    {
+      "company": "Ollama",
+      "repo": "ollama/ollama",
+      "url": "https://github.com/ollama/ollama",
+      "relevance": "The most popular local-model runner (181k stars); huge visibility but company-controlled merge stream.",
+      "stars": 181619,
+      "maintenance": "pushed 2026-09-24",
+      "previous_contribution": "none",
+      "policy": "Small-fix exception explicit: non-trivial means 'a change that is not a bug fix or small documentation update'; 'Before opening a non-trivial Pull Request, please open an issue to discuss the change and get feedback from the maintainers.' Ideal issues are bugs/performance/security; new features, refactoring, and large docs flagged as 'harder to review'; API-breaking or high-maintenance changes 'ma",
+      "policy_links": [
+        "https://github.com/ollama/ollama/blob/main/CONTRIBUTING.md",
+        "https://github.com/ollama/ollama/blob/main/AGENTS.md",
+        "https://github.com/ollama/ollama/blob/main/CLAUDE.md"
+      ],
+      "decision": "hold",
+      "checked_at": "2026-09-24T18:49:49Z"
+    },
+    {
+      "company": "goose / aaif-goose org (Block-originated 'goose ai agent platform'; governance per GOVERNANCE.md: lightweight technical governance with Maintainers and a core team, no CLA)",
+      "repo": "aaif-goose/goose",
+      "url": "https://github.com/aaif-goose/goose",
+      "relevance": "Flagship open-source AI-agent platform; ideologically aligned venue for disclosed agent-assisted contributions.",
+      "stars": 54614,
+      "maintenance": "pushed 2026-09-24",
+      "previous_contribution": "none",
+      "policy": "Hard Ready-issue gate: 'Do not begin implementation or open a pull request until the issue has reached Ready on the Goose Issues board.' and 'Pull requests that do not implement a Ready issue will be closed. Automated dependency and release pull requests, urgent security fixes, and work explicitly directed by the core team are exempt.' PR template: 'PRs without a linked issue or an issue in the wr",
+      "policy_links": [
+        "https://github.com/aaif-goose/goose/blob/main/CONTRIBUTING.md",
+        "https://github.com/aaif-goose/goose/blob/main/AGENTS.md",
+        "https://github.com/aaif-goose/goose/blob/main/GOVERNANCE.md"
+      ],
+      "decision": "admitted",
+      "checked_at": "2026-09-24T18:49:49Z"
     }
   ],
   "issues": [
@@ -684,6 +887,34 @@
       "url": "https://github.com/huggingface/trl",
       "reason": "REJECTED: CONTRIBUTING states 'we will not review fully AI-generated PRs from first-time contributors' — decisive for this campaign.",
       "ts": "2026-09-24T18:20:30+00:00"
+    },
+    {
+      "company": "ggml/llama.cpp",
+      "item": "ggml-org/llama.cpp",
+      "url": "https://github.com/ggml-org/llama.cpp",
+      "reason": "REJECTED: explicit prohibitions — automated PR submissions may result in contributor ban; AI-written posts strictly prohibited; fully autonomous agents told not to contribute.",
+      "ts": "2026-09-24T18:53:01+00:00"
+    },
+    {
+      "company": "Google/DeepMind",
+      "item": "keras-team/keras",
+      "url": "https://github.com/keras-team/keras",
+      "reason": "PR template mandates 'I am a human, and not a bot' declaration + issue-assignment gate; Zero-Review Agent PRs explicitly unacceptable.",
+      "ts": "2026-09-24T18:53:01+00:00"
+    },
+    {
+      "company": "Ollama",
+      "item": "ollama/ollama",
+      "url": "https://github.com/ollama/ollama",
+      "reason": "No policy bar, but 0/30 recent merges from genuine outsiders — external PRs unlikely to be reviewed.",
+      "ts": "2026-09-24T18:53:01+00:00"
+    },
+    {
+      "company": "Meta/PyTorch",
+      "item": "pytorch/vision",
+      "url": "https://github.com/pytorch/vision",
+      "reason": "No AI ban (pytorch/pytorch AI_POLICY is repo-scoped), but ~2/30 external merges and bug fixes gated to help-wanted issues.",
+      "ts": "2026-09-24T18:53:01+00:00"
     }
   ],
   "active": [
@@ -749,6 +980,11 @@
       "ts": "2026-09-24T18:41:42+00:00",
       "text": "Implementation started on markitdown#1247 (competition re-check first, local-only authoring, independent Fable review before any PR). Wave-3 admission running on 12 larger AI-infra repos.",
       "repo": "microsoft/markitdown"
+    },
+    {
+      "ts": "2026-09-24T18:53:01+00:00",
+      "text": "Wave-3 admission: onnxruntime, DeepSpeed (LF-governed, verified; 27/30 community merges), botorch, NeMo Curator + RL, diffusers ('AI agents are welcome', maintainer-ack gate), lerobot (pro-AI policy), goose (Ready-board gate, agent-friendly) admitted. llama.cpp rejected (explicit agent prohibition); keras, ollama, pytorch/vision held.",
+      "repo": null
     }
   ]
 }

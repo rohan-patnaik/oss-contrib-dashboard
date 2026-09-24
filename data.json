@@ -1,28 +1,28 @@
 {
-  "generated": "2026-09-24T21:23:59+00:00",
+  "generated": "2026-09-24T21:39:34+00:00",
   "campaign": {
     "phase": "research-only (find + validate); implementation handed to separate thread",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
   },
   "summary": {
-    "eligible": 36,
+    "eligible": 38,
     "target": 100,
     "companies": 21,
     "repos_admitted": 28,
     "importance": {
       "low": 11,
-      "medium": 22,
+      "medium": 24,
       "high": 3
     },
-    "reproduced": 3,
+    "reproduced": 5,
     "authored": 4,
     "open_prs": 3,
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T21:23:59+00:00",
+    "last_refresh": "2026-09-24T21:39:34+00:00",
     "excluded_prior_repos": 26,
-    "pr_qualified": 19
+    "pr_qualified": 21
   },
   "repos": [
     {
@@ -1404,6 +1404,45 @@
       "ownership_check": "Discussion open since 2025-11-21, no maintainer response; second reporter janngobble (2026-06-30) said 'More info to come' but filed nothing since (verified via PR search).",
       "competing_prs": [],
       "platform_plan": "HOLD. Would require medium model (~1.4GB) on this Mac's MPS to reproduce the NaN, exceeding the tiny/base allowance; a NaN-guard unit test could run CPU-only with synthetic NaN logits, but shipping a mitigation without reproducing the real failure is not defensible."
+    },
+    {
+      "company": "Nous",
+      "repo": "NousResearch/hermes-agent",
+      "number": 80055,
+      "url": "https://github.com/NousResearch/hermes-agent/issues/80055",
+      "title": "fix(whatsapp): Cloud quoted-reply text lost when quote was never rich-indexed",
+      "importance": "medium",
+      "importance_rationale": "Quoted context is correctness-sensitive for the agent: short replies ('yes', 'send it') are ambiguous without their referent, so a Cloud quote of any message that predates the local index, arrived via a non-indexed path, or was evicted (store cap 1000 entries across ALL chats) reaches the agent with a dangling reply_to_message_id and ZERO indication a referent exists - the agent can act on the wrong message. Maintainer-labeled P2; sibling report #74380 (Baileys) shows the class recurs across backends.",
+      "career_signal": "high",
+      "career_signal_rationale": "Correctness of the conversational context an agent consumes on a first-class messaging surface of an established, very widely used agent platform: the fix requires reasoning about a durable cross-restart state store (eviction policy, per-chat fairness), an adapter/platform contract, and graceful degradation semantics, with a real 'agent acts on the wrong message' failure mode - concrete, defensible integration-correctness work, not cosmetic.",
+      "career_assessed_at": "2026-09-24T21:36:24Z",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-24T21:36:24Z",
+      "ownership_check": "Reporter andrexibiza (CONTRIBUTOR, filed 2026-08-06 as part of WhatsApp epic #79890 'wave-3 validation lane') has NOT claimed it and has filed no related PR in the 7 weeks since (their 20 recent PRs checked at 2026-09-24T21:31Z: all desktop-refactor/kanban/voice, none touch whatsapp). No claim comments; only comment is teknium1's leave-open triage.",
+      "competing_prs": [
+        "https://github.com/NousResearch/hermes-agent/pull/116817",
+        "https://github.com/NousResearch/hermes-agent/pull/119095"
+      ],
+      "platform_plan": "Pure-Python gateway code, no platform credentials needed for tests. macOS ARM64: uv venv && uv pip install -e . (or repo's documented dev install); pytest tests/gateway/test_whatsapp_cloud.py tests/gateway/test_whatsapp_reply_prefix.py -x. Reproduce with a webhook-payload fixture whose context.id references a wamid absent from rich_sent_index.json: MessageEvent carries reply_to_message_id with reply_to_text=None, and _prepend_inbound_reply_context emits no pointer (assert on message_text)."
+    },
+    {
+      "company": "Nous",
+      "repo": "NousResearch/hermes-agent",
+      "number": 88042,
+      "url": "https://github.com/NousResearch/hermes-agent/issues/88042",
+      "title": "MCP tool results bypass compression's per-tool summarizers — no size cap, no cross-turn dedup",
+      "importance": "medium",
+      "importance_rationale": "Every mcp__*-prefixed tool result that ages out of the protected tail is collapsed by the generic fallback to a one-line stub with ZERO retrievable content ('[tool] arg=... (N chars result)'), while built-in tools get informative summarizers. For MCP servers returning document/search payloads this creates a measured duplicate-fetch loop: the model re-issues identical calls to recover content compression just destroyed, repeatedly re-tripping compression - degrades every MCP-heavy session (MCP is a headline feature of the platform).",
+      "career_signal": "high",
+      "career_signal_rationale": "Context-compression correctness on the core agent execution path of a major agent platform: designing what a generic MCP-result summarizer must preserve (bounded excerpt vs byte-count stub) directly determines whether the agent can keep working after compaction, with a measurable duplicate-fetch/token-cost regression story - transferable agent-memory/context-engineering work an interviewer can probe.",
+      "career_assessed_at": "2026-09-24T21:36:24Z",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-24T21:36:24Z",
+      "ownership_check": "Reporter elchic00 (assoc NONE), detailed report with real-session evidence; zero comments, zero claims, unassigned for 5+ weeks.",
+      "competing_prs": [],
+      "platform_plan": "Pure Python, fully CPU-testable on macOS ARM64: pytest tests/agent/test_summarize_tool_result_type_safety.py tests/agent/test_context_compressor.py -x. Reproduce in a unit test: call _summarize_tool_result('mcp__docs__fetch', '{\"uri\": \"...\"}', '<40KB payload>') at HEAD and assert the returned summary contains none of the payload (current behavior), then assert the fixed behavior preserves a bounded excerpt."
     }
   ],
   "holds": [
@@ -1679,6 +1718,10 @@
     {
       "ts": "2026-09-24T21:23:59+00:00",
       "text": "MODE CHANGE (user): Fable thread is now find-and-validate only; implementation moves to a separate GPT 5.6 Sol thread when the user signals. jobs/IMPLEMENTATION-HANDOFF.md created: global rules (attribution, gates, DCO/CLA, review flow) + 17 queued entries with minimal-fix sketches. whisper Discussion #2333 granted a user-authorized gate exception (OpenAI PR on the board via the implementation thread). Stopped-mid-session author work preserved: OpenHands#5307 commit 5112c9f complete with test logs; NeMo-Speech#16083 mid-work edits intact. Two vetting workers relaunched in max-find mode with mandatory fix_approach output."
+    },
+    {
+      "ts": "2026-09-24T21:39:33+00:00",
+      "text": "Batch-10: +2 eligible, both HIGH (hermes-agent #80055 quoted-reply data loss — maintainer-acknowledged open gap; #88042 MCP tool results collapse to byte-count stubs in context compression). Goose Ready board frozen (identical 19 items), inspect_ai still fully contested (new accepted issue was claimed at +1 minute), Curator older backlog exhausted. 20 rejections documented."
     }
   ],
   "companies": [

@@ -1,18 +1,18 @@
 {
-  "generated": "2026-09-24T21:39:34+00:00",
+  "generated": "2026-09-24T21:45:32+00:00",
   "campaign": {
     "phase": "research-only (find + validate); implementation handed to separate thread",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
   },
   "summary": {
-    "eligible": 38,
+    "eligible": 42,
     "target": 100,
     "companies": 21,
     "repos_admitted": 28,
     "importance": {
       "low": 11,
-      "medium": 24,
-      "high": 3
+      "medium": 27,
+      "high": 4
     },
     "reproduced": 5,
     "authored": 4,
@@ -20,9 +20,9 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T21:39:34+00:00",
+    "last_refresh": "2026-09-24T21:45:32+00:00",
     "excluded_prior_repos": 26,
-    "pr_qualified": 21
+    "pr_qualified": 24
   },
   "repos": [
     {
@@ -1443,6 +1443,78 @@
       "ownership_check": "Reporter elchic00 (assoc NONE), detailed report with real-session evidence; zero comments, zero claims, unassigned for 5+ weeks.",
       "competing_prs": [],
       "platform_plan": "Pure Python, fully CPU-testable on macOS ARM64: pytest tests/agent/test_summarize_tool_result_type_safety.py tests/agent/test_context_compressor.py -x. Reproduce in a unit test: call _summarize_tool_result('mcp__docs__fetch', '{\"uri\": \"...\"}', '<40KB payload>') at HEAD and assert the returned summary contains none of the payload (current behavior), then assert the fixed behavior preserves a bounded excerpt."
+    },
+    {
+      "company": "Microsoft AI / DeepSpeed (LF)",
+      "repo": "deepspeedai/DeepSpeed",
+      "number": 6699,
+      "url": "https://github.com/deepspeedai/DeepSpeed/issues/6699",
+      "title": "How could I convert ZeRO-0 deepspeed weights into fp32 model checkpoint?",
+      "importance": "medium",
+      "importance_rationale": "zero_to_fp32.py is the official tool for recovering fp32 weights from DeepSpeed checkpoints, but any ZeRO stage-0 + bf16 run (the default accelerate 'zero_stage: 0' + bf16 path, which uses BF16_Optimizer and writes bf16_zero_pp_rank_*_optim_states.pt shards) hard-fails with ValueError \"is not a zero checkpoint\". Users of HF diffusers/accelerate multi-node training cannot recover fp32 master weights with the supported tool; duplicate of long-standing closed #3210 that was never fixed.",
+      "career_signal": "high",
+      "career_signal_rationale": "Extending DeepSpeed's official checkpoint-conversion tool to the BF16_Optimizer/stage-0 shard layout requires understanding the partitioned fp32 master-weight format (SINGLE_PARTITION_OF_FP32_GROUPS flat partitions, GROUP_PADDINGS, PARAM_SLICE_MAPPINGS) and reconstructing full fp32 weights across DP ranks - concrete, interview-defensible checkpoint-tooling work in a major training framework.",
+      "career_assessed_at": "2026-09-24T21:45:00Z",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-24T21:39:05Z",
+      "ownership_check": "Open, unassigned, 'enhancement' label, ZERO comments since creation 2024-11-01 (22.8 months). No claim, no maintainer plan.",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64 / Linux CPU: DS_ACCELERATOR=cpu, single rank gloo. deepspeed.initialize(model=tiny 2-layer MLP, config={'train_micro_batch_size_per_gpu':1, 'bf16':{'enabled':true}, 'zero_optimization':{'stage':0}, optimizer adamw}) -> engine.save_checkpoint('/tmp/ck') writes bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt; python deepspeed/utils/zero_to_fp32.py /tmp/ck /tmp/out reproduces the ValueError on HEAD. After fix, assert returned fp32 state_dict allclose to the model's fp32 master weights. Fully CPU."
+    },
+    {
+      "company": "Microsoft AI / DeepSpeed (LF)",
+      "repo": "deepspeedai/DeepSpeed",
+      "number": 6969,
+      "url": "https://github.com/deepspeedai/DeepSpeed/issues/6969",
+      "title": "[BUG] the input variables may be changed to scalars when use activation checkpoint",
+      "importance": "medium",
+      "importance_rationale": "With partition_activations or cpu_checkpointing enabled, deepspeed.checkpointing silently REPLACES every checkpointed input tensor's storage with a 0-dim empty tensor after the layer's forward. Any caller that reuses those tensors (the reporter's HunyuanVideo-style chain where rotary embeddings / masks are passed unchanged to every block - a very common transformer pattern) silently computes on corrupted inputs or crashes; torch.utils.checkpoint has no such side effect. Untriaged for 20 months but reproducible from the code alone.",
+      "career_signal": "high",
+      "career_signal_rationale": "Diagnosing silent caller-visible tensor corruption caused by a memory-optimization that frees input storage in place (aliasing + autograd identity + deliberate .data replacement) is genuine ML-systems debugging on DeepSpeed's core training path, and designing a fix that preserves the memory savings is defensible senior-level work.",
+      "career_assessed_at": "2026-09-24T21:45:00Z",
+      "difficulty": "high",
+      "status": "vetted",
+      "verified_at": "2026-09-24T21:32:38Z",
+      "ownership_check": "Open, unassigned, bug+training labels, ZERO comments since creation 2025-01-23 (20 months). No claim, no maintainer response.",
+      "competing_prs": [],
+      "platform_plan": "Pure CPU: deepspeed.init_distributed(dist_backend='gloo') single process; from deepspeed.runtime.activation_checkpointing import checkpointing; checkpointing.configure(None, partition_activations=True) (mp_size defaults to 1); build two tiny nn.Linear blocks; shared = torch.randn(4,4, requires_grad=True); out1 = checkpointing.checkpoint(block1, x, shared); assert shared.shape == (4,4) -> fails on HEAD (shared becomes 0-dim); passing shared to block2 reproduces the downstream corruption. Same repro via cpu_checkpointing=True."
+    },
+    {
+      "company": "Microsoft AI / DeepSpeed (LF)",
+      "repo": "deepspeedai/DeepSpeed",
+      "number": 7357,
+      "url": "https://github.com/deepspeedai/DeepSpeed/issues/7357",
+      "title": "[BUG] requests_grad=False would be change to \"True\" when tensor pass from the first GPU to the second (pipeline parallelism)",
+      "importance": "high",
+      "importance_rationale": "DeepSpeed's pipeline engine unconditionally marks EVERY received floating-point tensor requires_grad=True on the receiving stage, so the documented pattern of passing labels/aux float tensors through pipeline stages breaks: backward crashes with 'element N of tensors does not require grad' (this issue) or 'assert buffer.grad is not None' (#7270, which has a maintainer-requested repro repo). At least four independent user reports of the same mechanism (7357, 7270 reporter, samuelqy, mmkjj); the sender's requires_grad information is simply discarded by the p2p protocol.",
+      "career_signal": "high",
+      "career_signal_rationale": "Extending the pipeline-parallel p2p tensor-meta protocol so autograd metadata (requires_grad) survives stage boundaries is distributed-training correctness engineering in the heart of DeepSpeed's pipe engine, backed by multiple independent bug reports - strong, defensible systems-ML material.",
+      "career_assessed_at": "2026-09-24T21:45:00Z",
+      "difficulty": "high",
+      "status": "vetted",
+      "verified_at": "2026-09-24T21:39:05Z",
+      "ownership_check": "Open, unassigned, bug+training labels, ZERO comments since creation 2025-06-15 (15.3 months). No claim. Sibling #7270 (2025-05-03): maintainer tjruwase asked for a repro 2025-06-06, reporter provided repo github.com/mmkjj/deepspeed_pipeline_parallelism_issue same day, no follow-up since - no maintainer plan, no claim there either.",
+      "competing_prs": [],
+      "platform_plan": "Linux CPU container or Mac ARM64: 2-process gloo (deepspeed.init_distributed('gloo'), DS_ACCELERATOR=cpu). PipelineModule(layers=[LayerSpec(...) x4], num_stages=2) with a batch tuple (x, float_label_requires_grad_False); engine.train_batch reproduces the requires_grad flip on stage 1 and the backward failure. Lighter unit-level check (no full engine): drive _send_tensor_meta/_recv_tensor_meta + p2p send/recv between two gloo ranks and assert the received tensor preserves requires_grad=False after the fix. Pipeline p2p uses dist.send/recv which gloo supports; fp32 default (no fp16 needed)."
+    },
+    {
+      "company": "Microsoft AI / DeepSpeed (LF)",
+      "repo": "deepspeedai/DeepSpeed",
+      "number": 7442,
+      "url": "https://github.com/deepspeedai/DeepSpeed/issues/7442",
+      "title": "[REQUEST] Add support for non-__dict__ outputs such as MinkowskiEngine SparseTensor in ZeRO Stage 3",
+      "importance": "medium",
+      "importance_rationale": "ZeRO-3's post-forward hook calls vars() on any module output that is not a tensor/list/tuple/dict; outputs implemented as C-extension objects or Python classes with __slots__ (MinkowskiEngine SparseTensor, various custom containers) raise 'TypeError: vars() argument must have __dict__ attribute', hard-blocking ZeRO-3 for those model families. Maintainer loadams engaged constructively and the reporter confirmed a latest-version fix is wanted; thread has been idle 13+ months.",
+      "career_signal": "medium",
+      "career_signal_rationale": "Valid ZeRO-3 runtime robustness fix in a major framework with maintainer interest, but the defensible change is a small attribute guard plus fallback in one hook - limited ML-engineering depth, so conservatively Medium.",
+      "career_assessed_at": "2026-09-24T21:45:00Z",
+      "difficulty": "low",
+      "status": "vetted",
+      "verified_at": "2026-09-24T21:39:05Z",
+      "ownership_check": "Open, unassigned, 'enhancement' label. loadams (COLLABORATOR) triaged 2025-07-22..2025-08-05 asking whether a latest-version-only fix works; reporter RyanPham19092002 agreed 2025-08-09 ('I'm fine with trying the latest version... It would be great if you could also include the patch in the next release') - no one claimed implementation; idle 13.5 months.",
+      "competing_prs": [],
+      "platform_plan": "Pure CPU: DS_ACCELERATOR=cpu, single-rank gloo, zero stage 3 config; tiny model whose forward returns 'class SlotsOut: __slots__=(\"feats\",)' wrapping a tensor; deepspeed.initialize + one forward reproduces the TypeError at parameter_offload.py:375 on HEAD (ZeRO-3 init and hooks run fine on the CPU accelerator); after the guard, forward completes. Unit test needs no GPU, no MinkowskiEngine."
     }
   ],
   "holds": [
@@ -1722,6 +1794,10 @@
     {
       "ts": "2026-09-24T21:39:33+00:00",
       "text": "Batch-10: +2 eligible, both HIGH (hermes-agent #80055 quoted-reply data loss — maintainer-acknowledged open gap; #88042 MCP tool results collapse to byte-count stubs in context compression). Goose Ready board frozen (identical 19 items), inspect_ai still fully contested (new accepted issue was claimed at +1 minute), Curator older backlog exhausted. 20 rejections documented."
+    },
+    {
+      "ts": "2026-09-24T21:45:32+00:00",
+      "text": "Batch-9: +4 DeepSpeed (3 HIGH: #6699 zero_to_fp32 rejects ZeRO-0/BF16 checkpoints; #6969 activation checkpointing silently corrupts caller tensors; #7357 pipeline recv discards requires_grad across PP stages; +#7442 medium vars() TypeError). lerobot: 0 of 42 examined — fully saturated by competing AI-contribution campaigns; every aged dataset/config bug has 1-3 open fix PRs. DeepSpeed remains the deepest productive vein."
     }
   ],
   "companies": [

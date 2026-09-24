@@ -1,18 +1,18 @@
 {
-  "generated": "2026-09-24T20:06:22+00:00",
+  "generated": "2026-09-24T20:23:21+00:00",
   "campaign": {
     "phase": "repository admission",
     "note": "Bootstrap complete. Contribution baseline refreshed; repository admission and issue research beginning. Eligible-issue counts cover NEW opportunities only; 26 previously contributed external repositories are excluded and tracked separately. All counts are truthful current values, not projections."
   },
   "summary": {
-    "eligible": 24,
+    "eligible": 32,
     "target": 100,
     "companies": 20,
     "repos_admitted": 27,
     "importance": {
-      "low": 7,
-      "medium": 15,
-      "high": 2
+      "low": 9,
+      "medium": 20,
+      "high": 3
     },
     "reproduced": 3,
     "authored": 2,
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T20:06:22+00:00",
+    "last_refresh": "2026-09-24T20:23:21+00:00",
     "excluded_prior_repos": 26
   },
   "repos": [
@@ -1071,6 +1071,132 @@
       "ownership_check": "Open, unassigned, feature-request label. Only comments are the reporter's own label housekeeping and an FYI ping to WebNN folks (2025-07-07). No claim, no maintainer objection; note ORT's stated type-registration policy (skottmckay on #32719: types added when a production scenario requires them) - this issue documents that scenario (WebNN decomposition on CPU) and the zero-bloat bitcast argument up front.",
       "competing_prs": [],
       "platform_plan": "Mac ARM64 CPU: build from source (./build.sh --config RelWithDebInfo --build_wheel --parallel, CPU-only, no EP flags; long but pure CPU); enable the registrations via the existing bitcast/alias pattern (uint8_t kernel for int8, int32_t for uint32, as the issue and onnx#6887 outline), regenerate docs/OperatorKernels.md, add cases to onnxruntime/test/providers/cpu/tensor/where_op_test.cc; validate end-to-end with a python onnx.helper model running Where(int8)/Where(uint32) through InferenceSession on CPUExecutionProvider."
+    },
+    {
+      "company": "NVIDIA",
+      "repo": "NVIDIA-NeMo/Speech",
+      "number": 16072,
+      "url": "https://github.com/NVIDIA-NeMo/Speech/issues/16072",
+      "title": "Chunked long-audio timestamps drift monotonically (2.36 s over 1 hour) because chunk offsets are floor-divided before accumulation",
+      "importance": "medium",
+      "importance_rationale": "Word/segment timestamps on chunked long-audio transcription drift monotonically earlier (~2.4 s/hour, unbounded) for the DEFAULT FastConformer/Canary subsampling_factor=8 - silently corrupts captioning/alignment output for every long-file user with timestamps enabled.",
+      "difficulty": "low",
+      "status": "vetted",
+      "verified_at": "2026-09-24T20:05:11Z",
+      "ownership_check": "Open, unassigned, 0 comments, labels community-request/waiting-on-maintainers. Reporter udsy19's own fix PR #16074 was voluntarily withdrawn closed-unmerged 2026-09-18 ('happy to reopen and rebase if anyone wants it picked up') - explicit relinquishment, no active claim.",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64 CPU: pip install -e '.[asr]' from source (no CUDA extra; macOS install path exists). Reproduce with the issue's pure-CPU snippet (builds Hypothesis objects and calls join_char_level_timestamps; expected 43483 vs exact 43512.5). Add regression test comparing accumulated offset to sum(chunk_offsets)//subsamp; run pytest tests/collections/asr -k chunking. Gate: strict DCO (git commit -s); copy-pr-bot review-latency risk recorded."
+    },
+    {
+      "company": "NVIDIA",
+      "repo": "NVIDIA-NeMo/Speech",
+      "number": 16099,
+      "url": "https://github.com/NVIDIA-NeMo/Speech/issues/16099",
+      "title": "Frame offset is 10x too large when merging hour-long chunk hypotheses",
+      "importance": "low",
+      "importance_rationale": "start_offset/end_offset frame fields are 10x too large (uses *1000 instead of *1/window_stride=100) for audio beyond one hour in merge_hypotheses_of_same_audio - human-readable start/end seconds stay correct, but any downstream consumer of frame offsets gets garbage; only affects >1h files.",
+      "difficulty": "low",
+      "status": "vetted",
+      "verified_at": "2026-09-24T20:05:11Z",
+      "ownership_check": "Open, unassigned, 0 comments. Reporter udsy19 deliberately filed issue-only ('I am filing this as an issue rather than a PR on purpose' - because open PR #15186 deletes this function); no claim.",
+      "competing_prs": [
+        "https://github.com/NVIDIA-NeMo/Speech/pull/15186"
+      ],
+      "platform_plan": "Mac ARM64 CPU: same source install as 16072. Unit test: call merge_hypotheses_of_same_audio with two synthetic chunk hypotheses (chunk_duration_seconds=3600, subsampling_factor=8) and assert start_offset*window_stride*subsampling_factor ~= start (issue shows 450010 vs expected 45001). Fix requires threading window_stride through the signature. DCO sign-off required."
+    },
+    {
+      "company": "NVIDIA",
+      "repo": "NVIDIA-NeMo/Speech",
+      "number": 16104,
+      "url": "https://github.com/NVIDIA-NeMo/Speech/issues/16104",
+      "title": "random_segment augmentation raises TypeError: pad_width must be of integral type whenever it has to pad",
+      "importance": "medium",
+      "importance_rationale": "The documented SSL training augmentation crashes with its own class defaults (duration_sec=32.0 float) the moment padding is actually needed, and the documented recipe (docs/source/asr/ssl/configs.rst) silently does NOT pad because pad_to_duration defaults False - training pipelines either crash or silently deviate from the documented behavior.",
+      "difficulty": "low",
+      "status": "vetted",
+      "verified_at": "2026-09-24T20:05:11Z",
+      "ownership_check": "Open, unassigned, 0 comments. Reporter udsy19's fix PR #16105 withdrawn closed-unmerged 2026-09-18 with explicit relinquishment; no active claim.",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64 CPU: source install; run the issue's 6-line reproducer (AudioSegment of 5s zeros + RandomSegmentPerturbation(duration_sec=32.0, pad_to_duration=True) -> TypeError) plus the process_augmentations YAML-path variant. Fix: round pad_size to int; add regression test in tests/collections/asr for perturb. Optional docs fix for pad_to_duration default. DCO sign-off required."
+    },
+    {
+      "company": "NVIDIA",
+      "repo": "NVIDIA-NeMo/Speech",
+      "number": 16083,
+      "url": "https://github.com/NVIDIA-NeMo/Speech/issues/16083",
+      "title": "Phoneme dictionary entries above U+00FF are dropped silently; ACCENTED_CHARS excludes 51 of 93 declared Vietnamese graphemes",
+      "importance": "high",
+      "importance_rationale": "Whole-language silent failure in TTS text processing: every Latin letter above U+00FF (Vietnamese Dj/O-horn/U-horn and 51/93 of the repo's own declared vi-VN graphemes, French oe-ligature, German capital eszett) is treated as punctuation - words split apart, lexicon lines silently discarded at load with no log/counter, and the only symptom is mispronunciation much later. Silent data loss contradicting the project's own GRAPHEME_CHARACTER_SETS.",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-24T20:05:11Z",
+      "ownership_check": "Open, unassigned, 0 comments. Reporter udsy19's fix PR #16084 withdrawn closed-unmerged 2026-09-18; no active claim.",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64 CPU: source install; run the issue's pure-Python reproducer (any_locale_word_tokenize on 'coeur'-with-ligature/'Viet'-accented/'STRASSE'-eszett; GRAPHEME_CHARACTER_SETS coverage check; temp lexicon file showing 5-line file parsing fewer entries). Fix: extend char ranges (e.g. Latin Extended-A/B/Additional or \\w-based Unicode classes) + warn/count dropped lexicon lines; pytest tests/collections/tts and common/tokenizers. DCO sign-off required."
+    },
+    {
+      "company": "NVIDIA",
+      "repo": "NVIDIA-NeMo/Speech",
+      "number": 16100,
+      "url": "https://github.com/NVIDIA-NeMo/Speech/issues/16100",
+      "title": "Lhotse RIR augmentation is seeded from seed instead of shard_seed, so all ranks draw identical reverberation",
+      "importance": "medium",
+      "importance_rationale": "Silent training-quality bug: every data-parallel rank applies the identical reverberation coin-flip sequence and impulse-response choices, collapsing effective RIR augmentation diversity in distributed ASR training; nothing errors, models just generalize worse than the config implies.",
+      "difficulty": "low",
+      "status": "vetted",
+      "verified_at": "2026-09-24T20:05:11Z",
+      "ownership_check": "Open, unassigned, 0 comments. Reporter udsy19's fix PR #16101 withdrawn closed-unmerged 2026-09-18; no active claim.",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64 CPU: source install + lhotse; build the sampler twice with rank-0/rank-1 env (per the issue's CPU-only snippet using lhotse DummyManifest) and assert the ReverbWithImpulseResponse RNG state differs after the fix / is identical before. pytest tests/collections/common -k lhotse dataloader seeds. DCO sign-off required."
+    },
+    {
+      "company": "NVIDIA",
+      "repo": "NVIDIA-NeMo/Speech",
+      "number": 16093,
+      "url": "https://github.com/NVIDIA-NeMo/Speech/issues/16093",
+      "title": "Corpus average_cpWER still uses the concatenation algorithm that PR #15573 replaced",
+      "importance": "medium",
+      "importance_rationale": "User-facing evaluation metric printed as 'cpWER' and written to results CSV by shipped diarization+ASR scripts/tutorial systematically under-reports relative to the per-session cpWER beside it (edits cross speaker boundaries again) - inconsistent published numbers for anyone benchmarking multispeaker ASR.",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-24T20:05:11Z",
+      "ownership_check": "Open, unassigned, 0 comments. Reporter udsy19's fix PR #16094 withdrawn closed-unmerged 2026-09-18; no active claim.",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64 CPU: source install; run the issue's CPU-only reproducer driving OfflineDiarWithASR.evaluate() with 3 synthetic CTM sessions pinned to the cross-boundary scenario from tests/collections/speaker_tasks/utils/test_cpwer.py; assert corpus average_cpWER equals the mean of per-session MeetEval cpWERs after fix. DCO sign-off required."
+    },
+    {
+      "company": "NVIDIA",
+      "repo": "NVIDIA-NeMo/Speech",
+      "number": 16089,
+      "url": "https://github.com/NVIDIA-NeMo/Speech/issues/16089",
+      "title": "Shipped SALM and beamforming configs name _target_ classes and modules that do not exist",
+      "importance": "low",
+      "importance_rationale": "Three shipped example configs (speechlm2 SALM qformer/multilayerproj, audio beamforming_flex_channels) crash in Hydra before training starts because _target_ paths point at nonexistent modules/classes - anyone starting from these examples is blocked, though the blast radius is limited to example configs.",
+      "difficulty": "low",
+      "status": "vetted",
+      "verified_at": "2026-09-24T20:05:11Z",
+      "ownership_check": "Open, unassigned, 0 comments. Reporter udsy19's fix PR #16090 withdrawn closed-unmerged 2026-09-18; no active claim.",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64 CPU: source install; no data/checkpoints needed - OmegaConf.load each yaml and Serialization.from_config_dict the modality_adapter/channel_augment nodes; assert construction succeeds after correcting paths (and class+kwargs for multilayerproj, matching tests/collections/speechlm2/test_salm_asr_decoder_multilayerproj.py:103). DCO sign-off required."
+    },
+    {
+      "company": "Nous",
+      "repo": "NousResearch/hermes-agent",
+      "number": 84667,
+      "url": "https://github.com/NousResearch/hermes-agent/issues/84667",
+      "title": "[Bug]: Skill loads via --skills but not when attached to a cron job; survives restart, rebind, new job and rename",
+      "importance": "medium",
+      "importance_rationale": "Scheduled automations silently run WITHOUT their attached skills ('skill(s)... could not be found and were skipped') while the identical skill loads via CLI - cron jobs whose behavior/guardrails depend on skills silently misbehave; maintainer-triaged P2/type-bug; multiple community investigations confirm a real cron-vs-CLI skill-resolution divergence.",
+      "difficulty": "high",
+      "status": "vetted",
+      "verified_at": "2026-09-24T20:15:18Z",
+      "ownership_check": "Open, unassigned, labels type/bug,comp/cron,tool/skills,P2,bug. No active claim: 1deat0r (2026-08-15) wrote 'for whoever picks this up'; cmyyy (2026-08-22) posted verification only. Reporter sammydeek did not tick the willing-to-PR box.",
+      "competing_prs": [
+        "https://github.com/NousResearch/hermes-agent/pull/119794",
+        "https://github.com/NousResearch/hermes-agent/pull/117143",
+        "https://github.com/NousResearch/hermes-agent/pull/119086"
+      ],
+      "platform_plan": "Mac ARM64 CPU (pure Python): editable install of hermes-agent; write a SKILL.md directly to the local skills dir (the reporter's distinguishing property), then A/B the two resolution paths in-process - build_preloaded_skills_prompt/_load_skill_payload with CLI-like cwd vs cron/scheduler_prompt._load_cron_skill_parts with a cron-session TERMINAL_CWD/workdir - asserting the cron path reports not-found while CLI resolves; then pin and fix the divergence with a pytest covering both surfaces. No GPU/credentials needed."
     }
   ],
   "holds": [
@@ -1311,6 +1437,10 @@
     {
       "ts": "2026-09-24T19:53:37+00:00",
       "text": "Batch-5: +8 eligible — botorch 4 (TruncatedMVN batch crash, optimize_acqf infeasible-IC rejection, fit_gpytorch_mll validation, KroneckerMultiTaskGP prior sampling; maintenance-mode SLA risk recorded), diffusers 2 (gate met with maintainer in-thread invitations), DeepSpeed 1 (#7255 ZeRO-0 grad norm never recorded — zero competition), onnxruntime 1 (#25306 CPU Where int8/uint32). 38 rejections + 6 holds documented. DeepSpeed recent queue saturation confirmed; older backlog yields."
+    },
+    {
+      "ts": "2026-09-24T20:23:21+00:00",
+      "text": "Batch-6: +8 eligible — NVIDIA-NeMo/Speech 7 (incl. HIGH #16083 phoneme-dict truncation dropping 51/93 Vietnamese graphemes; vein opened by a contributor voluntarily withdrawing ~20 unreviewed PRs on 2026-09-18, prior-art + DCO/latency risks recorded per row) and hermes-agent #84667 (cron jobs silently skip attached skills). OLMo-core and prime-rl: 0 — every strong bug already has an open fix PR; cline: 0 (up to 12 competing PRs per approved issue). 80 rejections + 13 holds documented."
     }
   ]
 }

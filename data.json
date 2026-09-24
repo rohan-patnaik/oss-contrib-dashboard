@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-24T20:59:25+00:00",
+  "generated": "2026-09-24T21:00:11+00:00",
   "campaign": {
     "phase": "repository admission",
     "note": "Career-signal policy active (2026-09-25): every issue carries a separate career-signal grade with rationale; ONLY High/Very High issues may enter authoring or produce new PRs. Eligible-issue counts cover NEW opportunities only; totals and PR-qualified counts are shown separately. All counts truthful."
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T20:59:25+00:00",
+    "last_refresh": "2026-09-24T21:00:11+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 19
   },
@@ -974,7 +974,7 @@
       "importance": "high",
       "importance_rationale": "priority:high by maintainers: with OH_CONVERSATION_RUNTIME=docker + worktree=true, the created worktree is immediately 'prunable' from the host - routine host-side git gc/worktree prune severs the conversation's working tree, risking loss of in-progress agent work and breaking the worktree feature for every docker-runtime user.",
       "difficulty": "high",
-      "status": "vetted",
+      "status": "authoring",
       "verified_at": "2026-09-24T19:05:00Z",
       "ownership_check": "Unassigned; ready-for-dev label applied by the readiness bot; only comment is the reporter's re-reproduction; no claim, no maintainer plan.",
       "competing_prs": [],
@@ -1515,6 +1515,11 @@
       "what": "Vet-8: openai/whisper Discussions-sourced vetting",
       "owner": "fable-worker",
       "since": "2026-09-24T20:59:25+00:00"
+    },
+    {
+      "what": "Authoring OpenHands#5307 (VH: docker-runtime worktree host/container namespace, work-loss risk)",
+      "owner": "fable-author",
+      "since": "2026-09-24T21:00:11+00:00"
     }
   ],
   "updates": [

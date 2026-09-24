@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-24T19:37:30+00:00",
+  "generated": "2026-09-24T19:38:01+00:00",
   "campaign": {
     "phase": "repository admission",
     "note": "Bootstrap complete. Contribution baseline refreshed; repository admission and issue research beginning. Eligible-issue counts cover NEW opportunities only; 26 previously contributed external repositories are excluded and tracked separately. All counts are truthful current values, not projections."
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T19:37:30+00:00",
+    "last_refresh": "2026-09-24T19:38:01+00:00",
     "excluded_prior_repos": 26
   },
   "repos": [
@@ -796,7 +796,7 @@
       "importance": "high",
       "importance_rationale": "The agent silently stops mid-task with no output, no log, and no retry whenever a provider returns a reasoning-only turn (no text, no tool call) - a real-world failure the reporter hit and reproduced; the sibling zero-content case (#10353) was considered worth fixing and this hole remains.",
       "difficulty": "medium",
-      "status": "vetted",
+      "status": "authoring",
       "verified_at": "2026-09-24T19:08:00Z",
       "ownership_check": "Unassigned (past maintainer assignments removed; board shows Assignees []). Reporter arohou explicitly declined 2026-09-16T17:42:59Z: 'I'm swamped so I'll have to just sit back and observe'. No other claim.",
       "competing_prs": [],
@@ -1100,6 +1100,11 @@
       "what": "Vet-5: DeepSpeed, onnxruntime, diffusers (ack-gated), botorch",
       "owner": "fable-worker",
       "since": "2026-09-24T19:37:30+00:00"
+    },
+    {
+      "what": "Authoring goose#11975 (thinking-only response silently ends turn) — local only",
+      "owner": "fable-author",
+      "since": "2026-09-24T19:38:01+00:00"
     }
   ],
   "updates": [

@@ -1,17 +1,17 @@
 {
-  "generated": "2026-09-24T18:27:40+00:00",
+  "generated": "2026-09-24T18:30:19+00:00",
   "campaign": {
     "phase": "repository admission",
     "note": "Bootstrap complete. Contribution baseline refreshed; repository admission and issue research beginning. Eligible-issue counts cover NEW opportunities only; 26 previously contributed external repositories are excluded and tracked separately. All counts are truthful current values, not projections."
   },
   "summary": {
-    "eligible": 0,
+    "eligible": 3,
     "target": 100,
     "companies": 17,
     "repos_admitted": 19,
     "importance": {
-      "low": 0,
-      "medium": 0,
+      "low": 2,
+      "medium": 1,
       "high": 0
     },
     "reproduced": 0,
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T18:27:40+00:00",
+    "last_refresh": "2026-09-24T18:30:19+00:00",
     "excluded_prior_repos": 26
   },
   "repos": [
@@ -502,7 +502,53 @@
       "checked_at": "2026-09-24T18:20:30+00:00"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "company": "MCP",
+      "repo": "modelcontextprotocol/registry",
+      "number": 1582,
+      "url": "https://github.com/modelcontextprotocol/registry/issues/1582",
+      "title": "Add RubyGems as a supported package registry type",
+      "importance": "medium",
+      "importance_rationale": "Ruby-ecosystem MCP servers cannot be listed via their native package channel; whole language ecosystem underserved.",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-24T18:27:51Z",
+      "ownership_check": "Open, unassigned, zero comments/claims. No maintainer triage yet on this issue (sibling #1102 Maven is help-wanted; analogous Go PR #1321 unreviewed since 2026-06 — review-latency risk recorded). No matching PR found as of 2026-09-24T18:26:29Z; queries: search 1582 / rubygems / ruby / gem in:title.",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64 CPU: go build ./...; go test ./internal/validators/... with mocked-HTTP validator tests; make check."
+    },
+    {
+      "company": "MCP",
+      "repo": "modelcontextprotocol/registry",
+      "number": 759,
+      "url": "https://github.com/modelcontextprotocol/registry/issues/759",
+      "title": "Use testcontainers for integration tests",
+      "importance": "low",
+      "importance_rationale": "Developer/CI experience: parallel self-contained tests replacing compose+sleep orchestration; maintainer invited a PR with benchmark conditions.",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-24T18:27:51Z",
+      "ownership_check": "Open, unassigned; stale claim by issue author 2025-11-19 (>10 months, outside 90-day window); maintainer domdomegg 2025-11-17 explicitly invited a PR with acceptance conditions. No matching PR found as of 2026-09-24T18:26:29Z; queries: search 759 / testcontainers.",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64 + Docker CPU: baseline timing of compose+sleep suite vs testcontainers-go refactor; benchmark required by maintainer; make check."
+    },
+    {
+      "company": "MCP",
+      "repo": "modelcontextprotocol/registry",
+      "number": 1656,
+      "url": "https://github.com/modelcontextprotocol/registry/issues/1656",
+      "title": "Docs: remote-only server publishing path gaps (quickstart link, optional packages, verification)",
+      "importance": "low",
+      "importance_rationale": "Every remote-only server publisher hits the same onboarding dead-end; substantive docs gap, not typo work.",
+      "difficulty": "low",
+      "status": "vetted",
+      "verified_at": "2026-09-24T18:27:51Z",
+      "ownership_check": "Open, unassigned, zero comments (created 2026-09-21). Issue headline partially overstated (remote-servers.mdx exists) — fix shape corrected to cross-link + gap notes. No matching PR found as of 2026-09-24T18:26:29Z; queries: search 1656 / remote-only.",
+      "competing_prs": [],
+      "platform_plan": "CPU-only doc edits; verify with grep against quickstart.mdx and schema files; make check."
+    }
+  ],
   "holds": [
     {
       "company": "MCP",
@@ -660,6 +706,10 @@
       "ts": "2026-09-24T18:27:40+00:00",
       "text": "optax fully vetted (all 32 open issues): 0 eligible — every unassigned correctness bug (#1754 #1771 #1784 #1789) has 1-2 open competing PRs (mostly <2 weeks old); older actionable items (#1214 #1342 #1388) also contested; remainder are feature requests/questions/assigned. Saturation pattern now confirmed across 4 vetting runs: popular AI repos' bug queues are farmed within days. mcp/registry + markitdown/ts-sdk/gpt-neox/faiss batches still running.",
       "repo": "google-deepmind/optax"
+    },
+    {
+      "ts": "2026-09-24T18:30:19+00:00",
+      "text": "First 3 eligible candidates vetted in modelcontextprotocol/registry: #1582 RubyGems package type (medium; no-triage caveat recorded), #759 testcontainers migration (low; maintainer-invited with benchmark conditions), #1656 remote-only publishing docs gaps (low). All correctness bugs there were contested — 17 rejections recorded."
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-24T18:57:57+00:00",
+  "generated": "2026-09-24T19:14:07+00:00",
   "campaign": {
     "phase": "repository admission",
     "note": "Bootstrap complete. Contribution baseline refreshed; repository admission and issue research beginning. Eligible-issue counts cover NEW opportunities only; 26 previously contributed external repositories are excluded and tracked separately. All counts are truthful current values, not projections."
@@ -14,13 +14,13 @@
       "medium": 3,
       "high": 0
     },
-    "reproduced": 0,
-    "authored": 0,
-    "open_prs": 0,
+    "reproduced": 1,
+    "authored": 1,
+    "open_prs": 1,
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T18:57:57+00:00",
+    "last_refresh": "2026-09-24T19:14:07+00:00",
     "excluded_prior_repos": 26
   },
   "repos": [
@@ -760,11 +760,14 @@
       "importance": "medium",
       "importance_rationale": "Silent content loss: DOCX text carried in Word fields (MACROBUTTON — standard in 3GPP/standards-body/legal templates for 'Proposal N:'/'Observation N:' lines) vanishes from the Markdown with no warning or error, corrupting downstream pipelines that trust the output.",
       "difficulty": "medium",
-      "status": "in-review",
+      "status": "pr-open",
       "verified_at": "2026-09-24T18:36:00Z",
       "ownership_check": "Unassigned; 0 comments; no claim of any age; no maintainer plan.",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64 (or Linux CPU container), pure CPU: `python3.12 -m venv v && v/bin/pip install -e 'packages/markitdown[all]'`; add failing test fixture docx with a fldSimple MACROBUTTON and a fldChar/instrText MACROBUTTON, assert converted markdown contains the display text; `v/bin/pytest packages/markitdown/tests` for regressions. Failing conversion already demonstrated locally at HEAD on 2026-09-24."
+      "platform_plan": "Mac ARM64 (or Linux CPU container), pure CPU: `python3.12 -m venv v && v/bin/pip install -e 'packages/markitdown[all]'`; add failing test fixture docx with a fldSimple MACROBUTTON and a fldChar/instrText MACROBUTTON, assert converted markdown contains the display text; `v/bin/pytest packages/markitdown/tests` for regressions. Failing conversion already demonstrated locally at HEAD on 2026-09-24.",
+      "pr_url": "https://github.com/microsoft/markitdown/pull/2553",
+      "pr_raised_at": "2026-09-24T19:14:07+00:00",
+      "outcome": "PR #2553 open (review passed: APPROVE, 16 adversarial checks + property test)"
     },
     {
       "company": "EleutherAI",
@@ -921,12 +924,7 @@
     {
       "what": "Vet-4: goose Ready board, NeMo Curator, software-agent-sdk, ShinkaEvolve",
       "owner": "fable-worker",
-      "since": "2026-09-24T18:57:57+00:00"
-    },
-    {
-      "what": "Independent review of markitdown#1247 fix (commit f30c463; adversarial XML edge cases)",
-      "owner": "fable-reviewer",
-      "since": "2026-09-24T18:57:57+00:00"
+      "since": "2026-09-24T19:14:07+00:00"
     }
   ],
   "updates": [
@@ -989,6 +987,11 @@
     {
       "ts": "2026-09-24T18:57:57+00:00",
       "text": "markitdown#1247 authored locally: fldSimple unwrap + MACROBUTTON complex-field rewrite in DOCX preprocessor, 3 regression tests fail-before/pass-after at HEAD b8f79c5, full suite 997 pass/1 pre-existing unrelated failure. Honest caveat recorded: reporter's hosted sample has been reprocessed and no longer contains fields — PR will claim the mechanism, not that file. Now in independent review; no publication until review passes.",
+      "repo": "microsoft/markitdown"
+    },
+    {
+      "ts": "2026-09-24T19:14:07+00:00",
+      "text": "FIRST PR PUBLISHED: microsoft/markitdown PR #2553 (fixes DOCX field display-text loss, issue #1247). Independent Fable review verdict APPROVE with no required changes; final competition re-check clean at 19:13Z; registered with T3. Full test evidence and limitations disclosed in the PR.",
       "repo": "microsoft/markitdown"
     }
   ]

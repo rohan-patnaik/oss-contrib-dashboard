@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-24T18:00:36+00:00",
+  "generated": "2026-09-24T18:04:12+00:00",
   "campaign": {
     "phase": "repository admission",
     "note": "Bootstrap complete. Contribution baseline refreshed; repository admission and issue research beginning. Eligible-issue counts cover NEW opportunities only; 26 previously contributed external repositories are excluded and tracked separately. All counts are truthful current values, not projections."
@@ -7,8 +7,8 @@
   "summary": {
     "eligible": 0,
     "target": 100,
-    "companies": 0,
-    "repos_admitted": 0,
+    "companies": 5,
+    "repos_admitted": 6,
     "importance": {
       "low": 0,
       "medium": 0,
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T18:00:36+00:00",
+    "last_refresh": "2026-09-24T18:04:12+00:00",
     "excluded_prior_repos": 26
   },
   "repos": [
@@ -174,6 +174,123 @@
       ],
       "decision": "in-review",
       "checked_at": "2026-09-24T18:00:36+00:00"
+    },
+    {
+      "company": "Anthropic",
+      "repo": "anthropics/anthropic-sdk-python",
+      "url": "https://github.com/anthropics/anthropic-sdk-python",
+      "relevance": "Anthropic's official Python SDK ('anthropic' on PyPI) — the flagship client library for the Claude API.",
+      "stars": 3919,
+      "maintenance": "pushed 2026-09-22",
+      "previous_contribution": "none",
+      "policy": "No issue-first or prior-approval gate for code. Docs changes are issue-only ('To suggest changes, open an issue'). Structural gate: most of the SDK is Stainless-generated; only src/anthropic/lib/, examples/, and tests/lib/ are fully hand-written — edits elsewhere may conflict with the next codegen push, and .stats.yml/.github/workflows/_version.py are generator- or release-please-owned (do not edit). CLAUDE.md: check line provenance via the Stainless-Generated-From commit trailer before editing; generator-owned behavior bugs belong upstream in the generator/spec. No PR template. AI policy: Explicitly AI-friendly, no prohibition. CLAUDE.md opens: 'Context for contributors (human or AI) on how this SDK is put together, plus the things reviews most often come back to.'",
+      "policy_links": [
+        "https://github.com/anthropics/anthropic-sdk-python/blob/main/CONTRIBUTING.md",
+        "https://github.com/anthropics/anthropic-sdk-python/blob/main/CLAUDE.md",
+        "https://github.com/anthropics/anthropic-sdk-python/blob/main/README.md"
+      ],
+      "decision": "admitted",
+      "checked_at": "2026-09-24T18:01:52Z"
+    },
+    {
+      "company": "Anthropic",
+      "repo": "anthropics/anthropic-sdk-typescript",
+      "url": "https://github.com/anthropics/anthropic-sdk-typescript",
+      "relevance": "Anthropic's official TypeScript/JavaScript SDK (@anthropic-ai/sdk on npm) — the flagship JS client for the Claude API.",
+      "stars": 2122,
+      "maintenance": "pushed 2026-09-22",
+      "previous_contribution": "none",
+      "policy": "No issue-first or prior-approval gate for code; docs changes are issue-only. Structural gate: SDK is mostly Stainless-generated; the generator never touches src/lib/ and examples/, edits elsewhere may hit merge conflicts on regeneration. CLAUDE.md is narrow (Node-only module isolation rules for bundler safety). No PR template. AI policy: No prohibition. Sibling repo policy is explicitly AI-tolerant (Python SDK CLAUDE.md addresses 'contributors (human or AI)'); this repo's CLAUDE.md is technical guidance only, with no restriction on AI-authored contributions.",
+      "policy_links": [
+        "https://github.com/anthropics/anthropic-sdk-typescript/blob/main/CONTRIBUTING.md",
+        "https://github.com/anthropics/anthropic-sdk-typescript/blob/main/CLAUDE.md",
+        "https://github.com/anthropics/anthropic-sdk-typescript/blob/main/README.md"
+      ],
+      "decision": "admitted",
+      "checked_at": "2026-09-24T18:01:52Z"
+    },
+    {
+      "company": "Hugging Face",
+      "repo": "huggingface/tokenizers",
+      "url": "https://github.com/huggingface/tokenizers",
+      "relevance": "Hugging Face's core Rust tokenization library powering transformers — one of the most-used components in the HF ecosystem.",
+      "stars": 11110,
+      "maintenance": "pushed 2026-09-24",
+      "previous_contribution": "none",
+      "policy": "No prior-approval/assignment gate, but a strict quality bar: keep PRs as drafts until fully owned ('A PR marked ready for review is a claim that you have done the work'); bug fixes must include a regression test; fix the cause not the symptom; any performance claim requires before/after numbers from the tokbench benchmark on your machine with CPU/OS listed; byte-exactness of output ids is non-negotiable. No PR template or issue templates in .github. AI policy: Restriction, not prohibition. Exact text: 'No AI slop. Using a model to help is fine. Opening a PR you have not read, do not understand, and cannot defend is not.' Also: 'You are responsible for the code you push. If you cannot explain every line of your diff, why it is correct, and what it breaks if it is wrong — do not open it as ready for review.' AI-assisted work is explicitly permitted if the author can defend every line.",
+      "policy_links": [
+        "https://github.com/huggingface/tokenizers/blob/main/CONTRIBUTING.md",
+        "https://github.com/huggingface/tokenizers/blob/main/README.md"
+      ],
+      "decision": "admitted",
+      "checked_at": "2026-09-24T18:01:52Z"
+    },
+    {
+      "company": "Allen Institute for AI (Ai2)",
+      "repo": "allenai/OLMo",
+      "url": "https://github.com/allenai/OLMo",
+      "relevance": "Ai2's original flagship open language model training repo (OLMo 1/2 era), now superseded by OLMo-core.",
+      "stars": 6684,
+      "maintenance": "pushed 2025-11-24",
+      "previous_contribution": "none",
+      "policy": "CONTRIBUTING.md is a standard welcoming fork-and-PR guide (no approval gate, tests + CHANGELOG expected), but it is superseded in practice by the README deprecation notice; the repo has had no merges since 2025-11-24. AI policy: No AI/agent contribution policy found in CONTRIBUTING.md or README; no AGENTS.md/CLAUDE.md/copilot files exist.",
+      "policy_links": [
+        "https://github.com/allenai/OLMo/blob/main/.github/CONTRIBUTING.md",
+        "https://github.com/allenai/OLMo/blob/main/README.md"
+      ],
+      "decision": "rejected",
+      "checked_at": "2026-09-24T18:01:52Z"
+    },
+    {
+      "company": "SWE-agent (Princeton/Stanford team)",
+      "repo": "SWE-agent/mini-swe-agent",
+      "url": "https://github.com/SWE-agent/mini-swe-agent",
+      "relevance": "The SWE-agent team's flagship minimal software-engineering agent (100-line agent used in SWE-bench research and as a reference implementation).",
+      "stars": 7950,
+      "maintenance": "pushed 2026-09-21",
+      "previous_contribution": "none",
+      "policy": "No approval gate. docs/contributing.md opens 'We happily accept contributions!' and points to good-first-issue/help-wanted labels. Style gates: minimalism is enforced ('This repository rewards minimal code'), pre-commit required, specific commit-message format (fix/feat/enh/docs/ref/chore with component). PR template is minimal (reference the issue). AI policy: No prohibition — the repo ships AGENTS.md/CLAUDE.md/copilot-instructions.md specifically to guide AI contributors. It even acknowledges LM-written code and asks for cleanup: 'Many LMs write very verbose code -- please clean it up!' Only trailer rule: 'Do NOT add Co-authored-by: Cursor lines to the commit message.'",
+      "policy_links": [
+        "https://github.com/SWE-agent/mini-swe-agent/blob/main/docs/contributing.md",
+        "https://github.com/SWE-agent/mini-swe-agent/blob/main/AGENTS.md",
+        "https://github.com/SWE-agent/mini-swe-agent/blob/main/CLAUDE.md"
+      ],
+      "decision": "admitted",
+      "checked_at": "2026-09-24T18:01:52Z"
+    },
+    {
+      "company": "Cline (Cline Bot Inc.)",
+      "repo": "cline/cline",
+      "url": "https://github.com/cline/cline",
+      "relevance": "Cline's flagship product — one of the most popular open-source AI coding agents / VS Code extensions (69k+ stars).",
+      "stars": 69227,
+      "maintenance": "pushed 2026-09-24",
+      "previous_contribution": "none",
+      "policy": "Issue-first with maintainer approval for features, with an explicit small-fix exception. CONTRIBUTING.md: 'All contributions must begin with a GitHub Issue, unless the change is for small bug fixes, typo corrections, minor wording improvements, or simple type fixes that don't change functionality.' Features require a Feature Requests discussion and 'Wait for approval from core maintainers before starting implementation.' 'PRs without approved issues may be closed.' PR template repeats the exception verbatim ('Limited exceptions: Small bug fixes, typo corrections, minor wording improvements, or simple type fixes... may be submitted directly without prior discussion.'). AI policy: No prohibition on AI-authored contributions found in CONTRIBUTING.md, AGENTS.md, copilot-instructions.md, or the PR template. The project is itself an AI coding agent and ships extensive in-repo agent instructions (AGENTS.md, .claude/, .agents/, .clinerules/). CONTRIBUTING.md closes: 'Contributing to Cline isn't just about writing code - it's about being part of a community that's shaping the future of AI-assisted development.'",
+      "policy_links": [
+        "https://github.com/cline/cline/blob/main/CONTRIBUTING.md",
+        "https://github.com/cline/cline/blob/main/AGENTS.md",
+        "https://github.com/cline/cline/blob/main/.github/copilot-instructions.md"
+      ],
+      "decision": "admitted",
+      "checked_at": "2026-09-24T18:01:52Z"
+    },
+    {
+      "company": "Nous Research",
+      "repo": "NousResearch/hermes-agent",
+      "url": "https://github.com/NousResearch/hermes-agent",
+      "relevance": "Nous Research's flagship open-source personal AI agent (Hermes), their primary public codebase and community focal point.",
+      "stars": 248661,
+      "maintenance": "pushed 2026-09-24 — CAUTION: metrics anomalous (248k stars vs 960 watchers, 43k open issues; heavy bot activity)",
+      "previous_contribution": "none",
+      "policy": "No prior-approval gate; search-first is required (search open AND merged PRs/issues before building; 'For larger work, comment on the issue to signal you're working on it'). Hard scope exclusions regardless of quality: new memory providers under plugins/memory/ are closed ('We are no longer accepting new memory providers into this repo'), and any third-party product integration plugin must ship as a standalone plugin repo. AGENTS.md rubric rejects speculative infrastructure, new HERMES_* env vars for non-secret config, new core tools when a skill suffices, and cache-breaking changes. An automated triage sweeper closes PRs on implemented_on_main/cannot_reproduce/incoherent. PR template requires Conventional Commits, tests for bug fixes, duplicate search, platform tested. AI policy: Explicitly AI-welcoming, no prohibition. AGENTS.md opens: 'Instructions for AI coding assistants and developers working on the hermes-agent codebase.' Contribution priorities put bug fixes first; quality/premise-verification rules apply equally to human and AI authors.",
+      "policy_links": [
+        "https://github.com/NousResearch/hermes-agent/blob/main/CONTRIBUTING.md",
+        "https://github.com/NousResearch/hermes-agent/blob/main/AGENTS.md",
+        "https://github.com/NousResearch/hermes-agent/blob/main/.github/PULL_REQUEST_TEMPLATE.md"
+      ],
+      "decision": "admitted",
+      "checked_at": "2026-09-24T18:01:52Z"
     }
   ],
   "issues": [],
@@ -226,6 +343,13 @@
       "url": "https://github.com/openai/whisper",
       "reason": "109k stars but effectively frozen for external code; evals repo stale since 2026-04.",
       "ts": "2026-09-24T18:00:36+00:00"
+    },
+    {
+      "company": "Ai2",
+      "item": "allenai/OLMo",
+      "url": "https://github.com/allenai/OLMo",
+      "reason": "README on current main: repository out of date and no longer active; superseded by allenai/OLMo-core (queued for wave-2 admission check).",
+      "ts": "2026-09-24T18:04:12+00:00"
     }
   ],
   "active": [
@@ -253,6 +377,11 @@
     {
       "ts": "2026-09-24T18:00:36+00:00",
       "text": "Wave-1 policy research: 10 repos in review across MCP, Google/DeepMind, UK AISI, OpenAI, NVIDIA, Prime Intellect, OpenHands. MCP inspector rejected (maintainer-only PRs). inspect_ai gated on maintainer-accepted issues. tiktoken accepts external PRs de facto. 7 holds recorded with reasons.",
+      "repo": null
+    },
+    {
+      "ts": "2026-09-24T18:04:12+00:00",
+      "text": "Admission batch A complete: anthropic-sdk-python, anthropic-sdk-typescript (both scoped to hand-written lib/ code), huggingface/tokenizers, NousResearch/hermes-agent, SWE-agent/mini-swe-agent admitted; cline/cline admitted scoped to its small-bug-fix exception; allenai/OLMo rejected (deprecated, superseded by OLMo-core). hermes-agent metrics flagged anomalous.",
       "repo": null
     }
   ]

@@ -1,17 +1,17 @@
 {
-  "generated": "2026-09-24T18:30:19+00:00",
+  "generated": "2026-09-24T18:40:37+00:00",
   "campaign": {
     "phase": "repository admission",
     "note": "Bootstrap complete. Contribution baseline refreshed; repository admission and issue research beginning. Eligible-issue counts cover NEW opportunities only; 26 previously contributed external repositories are excluded and tracked separately. All counts are truthful current values, not projections."
   },
   "summary": {
-    "eligible": 3,
+    "eligible": 5,
     "target": 100,
     "companies": 17,
     "repos_admitted": 19,
     "importance": {
       "low": 2,
-      "medium": 1,
+      "medium": 3,
       "high": 0
     },
     "reproduced": 0,
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T18:30:19+00:00",
+    "last_refresh": "2026-09-24T18:40:37+00:00",
     "excluded_prior_repos": 26
   },
   "repos": [
@@ -547,6 +547,36 @@
       "ownership_check": "Open, unassigned, zero comments (created 2026-09-21). Issue headline partially overstated (remote-servers.mdx exists) — fix shape corrected to cross-link + gap notes. No matching PR found as of 2026-09-24T18:26:29Z; queries: search 1656 / remote-only.",
       "competing_prs": [],
       "platform_plan": "CPU-only doc edits; verify with grep against quickstart.mdx and schema files; make check."
+    },
+    {
+      "company": "Microsoft AI",
+      "repo": "microsoft/markitdown",
+      "number": 1247,
+      "url": "https://github.com/microsoft/markitdown/issues/1247",
+      "title": "Failed to convert text in macros (.docx to .md)",
+      "importance": "medium",
+      "importance_rationale": "Silent content loss: DOCX text carried in Word fields (MACROBUTTON — standard in 3GPP/standards-body/legal templates for 'Proposal N:'/'Observation N:' lines) vanishes from the Markdown with no warning or error, corrupting downstream pipelines that trust the output.",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-24T18:36:00Z",
+      "ownership_check": "Unassigned; 0 comments; no claim of any age; no maintainer plan.",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64 (or Linux CPU container), pure CPU: `python3.12 -m venv v && v/bin/pip install -e 'packages/markitdown[all]'`; add failing test fixture docx with a fldSimple MACROBUTTON and a fldChar/instrText MACROBUTTON, assert converted markdown contains the display text; `v/bin/pytest packages/markitdown/tests` for regressions. Failing conversion already demonstrated locally at HEAD on 2026-09-24."
+    },
+    {
+      "company": "EleutherAI",
+      "repo": "EleutherAI/gpt-neox",
+      "number": 1364,
+      "url": "https://github.com/EleutherAI/gpt-neox/issues/1364",
+      "title": "MoE Top-K Training",
+      "importance": "medium",
+      "importance_rationale": "Silent misconfiguration: the docs say the TopK MoE router is unsupported for training ('only used for inference/eval'), yet training configs with moe_router_type='topk' are accepted without any error or warning — users can burn large training runs on a router path that has no load-balancing loss, getting degenerate expert routing with no signal that anything is wrong.",
+      "difficulty": "low",
+      "status": "vetted",
+      "verified_at": "2026-09-24T18:35:00Z",
+      "ownership_check": "Unassigned; 0 comments since filing (2025-08-11, ~13.5 months); no claims, no maintainer response.",
+      "competing_prs": [],
+      "platform_plan": "CPU-only (Mac ARM64 or Linux CPU container): the fix and test live entirely in pure-Python config parsing. Unit test via NeoXArgs.from_dict/from_ymls with moe_num_experts>1 and moe_router_type='topk', assert calculate_derived raises/warns; run `pytest tests/unit/test_arguments.py`. The repo already runs these arg tests CPU-only (tests/unit/test_eval_loss_logging.py explicitly notes 'Avoid hardware discovery in NeoXArgs.calculate_derived during CPU unit tests'). No GPU, no training run needed."
     }
   ],
   "holds": [
@@ -710,6 +740,10 @@
     {
       "ts": "2026-09-24T18:30:19+00:00",
       "text": "First 3 eligible candidates vetted in modelcontextprotocol/registry: #1582 RubyGems package type (medium; no-triage caveat recorded), #759 testcontainers migration (low; maintainer-invited with benchmark conditions), #1656 remote-only publishing docs gaps (low). All correctness bugs there were contested — 17 rejections recorded."
+    },
+    {
+      "ts": "2026-09-24T18:40:37+00:00",
+      "text": "Batch-2 vetting: markitdown#1247 (medium — DOCX field text silently dropped, confirmed live at HEAD with synthetic fixture) and gpt-neox#1364 (medium — MoE top-k router silently trains without load-balancing loss despite docs) vetted. MCP typescript-sdk 0/79 (fully saturated, some bugs have 3-9 competing PRs); faiss 0/12 (key HNSW path deprecated by maintainer, GPU holds); markitdown 1/70; gpt-neox 1/8. Screening yield so far: ~5 eligible per ~350 examined."
     }
   ]
 }

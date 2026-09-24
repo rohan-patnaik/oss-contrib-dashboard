@@ -1,0 +1,42 @@
+{
+  "generated": "2026-09-24T23:30:00+05:30",
+  "campaign": {
+    "phase": "research starting",
+    "note": "Bootstrap complete. Contribution baseline refreshed; repository admission and issue research beginning. Eligible-issue counts cover NEW opportunities only; 26 previously contributed external repositories are excluded and tracked separately. All counts are truthful current values, not projections."
+  },
+  "summary": {
+    "eligible": 0,
+    "target": 100,
+    "companies": 0,
+    "repos_admitted": 0,
+    "importance": {
+      "low": 0,
+      "medium": 0,
+      "high": 0
+    },
+    "reproduced": 0,
+    "authored": 0,
+    "open_prs": 0,
+    "merged": 0,
+    "landed_other": 0,
+    "active_work": 1,
+    "last_refresh": "2026-09-24T23:30:00+05:30",
+    "excluded_prior_repos": 26
+  },
+  "repos": [],
+  "issues": [],
+  "holds": [],
+  "active": [
+    {
+      "what": "Repository admission: policy + maintenance checks for priority organizations",
+      "owner": "coordinator",
+      "since": "2026-09-24T17:51:58+00:00"
+    }
+  ],
+  "updates": [
+    {
+      "ts": "2026-09-24T17:51:58+00:00",
+      "text": "Dashboard deployed in truthful research-starting state. GitHub contribution baseline refreshed (267 authored PRs; 26 external repos excluded as prior contributions). Historical target-policy evidence loaded for dedup; it will be independently re-verified before any admission."
+    }
+  ]
+}

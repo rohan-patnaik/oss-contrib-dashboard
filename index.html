@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OSS AI Contribution Research</title>
+<style>
+:root {
+  color-scheme: light;
+  --surface-1: #fcfcfb;
+  --page: #f9f9f7;
+  --ink-1: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --grid: #e1e0d9;
+  --baseline: #c3c2b7;
+  --border: rgba(11,11,11,0.10);
+  --good: #006300;
+  --status-good: #0ca30c;
+  --status-warn: #fab219;
+  --status-serious: #ec835a;
+  --status-critical: #d03b3b;
+  --accent: #2a78d6;
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --surface-1: #1a1a19;
+  --page: #0d0d0d;
+  --ink-1: #ffffff;
+  --ink-2: #c3c2b7;
+  --muted: #898781;
+  --grid: #2c2c2a;
+  --baseline: #383835;
+  --border: rgba(255,255,255,0.10);
+  --good: #0ca30c;
+  --accent: #3987e5;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --surface-1: #1a1a19;
+    --page: #0d0d0d;
+    --ink-1: #ffffff;
+    --ink-2: #c3c2b7;
+    --muted: #898781;
+    --grid: #2c2c2a;
+    --baseline: #383835;
+    --border: rgba(255,255,255,0.10);
+    --good: #0ca30c;
+    --accent: #3987e5;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--page); color: var(--ink-1);
+  font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+header {
+  display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline;
+  padding: 14px 20px 6px;
+}
+header h1 { font-size: 17px; margin: 0; font-weight: 650; }
+header .meta { color: var(--ink-2); font-size: 12.5px; }
+header .spacer { flex: 1; }
+button, select, input {
+  font: inherit; color: var(--ink-1); background: var(--surface-1);
+  border: 1px solid var(--border); border-radius: 6px; padding: 4px 9px;
+}
+button { cursor: pointer; }
+button:hover { border-color: var(--baseline); }
+main { padding: 0 20px 40px; max-width: 1500px; margin: 0 auto; }
+section { margin-top: 22px; }
+h2 { font-size: 14px; font-weight: 650; margin: 0 0 8px; color: var(--ink-1); }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(128px, 1fr)); gap: 8px; }
+.tile {
+  background: var(--surface-1); border: 1px solid var(--border);
+  border-radius: 8px; padding: 10px 12px;
+}
+.tile .v { font-size: 24px; font-weight: 650; }
+.tile .v small { font-size: 13px; font-weight: 400; color: var(--muted); }
+.tile .k { font-size: 11.5px; color: var(--ink-2); margin-top: 2px; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 14px; align-items: center; }
+.filters label { color: var(--ink-2); font-size: 12.5px; }
+.tablewrap { overflow-x: auto; background: var(--surface-1); border: 1px solid var(--border); border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th, td { text-align: left; padding: 7px 10px; border-top: 1px solid var(--grid); vertical-align: top; }
+thead th { border-top: none; color: var(--ink-2); font-weight: 600; font-size: 12px; cursor: pointer; user-select: none; white-space: nowrap; position: sticky; top: 0; background: var(--surface-1); }
+thead th .arrow { color: var(--muted); }
+td.num, th.num { font-variant-numeric: tabular-nums; text-align: right; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.badge {
+  display: inline-block; padding: 1px 7px; border-radius: 999px;
+  font-size: 11.5px; border: 1px solid var(--border); white-space: nowrap;
+}
+.b-good { color: var(--good); }
+.b-warn { color: var(--status-warn); }
+.b-serious { color: var(--status-serious); }
+.b-critical { color: var(--status-critical); }
+.b-plain { color: var(--ink-2); }
+.empty { color: var(--muted); padding: 14px; font-size: 13px; }
+ul.updates { list-style: none; margin: 0; padding: 0; }
+ul.updates li { padding: 7px 0; border-top: 1px solid var(--grid); font-size: 13px; }
+ul.updates li:first-child { border-top: none; }
+ul.updates .ts { color: var(--muted); font-size: 11.5px; font-variant-numeric: tabular-nums; margin-right: 8px; white-space: nowrap; }
+.note { color: var(--ink-2); font-size: 12.5px; margin: 6px 0; }
+footer { color: var(--muted); font-size: 11.5px; padding: 18px 20px; text-align: center; }
+@media (max-width: 640px) {
+  header, main { padding-left: 12px; padding-right: 12px; }
+  th, td { padding: 6px 7px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>OSS AI Contribution Research</h1>
+  <span class="meta" id="phase"></span>
+  <span class="spacer"></span>
+  <span class="meta">Data updated <span id="dataTs">–</span> · fetched <span id="fetchTs">–</span></span>
+  <button id="exportJson" title="Download current data as JSON">JSON</button>
+  <button id="exportCsv" title="Download issues table as CSV">CSV</button>
+  <button id="themeBtn" title="Toggle light/dark">◐ Theme</button>
+</header>
+<main>
+  <p class="note" id="campaignNote"></p>
+
+  <section id="summarySec">
+    <h2>Summary</h2>
+    <div class="tiles" id="tiles"></div>
+  </section>
+
+  <section>
+    <h2>Filters</h2>
+    <div class="filters">
+      <input id="q" type="search" placeholder="Search company, repo, title, reason…" style="min-width:230px">
+      <select id="fCompany"><option value="">All companies</option></select>
+      <select id="fImportance">
+        <option value="">All importance</option>
+        <option>high</option><option>medium</option><option>low</option>
+      </select>
+      <select id="fStage"><option value="">All stages</option></select>
+      <label>PR activity from <input type="date" id="dFrom" value="2026-09-15"></label>
+      <label>to <input type="date" id="dTo"></label>
+      <span class="note" id="prRangeCounts"></span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Per-company 2–2–2 portfolio</h2>
+    <div class="tablewrap"><table id="portfolioTable">
+      <thead><tr><th data-k="company">Company</th><th class="num">Low C/R/A/P/M</th><th class="num">Med C/R/A/P/M</th><th class="num">High C/R/A/P/M</th><th class="num">Deficit vs 2–2–2</th></tr></thead>
+      <tbody></tbody>
+    </table><div class="empty" id="portfolioEmpty" hidden></div></div>
+    <p class="note">C = vetted candidates, R = reproduced, A = authored, P = open PRs, M = merged/landed. Candidates are not PRs; PRs are not merges.</p>
+  </section>
+
+  <section>
+    <h2>Issues (eligible candidates &amp; pipeline)</h2>
+    <div class="tablewrap"><table id="issueTable">
+      <thead><tr>
+        <th data-k="company">Company</th><th data-k="repo">Repo</th><th data-k="title">Issue</th>
+        <th data-k="importance">Importance</th><th data-k="difficulty">Difficulty</th><th data-k="status">Stage</th>
+        <th data-k="verified_at">Verified</th><th>Ownership / competition</th><th>Platform plan</th><th>Our PR / outcome</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table><div class="empty" id="issueEmpty" hidden></div></div>
+  </section>
+
+  <section>
+    <h2>Repositories</h2>
+    <div class="tablewrap"><table id="repoTable">
+      <thead><tr>
+        <th data-k="company">Company</th><th data-k="repo">Repo</th><th>Relevance</th>
+        <th data-k="stars" class="num">Stars</th><th>Maintenance</th><th>Prior contribution</th>
+        <th>External/AI policy</th><th data-k="decision">Decision</th><th data-k="checked_at">Checked</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table><div class="empty" id="repoEmpty" hidden></div></div>
+  </section>
+
+  <section>
+    <h2>Holds &amp; rejections</h2>
+    <div class="tablewrap"><table id="holdTable">
+      <thead><tr><th data-k="company">Company</th><th data-k="item">Item</th><th>Reason</th><th data-k="ts">When</th></tr></thead>
+      <tbody></tbody>
+    </table><div class="empty" id="holdEmpty" hidden></div></div>
+  </section>
+
+  <section>
+    <h2>Active work</h2>
+    <div class="tablewrap"><table id="activeTable">
+      <thead><tr><th>What</th><th>Owner</th><th>Since</th></tr></thead>
+      <tbody></tbody>
+    </table><div class="empty" id="activeEmpty" hidden></div></div>
+  </section>
+
+  <section>
+    <h2>Updates</h2>
+    <ul class="updates" id="updates"></ul>
+  </section>
+</main>
+<footer>Static research dashboard · auto-refreshes every 60s · all issue/PR links point to their upstream repositories.</footer>
+
+<script>
+"use strict";
+/* ---------- theme ---------- */
+const root = document.documentElement;
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme) root.dataset.theme = savedTheme;
+document.getElementById("themeBtn").onclick = () => {
+  const cur = root.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  const next = cur === "dark" ? "light" : "dark";
+  root.dataset.theme = next;
+  localStorage.setItem("theme", next);
+};
+
+/* ---------- state ---------- */
+let DATA = null;
+const sortState = {};
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmtTs = t => t ? new Date(t).toLocaleString(undefined, {dateStyle:"medium", timeStyle:"short"}) : "–";
+const fmtD = t => t ? new Date(t).toLocaleDateString(undefined, {dateStyle:"medium"}) : "–";
+const today = new Date(); $("dTo").value = today.toISOString().slice(0,10);
+
+const STAGE_BADGE = {
+  "candidate": "b-plain", "vetted": "b-plain", "reproduced": "b-warn",
+  "authoring": "b-warn", "authored": "b-warn", "in-review": "b-warn",
+  "pr-open": "b-good", "merged": "b-good", "landed": "b-good",
+  "hold": "b-serious", "rejected": "b-critical", "superseded": "b-critical", "lost-to-competitor": "b-critical"
+};
+const IMP_BADGE = { high: "b-critical", medium: "b-serious", low: "b-plain" };
+
+/* linkify a repo string like "owner/name" */
+const repoLink = r => r ? `<a href="https://github.com/${esc(r)}" target="_blank" rel="noopener">${esc(r)}</a>` : "";
+/* linkify #123 / PR references in free text, given a repo */
+function linkRefs(text, repo) {
+  let h = esc(text);
+  if (repo) {
+    h = h.replace(/(?:^|\s)#(\d{2,6})\b/g, (m, n) =>
+      m.replace("#"+n, `<a href="https://github.com/${esc(repo)}/issues/${n}" target="_blank" rel="noopener">#${n}</a>`));
+  }
+  h = h.replace(/(https?:\/\/[^\s<)]+)/g, u => `<a href="${u}" target="_blank" rel="noopener">${u}</a>`);
+  return h;
+}
+
+/* ---------- filters ---------- */
+function passes(row, fields) {
+  const q = $("q").value.trim().toLowerCase();
+  if (q && !fields.some(f => String(row[f] ?? "").toLowerCase().includes(q))) return false;
+  const c = $("fCompany").value;
+  if (c && row.company !== c) return false;
+  return true;
+}
+function issuePasses(i) {
+  if (!passes(i, ["company","repo","title","importance_rationale","status","ownership_check","platform_plan"])) return false;
+  const imp = $("fImportance").value; if (imp && i.importance !== imp) return false;
+  const st = $("fStage").value; if (st && i.status !== st) return false;
+  return true;
+}
+
+/* ---------- render ---------- */
+function tiles(s) {
+  const t = [
+    [`${s.eligible}<small>/${s.target}</small>`, "eligible issues"],
+    [s.companies, "companies"],
+    [s.repos_admitted, "repos admitted"],
+    [`${s.importance.low}·${s.importance.medium}·${s.importance.high}`, "L·M·H distribution"],
+    [s.reproduced, "reproduced bugs"],
+    [s.authored, "authored"],
+    [s.open_prs, "open PRs"],
+    [s.merged, "merged (GitHub)"],
+    [s.landed_other, "landed otherwise"],
+    [s.active_work, "active work"],
+    [s.excluded_prior_repos ?? 0, "prior-contribution repos (excluded)"]
+  ];
+  $("tiles").innerHTML = t.map(([v,k]) => `<div class="tile"><div class="v">${v}</div><div class="k">${k}</div></div>`).join("");
+}
+
+function sortRows(rows, key, dir) {
+  return [...rows].sort((a,b) => {
+    const x = a[key] ?? "", y = b[key] ?? "";
+    const n = (typeof x === "number" && typeof y === "number") ? x - y : String(x).localeCompare(String(y));
+    return dir === "desc" ? -n : n;
+  });
+}
+
+function renderTable(tableId, emptyId, rows, rowHtml, emptyMsg) {
+  const tb = $(tableId).querySelector("tbody");
+  const st = sortState[tableId];
+  if (st) rows = sortRows(rows, st.key, st.dir);
+  tb.innerHTML = rows.map(rowHtml).join("");
+  const empty = $(emptyId);
+  empty.hidden = rows.length > 0;
+  empty.textContent = emptyMsg;
+  $(tableId).style.display = rows.length ? "" : "none";
+}
+
+function badge(cls, text) { return `<span class="badge ${cls}">${esc(text)}</span>`; }
+
+function render() {
+  if (!DATA) return;
+  const s = DATA.summary;
+  $("phase").textContent = "· " + (DATA.campaign?.phase || "");
+  $("campaignNote").textContent = DATA.campaign?.note || "";
+  $("dataTs").textContent = fmtTs(DATA.generated);
+  tiles(s);
+
+  /* company dropdown */
+  const companies = [...new Set([...(DATA.repos||[]).map(r=>r.company), ...(DATA.issues||[]).map(i=>i.company)])].filter(Boolean).sort();
+  const cSel = $("fCompany"), cPrev = cSel.value;
+  cSel.innerHTML = '<option value="">All companies</option>' + companies.map(c=>`<option${c===cPrev?" selected":""}>${esc(c)}</option>`).join("");
+  const stages = [...new Set((DATA.issues||[]).map(i=>i.status))].filter(Boolean).sort();
+  const stSel = $("fStage"), stPrev = stSel.value;
+  stSel.innerHTML = '<option value="">All stages</option>' + stages.map(x=>`<option${x===stPrev?" selected":""}>${esc(x)}</option>`).join("");
+
+  /* issues */
+  const issues = (DATA.issues||[]).filter(issuePasses);
+  renderTable("issueTable","issueEmpty", issues, i => `<tr>
+    <td>${esc(i.company)}</td>
+    <td>${repoLink(i.repo)}</td>
+    <td><a href="${esc(i.url)}" target="_blank" rel="noopener">#${esc(i.number)}</a> ${esc(i.title)}</td>
+    <td>${badge(IMP_BADGE[i.importance]||"b-plain", i.importance)}<div class="note">${esc(i.importance_rationale||"")}</div></td>
+    <td>${esc(i.difficulty||"")}</td>
+    <td>${badge(STAGE_BADGE[i.status]||"b-plain", i.status)}</td>
+    <td>${fmtD(i.verified_at)}</td>
+    <td>${linkRefs(i.ownership_check||"", i.repo)}${(i.competing_prs||[]).map(u=>`<div><a href="${esc(u)}" target="_blank" rel="noopener">${esc(u)}</a></div>`).join("")}</td>
+    <td>${esc(i.platform_plan||"")}${i.repro_evidence?`<div class="note">${linkRefs(i.repro_evidence, i.repo)}</div>`:""}</td>
+    <td>${i.pr_url?`<a href="${esc(i.pr_url)}" target="_blank" rel="noopener">PR</a>`:""} ${esc(i.outcome||"")}</td>
+  </tr>`, "No issues vetted yet — research in progress. Counts above are truthful zeros, not placeholders.");
+
+  /* repos */
+  const repos = (DATA.repos||[]).filter(r => passes(r, ["company","repo","relevance","decision","policy"]));
+  renderTable("repoTable","repoEmpty", repos, r => `<tr>
+    <td>${esc(r.company)}</td>
+    <td>${repoLink(r.repo)}</td>
+    <td>${esc(r.relevance||"")}</td>
+    <td class="num">${(r.stars??"").toLocaleString?.() ?? esc(r.stars)}</td>
+    <td>${esc(r.maintenance||"")}</td>
+    <td>${esc(r.previous_contribution||"none")}</td>
+    <td>${esc(r.policy||"")}${(r.policy_links||[]).map(u=>` <a href="${esc(u)}" target="_blank" rel="noopener">policy</a>`).join("")}</td>
+    <td>${badge(r.decision==="admitted"?"b-good":(r.decision==="hold"?"b-serious":(r.decision==="rejected"?"b-critical":"b-plain")), r.decision)}</td>
+    <td>${fmtD(r.checked_at)}</td>
+  </tr>`, "No repositories evaluated yet.");
+
+  /* portfolio 2-2-2 (computed from issues) */
+  const perCo = {};
+  for (const i of (DATA.issues||[])) {
+    if (!i.company) continue;
+    const co = perCo[i.company] ??= { low:{c:0,r:0,a:0,p:0,m:0}, medium:{c:0,r:0,a:0,p:0,m:0}, high:{c:0,r:0,a:0,p:0,m:0} };
+    const b = co[i.importance]; if (!b) continue;
+    const st = i.status;
+    if (!["rejected","superseded","lost-to-competitor","hold"].includes(st)) b.c++;
+    if (["reproduced","authoring","authored","in-review","pr-open","merged","landed"].includes(st)) b.r++;
+    if (["authored","in-review","pr-open","merged","landed"].includes(st)) b.a++;
+    if (st === "pr-open") b.p++;
+    if (["merged","landed"].includes(st)) b.m++;
+  }
+  const pRows = Object.entries(perCo).map(([company,v]) => ({
+    company, ...v,
+    deficit: Math.max(0,2-v.low.c) + Math.max(0,2-v.medium.c) + Math.max(0,2-v.high.c)
+  })).filter(r => passes(r, ["company"]));
+  const cell = b => `${b.c}/${b.r}/${b.a}/${b.p}/${b.m}`;
+  renderTable("portfolioTable","portfolioEmpty", pRows, r => `<tr>
+    <td>${esc(r.company)}</td><td class="num">${cell(r.low)}</td><td class="num">${cell(r.medium)}</td>
+    <td class="num">${cell(r.high)}</td><td class="num">${r.deficit ? badge("b-serious","−"+r.deficit) : badge("b-good","0 ✓")}</td>
+  </tr>`, "No company portfolios yet.");
+
+  /* holds */
+  const holds = (DATA.holds||[]).filter(h => passes(h, ["company","item","reason"]));
+  renderTable("holdTable","holdEmpty", holds, h => `<tr>
+    <td>${esc(h.company)}</td>
+    <td>${h.url?`<a href="${esc(h.url)}" target="_blank" rel="noopener">${esc(h.item)}</a>`:linkRefs(h.item||"", h.repo)}</td>
+    <td>${linkRefs(h.reason||"", h.repo)}</td>
+    <td>${fmtD(h.ts)}</td>
+  </tr>`, "No holds or rejections recorded yet.");
+
+  /* active */
+  const act = DATA.active || [];
+  renderTable("activeTable","activeEmpty", act, a => `<tr>
+    <td>${esc(a.what)}</td><td>${esc(a.owner||"")}</td><td>${fmtTs(a.since)}</td>
+  </tr>`, "No active work items.");
+
+  /* updates */
+  $("updates").innerHTML = (DATA.updates||[]).slice().reverse().map(u =>
+    `<li><span class="ts">${fmtTs(u.ts)}</span>${linkRefs(u.text, u.repo)}</li>`).join("") || '<li class="empty">No updates yet.</li>';
+
+  /* PR activity within date range (raised uses raise date, merged uses merge date) */
+  const from = $("dFrom").value, to = $("dTo").value + "T23:59:59";
+  let raised = 0, merged = 0;
+  for (const i of (DATA.issues||[])) {
+    if (i.pr_raised_at && i.pr_raised_at >= from && i.pr_raised_at <= to) raised++;
+    if (i.merged_at && i.merged_at >= from && i.merged_at <= to) merged++;
+  }
+  $("prRangeCounts").textContent = `PRs raised in range: ${raised} · merged in range: ${merged}`;
+}
+
+/* ---------- sorting ---------- */
+document.querySelectorAll("thead th[data-k]").forEach(th => {
+  th.addEventListener("click", () => {
+    const tid = th.closest("table").id;
+    const st = sortState[tid];
+    sortState[tid] = { key: th.dataset.k, dir: st && st.key === th.dataset.k && st.dir === "asc" ? "desc" : "asc" };
+    document.querySelectorAll(`#${tid} thead th .arrow`).forEach(a=>a.remove());
+    th.insertAdjacentHTML("beforeend", `<span class="arrow"> ${sortState[tid].dir==="asc"?"↑":"↓"}</span>`);
+    render();
+  });
+});
+
+/* ---------- filter events ---------- */
+["q","fCompany","fImportance","fStage","dFrom","dTo"].forEach(id => $(id).addEventListener("input", render));
+
+/* ---------- export ---------- */
+function download(name, text, type) {
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([text], {type}));
+  a.download = name; a.click(); URL.revokeObjectURL(a.href);
+}
+$("exportJson").onclick = () => DATA && download("oss-research-data.json", JSON.stringify(DATA, null, 2), "application/json");
+$("exportCsv").onclick = () => {
+  if (!DATA) return;
+  const cols = ["company","repo","number","url","title","importance","importance_rationale","difficulty","status","verified_at","ownership_check","platform_plan","pr_url","pr_raised_at","merged_at","outcome"];
+  const csv = [cols.join(",")].concat((DATA.issues||[]).map(i =>
+    cols.map(c => `"${String(i[c] ?? "").replace(/"/g,'""')}"`).join(","))).join("\n");
+  download("oss-research-issues.csv", csv, "text/csv");
+};
+
+/* ---------- fetch loop ---------- */
+async function load() {
+  try {
+    const r = await fetch(`data.json?t=${Date.now()}`, {cache:"no-store"});
+    if (!r.ok) throw new Error(r.status);
+    DATA = await r.json();
+    $("fetchTs").textContent = new Date().toLocaleTimeString();
+    render();
+  } catch (e) {
+    $("fetchTs").textContent = "fetch failed (" + e.message + ")";
+  }
+}
+load();
+setInterval(load, 60000);
+</script>
+</body>
+</html>

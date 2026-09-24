@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-24T18:40:37+00:00",
+  "generated": "2026-09-24T18:41:42+00:00",
   "campaign": {
     "phase": "repository admission",
     "note": "Bootstrap complete. Contribution baseline refreshed; repository admission and issue research beginning. Eligible-issue counts cover NEW opportunities only; 26 previously contributed external repositories are excluded and tracked separately. All counts are truthful current values, not projections."
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T18:40:37+00:00",
+    "last_refresh": "2026-09-24T18:41:42+00:00",
     "excluded_prior_repos": 26
   },
   "repos": [
@@ -557,7 +557,7 @@
       "importance": "medium",
       "importance_rationale": "Silent content loss: DOCX text carried in Word fields (MACROBUTTON — standard in 3GPP/standards-body/legal templates for 'Proposal N:'/'Observation N:' lines) vanishes from the Markdown with no warning or error, corrupting downstream pipelines that trust the output.",
       "difficulty": "medium",
-      "status": "vetted",
+      "status": "authoring",
       "verified_at": "2026-09-24T18:36:00Z",
       "ownership_check": "Unassigned; 0 comments; no claim of any age; no maintainer plan.",
       "competing_prs": [],
@@ -688,14 +688,14 @@
   ],
   "active": [
     {
-      "what": "Wave-2 admission (10 repos) + label-gate census",
+      "what": "Wave-3 admission: keras, onnxruntime, DeepSpeed, pytorch/vision, botorch, NeMo Curator/RL, diffusers, lerobot, llama.cpp, ollama, goose",
       "owner": "fable-worker",
-      "since": "2026-09-24T18:16:59+00:00"
+      "since": "2026-09-24T18:41:42+00:00"
     },
     {
-      "what": "Issue vetting batch 2: markitdown, mcp/typescript-sdk, gpt-neox, faiss (deep backlog)",
-      "owner": "fable-worker",
-      "since": "2026-09-24T18:16:59+00:00"
+      "what": "Authoring markitdown#1247 (DOCX field text loss) — local implementation + regression test; publication only after independent review",
+      "owner": "fable-author",
+      "since": "2026-09-24T18:41:42+00:00"
     }
   ],
   "updates": [
@@ -744,6 +744,11 @@
     {
       "ts": "2026-09-24T18:40:37+00:00",
       "text": "Batch-2 vetting: markitdown#1247 (medium — DOCX field text silently dropped, confirmed live at HEAD with synthetic fixture) and gpt-neox#1364 (medium — MoE top-k router silently trains without load-balancing loss despite docs) vetted. MCP typescript-sdk 0/79 (fully saturated, some bugs have 3-9 competing PRs); faiss 0/12 (key HNSW path deprecated by maintainer, GPU holds); markitdown 1/70; gpt-neox 1/8. Screening yield so far: ~5 eligible per ~350 examined."
+    },
+    {
+      "ts": "2026-09-24T18:41:42+00:00",
+      "text": "Implementation started on markitdown#1247 (competition re-check first, local-only authoring, independent Fable review before any PR). Wave-3 admission running on 12 larger AI-infra repos.",
+      "repo": "microsoft/markitdown"
     }
   ]
 }

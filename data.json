@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-24T21:02:36+00:00",
+  "generated": "2026-09-24T21:03:13+00:00",
   "campaign": {
     "phase": "repository admission",
     "note": "Career-signal policy active (2026-09-25): every issue carries a separate career-signal grade with rationale; ONLY High/Very High issues may enter authoring or produce new PRs. Eligible-issue counts cover NEW opportunities only; totals and PR-qualified counts are shown separately. All counts truthful."
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T21:02:36+00:00",
+    "last_refresh": "2026-09-24T21:03:13+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 19
   },
@@ -1228,7 +1228,7 @@
       "importance": "high",
       "importance_rationale": "Whole-language silent failure in TTS text processing: every Latin letter above U+00FF (Vietnamese Dj/O-horn/U-horn and 51/93 of the repo's own declared vi-VN graphemes, French oe-ligature, German capital eszett) is treated as punctuation - words split apart, lexicon lines silently discarded at load with no log/counter, and the only symptom is mispronunciation much later. Silent data loss contradicting the project's own GRAPHEME_CHARACTER_SETS.",
       "difficulty": "medium",
-      "status": "vetted",
+      "status": "authoring",
       "verified_at": "2026-09-24T20:05:11Z",
       "ownership_check": "Open, unassigned, 0 comments. Reporter udsy19's fix PR #16084 withdrawn closed-unmerged 2026-09-18; no active claim.",
       "competing_prs": [],
@@ -1548,14 +1548,14 @@
   ],
   "active": [
     {
-      "what": "Vet-8: openai/whisper Discussions-sourced vetting",
-      "owner": "fable-worker",
-      "since": "2026-09-24T20:59:25+00:00"
+      "what": "Authoring OpenHands#5307 (VH: worktree host/container namespace)",
+      "owner": "fable-author",
+      "since": "2026-09-24T21:03:13+00:00"
     },
     {
-      "what": "Authoring OpenHands#5307 (VH: docker-runtime worktree host/container namespace, work-loss risk)",
+      "what": "Authoring NeMo-Speech#16083 (high: phoneme-dict unicode bound)",
       "owner": "fable-author",
-      "since": "2026-09-24T21:00:11+00:00"
+      "since": "2026-09-24T21:03:13+00:00"
     }
   ],
   "updates": [

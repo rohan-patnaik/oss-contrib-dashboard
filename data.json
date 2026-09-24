@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-24T18:53:01+00:00",
+  "generated": "2026-09-24T18:57:57+00:00",
   "campaign": {
     "phase": "repository admission",
     "note": "Bootstrap complete. Contribution baseline refreshed; repository admission and issue research beginning. Eligible-issue counts cover NEW opportunities only; 26 previously contributed external repositories are excluded and tracked separately. All counts are truthful current values, not projections."
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T18:53:01+00:00",
+    "last_refresh": "2026-09-24T18:57:57+00:00",
     "excluded_prior_repos": 26
   },
   "repos": [
@@ -760,7 +760,7 @@
       "importance": "medium",
       "importance_rationale": "Silent content loss: DOCX text carried in Word fields (MACROBUTTON — standard in 3GPP/standards-body/legal templates for 'Proposal N:'/'Observation N:' lines) vanishes from the Markdown with no warning or error, corrupting downstream pipelines that trust the output.",
       "difficulty": "medium",
-      "status": "authoring",
+      "status": "in-review",
       "verified_at": "2026-09-24T18:36:00Z",
       "ownership_check": "Unassigned; 0 comments; no claim of any age; no maintainer plan.",
       "competing_prs": [],
@@ -919,14 +919,14 @@
   ],
   "active": [
     {
-      "what": "Wave-3 admission: keras, onnxruntime, DeepSpeed, pytorch/vision, botorch, NeMo Curator/RL, diffusers, lerobot, llama.cpp, ollama, goose",
+      "what": "Vet-4: goose Ready board, NeMo Curator, software-agent-sdk, ShinkaEvolve",
       "owner": "fable-worker",
-      "since": "2026-09-24T18:41:42+00:00"
+      "since": "2026-09-24T18:57:57+00:00"
     },
     {
-      "what": "Authoring markitdown#1247 (DOCX field text loss) — local implementation + regression test; publication only after independent review",
-      "owner": "fable-author",
-      "since": "2026-09-24T18:41:42+00:00"
+      "what": "Independent review of markitdown#1247 fix (commit f30c463; adversarial XML edge cases)",
+      "owner": "fable-reviewer",
+      "since": "2026-09-24T18:57:57+00:00"
     }
   ],
   "updates": [
@@ -985,6 +985,11 @@
       "ts": "2026-09-24T18:53:01+00:00",
       "text": "Wave-3 admission: onnxruntime, DeepSpeed (LF-governed, verified; 27/30 community merges), botorch, NeMo Curator + RL, diffusers ('AI agents are welcome', maintainer-ack gate), lerobot (pro-AI policy), goose (Ready-board gate, agent-friendly) admitted. llama.cpp rejected (explicit agent prohibition); keras, ollama, pytorch/vision held.",
       "repo": null
+    },
+    {
+      "ts": "2026-09-24T18:57:57+00:00",
+      "text": "markitdown#1247 authored locally: fldSimple unwrap + MACROBUTTON complex-field rewrite in DOCX preprocessor, 3 regression tests fail-before/pass-after at HEAD b8f79c5, full suite 997 pass/1 pre-existing unrelated failure. Honest caveat recorded: reporter's hosted sample has been reprocessed and no longer contains fields — PR will claim the mechanism, not that file. Now in independent review; no publication until review passes.",
+      "repo": "microsoft/markitdown"
     }
   ]
 }

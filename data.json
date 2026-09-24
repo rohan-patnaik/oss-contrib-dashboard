@@ -1,18 +1,18 @@
 {
-  "generated": "2026-09-24T22:04:45+00:00",
+  "generated": "2026-09-24T22:08:46+00:00",
   "campaign": {
-    "phase": "pausing — draining final two vetting batches (user request)",
+    "phase": "PAUSED — research halted at user request; awaiting resume",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
   },
   "summary": {
-    "eligible": 50,
+    "eligible": 54,
     "target": 100,
-    "companies": 21,
-    "repos_admitted": 28,
+    "companies": 22,
+    "repos_admitted": 31,
     "importance": {
       "low": 11,
-      "medium": 33,
-      "high": 6
+      "medium": 35,
+      "high": 8
     },
     "reproduced": 5,
     "authored": 4,
@@ -20,9 +20,9 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T22:04:45+00:00",
+    "last_refresh": "2026-09-24T22:08:46+00:00",
     "excluded_prior_repos": 26,
-    "pr_qualified": 28
+    "pr_qualified": 32
   },
   "repos": [
     {
@@ -719,6 +719,72 @@
       ],
       "decision": "admitted",
       "checked_at": "2026-09-24T20:30:59+00:00"
+    },
+    {
+      "company": "Lightning AI",
+      "repo": "Lightning-AI/pytorch-lightning",
+      "url": "https://github.com/Lightning-AI/pytorch-lightning",
+      "relevance": "Canonical PyTorch training framework (Trainer/Fabric, checkpointing, loops) — pure-Python, CPU-verifiable, high-visibility ML infrastructure.",
+      "stars": 31360,
+      "maintenance": "pushed 2026-09-21",
+      "previous_contribution": "none",
+      "policy": "Soft gates only. Bug fixes: file an issue then 'Submit a PR!'; even a failing-test-only PR is welcomed ('even if you do not find the solution, sending a PR with a test covering the issue is a valid contribution'). Assignment is recommended, not required: 'comment on the issue so that we can assign it to you (or simply self-assign if you can)'. New features need prior issue discussion ('Once an agr",
+      "policy_links": [
+        "https://github.com/Lightning-AI/pytorch-lightning/blob/master/.github/CONTRIBUTING.md",
+        "https://github.com/Lightning-AI/pytorch-lightning/blob/master/.github/PULL_REQUEST_TEMPLATE.md"
+      ],
+      "decision": "admitted",
+      "checked_at": "2026-09-24T21:42:48Z"
+    },
+    {
+      "company": "Anyscale/Ray",
+      "repo": "ray-project/ray",
+      "url": "https://github.com/ray-project/ray",
+      "relevance": "The dominant distributed-compute framework for AI (Ray Core/Data/Train/Tune/Serve); Python-layer bugs are CPU-verifiable against a pip-installed ray via the documented python/ray/setup-dev.py flow.",
+      "stars": 43916,
+      "maintenance": "pushed 2026-09-24",
+      "previous_contribution": "none",
+      "policy": "No issue-assignment gate; external contributors are told 'Your PRs will have assignees shortly... Please actively ping assignees after you address your comments!' AGENTS.md adds mandatory pre-PR duplicate-work checks (gh issue view / gh pr list searches) and an anti-small-fix rule: 'Do not open one-off PRs for trivial edits (a single typo, an isolated style tweak, one mutable default, a lone type ",
+      "policy_links": [
+        "https://github.com/ray-project/ray/blob/master/CONTRIBUTING.rst",
+        "https://github.com/ray-project/ray/blob/master/AGENTS.md",
+        "https://github.com/ray-project/ray/blob/master/.github/PULL_REQUEST_TEMPLATE.md"
+      ],
+      "decision": "admitted",
+      "checked_at": "2026-09-24T21:42:48Z"
+    },
+    {
+      "company": "Databricks/MLflow",
+      "repo": "mlflow/mlflow",
+      "url": "https://github.com/mlflow/mlflow",
+      "relevance": "The standard open-source ML lifecycle platform (tracking, model registry, evaluation, LLM tracing); pure-Python, CPU-verifiable, and its eval/metrics surface matches the campaign's target bug classes exactly.",
+      "stars": 28127,
+      "maintenance": "pushed 2026-09-24",
+      "previous_contribution": "none",
+      "policy": "Small-fix exception implicit: good-first-issue/help-wanted labels curated for 'small features, bug fixes, documentation fixes'; 'we recommend waiting for feedback from an MLflow maintainer or core committer before proceeding' is a recommendation, 'particularly important for significant changes' (labeled needs-design). No assignment gate. PR template is long but checkbox-mechanical (tests, docs, re",
+      "policy_links": [
+        "https://github.com/mlflow/mlflow/blob/master/CONTRIBUTING.md",
+        "https://github.com/mlflow/mlflow/blob/master/CLAUDE.md",
+        "https://github.com/mlflow/mlflow/blob/master/.github/pull_request_template.md"
+      ],
+      "decision": "admitted",
+      "checked_at": "2026-09-24T21:42:48Z"
+    },
+    {
+      "company": "tinygrad",
+      "repo": "tinygrad/tinygrad",
+      "url": "https://github.com/tinygrad/tinygrad",
+      "relevance": "High-visibility minimalist deep-learning framework, but policy- and throughput-incompatible with this campaign.",
+      "stars": 33652,
+      "maintenance": "pushed 2026-09-24",
+      "previous_contribution": "none",
+      "policy": "Hostile-to-newcomer gates in README Contributing: 'All docs and whitespace changes will be closed unless you are a well-known contributor.'; 'If your PR looks \"complex\", is a big diff, or adds lots of lines, it won't be reviewed or merged.'; speedup claims must be benchmarked; refactors must pass process replay. Bug fixes with regression tests are welcomed ('Bug fixes (with a regression test) are ",
+      "policy_links": [
+        "https://github.com/tinygrad/tinygrad/blob/master/README.md",
+        "https://github.com/tinygrad/tinygrad/blob/master/AGENTS.md"
+      ],
+      "decision": "rejected",
+      "checked_at": "2026-09-24T21:42:48Z"
     }
   ],
   "issues": [
@@ -1661,6 +1727,80 @@
       "ownership_check": "Maintainer-filed request, unclaimed for 2 years.",
       "competing_prs": [],
       "platform_plan": "CPU-only. Same source build as #3495. Validate: IndexRefineFlat over IndexPQ (train/add 1000 vectors), remove_ids(IDSelectorBatch) -> compare post-removal search and reconstruct against an index rebuilt without the removed vectors; assert base and refine ntotal equal. `pytest tests/test_refine.py -x` if present, else tests/test_index_composite.py."
+    },
+    {
+      "company": "Databricks",
+      "repo": "mlflow/mlflow",
+      "number": 13575,
+      "url": "https://github.com/mlflow/mlflow/issues/13575",
+      "title": "mlflow.log-model.history tag exceeds the 8000-char cap after ~15 models in one run: SQL backends fail/StringDataRightTruncation, now silently swallowed -> model lineage silently lost",
+      "importance": "medium",
+      "importance_rationale": "Any run that logs >~15 models (per-epoch model logging, per-timestep forecasting models — both patterns reported in-thread by mcerman and rsonger) permanently stops recording model history on postgres/mysql backends; at current HEAD the failure is even swallowed to a warning (mlflow/models/model.py:1034-1039 catches MlflowException), so users silently lose model lineage/UI attribution with no hard error. FileStore is unbounded and inconsistent with SQL backends.",
+      "career_signal": "high",
+      "career_signal_rationale": "Model-lineage data-integrity fix in the tracking store of the industry-standard ML lifecycle platform: requires reasoning about a capped SQL column vs an unbounded append-only JSON tag, a silent-failure path, and backward compatibility of a tag format the UI and deserializers depend on — a defensible correctness/data-processing fix, not cosmetic.",
+      "career_assessed_at": "2026-09-24T22:03:47Z",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-24T22:03:47Z",
+      "ownership_check": "Reporter declared unwillingness to fix; second affected user rsonger (2024-11-22) reported being blocked but made no claim; no other participants in 23 months.",
+      "competing_prs": [],
+      "platform_plan": "Pure Python + sqlite, macOS ARM64: uv venv && uv pip install -e . (repo standard; then pytest). Reproduce in a unit test: SqlAlchemyStore('sqlite:///...') + create run + call store.record_logged_model repeatedly with a Model whose get_tags_dict() is ~600 chars until json.dumps(history) > 8000; assert at HEAD the stored tag value exceeds MAX_TAG_VAL_LENGTH (sqlite doesn't enforce varchar — assert on len(value) to model the postgres failure), then assert fixed behavior keeps len<=8000 with valid JSON. Targeted run: uv run pytest tests/store/tracking/test_sqlalchemy_store.py -k logged_model."
+    },
+    {
+      "company": "Anyscale",
+      "repo": "ray-project/ray",
+      "number": 62173,
+      "url": "https://github.com/ray-project/ray/issues/62173",
+      "title": "PBT-perturbed hyperparameters silently ignored after checkpoint restore in PPO (Policy.set_state overwrites live config; optimizer param_groups restore stale lr)",
+      "importance": "high",
+      "importance_rationale": "Silently invalidates Population-Based Training science on the RLlib old API stack: every exploit step's perturbations of clip_param/lambda/lr are discarded at checkpoint restore, so users' PBT runs report hyperparameter schedules that were never actually trained with — an eval/training-validity bug, not a crash, hence invisible.",
+      "career_signal": "high",
+      "career_signal_rationale": "Framework-correctness work on the training/HPO execution path of the dominant distributed-AI framework: designing checkpoint-restore config-precedence semantics (live perturbed config vs serialized snapshot) plus targeted optimizer-lr reconciliation across multi-optimizer algorithms, with a demonstrable 'your PBT results were a lie' failure mode — interview-defensible RL-infrastructure correctness. Graded high not very_high because it is scoped to the deprecated-but-shipping old API stack.",
+      "career_assessed_at": "2026-09-24T22:03:47Z",
+      "difficulty": "hard",
+      "status": "vetted",
+      "verified_at": "2026-09-24T22:03:47Z",
+      "ownership_check": "Reporter filed with full root-cause and repro, never claimed. #62345's author explicitly withdrew. No one else has touched it.",
+      "competing_prs": [
+        "https://github.com/ray-project/ray/pull/62345"
+      ],
+      "platform_plan": "CPU-only, macOS ARM64/Linux: pip install 'ray[rllib]==nightly-equivalent from source checkout via pip install -e python' + torch CPU + gymnasium. Unit-level repro without Tune (seconds): build PPO policy on CartPole-v1, s = policy.get_state(); simulate PBT exploit by constructing a second policy whose config has perturbed lr/clip_param/lambda, call policy2.set_state(s); assert policy2.config['clip_param'] keeps the perturbed value and policy2._optimizers[0].param_groups[0]['lr'] == perturbed lr — fails at HEAD via policy.py:1031 and torch_policy_v2.py:951. Issue's full PBT repro (ray.init(num_cpus=4), PPO+PBT with HPInspector callback) also runs CPU-only for end-to-end evidence."
+    },
+    {
+      "company": "Anyscale",
+      "repo": "ray-project/ray",
+      "number": 48726,
+      "url": "https://github.com/ray-project/ray/issues/48726",
+      "title": "ray.train Checkpoint.to_directory() re-downloads into the shared per-checkpoint temp dir on every call — race corrupts data another actor is reading (hits synch PBT)",
+      "importance": "medium",
+      "importance_rationale": "Checkpoint reads can observe half-overwritten files: the per-checkpoint temp dir is deterministic (uuid-keyed) and shared across actors on a node, but to_directory unconditionally re-downloads whenever the lock is free, so a late-starting actor overwrites the directory a finished actor is actively reading — reporter (severity 'High: It blocks me') hit I/O errors in synchronous PBT, exactly where multiple trials clone one checkpoint.",
+      "career_signal": "high",
+      "career_signal_rationale": "Checkpoint-loading correctness in Ray Train's core Checkpoint primitive: a classic TOCTOU/caching race whose fix requires a download-completion sentinel keyed to checkpoint identity, lock-ordering reasoning, and a deterministic multi-actor regression test — concrete distributed-training reliability work used by every Train/Tune user.",
+      "career_assessed_at": "2026-09-24T22:03:47Z",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-24T22:03:47Z",
+      "ownership_check": "No comments, no claims, no linked PRs since 2024-11-13.",
+      "competing_prs": [],
+      "platform_plan": "Pure local, CPU-only, no cluster: the issue's own repro (two sequential ckpt.to_directory() calls; ls -l timestamps prove the second call rewrote the files) runs as-is on macOS ARM64 with pip install -e python (or even a pip-installed ray, since _checkpoint.py is pure Python — patchable in site-packages for a quick pre-check). Regression test: create Checkpoint from a local dir, call to_directory(), record inode/mtime of a file, call to_directory() again, assert unchanged; plus a threaded test (ThreadPoolExecutor, N=8 concurrent+staggered to_directory calls with a slow filesystem shim) asserting single download. Targeted run: pytest python/ray/train/tests/test_checkpoint.py -x (file exists in repo)."
+    },
+    {
+      "company": "Anyscale",
+      "repo": "ray-project/ray",
+      "number": 58869,
+      "url": "https://github.com/ray-project/ray/issues/58869",
+      "title": "Synch PBT broken across experiment restore: paused trials force-set to PENDING and scheduler state (_next_perturbation_sync/_trial_state) never persisted -> perturbation skipped, then all trials stall forever",
+      "importance": "high",
+      "importance_rationale": "Fault-tolerant resume of synchronous PBT — the advertised workflow for long HPO runs — is structurally broken: after Tuner.restore, trials that were waiting at the perturbation boundary run past it (perturbation silently skipped, corrupting the PBT schedule) and, once the un-restored scheduler pauses everything at the next boundary, choose_trial_to_run never unpauses anything, deadlocking the whole experiment.",
+      "career_signal": "high",
+      "career_signal_rationale": "Fault-tolerance correctness for a distributed HPO scheduler: designing what PBT state must survive an experiment restore (per-trial train-time watermarks, the synchronization barrier), wiring it through Tune's experiment checkpoint alongside the searcher, and proving liveness with a kill-and-resume test — substantive, interview-defensible distributed-training reliability work.",
+      "career_assessed_at": "2026-09-24T22:03:47Z",
+      "difficulty": "hard",
+      "status": "vetted",
+      "verified_at": "2026-09-24T22:03:47Z",
+      "ownership_check": "Reporter provided mechanism analysis but never claimed; zero engagement since filing.",
+      "competing_prs": [],
+      "platform_plan": "CPU-only, local: pip install -e python (tune is pure Python). E2E repro on macOS ARM64/Linux CPU: function trainable that tune.report()s an increasing metric with time.sleep jitter, PBT(synch=True, perturbation_interval=4), 4 trials, num_cpus=4; kill the driver (raise in a Callback after trial 0 lags a boundary), Tuner.restore(path, trainable), observe (a) no perturbation at the pending boundary and (b) permanent PAUSED stall at the following boundary. Unit tests run in seconds: assert scheduler state round-trips through the new save/restore, and a controller-level resume test asserting _next_perturbation_sync survives. Targeted run: pytest python/ray/tune/tests/test_trial_scheduler_pbt.py -x."
     }
   ],
   "holds": [
@@ -1803,20 +1943,16 @@
       "url": "https://github.com/SakanaAI/ShinkaEvolve",
       "reason": "Campaign counts existing public issues only; ShinkaEvolve has zero open issues, so this verified source-level bug is ineligible for the count. Recorded for transparency; disjoint from open PR #194.",
       "ts": "2026-09-24T19:18:09+00:00"
-    }
-  ],
-  "active": [
-    {
-      "what": "Vet-9: DeepSpeed wide round-2 (1,110-issue backlog) + lerobot first pass",
-      "owner": "fable-worker",
-      "since": "2026-09-24T21:23:59+00:00"
     },
     {
-      "what": "Vet-10: goose Ready refresh, Curator round-2, hermes-agent round-2, inspect_ai re-check",
-      "owner": "fable-worker",
-      "since": "2026-09-24T21:23:59+00:00"
+      "company": "tinygrad",
+      "item": "tinygrad/tinygrad",
+      "url": "https://github.com/tinygrad/tinygrad",
+      "reason": "REJECTED: README — new-contributor submissions that look AI-written are closed without feedback and may lead to a ban; 29/30 merges by 5 core collaborators.",
+      "ts": "2026-09-24T22:08:23+00:00"
     }
   ],
+  "active": [],
   "updates": [
     {
       "ts": "2026-09-24T17:51:58+00:00",
@@ -1952,6 +2088,14 @@
     {
       "ts": "2026-09-24T22:04:45+00:00",
       "text": "Batch-12 (round-2 refreshes): +8 faiss at HEAD b1c1496 — 4 HIGH career (#3495 IDMap2 merge_from id corruption, #3828 JensenShannon NaN hangs HNSW add, #3559 IndexPQ selector support, #5566 IVFFlatDedup remove_ids undercount) + 4 medium inventory. markitdown/software-agent-sdk/mcp-registry refreshes dry (~3h window, all blocking PRs still open). faiss vein durable: aged backlog + freed-internal-fix checks; fresh reports contested within days by an external bug-finder campaign."
+    },
+    {
+      "ts": "2026-09-24T22:08:23+00:00",
+      "text": "Batch-11: 3 new orgs admitted (Lightning AI; Ray — 24/30 external merges, DCO, disclosed-AI-assist allowed with human-defends-change rule; MLflow — LF/Databricks TSC verified, aged pre-2026-03-10 backlog is the PR-able surface due to auto-close bot). tinygrad REJECTED (README: AI-looking contributions closed without feedback, possible ban). +4 HIGH candidates: mlflow#13575 (model lineage silently lost on SQL backends), ray#62173 (PBT hyperparams discarded on restore), ray#48726 (checkpoint temp-dir corruption race), ray#58869 (Tune never persists scheduler state -> resumed PBT deadlock). 41 rejections + 3 gated holds documented."
+    },
+    {
+      "ts": "2026-09-24T22:08:46+00:00",
+      "text": "PAUSED at user request after final batch drained. Session totals: 54/100 eligible, 32 PR-qualified + 1 user exception, 3 PRs open, 31 repos admitted across 23 companies, 28 implementation-ready handoff entries. New this batch: Lightning AI / Ray / MLflow admitted (+4 high candidates: mlflow model-lineage loss, ray PBT restore, checkpoint race, Tune scheduler-state loss); tinygrad rejected (explicit AI ban). Resume priorities and dead veins recorded."
     }
   ],
   "companies": [
@@ -2144,6 +2288,26 @@
       "company": "Harbor/Terminal Bench",
       "fit": "low",
       "rationale": "Requires human-written issues/PR text; unattended authoring held."
+    },
+    {
+      "company": "Lightning AI",
+      "fit": "high",
+      "rationale": "Mainstream training framework (pytorch-lightning, 64k+ users); no AI policy, no CLA, test-first bug fixes invited."
+    },
+    {
+      "company": "Anyscale/Ray",
+      "fit": "high",
+      "rationale": "Mainstream distributed-ML runtime; highest external-merge rate found (24/30); disclosed AI-assist allowed with human-defends-change rule."
+    },
+    {
+      "company": "Databricks/MLflow",
+      "fit": "high",
+      "rationale": "Industry-standard ML lifecycle platform, LF-governed with Databricks TSC; agent-enabling CLAUDE.md; aged backlog PR-able."
+    },
+    {
+      "company": "tinygrad",
+      "fit": "low",
+      "rationale": "Explicit ban: AI-looking contributions closed without feedback, possible ban."
     }
   ]
 }

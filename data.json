@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-24T20:23:21+00:00",
+  "generated": "2026-09-24T20:27:08+00:00",
   "campaign": {
     "phase": "repository admission",
     "note": "Bootstrap complete. Contribution baseline refreshed; repository admission and issue research beginning. Eligible-issue counts cover NEW opportunities only; 26 previously contributed external repositories are excluded and tracked separately. All counts are truthful current values, not projections."
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T20:23:21+00:00",
+    "last_refresh": "2026-09-24T20:27:08+00:00",
     "excluded_prior_repos": 26
   },
   "repos": [
@@ -796,7 +796,7 @@
       "importance": "high",
       "importance_rationale": "The agent silently stops mid-task with no output, no log, and no retry whenever a provider returns a reasoning-only turn (no text, no tool call) - a real-world failure the reporter hit and reproduced; the sibling zero-content case (#10353) was considered worth fixing and this hole remains.",
       "difficulty": "medium",
-      "status": "authoring",
+      "status": "in-review",
       "verified_at": "2026-09-24T19:08:00Z",
       "ownership_check": "Unassigned (past maintainer assignments removed; board shows Assignees []). Reporter arohou explicitly declined 2026-09-16T17:42:59Z: 'I'm swamped so I'll have to just sit back and observe'. No other claim.",
       "competing_prs": [],
@@ -1343,14 +1343,14 @@
   ],
   "active": [
     {
-      "what": "Vet-5: DeepSpeed, onnxruntime, diffusers (ack-gated), botorch",
+      "what": "Vet-7: agent-framework, NeMo/RL, Anthropic SDKs re-scan, onnxruntime round-2",
       "owner": "fable-worker",
-      "since": "2026-09-24T19:37:30+00:00"
+      "since": "2026-09-24T20:27:07+00:00"
     },
     {
-      "what": "Authoring goose#11975 (thinking-only response silently ends turn) — local only",
-      "owner": "fable-author",
-      "since": "2026-09-24T19:38:01+00:00"
+      "what": "Independent review of goose#11975 fix (d130ce6)",
+      "owner": "fable-reviewer",
+      "since": "2026-09-24T20:27:07+00:00"
     }
   ],
   "updates": [
@@ -1441,6 +1441,11 @@
     {
       "ts": "2026-09-24T20:23:21+00:00",
       "text": "Batch-6: +8 eligible — NVIDIA-NeMo/Speech 7 (incl. HIGH #16083 phoneme-dict truncation dropping 51/93 Vietnamese graphemes; vein opened by a contributor voluntarily withdrawing ~20 unreviewed PRs on 2026-09-18, prior-art + DCO/latency risks recorded per row) and hermes-agent #84667 (cron jobs silently skip attached skills). OLMo-core and prime-rl: 0 — every strong bug already has an open fix PR; cline: 0 (up to 12 competing PRs per approved issue). 80 rejections + 13 holds documented."
+    },
+    {
+      "ts": "2026-09-24T20:27:07+00:00",
+      "text": "goose#11975 authored: thinking-only recovery per maintainer-agreed design in both agent loops (bounded 3-retry, agent-only continuation, visible fallback), 4 regression tests fail-before/pass-after, 2319-test crate suite green, e2e verified with the issue's repro script. In independent review. Storage note: 6.7 GB free / goose build tree 36 GB — reviewer constrained to cache reuse.",
+      "repo": "aaif-goose/goose"
     }
   ]
 }

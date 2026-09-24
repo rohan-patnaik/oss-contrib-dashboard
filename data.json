@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-24T19:14:07+00:00",
+  "generated": "2026-09-24T19:14:44+00:00",
   "campaign": {
     "phase": "repository admission",
     "note": "Bootstrap complete. Contribution baseline refreshed; repository admission and issue research beginning. Eligible-issue counts cover NEW opportunities only; 26 previously contributed external repositories are excluded and tracked separately. All counts are truthful current values, not projections."
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T19:14:07+00:00",
+    "last_refresh": "2026-09-24T19:14:44+00:00",
     "excluded_prior_repos": 26
   },
   "repos": [
@@ -778,7 +778,7 @@
       "importance": "medium",
       "importance_rationale": "Silent misconfiguration: the docs say the TopK MoE router is unsupported for training ('only used for inference/eval'), yet training configs with moe_router_type='topk' are accepted without any error or warning — users can burn large training runs on a router path that has no load-balancing loss, getting degenerate expert routing with no signal that anything is wrong.",
       "difficulty": "low",
-      "status": "vetted",
+      "status": "authoring",
       "verified_at": "2026-09-24T18:35:00Z",
       "ownership_check": "Unassigned; 0 comments since filing (2025-08-11, ~13.5 months); no claims, no maintainer response.",
       "competing_prs": [],
@@ -925,6 +925,11 @@
       "what": "Vet-4: goose Ready board, NeMo Curator, software-agent-sdk, ShinkaEvolve",
       "owner": "fable-worker",
       "since": "2026-09-24T19:14:07+00:00"
+    },
+    {
+      "what": "Authoring gpt-neox#1364 (MoE top-k silent misconfiguration) — local only",
+      "owner": "fable-author",
+      "since": "2026-09-24T19:14:44+00:00"
     }
   ],
   "updates": [

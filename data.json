@@ -1,26 +1,26 @@
 {
-  "generated": "2026-09-24T19:14:44+00:00",
+  "generated": "2026-09-24T19:18:09+00:00",
   "campaign": {
     "phase": "repository admission",
     "note": "Bootstrap complete. Contribution baseline refreshed; repository admission and issue research beginning. Eligible-issue counts cover NEW opportunities only; 26 previously contributed external repositories are excluded and tracked separately. All counts are truthful current values, not projections."
   },
   "summary": {
-    "eligible": 5,
+    "eligible": 16,
     "target": 100,
     "companies": 20,
     "repos_admitted": 27,
     "importance": {
-      "low": 2,
-      "medium": 3,
-      "high": 0
+      "low": 5,
+      "medium": 9,
+      "high": 2
     },
-    "reproduced": 1,
+    "reproduced": 2,
     "authored": 1,
     "open_prs": 1,
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T19:14:44+00:00",
+    "last_refresh": "2026-09-24T19:18:09+00:00",
     "excluded_prior_repos": 26
   },
   "repos": [
@@ -783,6 +783,171 @@
       "ownership_check": "Unassigned; 0 comments since filing (2025-08-11, ~13.5 months); no claims, no maintainer response.",
       "competing_prs": [],
       "platform_plan": "CPU-only (Mac ARM64 or Linux CPU container): the fix and test live entirely in pure-Python config parsing. Unit test via NeoXArgs.from_dict/from_ymls with moe_num_experts>1 and moe_router_type='topk', assert calculate_derived raises/warns; run `pytest tests/unit/test_arguments.py`. The repo already runs these arg tests CPU-only (tests/unit/test_eval_loss_logging.py explicitly notes 'Avoid hardware discovery in NeoXArgs.calculate_derived during CPU unit tests'). No GPU, no training run needed."
+    },
+    {
+      "company": "Block/Goose",
+      "repo": "aaif-goose/goose",
+      "number": 11975,
+      "url": "https://github.com/aaif-goose/goose/issues/11975",
+      "title": "A response containing only a thinking block silently ends the turn",
+      "importance": "high",
+      "importance_rationale": "The agent silently stops mid-task with no output, no log, and no retry whenever a provider returns a reasoning-only turn (no text, no tool call) - a real-world failure the reporter hit and reproduced; the sibling zero-content case (#10353) was considered worth fixing and this hole remains.",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-24T19:08:00Z",
+      "ownership_check": "Unassigned (past maintainer assignments removed; board shows Assignees []). Reporter arohou explicitly declined 2026-09-16T17:42:59Z: 'I'm swamped so I'll have to just sit back and observe'. No other claim.",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64, CPU only: cargo test -p goose. Add failing tests using the existing mock-provider harnesses (crates/goose/src/agents/state_machine/tests/provider_lifecycle.rs already builds thinking-content responses; legacy-loop tests around agent.rs:5288 cover the zero-content variant) that return a stream containing exactly one non-empty Thinking block and assert the loop performs the continuation-recovery instead of exiting silently. The issue additionally ships a stdlib-only python mock OpenAI endpoint (repro.py) for a manual end-to-end check with goose CLI - no credentials or GPU."
+    },
+    {
+      "company": "Block/Goose",
+      "repo": "aaif-goose/goose",
+      "number": 12082,
+      "url": "https://github.com/aaif-goose/goose/issues/12082",
+      "title": "Session header not added to new provider when resuming CLI session",
+      "importance": "medium",
+      "importance_rationale": "Silently breaks session attribution for gateway providers (x-opencode-session and custom overrides): requests made on the resume path go out without the header, corrupting server-side session tracking with no visible error.",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-24T19:06:00Z",
+      "ownership_check": "Unassigned (jamadeo assigned 2026-09-15, later removed). Reporter rookiejet made no claim; sole comment is jamadeo's fix guidance.",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64, CPU only: extend crates/goose/tests/session_id_propagation_test.rs with a wiremock EnforceSessionId fixture that resumes a session with a different provider and asserts the header on the first request (including fetch_model_info); hoist with_session_id to Agent::reply / resume_state_machine_turn per jamadeo's guidance; cargo test -p goose."
+    },
+    {
+      "company": "Block/Goose",
+      "repo": "aaif-goose/goose",
+      "number": 12055,
+      "url": "https://github.com/aaif-goose/goose/issues/12055",
+      "title": "Expose reasoning effort configuration for the built-in zai provider (per-model and per-recipe)",
+      "importance": "medium",
+      "importance_rationale": "Every built-in Z.AI GLM-5.3 user silently runs at server-default maximum reasoning (~105 vs ~3 overhead tokens per trivial request per Z.AI's own measurements), burning paid GLM Coding Plan quota across every request with no per-model or per-recipe control.",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-24T19:06:30Z",
+      "ownership_check": "Unassigned (filipkujawa assigned 2026-09-14, later removed). Reporter clouatre made no claim.",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64, CPU only: unit tests on the anthropic engine payload builder asserting the declared/normalized ThinkingEffort serializes to thinking.budget_tokens (and that Off is normalized to low per the scoped policy, avoiding Z.AI HTTP 400 code 1210); recipe Settings round-trip test for the new field; cargo test -p goose-providers -p goose. No live Z.AI key required for the unit level."
+    },
+    {
+      "company": "Block/Goose",
+      "repo": "aaif-goose/goose",
+      "number": 11735,
+      "url": "https://github.com/aaif-goose/goose/issues/11735",
+      "title": "Define canonical identity for imported extensions",
+      "importance": "medium",
+      "importance_rationale": "A mismatched imported mapping (outer config key vs embedded extension name) can make disable/removal silently affect a different entry or leave the selected executable extension enabled - a correctness and trust problem for anyone importing extension configs.",
+      "difficulty": "high",
+      "status": "vetted",
+      "verified_at": "2026-09-24T19:07:00Z",
+      "ownership_check": "Unassigned (alexhancock/jbg assignments removed). No claim comments. Risk note: author jbg runs an active remediation pipeline (his sibling-issue PRs #11850/#12441 exist) but has published no branch or PR for this issue.",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64, CPU only: cargo test -p goose --lib config::extensions::tests. Add failing unit tests: store an entry under key A with embedded name B, then assert lookup/enable/disable/remove all target exactly that entry (including when another entry occupies name_to_key(B)), plus a legacy-migration/rejection test per the issue's acceptance list."
+    },
+    {
+      "company": "Block/Goose",
+      "repo": "aaif-goose/goose",
+      "number": 11902,
+      "url": "https://github.com/aaif-goose/goose/issues/11902",
+      "title": "[Feature request]: Allow adding local GGUFs from disk",
+      "importance": "medium",
+      "importance_rationale": "Local-inference users must re-download multi-gigabyte GGUF files they already have on disk; near-impossible on low-bandwidth networks - a hard blocker for the offline/local-model audience.",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-24T19:07:30Z",
+      "ownership_check": "Unassigned (jamadeo/jbg assignments removed). Reporter A-Sverdrup made no claim.",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64, CPU only: vitest for the new Desktop list entry/persistence/unavailable-state components (cd ui/desktop && npm test), Rust unit tests around explicit_model_path listing/persistence with a small dummy .gguf fixture file (no inference run needed to validate add/persist/missing-file states); manual smoke via the desktop app with a real small GGUF is optional and still CPU-capable (llama.cpp Metal/CPU)."
+    },
+    {
+      "company": "Block/Goose",
+      "repo": "aaif-goose/goose",
+      "number": 12008,
+      "url": "https://github.com/aaif-goose/goose/issues/12008",
+      "title": "In-Chat annotation (quote selected conversation text into the composer)",
+      "importance": "low",
+      "importance_rationale": "UX convenience: users cannot easily quote a portion of the chat to discuss it; no data loss or breakage, but a frequently-used interaction in comparable chat UIs.",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-24T19:08:30Z",
+      "ownership_check": "Unassigned (jbg assignment removed). Reporter SyncNovate made no claim.",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64, CPU only: implement in ui/desktop React components; vitest unit tests for the selection-action (multiline, existing-draft preservation, code-block quoting per jbg's verification list); manual check via the desktop dev app. No backend, no GPU, no credentials."
+    },
+    {
+      "company": "Block/Goose",
+      "repo": "aaif-goose/goose",
+      "number": 12158,
+      "url": "https://github.com/aaif-goose/goose/issues/12158",
+      "title": "Define nonterminal input ownership for interactive elicitation",
+      "importance": "low",
+      "importance_rationale": "Edge-case input-routing correctness: queued nonterminal stdin intended as conversation input can be silently consumed by extension elicitation forms in CLI automation; low frequency but confusing when hit, and the maintainer has settled the desired behavior.",
+      "difficulty": "low",
+      "status": "vetted",
+      "verified_at": "2026-09-24T19:07:45Z",
+      "ownership_check": "Unassigned (jamadeo assignment removed). Author jbg; no claim comments.",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64, CPU only: cargo test -p goose-cli with unit tests around the elicitation input dispatch (non-terminal stdin => explicit error instead of consuming queued input; terminal path unchanged); manual check by piping stdin to 'goose run --interactive --text ...' with an extension form fixture. Both agent-loop paths per the issue's verification list."
+    },
+    {
+      "company": "NVIDIA",
+      "repo": "NVIDIA-NeMo/Curator",
+      "number": 1148,
+      "url": "https://github.com/NVIDIA-NeMo/Curator/issues/1148",
+      "title": "Add supported backends attribute to stages",
+      "importance": "medium",
+      "importance_rationale": "Stages that only work on one backend (notably deduplication on RayActorPool) currently run on incompatible executors and produce unexpected behavior or errors with no guardrail - a silent-wrong-results / confusing-failure class for pipeline users.",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-24T19:01:30Z",
+      "ownership_check": "Unassigned; 0 comments; no claim of any age; no maintainer plan comment. Filed by the team (2025-09-30) as an acknowledged gap - deep backlog is explicitly acceptable per the repo's small-fix on-ramp.",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64 / Linux CPU container, pure CPU: uv/pip install the text-cpu extra; add supported_backends (default: all three) to ProcessingStage, executor-side validation raising a clear error, and mark actor-pool-only dedup stages; pytest tests/ for the attribute, the validation error path, and no-regression on existing CPU stage tests. No GPU/RAPIDS needed for the attribute+validation mechanism."
+    },
+    {
+      "company": "OpenHands",
+      "repo": "OpenHands/software-agent-sdk",
+      "number": 5307,
+      "url": "https://github.com/OpenHands/software-agent-sdk/issues/5307",
+      "title": "[Bug]: Docker conversation runtime creates linked worktree across incompatible host/container filesystem namespaces",
+      "importance": "high",
+      "importance_rationale": "priority:high by maintainers: with OH_CONVERSATION_RUNTIME=docker + worktree=true, the created worktree is immediately 'prunable' from the host - routine host-side git gc/worktree prune severs the conversation's working tree, risking loss of in-progress agent work and breaking the worktree feature for every docker-runtime user.",
+      "difficulty": "high",
+      "status": "vetted",
+      "verified_at": "2026-09-24T19:05:00Z",
+      "ownership_check": "Unassigned; ready-for-dev label applied by the readiness bot; only comment is the reporter's re-reproduction; no claim, no maintainer plan.",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64, CPU only: unit-test the worktree path/gitdir portability logic (pytest openhands-agent-server tests) with plain git - e.g. relative gitdir links or locating the worktree under the shared bind-mounted namespace - then end-to-end with Docker Desktop (CPU): run agent-server with OH_CONVERSATION_RUNTIME=docker against a host repo, create a conversation with worktree=true, assert 'git worktree list' on the host shows a valid (non-prunable) worktree. No GPU, no credentials."
+    },
+    {
+      "company": "OpenHands",
+      "repo": "OpenHands/software-agent-sdk",
+      "number": 5310,
+      "url": "https://github.com/OpenHands/software-agent-sdk/issues/5310",
+      "title": "[Bug]: Docker conversation runtime cannot resolve configured title LLM profile because per-runtime profile store is empty",
+      "importance": "medium",
+      "importance_rationale": "A configured title_llm_profile is silently ignored under the Docker conversation runtime (falls back to the agent LLM / truncation): user configuration does not take effect and the only signal is a server-side warning.",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-24T19:05:30Z",
+      "ownership_check": "Unassigned; ready-for-dev; no comments beyond the readiness bot; no claim, no maintainer plan.",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64, CPU only: pytest unit test that docker provisioning materializes (or proxies) the referenced LLM profile for the inner store - the profile store and provisioning env assembly are plain Python and testable without containers; e2e confirmation with Docker Desktop (CPU) by configuring title_llm_profile and asserting the inner server resolves it. No GPU; LLM call itself can be mocked."
+    },
+    {
+      "company": "OpenHands",
+      "repo": "OpenHands/software-agent-sdk",
+      "number": 5279,
+      "url": "https://github.com/OpenHands/software-agent-sdk/issues/5279",
+      "title": "fix(workspace): link attached conversations in automation callbacks",
+      "importance": "low",
+      "importance_rationale": "Automations that resume a stable conversation complete with automation_runs.conversation_id empty, making runs hard to trace in Agent Canvas - a traceability gap, no data loss.",
+      "difficulty": "low",
+      "status": "vetted",
+      "verified_at": "2026-09-24T19:05:45Z",
+      "ownership_check": "Unassigned; ready-for-dev; filed by maintainer neubig as a spec'd small fix with acceptance criteria (including 'A failed attach does not register'); no claim comments.",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64, CPU only: pure pytest with a mocked workspace client following the existing RemoteConversation test patterns - assert attach() registers the ID on success and does not register on HTTP failure, and that the completion callback carries the attached ID; uv run pytest openhands-sdk tests. No Docker, no credentials."
     }
   ],
   "holds": [
@@ -918,6 +1083,13 @@
       "url": "https://github.com/pytorch/vision",
       "reason": "No AI ban (pytorch/pytorch AI_POLICY is repo-scoped), but ~2/30 external merges and bug fixes gated to help-wanted issues.",
       "ts": "2026-09-24T18:53:01+00:00"
+    },
+    {
+      "company": "Sakana",
+      "item": "ShinkaEvolve assign_island precedence bug (source-found, no issue)",
+      "url": "https://github.com/SakanaAI/ShinkaEvolve",
+      "reason": "Campaign counts existing public issues only; ShinkaEvolve has zero open issues, so this verified source-level bug is ineligible for the count. Recorded for transparency; disjoint from open PR #194.",
+      "ts": "2026-09-24T19:18:09+00:00"
     }
   ],
   "active": [
@@ -998,6 +1170,10 @@
       "ts": "2026-09-24T19:14:07+00:00",
       "text": "FIRST PR PUBLISHED: microsoft/markitdown PR #2553 (fixes DOCX field display-text loss, issue #1247). Independent Fable review verdict APPROVE with no required changes; final competition re-check clean at 19:13Z; registered with T3. Full test evidence and limitations disclosed in the PR.",
       "repo": "microsoft/markitdown"
+    },
+    {
+      "ts": "2026-09-24T19:18:09+00:00",
+      "text": "Batch-4 vetting: 11 eligible added — goose 7 (incl. #11975 HIGH: thinking-only response silently ends agent turn; all from the maintainer-curated Ready board), OpenHands/software-agent-sdk 3 (incl. #5307 HIGH: docker-runtime worktree work-loss risk), NeMo Curator 1 (#1148 silent executor incompatibility). 53 rejections recorded. A real source-found bug in ShinkaEvolve was EXCLUDED from eligibility (no existing issue backs it — repo has zero open issues) and is held as an observation only."
     }
   ]
 }

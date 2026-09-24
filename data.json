@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-24T20:39:59+00:00",
+  "generated": "2026-09-24T20:41:30+00:00",
   "campaign": {
     "phase": "repository admission",
     "note": "Career-signal policy active (2026-09-25): every issue carries a separate career-signal grade with rationale; ONLY High/Very High issues may enter authoring or produce new PRs. Eligible-issue counts cover NEW opportunities only; totals and PR-qualified counts are shown separately. All counts truthful."
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T20:39:59+00:00",
+    "last_refresh": "2026-09-24T20:41:30+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 18
   },
@@ -41,7 +41,7 @@
       "checked_at": "2026-09-24T18:00:36+00:00"
     },
     {
-      "company": "Anthropic-stewarded MCP community (Linux Foundation-ish open governance)",
+      "company": "MCP",
       "repo": "modelcontextprotocol/registry",
       "url": "https://github.com/modelcontextprotocol/registry",
       "relevance": "Official MCP server registry; central infrastructure for the MCP ecosystem.",
@@ -57,7 +57,7 @@
       "checked_at": "2026-09-24T18:20:30+00:00"
     },
     {
-      "company": "Google DeepMind",
+      "company": "Google/DeepMind",
       "repo": "google-deepmind/optax",
       "url": "https://github.com/google-deepmind/optax",
       "relevance": "Core JAX optimization library maintained by Google DeepMind.",
@@ -72,7 +72,7 @@
       "checked_at": "2026-09-24T18:20:30+00:00"
     },
     {
-      "company": "Google (Health AI Developer Foundations)",
+      "company": "Google/DeepMind",
       "repo": "google/langextract",
       "url": "https://github.com/google/langextract",
       "relevance": "Google's popular LLM-based structured information extraction library.",
@@ -167,7 +167,7 @@
       "checked_at": "2026-09-24T18:20:30+00:00"
     },
     {
-      "company": "OpenHands (All Hands AI)",
+      "company": "OpenHands",
       "repo": "OpenHands/software-agent-sdk",
       "url": "https://github.com/OpenHands/software-agent-sdk",
       "relevance": "Rebuilt SDK foundation under OpenHands' downstream apps (CLI, app-server, Enterprise).",
@@ -234,7 +234,7 @@
       "checked_at": "2026-09-24T18:01:52Z"
     },
     {
-      "company": "Allen Institute for AI (Ai2)",
+      "company": "Ai2",
       "repo": "allenai/OLMo",
       "url": "https://github.com/allenai/OLMo",
       "relevance": "Ai2's original flagship open language model training repo (OLMo 1/2 era), now superseded by OLMo-core.",
@@ -250,7 +250,7 @@
       "checked_at": "2026-09-24T18:01:52Z"
     },
     {
-      "company": "SWE-agent (Princeton/Stanford team)",
+      "company": "SWE-agent",
       "repo": "SWE-agent/mini-swe-agent",
       "url": "https://github.com/SWE-agent/mini-swe-agent",
       "relevance": "The SWE-agent team's flagship minimal software-engineering agent (100-line agent used in SWE-bench research and as a reference implementation).",
@@ -267,7 +267,7 @@
       "checked_at": "2026-09-24T18:01:52Z"
     },
     {
-      "company": "Cline (Cline Bot Inc.)",
+      "company": "Cline",
       "repo": "cline/cline",
       "url": "https://github.com/cline/cline",
       "relevance": "Cline's flagship product — one of the most popular open-source AI coding agents / VS Code extensions (69k+ stars).",
@@ -284,7 +284,7 @@
       "checked_at": "2026-09-24T18:01:52Z"
     },
     {
-      "company": "Nous Research",
+      "company": "Nous",
       "repo": "NousResearch/hermes-agent",
       "url": "https://github.com/NousResearch/hermes-agent",
       "relevance": "Nous Research's flagship open-source personal AI agent (Hermes), their primary public codebase and community focal point.",
@@ -301,7 +301,7 @@
       "checked_at": "2026-09-24T18:01:52Z"
     },
     {
-      "company": "Anthropic / Model Context Protocol",
+      "company": "MCP",
       "repo": "modelcontextprotocol/typescript-sdk",
       "url": "https://github.com/modelcontextprotocol/typescript-sdk",
       "relevance": "Official TypeScript SDK of the Model Context Protocol, the flagship client/server SDK for the Anthropic-backed MCP ecosystem.",
@@ -318,7 +318,7 @@
       "checked_at": "2026-09-24T18:04:35Z"
     },
     {
-      "company": "Aider-AI",
+      "company": "Aider",
       "repo": "Aider-AI/aider",
       "url": "https://github.com/Aider-AI/aider",
       "relevance": "Aider is the company's flagship (and essentially only) product: one of the best-known open-source AI pair-programming CLIs, ~49k stars.",
@@ -369,7 +369,7 @@
       "checked_at": "2026-09-24T18:04:35Z"
     },
     {
-      "company": "Meta (Facebook Research)",
+      "company": "Meta/PyTorch",
       "repo": "facebookresearch/faiss",
       "url": "https://github.com/facebookresearch/faiss",
       "relevance": "Meta's flagship open-source vector similarity-search library (~41k stars), foundational infrastructure for the vector-DB/RAG ecosystem.",
@@ -386,7 +386,7 @@
       "checked_at": "2026-09-24T18:04:35Z"
     },
     {
-      "company": "Microsoft",
+      "company": "Microsoft AI",
       "repo": "microsoft/markitdown",
       "url": "https://github.com/microsoft/markitdown",
       "relevance": "Microsoft's wildly popular file-to-Markdown conversion library for LLM pipelines (~187k stars), one of the org's highest-visibility OSS repos.",
@@ -403,7 +403,7 @@
       "checked_at": "2026-09-24T18:04:35Z"
     },
     {
-      "company": "Microsoft",
+      "company": "Microsoft AI",
       "repo": "microsoft/agent-framework",
       "url": "https://github.com/microsoft/agent-framework",
       "relevance": "Microsoft's canonical open-source agent framework for .NET and Python, the flagship successor consolidating Semantic Kernel and AutoGen.",
@@ -437,7 +437,7 @@
       "checked_at": "2026-09-24T18:04:35Z"
     },
     {
-      "company": "Allen Institute for AI (Ai2)",
+      "company": "Ai2",
       "repo": "allenai/OLMo-core",
       "url": "https://github.com/allenai/OLMo-core",
       "relevance": "Ai2's active training library for the OLMo model series; successor focus after OLMo repo deprecation.",
@@ -454,7 +454,7 @@
       "checked_at": "2026-09-24T18:20:30+00:00"
     },
     {
-      "company": "Microsoft",
+      "company": "Microsoft AI",
       "repo": "microsoft/semantic-kernel",
       "url": "https://github.com/microsoft/semantic-kernel",
       "relevance": "Microsoft's flagship open-source AI orchestration/agent framework (.NET/Python/TS).",
@@ -470,7 +470,7 @@
       "checked_at": "2026-09-24T18:20:30+00:00"
     },
     {
-      "company": "Sakana AI",
+      "company": "Sakana",
       "repo": "SakanaAI/ShinkaEvolve",
       "url": "https://github.com/SakanaAI/ShinkaEvolve",
       "relevance": "Sakana AI's open evolutionary program-optimization framework (ShinkaEvolve paper).",
@@ -503,7 +503,7 @@
       "checked_at": "2026-09-24T18:20:30+00:00"
     },
     {
-      "company": "Google (Keras team; stewardship evidence: CONTRIBUTING requires the `cla/google` Contributor License Agreement check; PR-policy issue #23601 authored by Google Keras lead divyashreepathihalli; keras-team org, keras.io)",
+      "company": "Google/DeepMind",
       "repo": "keras-team/keras",
       "url": "https://github.com/keras-team/keras",
       "relevance": "Google-stewarded flagship deep-learning API library; extremely high visibility ML target.",
@@ -520,7 +520,7 @@
       "checked_at": "2026-09-24T18:49:49Z"
     },
     {
-      "company": "Microsoft",
+      "company": "Microsoft AI",
       "repo": "microsoft/onnxruntime",
       "url": "https://github.com/microsoft/onnxruntime",
       "relevance": "Microsoft's cross-platform ONNX inference/training engine; core mainstream ML infrastructure.",
@@ -537,7 +537,7 @@
       "checked_at": "2026-09-24T18:49:49Z"
     },
     {
-      "company": "Linux Foundation AI & Data (Microsoft-originated; ownership evidence: GOVERNANCE.md is an LF Projects TSC charter — 'the primary communication contact between the Project and AI & Data, a directed fund of The Linux Foundation' and 'This Charter is subject to the Series Agreement for the Project and the Operating Agreement of LF Projects'; README community meeting hosted on zoom-lfx.platform.linuxfoundation.org; repo moved from microsoft/DeepSpeed to the deepspeedai org; CONTRIBUTING still references the Microsoft Open Source Code of Conduct)",
+      "company": "Microsoft AI / DeepSpeed (LF)",
       "repo": "deepspeedai/DeepSpeed",
       "url": "https://github.com/deepspeedai/DeepSpeed",
       "relevance": "Flagship distributed-training/inference optimization library used across the LLM training ecosystem.",
@@ -554,7 +554,7 @@
       "checked_at": "2026-09-24T18:49:49Z"
     },
     {
-      "company": "Meta / PyTorch Foundation",
+      "company": "Meta/PyTorch",
       "repo": "pytorch/vision",
       "url": "https://github.com/pytorch/vision",
       "relevance": "Canonical PyTorch computer-vision datasets/models/transforms library.",
@@ -571,7 +571,7 @@
       "checked_at": "2026-09-24T18:49:49Z"
     },
     {
-      "company": "Meta",
+      "company": "Meta/PyTorch",
       "repo": "meta-pytorch/botorch",
       "url": "https://github.com/meta-pytorch/botorch",
       "relevance": "Meta's Bayesian-optimization library on PyTorch; respected research-infra target.",
@@ -655,7 +655,7 @@
       "checked_at": "2026-09-24T18:49:49Z"
     },
     {
-      "company": "ggml (org: ggml-org; project ggml/llama.cpp)",
+      "company": "ggml/llama.cpp",
       "repo": "ggml-org/llama.cpp",
       "url": "https://github.com/ggml-org/llama.cpp",
       "relevance": "The dominant local-LLM inference engine; policy-incompatible with agent-driven contribution despite high external merge rates.",
@@ -689,7 +689,7 @@
       "checked_at": "2026-09-24T18:49:49Z"
     },
     {
-      "company": "goose / aaif-goose org (Block-originated 'goose ai agent platform'; governance per GOVERNANCE.md: lightweight technical governance with Maintainers and a core team, no CLA)",
+      "company": "Block/Goose",
       "repo": "aaif-goose/goose",
       "url": "https://github.com/aaif-goose/goose",
       "relevance": "Flagship open-source AI-agent platform; ideologically aligned venue for disclosed agent-assisted contributions.",

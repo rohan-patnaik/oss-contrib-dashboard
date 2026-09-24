@@ -1,28 +1,28 @@
 {
-  "generated": "2026-09-24T20:41:30+00:00",
+  "generated": "2026-09-24T20:45:26+00:00",
   "campaign": {
     "phase": "repository admission",
     "note": "Career-signal policy active (2026-09-25): every issue carries a separate career-signal grade with rationale; ONLY High/Very High issues may enter authoring or produce new PRs. Eligible-issue counts cover NEW opportunities only; totals and PR-qualified counts are shown separately. All counts truthful."
   },
   "summary": {
-    "eligible": 32,
+    "eligible": 35,
     "target": 100,
     "companies": 21,
     "repos_admitted": 28,
     "importance": {
-      "low": 9,
-      "medium": 20,
+      "low": 11,
+      "medium": 21,
       "high": 3
     },
     "reproduced": 3,
-    "authored": 2,
+    "authored": 3,
     "open_prs": 2,
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T20:41:30+00:00",
+    "last_refresh": "2026-09-24T20:45:26+00:00",
     "excluded_prior_repos": 26,
-    "pr_qualified": 18
+    "pr_qualified": 19
   },
   "repos": [
     {
@@ -1309,6 +1309,60 @@
       "career_signal": "high",
       "career_signal_rationale": "Agent-runtime correctness: cron jobs silently skip attached skills due to scan-set divergence between cron and CLI paths; high-difficulty root-cause work in an agent execution environment.",
       "career_assessed_at": "2026-09-24T20:38:31+00:00"
+    },
+    {
+      "company": "NVIDIA",
+      "repo": "NVIDIA-NeMo/RL",
+      "number": 1574,
+      "url": "https://github.com/NVIDIA-NeMo/RL/issues/1574",
+      "title": "openai_format SFT dataset fails at validation with jinja2.exceptions.UndefinedError: list object has no element -1",
+      "importance": "medium",
+      "importance_rationale": "Any SFT run using the documented openai_format dataset with a system prompt (data.system_prompt config, or datasets whose conversations begin with a system turn) crashes at the first validation/dataloader step on chat templates that require a non-system first turn (Llama 3.1 indexes messages[-1] after stripping the system turn; Qwen3/kanana raise 'No user query found'). Hard blocker for a documented config path; full traceback in-issue.",
+      "career_signal": "high",
+      "career_signal_rationale": "Chat-template/tokenization correctness in the SFT data path of NVIDIA's RLHF training framework: requires reasoning about incremental jinja template rendering vs full-render equivalence and token-boundary accounting, and delivering it with regression tests across template families (Llama 3.1, Qwen3). Interview-defensible data-processing correctness work in an established ML training framework; a prior maintainer-approved-then-abandoned fix (#2864) shows the design is valued.",
+      "career_assessed_at": "2026-09-24T20:47:00Z",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-24T20:40:00Z",
+      "ownership_check": "Open, unassigned, zero comments, labels bug + i-tme (internal-TME triage). No claim comments. Prior fix PR #2864 (external contributor bzantium, opened 2026-06-17) was APPROVED in-thread by RayenTian ('LGTM, pending CI' 2026-06-25) but stalled on copy-pr-bot CI re-approval and was closed by its own author 2026-08-27 with no comment — abandoned, maintainer appetite for the fix already demonstrated.",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64 CPU: pip install transformers jinja2 (no GPU deps needed for this unit); failing test = call get_formatted_message_log with a message_log starting with a system turn under (a) a template that indexes messages[-1] after popping system (Llama-3.1 pattern, reproducible with a local chat-template fixture — no gated download needed) and (b) a Qwen3 tokenizer ('No user query found'). Fix along PR #2864's approved approach: defer pre-user turns whose prefix render fails, fold their tokens into the first user chunk, keep concatenation equal to the full render. Run uv run --group test pytest tests/unit/data/test_llm_message_utils.py. Gates: DCO sign-off (hard gate), maintainer /ok to test for CI."
+    },
+    {
+      "company": "NVIDIA",
+      "repo": "NVIDIA-NeMo/RL",
+      "number": 1546,
+      "url": "https://github.com/NVIDIA-NeMo/RL/issues/1546",
+      "title": "SFT Quickstart Example Fails Without HF Authentication",
+      "importance": "low",
+      "importance_rationale": "Every new user following the primary SFT quickstart (sft_openmathinstruct2.yaml) hits a 401 on the gated meta-llama/Llama-3.1-8B tokenizer unless already HF-authenticated; labeled t-onbonarding by maintainers. Docs fix, but on the main onboarding path.",
+      "career_signal": "low",
+      "career_signal_rationale": "A docs prerequisite note (HF auth for a gated default model) with no code change; demonstrates onboarding empathy but no transferable ML engineering depth. Maintainer-invited, so acceptance odds are good, but it is mechanical maintenance.",
+      "career_assessed_at": "2026-09-24T20:47:00Z",
+      "difficulty": "low",
+      "status": "vetted",
+      "verified_at": "2026-09-24T20:40:00Z",
+      "ownership_check": "Open, unassigned, labels bug + i-tme + t-onbonarding. Maintainer snowmanwwg explicitly invited a PR 2025-12-03T04:18:30Z: '@AmeliaYe mind just submitting a PR with the \"upfront note\"? THank you' — reporter never acted (>9 months, outside 90-day claim window). Maintainer-sanctioned fix shape: an upfront HF-auth/gated-model note in the guide.",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64 CPU, docs-only: verify gating with 'curl -s https://huggingface.co/api/models/meta-llama/Llama-3.1-8B | jq .gated' and an unauthenticated GET of tokenizer_config.json (expect 401, matching the issue's traceback); add the upfront prerequisite note to docs/guides/sft-openmathinstruct2.md (and the quickstart pointer in docs/guides/sft.md if applicable); verify with grep + docs build. DCO sign-off required."
+    },
+    {
+      "company": "Microsoft AI",
+      "repo": "microsoft/onnxruntime",
+      "number": 23023,
+      "url": "https://github.com/microsoft/onnxruntime/issues/23023",
+      "title": "initial_chunk_size_bytes is a signed int (limited to 2 GiB)",
+      "importance": "low",
+      "importance_rationale": "Users tuning shared/per-session BFC arenas per the official docs cannot set an initial chunk >= 2 GiB (Python OrtArenaCfg throws on 2*1024^3), even though max_mem is size_t and models legitimately need >2 GiB arenas; 22-month-old acknowledged footgun affecting multi-session and large-model CPU/GPU arena users.",
+      "career_signal": "medium",
+      "career_signal_rationale": "Real but largely mechanical type-widening through ONNX Runtime's BFC-arena config (public header, C++ core, pybind11 bindings) with ABI-awareness; useful memory-allocator plumbing in a mainstream inference runtime but limited ML-specific differentiation. Graded conservatively per policy despite the prestigious repo.",
+      "career_assessed_at": "2026-09-24T20:47:00Z",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-24T20:40:00Z",
+      "ownership_check": "Open, unassigned, single maintainer comment (above), no claim comments, feature-request label (mislabel: it is a config-type defect against documented usage). Not among batch-5's examined ORT issues.",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64 CPU: reproduce on the pip wheel with the issue's 2-line snippet (OrtArenaCfg({'initial_chunk_size_bytes': 2*1024**3}) throws). Fix: widen initial_chunk_size_bytes (and the parallel chunk fields where safe) to int64_t/size_t through allocator.h, allocator.cc from_string, bfc_arena.h/.cc, and the pybind casts at onnxruntime_pybind_state.cc:2364/2381; C API CreateArenaCfgV2 already passes size_t values so no C API signature change. Build CPU-only wheel: ./build.sh --config Release --build_shared_lib --build_wheel --parallel (macOS ARM64 is a supported CPU build); validate with the repro plus onnxruntime/test/python/onnxruntime_test_python.py arena-cfg tests and a new >2GiB-config test (config-accepting path only; no need to actually commit 4 GiB). Public-struct/ABI note for reviewers: OrtArenaCfg is created via the opaque C API in supported flows."
     }
   ],
   "holds": [
@@ -1567,6 +1621,10 @@
     {
       "ts": "2026-09-24T20:38:31+00:00",
       "text": "CAREER-SIGNAL AMENDMENT applied: all 32 eligible issues backfilled with career-signal grades + rationales (2 Very High, 16 High, 10 Medium, 4 Low -> 18 PR-qualified), 38 company fit assessments added, and a hard authoring/publication gate now admits only High/Very High issues. Existing lower-signal findings remain visible and auditable; the 3 published/in-flight items (markitdown#1247 high, gpt-neox#1364 high, goose#11975 very_high) all pass the gate retroactively."
+    },
+    {
+      "ts": "2026-09-24T20:45:26+00:00",
+      "text": "Batch-7: +3 eligible — NeMo-RL#1574 (career HIGH, PR-qualified: chat-template crash on system-led conversations, prior maintainer-approved fix abandoned), RL#1546 (low: gated-model docs note, maintainer-invited), onnxruntime#23023 (medium: int cap on arena initial_chunk_size, maintainer-acknowledged). Anthropic SDK re-scan: still fully contested, zero new issues; one batch-1 record corrected (#1695 was already closed, rejection stands on other grounds). agent-framework pool ~90% maintainer-assigned. 52 rejections documented."
     }
   ],
   "companies": [

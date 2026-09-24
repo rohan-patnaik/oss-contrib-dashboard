@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-24T18:20:04+00:00",
+  "generated": "2026-09-24T18:20:30+00:00",
   "campaign": {
     "phase": "repository admission",
     "note": "Bootstrap complete. Contribution baseline refreshed; repository admission and issue research beginning. Eligible-issue counts cover NEW opportunities only; 26 previously contributed external repositories are excluded and tracked separately. All counts are truthful current values, not projections."
@@ -7,8 +7,8 @@
   "summary": {
     "eligible": 0,
     "target": 100,
-    "companies": 9,
-    "repos_admitted": 11,
+    "companies": 17,
+    "repos_admitted": 19,
     "importance": {
       "low": 0,
       "medium": 0,
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T18:20:04+00:00",
+    "last_refresh": "2026-09-24T18:20:30+00:00",
     "excluded_prior_repos": 26
   },
   "repos": [
@@ -40,49 +40,51 @@
       "checked_at": "2026-09-24T18:00:36+00:00"
     },
     {
-      "company": "MCP",
+      "company": "Anthropic-stewarded MCP community (Linux Foundation-ish open governance)",
       "repo": "modelcontextprotocol/registry",
       "url": "https://github.com/modelcontextprotocol/registry",
-      "relevance": "Official MCP server registry backend (Go)",
+      "relevance": "Official MCP server registry; central infrastructure for the MCP ecosystem.",
       "stars": 7282,
-      "maintenance": "active (pushed 2026-09-23)",
+      "maintenance": "pushed 2026-09-23",
       "previous_contribution": "none",
-      "policy": "Codebase contributions welcomed; issues track well-scoped work; PRs contribute toward issues. No AI prohibition found.",
+      "policy": "'We welcome contributions to the registry itself'; idea pipeline Discord -> Discussions -> Issues ('track well-scoped technical work') -> PRs; run 'make check' before submitting. Do NOT PR data/seed.json to publish a server (use mcp-publisher CLI). No approval/assignment gate documented. AI policy: None prohibitive. CLAUDE.md is Claude Code guidance ('Guidance for Claude Code (claude.ai/code) when",
       "policy_links": [
-        "https://github.com/modelcontextprotocol/registry/blob/main/CONTRIBUTING.md"
+        "https://github.com/modelcontextprotocol/registry/blob/main/CONTRIBUTING.md",
+        "https://github.com/modelcontextprotocol/registry/blob/main/CLAUDE.md"
       ],
-      "decision": "in-review",
-      "checked_at": "2026-09-24T18:00:36+00:00"
+      "decision": "admitted",
+      "checked_at": "2026-09-24T18:20:30+00:00"
     },
     {
-      "company": "Google/DeepMind",
+      "company": "Google DeepMind",
       "repo": "google-deepmind/optax",
       "url": "https://github.com/google-deepmind/optax",
-      "relevance": "DeepMind's core JAX optimization library",
+      "relevance": "Core JAX optimization library maintained by Google DeepMind.",
       "stars": 2342,
-      "maintenance": "active (pushed 2026-09-24)",
+      "maintenance": "pushed 2026-09-24",
       "previous_contribution": "none",
-      "policy": "Standard Google CLA CONTRIBUTING; no issue-first gate or AI prohibition found; JAX-org policy does NOT automatically apply (separate org).",
+      "policy": "'All submissions, including submissions by project members, require review' via GitHub PRs; run bash test.sh locally. No issue-first or assignment gate documented. AI policy: None (CONTRIBUTING.md read in full, 34 lines).",
       "policy_links": [
         "https://github.com/google-deepmind/optax/blob/main/CONTRIBUTING.md"
       ],
-      "decision": "in-review",
-      "checked_at": "2026-09-24T18:00:36+00:00"
+      "decision": "admitted",
+      "checked_at": "2026-09-24T18:20:30+00:00"
     },
     {
-      "company": "Google/DeepMind",
+      "company": "Google (Health AI Developer Foundations)",
       "repo": "google/langextract",
       "url": "https://github.com/google/langextract",
-      "relevance": "Google's flagship LLM information-extraction library",
-      "stars": 38683,
-      "maintenance": "active (pushed 2026-09-21)",
+      "relevance": "Google's popular LLM-based structured information extraction library.",
+      "stars": 38684,
+      "maintenance": "pushed 2026-09-21",
       "previous_contribution": "none (other google/* repos contributed; this is a new repo at existing org)",
-      "policy": "'Would love to accept your patches'; Google CLA; issue templates; no AI prohibition found in CONTRIBUTING.",
+      "policy": "Hard issue-linkage gate: 'All PRs must include \"Fixes #123\" or \"Closes #123\" in the description. The linked issue should have at least 5 [thumbs-up] reactions from the community and include discussion that demonstrates the importance and need for the change.' PR template additionally requires having 'discussed my proposed solution with code owners in the linked issue(s) and we have agreed upon the",
       "policy_links": [
-        "https://github.com/google/langextract/blob/main/CONTRIBUTING.md"
+        "https://github.com/google/langextract/blob/main/CONTRIBUTING.md",
+        "https://github.com/google/langextract/blob/main/.github/PULL_REQUEST_TEMPLATE/pull_request_template.md"
       ],
-      "decision": "in-review",
-      "checked_at": "2026-09-24T18:00:36+00:00"
+      "decision": "hold",
+      "checked_at": "2026-09-24T18:20:30+00:00"
     },
     {
       "company": "UK AISI",
@@ -92,12 +94,12 @@
       "stars": 2854,
       "maintenance": "active (pushed 2026-09-24)",
       "previous_contribution": "none",
-      "policy": "Issue-first: non-qualified contributors may only PR against maintainer-'accepted'-labeled issues; duplicates auto-closed. Eligible via accepted-labeled existing issues only.",
+      "policy": "Issue-first: PRs only against maintainer-'accepted'-labeled issues (27 open unassigned at census); trivial docs exception; duplicates auto-closed.",
       "policy_links": [
         "https://github.com/UKGovernmentBEIS/inspect_ai/blob/main/CONTRIBUTING.md"
       ],
-      "decision": "in-review",
-      "checked_at": "2026-09-24T18:00:36+00:00"
+      "decision": "admitted",
+      "checked_at": "2026-09-24T18:20:30+00:00"
     },
     {
       "company": "OpenAI",
@@ -133,47 +135,52 @@
       "company": "NVIDIA",
       "repo": "NVIDIA-NeMo/Speech",
       "url": "https://github.com/NVIDIA-NeMo/Speech",
-      "relevance": "NVIDIA NeMo speech toolkit (ASR/TTS), successor to NVIDIA/NeMo speech collections",
+      "relevance": "NVIDIA's NeMo speech toolkit (ASR/TTS/Speech LLM), successor split of NVIDIA/NeMo.",
       "stars": 18502,
-      "maintenance": "active (pushed 2026-09-24)",
+      "maintenance": "pushed 2026-09-24",
       "previous_contribution": "none",
-      "policy": "External fork PRs accepted; strict DCO sign-off; CI requires maintainer /ok-to-test for untrusted PRs; AGENTS.md provides agent workflow (no prohibition).",
+      "policy": "'Contributions from NeMo community are welcome', PRs to main. CI gate: copy-pr-bot only auto-runs for GPG-signed commits by NVIDIA-NeMo org members; otherwise a maintainer must comment '/ok to test <sha>' (re-required after each push). 'Your pull requests must pass all checks and peer-review before they can be merged.' Suggested reviewers: @nithinraok (core/ASR), @blisc (TTS). AI policy: None proh",
       "policy_links": [
         "https://github.com/NVIDIA-NeMo/Speech/blob/main/CONTRIBUTING.md",
-        "https://github.com/NVIDIA-NeMo/Speech/blob/main/AGENTS.md"
+        "https://github.com/NVIDIA-NeMo/Speech/blob/main/AGENTS.md",
+        "https://github.com/NVIDIA-NeMo/Speech/blob/main/.github/PULL_REQUEST_TEMPLATE.md"
       ],
-      "decision": "in-review",
-      "checked_at": "2026-09-24T18:00:36+00:00"
+      "decision": "admitted",
+      "checked_at": "2026-09-24T18:20:30+00:00"
     },
     {
       "company": "Prime Intellect",
       "repo": "PrimeIntellect-ai/prime-rl",
       "url": "https://github.com/PrimeIntellect-ai/prime-rl",
-      "relevance": "Prime Intellect's decentralized RL training framework",
+      "relevance": "Prime Intellect's large-scale decentralized RL training framework.",
       "stars": 2084,
-      "maintenance": "active (pushed 2026-09-24)",
+      "maintenance": "pushed 2026-09-24",
       "previous_contribution": "none",
-      "policy": "AGENTS.md is agent-friendly guidance (no prohibition); external-PR route needs confirmation; RL core is GPU-leaning, CPU test scope per issue.",
+      "policy": "README: 'We warmly welcome community contributions!... Contributions are welcome via PR.' Guidelines: install pre-commit hooks, keep PR in Draft until ready for review, link the issue if the PR resolves one, run tests locally if you can. No approval/assignment gate, no issue-first requirement. AI policy: None prohibitive. AGENTS.md/CLAUDE.md are agent guidance (code style, testing conventions, ski",
       "policy_links": [
-        "https://github.com/PrimeIntellect-ai/prime-rl/blob/main/AGENTS.md"
+        "https://github.com/PrimeIntellect-ai/prime-rl/blob/main/README.md",
+        "https://github.com/PrimeIntellect-ai/prime-rl/blob/main/AGENTS.md",
+        "https://github.com/PrimeIntellect-ai/prime-rl/blob/main/CLAUDE.md"
       ],
-      "decision": "in-review",
-      "checked_at": "2026-09-24T18:00:36+00:00"
+      "decision": "admitted",
+      "checked_at": "2026-09-24T18:20:30+00:00"
     },
     {
-      "company": "OpenHands",
+      "company": "OpenHands (All Hands AI)",
       "repo": "OpenHands/software-agent-sdk",
       "url": "https://github.com/OpenHands/software-agent-sdk",
-      "relevance": "OpenHands' rebuilt agent SDK foundation",
+      "relevance": "Rebuilt SDK foundation under OpenHands' downstream apps (CLI, app-server, Enterprise).",
       "stars": 1165,
-      "maintenance": "active (pushed 2026-09-24)",
+      "maintenance": "pushed 2026-09-24",
       "previous_contribution": "none",
-      "policy": "'We welcome all contributions big or small'; AGENTS.md for AI agents (no OpenHands/OpenHands human-PR-section rule found here).",
+      "policy": "'We welcome all contributions, big or small'; opinionated architecture review principles (interfaces over special cases, no client-specific code paths, keep agent loop stable); keep PR as draft until ready. Human-PR-section rule confirmed (same pattern as OpenHands/OpenHands): PR template has a HUMAN section - 'Human author: please replace this comment with a short note (at least 20 visible charac",
       "policy_links": [
-        "https://github.com/OpenHands/software-agent-sdk/blob/main/CONTRIBUTING.md"
+        "https://github.com/OpenHands/software-agent-sdk/blob/main/CONTRIBUTING.md",
+        "https://github.com/OpenHands/software-agent-sdk/blob/main/AGENTS.md",
+        "https://github.com/OpenHands/software-agent-sdk/blob/main/.github/PULL_REQUEST_TEMPLATE.md"
       ],
-      "decision": "in-review",
-      "checked_at": "2026-09-24T18:00:36+00:00"
+      "decision": "admitted",
+      "checked_at": "2026-09-24T18:20:30+00:00"
     },
     {
       "company": "Anthropic",
@@ -427,6 +434,72 @@
       ],
       "decision": "admitted",
       "checked_at": "2026-09-24T18:04:35Z"
+    },
+    {
+      "company": "Allen Institute for AI (Ai2)",
+      "repo": "allenai/OLMo-core",
+      "url": "https://github.com/allenai/OLMo-core",
+      "relevance": "Ai2's active training library for the OLMo model series; successor focus after OLMo repo deprecation.",
+      "stars": 1550,
+      "maintenance": "pushed 2026-09-24",
+      "previous_contribution": "none",
+      "policy": "CONTRIBUTING walks external contributors through fork -> feature branch -> PR to main. Asks to start by opening/finding an issue ('If none exists, consider filing one') but this is advisory, not a hard gate. Update CHANGELOG.md, run pytest + make checks. No CODEOWNERS-style approval gate documented. AI policy: None. AGENTS.md explicitly provides guidance 'to agents like Claude Code (claude.ai/code",
+      "policy_links": [
+        "https://github.com/allenai/OLMo-core/blob/main/CONTRIBUTING.md",
+        "https://github.com/allenai/OLMo-core/blob/main/AGENTS.md",
+        "https://github.com/allenai/OLMo-core/blob/main/CLAUDE.md"
+      ],
+      "decision": "admitted",
+      "checked_at": "2026-09-24T18:20:30+00:00"
+    },
+    {
+      "company": "Microsoft",
+      "repo": "microsoft/semantic-kernel",
+      "url": "https://github.com/microsoft/semantic-kernel",
+      "relevance": "Microsoft's flagship open-source AI orchestration/agent framework (.NET/Python/TS).",
+      "stars": 28598,
+      "maintenance": "pushed 2026-09-19",
+      "previous_contribution": "none",
+      "policy": "Issue-first workflow ('Create an issue for your work... You can skip this step for trivial changes' - explicit small-fix exception); 'DON'T surprise us with big pull requests'; 'DON'T make new APIs without filing an issue and discussing with us first'; breaking changes rejected outright; merge requires area-owner sign-off and green CI ('When area owners have signed off, and all checks are green, y",
+      "policy_links": [
+        "https://github.com/microsoft/semantic-kernel/blob/main/CONTRIBUTING.md",
+        "https://github.com/microsoft/semantic-kernel/blob/main/.github/pull_request_template.md"
+      ],
+      "decision": "hold",
+      "checked_at": "2026-09-24T18:20:30+00:00"
+    },
+    {
+      "company": "Sakana AI",
+      "repo": "SakanaAI/ShinkaEvolve",
+      "url": "https://github.com/SakanaAI/ShinkaEvolve",
+      "relevance": "Sakana AI's open evolutionary program-optimization framework (ShinkaEvolve paper).",
+      "stars": 1413,
+      "maintenance": "pushed 2026-09-24",
+      "previous_contribution": "none",
+      "policy": "Fork-based PR workflow with ruff/mypy/pytest checks before opening a PR. Extra evidence gate only for core evolution-pipeline changes: results on a representative runnable example, baseline comparison, exact commands, metrics, and interpretation. Occam's razor: 'A 1000-line implementation for a niche feature will not be merged.' AI policy: Explicitly permissive with a quality bar: 'AI-assisted iss",
+      "policy_links": [
+        "https://github.com/SakanaAI/ShinkaEvolve/blob/main/CONTRIBUTING.md",
+        "https://github.com/SakanaAI/ShinkaEvolve/blob/main/.github/pull_request_template.md"
+      ],
+      "decision": "admitted",
+      "checked_at": "2026-09-24T18:20:30+00:00"
+    },
+    {
+      "company": "Hugging Face",
+      "repo": "huggingface/trl",
+      "url": "https://github.com/huggingface/trl",
+      "relevance": "Hugging Face's post-training/RLHF library (SFT, DPO, GRPO trainers).",
+      "stars": 19379,
+      "maintenance": "pushed 2026-09-24",
+      "previous_contribution": "none",
+      "policy": "Everyone welcome; Good First Issue / Good Second Issue labels; PR template asks 'Was this discussed/approved via a GitHub issue?' (advisory). PR template has a mandatory disclosure checkbox: '[ ] AI-generated: the PR was mostly or fully generated by an AI tool.' AI policy: DECISIVE. CONTRIBUTING.md 'AI usage policy': 'We encourage using AI tools to help with contributions... That said, **we will n",
+      "policy_links": [
+        "https://github.com/huggingface/trl/blob/main/CONTRIBUTING.md",
+        "https://github.com/huggingface/trl/blob/main/AGENTS.md",
+        "https://github.com/huggingface/trl/blob/main/.github/PULL_REQUEST_TEMPLATE.md"
+      ],
+      "decision": "rejected",
+      "checked_at": "2026-09-24T18:20:30+00:00"
     }
   ],
   "issues": [],
@@ -507,6 +580,34 @@
       "url": "https://github.com/Aider-AI/aider",
       "reason": "Policy friendly but repo dormant: zero pushes/merges since 2026-05-22.",
       "ts": "2026-09-24T18:07:03+00:00"
+    },
+    {
+      "company": "Moonshot AI",
+      "item": "MoonshotAI/kimi-code",
+      "url": "https://github.com/MoonshotAI/kimi-code",
+      "reason": "External PRs only for maintainer-/approve'd bug issues, but census of all 249 open bugs found ZERO maintainer approvals ever granted — route exists on paper only.",
+      "ts": "2026-09-24T18:20:30+00:00"
+    },
+    {
+      "company": "Google/DeepMind",
+      "item": "google/langextract",
+      "url": "https://github.com/google/langextract",
+      "reason": "PRs must link an issue with >=5 community thumbs-up AND code-owner-agreed approach; eligible only via issues already clearing that bar (none verified yet).",
+      "ts": "2026-09-24T18:20:30+00:00"
+    },
+    {
+      "company": "Microsoft AI",
+      "item": "microsoft/semantic-kernel",
+      "url": "https://github.com/microsoft/semantic-kernel",
+      "reason": "Formally open but only 1/30 recent human merges external — weak acceptance path vs markitdown/agent-framework.",
+      "ts": "2026-09-24T18:20:30+00:00"
+    },
+    {
+      "company": "Hugging Face",
+      "item": "huggingface/trl",
+      "url": "https://github.com/huggingface/trl",
+      "reason": "REJECTED: CONTRIBUTING states 'we will not review fully AI-generated PRs from first-time contributors' — decisive for this campaign.",
+      "ts": "2026-09-24T18:20:30+00:00"
     }
   ],
   "active": [
@@ -544,6 +645,11 @@
     {
       "ts": "2026-09-24T18:16:59+00:00",
       "text": "Issue-vetting batch 1 (tokenizers, mini-swe-agent, anthropic-sdk-python): 0 eligible candidates from 97 examined — every plausible in-scope bug already has an open competing PR or fresh claim (evidence per issue in local research records). These popular queues are saturated by fast claimants. Strategy: deeper backlog scans and less-contested admitted repos (markitdown, mcp/typescript-sdk, gpt-neox, faiss) next."
+    },
+    {
+      "ts": "2026-09-24T18:20:30+00:00",
+      "text": "Wave-2 admission: OLMo-core, optax, mcp/registry, OpenHands/software-agent-sdk, prime-rl, ShinkaEvolve, NVIDIA-NeMo/Speech admitted; inspect_ai admitted gated to its 27 unassigned maintainer-accepted issues; goose Ready-board route confirmed (19 unassigned Ready issues); trl rejected (no fully-AI PRs from first-time contributors); kimi-code /approve route never exercised in practice; langextract + semantic-kernel held.",
+      "repo": null
     }
   ]
 }

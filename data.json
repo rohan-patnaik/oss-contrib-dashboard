@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-24T20:45:26+00:00",
+  "generated": "2026-09-24T20:59:25+00:00",
   "campaign": {
     "phase": "repository admission",
     "note": "Career-signal policy active (2026-09-25): every issue carries a separate career-signal grade with rationale; ONLY High/Very High issues may enter authoring or produce new PRs. Eligible-issue counts cover NEW opportunities only; totals and PR-qualified counts are shown separately. All counts truthful."
@@ -16,11 +16,11 @@
     },
     "reproduced": 3,
     "authored": 3,
-    "open_prs": 2,
+    "open_prs": 3,
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T20:45:26+00:00",
+    "last_refresh": "2026-09-24T20:59:25+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 19
   },
@@ -827,14 +827,17 @@
       "importance": "high",
       "importance_rationale": "The agent silently stops mid-task with no output, no log, and no retry whenever a provider returns a reasoning-only turn (no text, no tool call) - a real-world failure the reporter hit and reproduced; the sibling zero-content case (#10353) was considered worth fixing and this hole remains.",
       "difficulty": "medium",
-      "status": "in-review",
+      "status": "pr-open",
       "verified_at": "2026-09-24T19:08:00Z",
       "ownership_check": "Unassigned (past maintainer assignments removed; board shows Assignees []). Reporter arohou explicitly declined 2026-09-16T17:42:59Z: 'I'm swamped so I'll have to just sit back and observe'. No other claim.",
       "competing_prs": [],
       "platform_plan": "Mac ARM64, CPU only: cargo test -p goose. Add failing tests using the existing mock-provider harnesses (crates/goose/src/agents/state_machine/tests/provider_lifecycle.rs already builds thinking-content responses; legacy-loop tests around agent.rs:5288 cover the zero-content variant) that return a stream containing exactly one non-empty Thinking block and assert the loop performs the continuation-recovery instead of exiting silently. The issue additionally ships a stdlib-only python mock OpenAI endpoint (repro.py) for a manual end-to-end check with goose CLI - no credentials or GPU.",
       "career_signal": "very_high",
       "career_signal_rationale": "Core agent-loop reliability fix in a 54k-star agent platform: bounded recovery for thinking-only turns implemented across both execution engines (incl. a new state-machine operation) to a maintainer-agreed design — consequential agent-execution correctness with substantial implementation.",
-      "career_assessed_at": "2026-09-24T20:38:31+00:00"
+      "career_assessed_at": "2026-09-24T20:38:31+00:00",
+      "pr_url": "https://github.com/aaif-goose/goose/pull/12499",
+      "pr_raised_at": "2026-09-24T20:59:25+00:00",
+      "outcome": "PR #12499 open (review: APPROVE with 4 independent probes; gate: very_high)"
     },
     {
       "company": "Block/Goose",
@@ -1509,14 +1512,9 @@
   ],
   "active": [
     {
-      "what": "Vet-7: agent-framework, NeMo/RL, Anthropic SDKs re-scan, onnxruntime round-2",
+      "what": "Vet-8: openai/whisper Discussions-sourced vetting",
       "owner": "fable-worker",
-      "since": "2026-09-24T20:27:07+00:00"
-    },
-    {
-      "what": "Independent review of goose#11975 fix (d130ce6)",
-      "owner": "fable-reviewer",
-      "since": "2026-09-24T20:27:07+00:00"
+      "since": "2026-09-24T20:59:25+00:00"
     }
   ],
   "updates": [
@@ -1625,6 +1623,11 @@
     {
       "ts": "2026-09-24T20:45:26+00:00",
       "text": "Batch-7: +3 eligible — NeMo-RL#1574 (career HIGH, PR-qualified: chat-template crash on system-led conversations, prior maintainer-approved fix abandoned), RL#1546 (low: gated-model docs note, maintainer-invited), onnxruntime#23023 (medium: int cap on arena initial_chunk_size, maintainer-acknowledged). Anthropic SDK re-scan: still fully contested, zero new issues; one batch-1 record corrected (#1695 was already closed, rejection stands on other grounds). agent-framework pool ~90% maintainer-assigned. 52 rejections documented."
+    },
+    {
+      "ts": "2026-09-24T20:59:25+00:00",
+      "text": "THIRD PR PUBLISHED (first Very High): aaif-goose/goose PR #12499 — thinking-only provider turns now recover per the maintainer-agreed design instead of silently ending the agent turn (issue #11975, Ready board). Independent review APPROVE (4 adversarial probes, e2e byte-identical across both engines); career gate passed (very_high); competition re-check clean at 20:58Z.",
+      "repo": "aaif-goose/goose"
     }
   ],
   "companies": [

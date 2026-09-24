@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-24T20:27:08+00:00",
+  "generated": "2026-09-24T20:30:59+00:00",
   "campaign": {
     "phase": "repository admission",
     "note": "Bootstrap complete. Contribution baseline refreshed; repository admission and issue research beginning. Eligible-issue counts cover NEW opportunities only; 26 previously contributed external repositories are excluded and tracked separately. All counts are truthful current values, not projections."
@@ -7,8 +7,8 @@
   "summary": {
     "eligible": 32,
     "target": 100,
-    "companies": 20,
-    "repos_admitted": 27,
+    "companies": 21,
+    "repos_admitted": 28,
     "importance": {
       "low": 9,
       "medium": 20,
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T20:27:08+00:00",
+    "last_refresh": "2026-09-24T20:30:59+00:00",
     "excluded_prior_repos": 26
   },
   "repos": [
@@ -703,6 +703,21 @@
       ],
       "decision": "admitted",
       "checked_at": "2026-09-24T18:49:49Z"
+    },
+    {
+      "company": "OpenAI",
+      "repo": "openai/whisper",
+      "url": "https://github.com/openai/whisper",
+      "relevance": "OpenAI's flagship open-source speech recognition model — one of the most used ML repos on GitHub (109k stars)",
+      "stars": 109554,
+      "maintenance": "batch-maintained (external merges Aug/Jul/Jun 2026; pushed 2026-08-31)",
+      "previous_contribution": "none",
+      "policy": "No CONTRIBUTING file; no AI prohibition; external bug-fix PRs demonstrably merged in batches. Issues DISABLED — candidates sourced from existing public Discussions (2,198) describing real user-reported bugs, per campaign-owner rule amendment 2026-09-25 IST. 152 open PRs: rigorous competition checks required. Slow batch review cadence recorded as acceptance risk.",
+      "policy_links": [
+        "https://github.com/openai/whisper/discussions"
+      ],
+      "decision": "admitted",
+      "checked_at": "2026-09-24T20:30:59+00:00"
     }
   ],
   "issues": [
@@ -1246,8 +1261,8 @@
       "company": "OpenAI",
       "item": "openai/whisper",
       "url": "https://github.com/openai/whisper",
-      "reason": "109k stars but effectively frozen for external code; evals repo stale since 2026-04.",
-      "ts": "2026-09-24T18:00:36+00:00"
+      "reason": "CORRECTED 2026-09-25 IST: original hold reason ('effectively frozen for external code') was wrong — external bug-fix PRs merge in batches (Aug 2026, Jul 2026, Jun 2026) and no AI prohibition exists. Real blocker was: GitHub Issues are DISABLED, so no issue-based candidates existed. Re-admitted with Discussions-based sourcing per campaign-owner amendment.",
+      "ts": "2026-09-24T20:30:59+00:00"
     },
     {
       "company": "Ai2",
@@ -1446,6 +1461,11 @@
       "ts": "2026-09-24T20:27:07+00:00",
       "text": "goose#11975 authored: thinking-only recovery per maintainer-agreed design in both agent loops (bounded 3-retry, agent-only continuation, visible fallback), 4 regression tests fail-before/pass-after, 2319-test crate suite green, e2e verified with the issue's repro script. In independent review. Storage note: 6.7 GB free / goose build tree 36 GB — reviewer constrained to cache reuse.",
       "repo": "aaif-goose/goose"
+    },
+    {
+      "ts": "2026-09-24T20:30:59+00:00",
+      "text": "openai/whisper hold CORRECTED and repo admitted: the earlier 'frozen for external code' reason was wrong (external bug-fix merges verified Aug/Jul/Jun 2026, no AI prohibition). Actual constraint: GitHub Issues disabled. Campaign owner amended sourcing for this repo: existing public Discussions (real user bug reports) serve as the candidate source — no invented reports. Whisper vetting queued next (Discussions bug reports x 152 open-PR competition screening).",
+      "repo": "openai/whisper"
     }
   ]
 }

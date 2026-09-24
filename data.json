@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-24T18:07:03+00:00",
+  "generated": "2026-09-24T18:16:59+00:00",
   "campaign": {
     "phase": "repository admission",
     "note": "Bootstrap complete. Contribution baseline refreshed; repository admission and issue research beginning. Eligible-issue counts cover NEW opportunities only; 26 previously contributed external repositories are excluded and tracked separately. All counts are truthful current values, not projections."
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T18:07:03+00:00",
+    "last_refresh": "2026-09-24T18:16:59+00:00",
     "excluded_prior_repos": 26
   },
   "repos": [
@@ -511,14 +511,14 @@
   ],
   "active": [
     {
-      "what": "Issue vetting: hf/tokenizers, mini-swe-agent, anthropic-sdk-python",
+      "what": "Wave-2 admission (10 repos) + label-gate census",
       "owner": "fable-worker",
-      "since": "2026-09-24T18:07:03+00:00"
+      "since": "2026-09-24T18:16:59+00:00"
     },
     {
-      "what": "Wave-2 admission: OLMo-core, semantic-kernel, langextract, optax, mcp/registry, software-agent-sdk, prime-rl, ShinkaEvolve, trl, NeMo-Speech",
+      "what": "Issue vetting batch 2: markitdown, mcp/typescript-sdk, gpt-neox, faiss (deep backlog)",
       "owner": "fable-worker",
-      "since": "2026-09-24T18:07:03+00:00"
+      "since": "2026-09-24T18:16:59+00:00"
     }
   ],
   "updates": [
@@ -540,6 +540,10 @@
       "ts": "2026-09-24T18:07:03+00:00",
       "text": "Admission batch B: modelcontextprotocol/typescript-sdk, facebookresearch/faiss (external PRs land via meta-codesync import), microsoft/markitdown, microsoft/agent-framework, EleutherAI/gpt-neox admitted. langchain + langgraph moved to hold (new hard approved-issue+assignment gate since the 2026-09-23 audit); aider held as dormant since 2026-05.",
       "repo": null
+    },
+    {
+      "ts": "2026-09-24T18:16:59+00:00",
+      "text": "Issue-vetting batch 1 (tokenizers, mini-swe-agent, anthropic-sdk-python): 0 eligible candidates from 97 examined — every plausible in-scope bug already has an open competing PR or fresh claim (evidence per issue in local research records). These popular queues are saturated by fast claimants. Strategy: deeper backlog scans and less-contested admitted repos (markitdown, mcp/typescript-sdk, gpt-neox, faiss) next."
     }
   ]
 }

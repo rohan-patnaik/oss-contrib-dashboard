@@ -1,7 +1,7 @@
 {
-  "generated": "2026-09-25T06:15:42+00:00",
+  "generated": "2026-09-25T06:17:12+00:00",
   "campaign": {
-    "phase": "RESUMED — find-only research",
+    "phase": "pausing after final two batches; implementation transferring to GPT 5.6 Sol thread",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
   },
   "summary": {
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-25T06:15:42+00:00",
+    "last_refresh": "2026-09-25T06:17:12+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 47
   },
@@ -3572,6 +3572,10 @@
     {
       "ts": "2026-09-25T06:15:42+00:00",
       "text": "Batch-20: +1 HIGH — NeMo-Speech #15658 (checkpoints saved before newer BoostingTreeModelConfig fields crash from_pretrained; struct-locked config bare-access at boosting_graph_batched.py:96-103, hit from 5 decoding modules; uncontested). ADMITTED: modelcontextprotocol/servers (90.6k, 27/30 external merges) and docling (67.9k, DCO, agent-positive AGENTS.md, 21/30 external) — both show same-day issue->PR farming, so they join the fresh-issue polling rotation rather than backlog mining. Speech aged backlog now exhausted; NeMo-RL farm-saturated."
+    },
+    {
+      "ts": "2026-09-25T06:17:12+00:00",
+      "text": "Campaign owner: pause research after batches 21/22 drain (Fable budget), then implementation begins in a new GPT 5.6 Sol (high reasoning) T3 thread using jobs/SOL-THREAD-KICKOFF.md + jobs/IMPLEMENTATION-HANDOFF.md. Kickoff package finalized."
     }
   ],
   "companies": [

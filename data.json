@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-25T06:19:59+00:00",
+  "generated": "2026-09-25T06:29:07+00:00",
   "campaign": {
     "phase": "pausing after final two batches; implementation transferring to GPT 5.6 Sol thread",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-25T06:19:59+00:00",
+    "last_refresh": "2026-09-25T06:29:07+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 48
   },

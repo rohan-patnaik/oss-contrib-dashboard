@@ -1,7 +1,7 @@
 {
-  "generated": "2026-09-24T22:08:46+00:00",
+  "generated": "2026-09-25T04:54:09+00:00",
   "campaign": {
-    "phase": "PAUSED — research halted at user request; awaiting resume",
+    "phase": "RESUMED — find-only research",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
   },
   "summary": {
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-24T22:08:46+00:00",
+    "last_refresh": "2026-09-25T04:54:09+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 32
   },
@@ -1952,7 +1952,18 @@
       "ts": "2026-09-24T22:08:23+00:00"
     }
   ],
-  "active": [],
+  "active": [
+    {
+      "what": "Vet-13: pytorch-lightning first pass, mlflow round-2 (pre-cutoff aged), ray round-2 (Data/Serve/core)",
+      "owner": "fable-worker",
+      "since": "2026-09-25T04:54:09+00:00"
+    },
+    {
+      "what": "Vet-14: faiss aged remainder, DeepSpeed slice-3, hermes-agent P2 slice-3, freshness polls",
+      "owner": "fable-worker",
+      "since": "2026-09-25T04:54:09+00:00"
+    }
+  ],
   "updates": [
     {
       "ts": "2026-09-24T17:51:58+00:00",
@@ -2096,6 +2107,10 @@
     {
       "ts": "2026-09-24T22:08:46+00:00",
       "text": "PAUSED at user request after final batch drained. Session totals: 54/100 eligible, 32 PR-qualified + 1 user exception, 3 PRs open, 31 repos admitted across 23 companies, 28 implementation-ready handoff entries. New this batch: Lightning AI / Ray / MLflow admitted (+4 high candidates: mlflow model-lineage loss, ray PBT restore, checkpoint race, Tune scheduler-state loss); tinygrad rejected (explicit AI ban). Resume priorities and dead veins recorded."
+    },
+    {
+      "ts": "2026-09-25T04:54:09+00:00",
+      "text": "RESUMED at user request after a ~6.7 h pause. Two vetting batches launched on the recorded priority veins: Lightning-AI/pytorch-lightning first pass (incl. the known MLFlowLogger float-step lead), MLflow pre-cutoff aged round-2, Ray Data/Serve/core round-2; faiss aged remainder + freed-competitor checks, DeepSpeed slice-3, hermes-agent P2 slice-3, plus cheap freshness polls on software-agent-sdk/goose/inspect_ai."
     }
   ],
   "companies": [

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-25T08:37:41+00:00",
+  "generated": "2026-09-25T08:50:39+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-25T08:37:41+00:00",
+    "last_refresh": "2026-09-25T08:50:39+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49
   },
@@ -1003,7 +1003,7 @@
       "importance": "medium",
       "importance_rationale": "Ruby-ecosystem MCP servers cannot be listed via their native package channel; whole language ecosystem underserved.",
       "difficulty": "medium",
-      "status": "vetted",
+      "status": "pr-open",
       "verified_at": "2026-09-24T18:27:51Z",
       "ownership_check": "Open, unassigned, zero comments/claims. No maintainer triage yet on this issue (sibling #1102 Maven is help-wanted; analogous Go PR #1321 unreviewed since 2026-06 — review-latency risk recorded). No matching PR found as of 2026-09-24T18:26:29Z; queries: search 1582 / rubygems / ruby / gem in:title.",
       "competing_prs": [],
@@ -1661,7 +1661,10 @@
       "verified_at": "2026-09-24T21:00:13Z",
       "ownership_check": "Discussion open (discussions have no assignee/label mechanics). Commenter noahvandal said 'A PR could be made' on 2024-10-30 but never opened one (verified via PR search); ~23 months stale, no active claim. No maintainer response in thread. | USER-AUTHORIZED GATE EXCEPTION 2026-09-25 IST: PR-eligible despite medium career signal (control/exceptions.json).",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64 CPU (or Linux CPU container): venv + pip install -e local whisper clone + torch CPU wheel; download tiny model (~39MB, allowed). Failing repro: model.transcribe(torch.zeros(2, 16000)) and model.transcribe(torch.zeros(1, 16000)) → AttributeError at transcribe.py:206. Write regression test alongside existing tests/test_transcribe.py (which already runs tiny on CPU) asserting either a clear ValueError naming the expected shape or correct mono-downmix output; verify unchanged behavior for str path, 1-D np.ndarray, and 1-D tensor inputs."
+      "platform_plan": "Mac ARM64 CPU (or Linux CPU container): venv + pip install -e local whisper clone + torch CPU wheel; download tiny model (~39MB, allowed). Failing repro: model.transcribe(torch.zeros(2, 16000)) and model.transcribe(torch.zeros(1, 16000)) → AttributeError at transcribe.py:206. Write regression test alongside existing tests/test_transcribe.py (which already runs tiny on CPU) asserting either a clear ValueError naming the expected shape or correct mono-downmix output; verify unchanged behavior for str path, 1-D np.ndarray, and 1-D tensor inputs.",
+      "pr_url": "https://github.com/openai/whisper/pull/2865",
+      "pr_raised_at": "2026-09-25T08:49:14+00:00",
+      "outcome": "PR #2865 open at independently approved commit 6916964; four rank-2 NumPy/Torch regressions fail on base and seven focused cases plus the existing audio test pass."
     },
     {
       "company": "OpenAI",
@@ -3907,6 +3910,11 @@
     {
       "ts": "2026-09-25T06:36:29+00:00",
       "text": "FINAL BATCH (22): +1 HIGH — unstructured #3365 (partition_json destroys original element_id/metadata via three verified overwrite mechanisms; filed by the architecture owner, zero competition in 2+ years). ADMITTED: unstructured-io/unstructured (15.5k, welcoming, 12/30 external merges) and sgl-project/sglang CONDITIONAL (36.4k; no human-review AGENTS clause — verified clean; farm-saturated tracker, friction gates). Research phase ends: 81/100 eligible, 49 PR-qualified + 1 exception. Implementation owned by the GPT 5.6 Sol thread on the Omarchy PC via the private handoff repo."
+    },
+    {
+      "ts": "2026-09-25T08:49:14+00:00",
+      "text": "Whisper Discussion #2333 published via the campaign owner's explicit gate exception: openai/whisper PR #2865 validates non-1-D in-memory audio before batched decoding can fail with an unrelated AttributeError. Exact commit 6916964 independently APPROVED; four fail-before regressions and eight pass-after tests; fresh competition check clear.",
+      "repo": "openai/whisper"
     }
   ],
   "companies": [

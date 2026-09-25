@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-25T09:24:50+00:00",
+  "generated": "2026-09-25T09:37:15+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-25T09:24:50+00:00",
+    "last_refresh": "2026-09-25T09:37:15+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49
   },
@@ -1447,14 +1447,17 @@
       "importance": "medium",
       "importance_rationale": "Word/segment timestamps on chunked long-audio transcription drift monotonically earlier (~2.4 s/hour, unbounded) for the DEFAULT FastConformer/Canary subsampling_factor=8 - silently corrupts captioning/alignment output for every long-file user with timestamps enabled.",
       "difficulty": "low",
-      "status": "vetted",
+      "status": "pr-open",
       "verified_at": "2026-09-24T20:05:11Z",
       "ownership_check": "Open, unassigned, 0 comments, labels community-request/waiting-on-maintainers. Reporter udsy19's own fix PR #16074 was voluntarily withdrawn closed-unmerged 2026-09-18 ('happy to reopen and rebase if anyone wants it picked up') - explicit relinquishment, no active claim.",
       "competing_prs": [],
       "platform_plan": "Mac ARM64 CPU: pip install -e '.[asr]' from source (no CUDA extra; macOS install path exists). Reproduce with the issue's pure-CPU snippet (builds Hypothesis objects and calls join_char_level_timestamps; expected 43483 vs exact 43512.5). Add regression test comparing accumulated offset to sum(chunk_offsets)//subsamp; run pytest tests/collections/asr -k chunking. Gate: strict DCO (git commit -s); copy-pr-bot review-latency risk recorded.",
       "career_signal": "high",
       "career_signal_rationale": "Quantified numerical-accumulation bug (2.36 s/hour timestamp drift) in NeMo's long-audio ASR chunking; subtle floor-division-order correctness with measured user impact.",
-      "career_assessed_at": "2026-09-24T20:38:31+00:00"
+      "career_assessed_at": "2026-09-24T20:38:31+00:00",
+      "pr_url": "https://github.com/NVIDIA-NeMo/Speech/pull/16299",
+      "pr_raised_at": "2026-09-25T09:36:19+00:00",
+      "outcome": "PR #16299 open at independently approved DCO-signed commit e4d64ab; the hour-scale regression produces frame 43483 instead of 43512 on base, all 6 focused tests pass after the raw-frame accumulation fix, and related #15186 sequencing risk is disclosed."
     },
     {
       "company": "NVIDIA",
@@ -3930,6 +3933,11 @@
     {
       "ts": "2026-09-25T09:24:03+00:00",
       "text": "NeMo Speech #16100 published: PR #16298 switches RIR augmentation from the global seed to resolved shard_seed, restoring default per-rank diversity while preserving fixed-integer reproducibility. Exact DCO-signed commit 6ae6af2 independently APPROVED; two fail-before regressions, 73 tests pass/1 existing skip; randomized/worker limitation disclosed.",
+      "repo": "NVIDIA-NeMo/Speech"
+    },
+    {
+      "ts": "2026-09-25T09:36:19+00:00",
+      "text": "NeMo Speech #16072 published: PR #16299 accumulates long-audio chunk advances in raw frames before subsampling, preventing timestamp rounding loss from growing at every boundary. Exact DCO-signed commit e4d64ab independently APPROVED; the hour-scale case fails at 43483 vs 43512 on base and all 6 focused tests pass; closed #16074 and #15186 sequencing risk disclosed.",
       "repo": "NVIDIA-NeMo/Speech"
     }
   ],

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-25T05:45:33+00:00",
+  "generated": "2026-09-25T05:46:33+00:00",
   "campaign": {
     "phase": "RESUMED — find-only research",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -8,7 +8,7 @@
     "eligible": 78,
     "target": 100,
     "companies": 22,
-    "repos_admitted": 31,
+    "repos_admitted": 35,
     "importance": {
       "low": 12,
       "medium": 57,
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-25T05:45:33+00:00",
+    "last_refresh": "2026-09-25T05:46:33+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 46
   },
@@ -106,31 +106,27 @@
       "company": "OpenAI",
       "repo": "openai/tiktoken",
       "url": "https://github.com/openai/tiktoken",
-      "relevance": "OpenAI's official BPE tokenizer library",
-      "stars": 19319,
-      "maintenance": "batch-maintained (merges ~every 2-3 months; last push 2026-08)",
+      "relevance": "Tokenizer correctness/API bugs; fully CPU-verifiable (pip install -e ., cargo test).",
+      "stars": 19321,
+      "maintenance": "pushed 2026-08-17",
       "previous_contribution": "none",
-      "policy": "No CONTRIBUTING file; de facto accepts external PRs (multiple external authors in last 15 merged). Slow review cadence.",
-      "policy_links": [
-        "https://github.com/openai/tiktoken"
-      ],
-      "decision": "in-review",
-      "checked_at": "2026-09-24T18:00:36+00:00"
+      "policy": "No CONTRIBUTING.md, no PR template, no issue templates, no CODEOWNERS. Full recursive git tree at HEAD 4e71bbe scanned for AGENTS.md/CLAUDE.md/CONTRIBUTING/GEMINI.md/.cursorrules/copilot-instructions: zero hits. README has no contributing section. code search filename:AGENTS.md and filename:CLAUDE.md -> 0. AI policy: None found anywhere in tree at HEAD.",
+      "policy_links": [],
+      "decision": "admitted",
+      "checked_at": "2026-09-25T05:36:04Z"
     },
     {
       "company": "OpenAI",
       "repo": "openai/gpt-oss",
       "url": "https://github.com/openai/gpt-oss",
-      "relevance": "OpenAI's open-weights model reference implementation",
-      "stars": 20427,
-      "maintenance": "active (pushed 2026-07)",
+      "relevance": "GPU-heavy overall; CPU-verifiable scope = harmony/chat/tool code paths (gpt_oss/tools/*, gpt_oss/chat.py, responses_api), tokenizer usage — NOT model inference (torch/triton/metal/vllm implementations need weights+GPU).",
+      "stars": 20429,
+      "maintenance": "pushed 2026-07-24",
       "previous_contribution": "none",
-      "policy": "README: bug fixes accepted; new features not accepted. GPU-heavy; CPU-verifiable scope must be established per issue.",
-      "policy_links": [
-        "https://github.com/openai/gpt-oss#contributing"
-      ],
-      "decision": "in-review",
-      "checked_at": "2026-09-24T18:00:36+00:00"
+      "policy": "Bug fixes ONLY — features explicitly rejected (README Contributing section at HEAD 7b58334). No CONTRIBUTING.md, no AGENTS.md/CLAUDE.md/AI files anywhere in recursive tree. No CLA. AI policy: None found.",
+      "policy_links": [],
+      "decision": "admitted",
+      "checked_at": "2026-09-25T05:36:04Z"
     },
     {
       "company": "NVIDIA",
@@ -800,6 +796,32 @@
       ],
       "decision": "rejected",
       "checked_at": "2026-09-25T05:25:00Z"
+    },
+    {
+      "company": "Hugging Face",
+      "repo": "huggingface/candle",
+      "url": "https://github.com/huggingface/candle",
+      "relevance": "Rust ML framework; CPU backend, ONNX import, tensor ops, safetensors/quantized serialization all testable via cargo test on ARM64.",
+      "stars": 21098,
+      "maintenance": "pushed 2026-09-25",
+      "previous_contribution": "none",
+      "policy": "No root CONTRIBUTING.md, no PR/issue templates, no CODEOWNERS. Recursive tree at HEAD 66a8cf1: no AGENTS.md, no CLAUDE.md, no .cursorrules, no copilot-instructions — no trl-style AI clause anywhere. AI policy: None found (explicitly checked for trl-style clauses).",
+      "policy_links": [],
+      "decision": "admitted",
+      "checked_at": "2026-09-25T05:36:04Z"
+    },
+    {
+      "company": "Hugging Face",
+      "repo": "huggingface/accelerate",
+      "url": "https://github.com/huggingface/accelerate",
+      "relevance": "Launcher/config/state correctness on CPU paths — accelerate runs fully on CPU (accelerate launch --cpu, config files, checkpointing state).",
+      "stars": 9885,
+      "maintenance": "pushed 2026-09-24",
+      "previous_contribution": "none",
+      "policy": "Standard HF fork-branch-PR flow; tests required ('No quality testing = no merge'). AGENTS.md AMBIGUITY RESOLVED: recursive git tree at HEAD fb85091 contains NO AGENTS.md and NO CLAUDE.md anywhere (wave-2 fetch failure was a fetch failure, not a policy file). Full CONTRIBUTING.md read: NO transformers-style human-review/AI-disclosure requirement present. AI policy: None found. No transformers-style",
+      "policy_links": [],
+      "decision": "admitted",
+      "checked_at": "2026-09-25T05:36:04Z"
     }
   ],
   "issues": [

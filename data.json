@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-25T05:46:33+00:00",
+  "generated": "2026-09-25T05:53:22+00:00",
   "campaign": {
     "phase": "RESUMED — find-only research",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -8,7 +8,7 @@
     "eligible": 78,
     "target": 100,
     "companies": 22,
-    "repos_admitted": 35,
+    "repos_admitted": 36,
     "importance": {
       "low": 12,
       "medium": 57,
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-25T05:46:33+00:00",
+    "last_refresh": "2026-09-25T05:53:22+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 46
   },
@@ -822,6 +822,58 @@
       "policy_links": [],
       "decision": "admitted",
       "checked_at": "2026-09-25T05:36:04Z"
+    },
+    {
+      "company": "Stanford CRFM",
+      "repo": "stanford-crfm/helm",
+      "url": "https://github.com/stanford-crfm/helm",
+      "relevance": "Would have been ideal: metric computation, scenario/adapter correctness, run-spec handling — all CPU-verifiable. Vein exists but the door is unstaffed.",
+      "stars": 2921,
+      "maintenance": "pushed 2026-09-01",
+      "previous_contribution": "none",
+      "policy": "No CONTRIBUTING.md, no PR/issue templates, no CODEOWNERS, no AGENTS.md/CLAUDE.md/.cursorrules/copilot-instructions anywhere in recursive tree at HEAD 63754d0 (truncated:false). Maintenance-mode policy imposes issue-first + wait-for-maintainer-triage-reply gate before any PR; PRs without an attached issue are closed unmerged. AI policy: None found.",
+      "policy_links": [],
+      "decision": "hold",
+      "checked_at": "2026-09-25T05:52:00Z"
+    },
+    {
+      "company": "Databricks/MosaicML",
+      "repo": "mosaicml/composer",
+      "url": "https://github.com/mosaicml/composer",
+      "relevance": "Trainer/callback/checkpoint/data CPU paths exist and are testable, but irrelevant given no intake.",
+      "stars": 5502,
+      "maintenance": "pushed 2026-04-29",
+      "previous_contribution": "none",
+      "policy": "Standard fork-branch-PR + tests; pre-commit. No AGENTS.md/CLAUDE.md/AI files in recursive tree at HEAD 6405188 (truncated:false). No CLA/DCO. DECISIVE OPERATIONAL GATE: PR #3934 'Remove GitHub Actions workflows and dependabot configuration' merged 2026-03-25 — repo has NO CI anymore, so external PRs cannot even be validated. AI policy: None found.",
+      "policy_links": [],
+      "decision": "rejected",
+      "checked_at": "2026-09-25T05:52:00Z"
+    },
+    {
+      "company": "Databricks/MosaicML",
+      "repo": "mosaicml/llm-foundry",
+      "url": "https://github.com/mosaicml/llm-foundry",
+      "relevance": "Would be trainer/data/tokenizer CPU paths, but moot given repo freeze.",
+      "stars": 4448,
+      "maintenance": "pushed 2026-03-25",
+      "previous_contribution": "none",
+      "policy": "No CONTRIBUTING.md, no PR template. No AGENTS.md/CLAUDE.md/AI files in recursive tree at HEAD 0cdb2f4 (truncated:false). DECISIVE OPERATIONAL GATE: final commit to main is PR #1887 'Remove GitHub Actions workflows and dependabot configuration' (2026-03-25) — no CI, repo frozen since. AI policy: None found.",
+      "policy_links": [],
+      "decision": "rejected",
+      "checked_at": "2026-09-25T05:52:00Z"
+    },
+    {
+      "company": "vLLM",
+      "repo": "vllm-project/llm-compressor",
+      "url": "https://github.com/vllm-project/llm-compressor",
+      "relevance": "Quantization/pruning config and algorithm logic (observers, modifiers, recipe parsing, lifecycle) testable on tiny models CPU; heavy e2e tests need GPU but unit surface is CPU-clean.",
+      "stars": 3821,
+      "maintenance": "pushed 2026-09-25",
+      "previous_contribution": "org has prior satellite contribution (production-stack)",
+      "policy": "ORG-CLAUSE QUESTION RESOLVED: vllm-project/vllm's AGENTS.md is REPO-scoped ('These instructions apply to all AI-assisted contributions to `vllm-project/vllm`') and there is NO vllm-project/.github org repo (404) and NO AGENTS.md/CLAUDE.md in llm-compressor's recursive tree at HEAD 766a1b1 (truncated:false) — the vllm human-review AGENTS clause does NOT extend here. The repo does ship .agents/skill",
+      "policy_links": [],
+      "decision": "admitted",
+      "checked_at": "2026-09-25T05:52:00Z"
     }
   ],
   "issues": [
@@ -2734,6 +2786,20 @@
       "url": "https://github.com/google-deepmind/gemma",
       "reason": "REJECTED: internal-first copybara repo — 2/100 recent merges external, community fix PRs sit unreviewed with unanswered pings.",
       "ts": "2026-09-25T05:33:07+00:00"
+    },
+    {
+      "company": "Stanford CRFM",
+      "item": "stanford-crfm/helm",
+      "url": "https://github.com/stanford-crfm/helm",
+      "reason": "Formal maintenance mode since 2026-06: issue-first triage required but sole maintainer inactive since May; 6+ external PRs unacknowledged Jul-Sep. Revisit if activity resumes.",
+      "ts": "2026-09-25T05:53:22+00:00"
+    },
+    {
+      "company": "Databricks/MosaicML",
+      "item": "mosaicml/composer + llm-foundry",
+      "url": "https://github.com/mosaicml/composer",
+      "reason": "REJECTED: wound down — CI deliberately removed 2026-03-25, no merges since Apr, external PRs unreviewed up to 11 months.",
+      "ts": "2026-09-25T05:53:22+00:00"
     }
   ],
   "active": [
@@ -2915,6 +2981,10 @@
     {
       "ts": "2026-09-25T05:45:33+00:00",
       "text": "Batch-17: 4 repos ADMITTED with clean policies (tiktoken 17/30 external merges in maintainer sweeps; gpt-oss bug-fix scope; candle 17/30; accelerate 20/30 — AGENTS.md ambiguity resolved: none exists). Yield honest near-zero: +1 medium (candle #3297 CPU set_seed no-op). Vein intel: tiktoken exhausted (60+ open PRs vs batch-merging sole maintainer — revisit after next sweep); candle near-exhausted (campaign contributors sweeping); gpt-oss tracker mass-cleaned; accelerate healthy but stale-bot keeps tracker young and fresh bugs fixed within days."
+    },
+    {
+      "ts": "2026-09-25T05:53:22+00:00",
+      "text": "Batch-19: honest zero candidates. llm-compressor ADMITTED (active daily merges, no AI clause — vllm's AGENTS.md verified repo-scoped; DCO + claim-before-work gate; realistic play is pouncing on new reports, not backlog mining). HELM HELD (maintenance mode, maintainer inactive — external PRs unacknowledged). MosaicML composer + llm-foundry REJECTED (wound down, CI removed). Aged-backlog era of this campaign is closing: remaining yield concentrates in re-polls and fresh-issue pouncing."
     }
   ],
   "companies": [
@@ -3127,6 +3197,21 @@
       "company": "tinygrad",
       "fit": "low",
       "rationale": "Explicit ban: AI-looking contributions closed without feedback, possible ban."
+    },
+    {
+      "company": "Stanford CRFM",
+      "fit": "medium",
+      "rationale": "Premier eval org (HELM) but repo unstaffed in maintenance mode — no acceptance path today."
+    },
+    {
+      "company": "Databricks/MosaicML",
+      "fit": "low",
+      "rationale": "composer/llm-foundry wound down with CI removed."
+    },
+    {
+      "company": "vLLM",
+      "fit": "high",
+      "rationale": "llm-compressor active with substantive external merges; vllm core policy-held; claim-before-work triage limits backlog mining."
     }
   ]
 }

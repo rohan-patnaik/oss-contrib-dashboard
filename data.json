@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-25T05:53:22+00:00",
+  "generated": "2026-09-25T05:58:26+00:00",
   "campaign": {
     "phase": "RESUMED — find-only research",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -8,7 +8,7 @@
     "eligible": 78,
     "target": 100,
     "companies": 22,
-    "repos_admitted": 36,
+    "repos_admitted": 37,
     "importance": {
       "low": 12,
       "medium": 57,
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-25T05:53:22+00:00",
+    "last_refresh": "2026-09-25T05:58:26+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 46
   },
@@ -874,6 +874,19 @@
       "policy_links": [],
       "decision": "admitted",
       "checked_at": "2026-09-25T05:52:00Z"
+    },
+    {
+      "company": "OpenHands",
+      "repo": "OpenHands/OpenHands",
+      "url": "https://github.com/OpenHands/OpenHands",
+      "relevance": "89k-star agent platform frontend (Agent Canvas); the flagship OpenHands user-facing product.",
+      "stars": 89113,
+      "maintenance": "pushed 2026-09-25",
+      "previous_contribution": "none",
+      "policy": "(1) ready-for-dev issue-link gate, PR template (quoted): 'The linked issue must carry the `ready-for-dev` label, which means it has clear acceptance criteria (and, for bugs, reproduction evidence). If no such issue exists yet, open one ... and wait for it to be labeled `ready-for-dev` before opening this PR.' A github-actions readiness bot applies the label and comments 'A contributor can now open",
+      "policy_links": [],
+      "decision": "admitted",
+      "checked_at": "2026-09-25T05:58:26+00:00"
     }
   ],
   "issues": [
@@ -2985,6 +2998,10 @@
     {
       "ts": "2026-09-25T05:53:22+00:00",
       "text": "Batch-19: honest zero candidates. llm-compressor ADMITTED (active daily merges, no AI clause — vllm's AGENTS.md verified repo-scoped; DCO + claim-before-work gate; realistic play is pouncing on new reports, not backlog mining). HELM HELD (maintenance mode, maintainer inactive — external PRs unacknowledged). MosaicML composer + llm-foundry REJECTED (wound down, CI removed). Aged-backlog era of this campaign is closing: remaining yield concentrates in re-polls and fresh-issue pouncing."
+    },
+    {
+      "ts": "2026-09-25T05:58:26+00:00",
+      "text": "Batch-18: honest zero. OpenHands/OpenHands ADMITTED (same human-PR-section rule as the SDK; repo has pivoted to the Agent Canvas React frontend; 58/62 ready-for-dev bugs already have closing PRs -> first-mover polling recommended). langextract vote-gate census complete: 6 issues clear 5 thumbs-up but none has an uncontested code-owner-agreed approach -> gate admits nothing today. Ray P1-core slice exhausted (best-looking issues have already-landed fixes). Recurring polls + fresh-org checks are the remaining sourcing strategy."
     }
   ],
   "companies": [

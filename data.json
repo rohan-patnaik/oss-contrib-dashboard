@@ -1,18 +1,18 @@
 {
-  "generated": "2026-09-25T06:17:12+00:00",
+  "generated": "2026-09-25T06:19:59+00:00",
   "campaign": {
     "phase": "pausing after final two batches; implementation transferring to GPT 5.6 Sol thread",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
   },
   "summary": {
-    "eligible": 79,
+    "eligible": 80,
     "target": 100,
-    "companies": 24,
-    "repos_admitted": 39,
+    "companies": 27,
+    "repos_admitted": 42,
     "importance": {
       "low": 12,
       "medium": 58,
-      "high": 9
+      "high": 10
     },
     "reproduced": 5,
     "authored": 4,
@@ -20,9 +20,9 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-25T06:17:12+00:00",
+    "last_refresh": "2026-09-25T06:19:59+00:00",
     "excluded_prior_repos": 26,
-    "pr_qualified": 47
+    "pr_qualified": 48
   },
   "repos": [
     {
@@ -913,6 +913,58 @@
       "policy_links": [],
       "decision": "admitted",
       "checked_at": "2026-09-25T05:56:00Z"
+    },
+    {
+      "company": "Pydantic",
+      "repo": "pydantic/pydantic-ai",
+      "url": "https://github.com/pydantic/pydantic-ai",
+      "relevance": "Provider integration correctness (pricing/usage, message mapping, streaming), agent-loop and tool-call bugs — all pure Python, mocked-provider pytest, fully CPU-verifiable.",
+      "stars": 20161,
+      "maintenance": "pushed 2026-09-25",
+      "previous_contribution": "none",
+      "policy": "HARD ASSIGNMENT GATE for non-trivial changes: maintainer must agree the approach on the issue AND assign the contributor before a PR is opened; unassigned PRs may be auto-closed. Trivial/obvious one-line fixes exempt. Automated review by Devin (advisory). 'We may rewrite or supersede your code' — contributed code treated as illustrative. Stale-issue agentic workflows (pydantic-ai-stale-issues-find",
+      "policy_links": [],
+      "decision": "admitted",
+      "checked_at": "2026-09-25T06:05:00Z"
+    },
+    {
+      "company": "BerriAI/LiteLLM",
+      "repo": "BerriAI/litellm",
+      "url": "https://github.com/BerriAI/litellm",
+      "relevance": "Provider transformation/streaming/usage-cost correctness, router/fallback logic, tool-call mapping — pure Python with an established mocked-test convention in tests/test_litellm/; ideal CPU-verifiable provider-integration career signal.",
+      "stars": 59582,
+      "maintenance": "pushed 2026-09-25",
+      "previous_contribution": "none",
+      "policy": "CLA required via cla-assistant.io/BerriAI/litellm. Conventional Commits + Conventional Branches enforced by hooks. >=1 mocked test in tests/test_litellm/ (mirrors litellm/ paths) is a hard requirement. make lint must pass. Fork CI limitation: guard-fork-dependencies.yml + CircleCI secrets mean maintainers may close an external PR and re-land it as an 'internal copy ... with your commits and author",
+      "policy_links": [],
+      "decision": "admitted",
+      "checked_at": "2026-09-25T06:05:00Z"
+    },
+    {
+      "company": "CrewAI",
+      "repo": "crewAIInc/crewAI",
+      "url": "https://github.com/crewAIInc/crewAI",
+      "relevance": "Agent-loop/tool-call/LLM-provider correctness (lib/crewai/src/crewai/llm.py, agents, memory, rag) — pure Python, pytest+mocks, CPU-verifiable.",
+      "stars": 58996,
+      "maintenance": "pushed 2026-09-25",
+      "previous_contribution": "none",
+      "policy": "First-time contributor MUST link an existing open issue (enforced by ftc-require-issue.yml on pull_request_target — allow-list is MEMBER/OWNER/COLLABORATOR/CONTRIBUTOR). Conventional-commit PR titles, strict mypy on 3.10-3.13, ruff, tests via uv run pytest lib/crewai/tests/. uv workspace monorepo (core in lib/crewai/). AI-authored PRs must carry the llm-generated label (mandatory disclosure, not a",
+      "policy_links": [],
+      "decision": "admitted",
+      "checked_at": "2026-09-25T06:05:00Z"
+    },
+    {
+      "company": "Microsoft AI",
+      "repo": "microsoft/graphrag",
+      "url": "https://github.com/microsoft/graphrag",
+      "relevance": "Would have been RAG pipeline correctness (ideal), but not actionable.",
+      "stars": 36097,
+      "maintenance": "pushed 2026-09-24",
+      "previous_contribution": "none",
+      "policy": "Maintenance mode: bug fixes only, ISSUE-FIRST required ('please file an issue first so we can discuss and track it'). Microsoft CLA required (cla.microsoft.com). issues-autoresolve.yml auto-closes the backlog (only 39 open issues on a 36k-star repo). Semver-labeled PRs + smoke/integration/unit test workflows. AI policy: None prohibitive; maintainers themselves merge copilot-swe-agent PRs.",
+      "policy_links": [],
+      "decision": "rejected",
+      "checked_at": "2026-09-25T06:05:00Z"
     }
   ],
   "issues": [
@@ -3209,6 +3261,240 @@
       "ownership_check": null,
       "competing_prs": [],
       "platform_plan": null
+    },
+    {
+      "company": "BerriAI",
+      "repo": "BerriAI/litellm",
+      "number": 26939,
+      "url": "https://github.com/BerriAI/litellm/issues/26939",
+      "title": "Vertex AI Gemini streaming silently drops per-request timeout, falling back to litellm.request_timeout (6000s)",
+      "importance": "high",
+      "importance_rationale": "Any streaming call on the vertex_ai/gemini routes (both go through VertexLLM) ignores the caller's timeout entirely: a stalled stream hangs up to litellm.request_timeout (default 6000s = 100 min) instead of the configured seconds, and the raised error reads 'Connection timed out after None seconds'. Reporter observes stalls 'regularly under load'; the non-streaming branch of the same handler propagates timeout correctly, so this is a plain omission with production-hang impact on one of the two most-used providers.",
+      "career_signal": "high",
+      "career_signal_rationale": "Reliability/integration correctness fix on the Vertex/Gemini streaming path of the dominant open-source LLM gateway (59.6k stars): diagnosing timeout propagation loss through functools.partial streaming closures and fixing it symmetrically with the provider's non-streaming branch and the Anthropic handler's established pattern, with a mocked-client regression test asserting the timeout reaches the HTTP layer. Interview-defensible provider-integration engineering; not very_high because the change is localized plumbing rather than core execution semantics.",
+      "career_assessed_at": "2026-09-25T06:18:00Z",
+      "difficulty": "low-medium",
+      "status": "vetted",
+      "verified_at": "2026-09-25T06:17:08Z",
+      "ownership_check": "No claim. deepanshululla's comment is an explicit handoff invitation, not a claim, and their fork branch never became a PR (gh pr list --author deepanshululla at 2026-09-25T06:14:28Z: 10 PRs, none touching vertex timeout).",
+      "competing_prs": [],
+      "platform_plan": "CPU-only, Mac ARM64 or Linux container; no credentials (mocked provider). Setup: `git clone https://github.com/BerriAI/litellm && cd litellm && make install-dev` (uv). Repro/regression (mirrors existing tests around L5101 of the mapped test file which already verify a user client is passed to make_call): in tests/test_litellm/llms/vertex_ai/gemini/test_vertex_and_google_ai_studio_gemini.py, build a MagicMock HTTPHandler/AsyncHTTPHandler whose .post returns a stubbed streaming response, call litellm.completion(model='gemini/gemini-2.5-flash', messages=[...], stream=True, timeout=2, api_key='fake', client=mock) and drain one chunk, then assert mock.post was called with timeout=2 (pre-fix: no timeout kwarg -> test fails; post-fix: passes). Run: `uv run pytest tests/test_litellm/llms/vertex_ai/gemini/test_vertex_and_google_ai_studio_gemini.py -v` and `make lint`."
+    },
+    {
+      "company": "BerriAI",
+      "repo": "BerriAI/litellm",
+      "number": 25390,
+      "url": "https://github.com/BerriAI/litellm/issues/25390",
+      "title": "Anthropic /v1/messages streaming drops tool_use.input for gemini/gemma-4-31b-it while non-streaming works",
+      "importance": null,
+      "importance_rationale": null,
+      "career_signal": null,
+      "career_signal_rationale": null,
+      "career_assessed_at": null,
+      "difficulty": null,
+      "status": "hold",
+      "verified_at": "2026-09-25T06:14:39Z",
+      "ownership_check": null,
+      "competing_prs": [],
+      "platform_plan": null
+    },
+    {
+      "company": "BerriAI",
+      "repo": "BerriAI/litellm",
+      "number": 31722,
+      "url": "https://github.com/BerriAI/litellm/issues/31722",
+      "title": "Streaming: response `model` is overridden to the requested model after a fallback (served deployment masked); non-streaming is correct",
+      "importance": null,
+      "importance_rationale": null,
+      "career_signal": null,
+      "career_signal_rationale": null,
+      "career_assessed_at": null,
+      "difficulty": null,
+      "status": "hold",
+      "verified_at": "2026-09-25T06:15:20Z",
+      "ownership_check": null,
+      "competing_prs": [],
+      "platform_plan": null
+    },
+    {
+      "company": "BerriAI",
+      "repo": "BerriAI/litellm",
+      "number": 33678,
+      "url": "https://github.com/BerriAI/litellm/issues/33678",
+      "title": "ollama_chat streaming emits index=0 for every tool call, merging parallel tool calls into malformed JSON",
+      "importance": null,
+      "importance_rationale": null,
+      "career_signal": null,
+      "career_signal_rationale": null,
+      "career_assessed_at": null,
+      "difficulty": null,
+      "status": "rejected",
+      "verified_at": "2026-09-25T06:11:30Z",
+      "ownership_check": null,
+      "competing_prs": [],
+      "platform_plan": null
+    },
+    {
+      "company": "BerriAI",
+      "repo": "BerriAI/litellm",
+      "number": 37849,
+      "url": "https://github.com/BerriAI/litellm/issues/37849",
+      "title": "Gemini thought signature is embedded in the tool call id, so any client that normalizes ids breaks the next turn",
+      "importance": null,
+      "importance_rationale": null,
+      "career_signal": null,
+      "career_signal_rationale": null,
+      "career_assessed_at": null,
+      "difficulty": null,
+      "status": "rejected",
+      "verified_at": "2026-09-25T06:11:30Z",
+      "ownership_check": null,
+      "competing_prs": [],
+      "platform_plan": null
+    },
+    {
+      "company": "BerriAI",
+      "repo": "BerriAI/litellm",
+      "number": 36917,
+      "url": "https://github.com/BerriAI/litellm/issues/36917",
+      "title": "Anthropic /v1/messages: role:\"system\" messages inside messages[] are silently dropped",
+      "importance": null,
+      "importance_rationale": null,
+      "career_signal": null,
+      "career_signal_rationale": null,
+      "career_assessed_at": null,
+      "difficulty": null,
+      "status": "rejected",
+      "verified_at": "2026-09-25T06:11:30Z",
+      "ownership_check": null,
+      "competing_prs": [],
+      "platform_plan": null
+    },
+    {
+      "company": "BerriAI",
+      "repo": "BerriAI/litellm",
+      "number": 33166,
+      "url": "https://github.com/BerriAI/litellm/issues/33166",
+      "title": "prompt_tokens_details silently reset to None in streaming usage aggregation when a later chunk omits it",
+      "importance": null,
+      "importance_rationale": null,
+      "career_signal": null,
+      "career_signal_rationale": null,
+      "career_assessed_at": null,
+      "difficulty": null,
+      "status": "rejected",
+      "verified_at": "2026-09-25T06:11:30Z",
+      "ownership_check": null,
+      "competing_prs": [],
+      "platform_plan": null
+    },
+    {
+      "company": "CrewAI Inc",
+      "repo": "crewAIInc/crewAI",
+      "number": 6650,
+      "url": "https://github.com/crewAIInc/crewAI/issues/6650",
+      "title": "[BUG] kickoff_for_each clears latest replay records before returning",
+      "importance": null,
+      "importance_rationale": null,
+      "career_signal": null,
+      "career_signal_rationale": null,
+      "career_assessed_at": null,
+      "difficulty": null,
+      "status": "rejected",
+      "verified_at": "2026-09-25T06:12:25Z",
+      "ownership_check": null,
+      "competing_prs": [],
+      "platform_plan": null
+    },
+    {
+      "company": "CrewAI Inc",
+      "repo": "crewAIInc/crewAI",
+      "number": 6072,
+      "url": "https://github.com/crewAIInc/crewAI/issues/6072",
+      "title": "[BUG] human_input=True: the feedback prompt references a 'Final Result above' that is never displayed unless verbose=True",
+      "importance": null,
+      "importance_rationale": null,
+      "career_signal": null,
+      "career_signal_rationale": null,
+      "career_assessed_at": null,
+      "difficulty": null,
+      "status": "rejected",
+      "verified_at": "2026-09-25T06:10:30Z",
+      "ownership_check": null,
+      "competing_prs": [],
+      "platform_plan": null
+    },
+    {
+      "company": "Pydantic",
+      "repo": "pydantic/pydantic-ai",
+      "number": 4608,
+      "url": "https://github.com/pydantic/pydantic-ai/issues/4608",
+      "title": "OpenAIResponsesModel: invalid_encrypted_content error when using API gateway/proxy across orgs",
+      "importance": null,
+      "importance_rationale": null,
+      "career_signal": null,
+      "career_signal_rationale": null,
+      "career_assessed_at": null,
+      "difficulty": null,
+      "status": "rejected",
+      "verified_at": "2026-09-25T06:12:25Z",
+      "ownership_check": null,
+      "competing_prs": [],
+      "platform_plan": null
+    },
+    {
+      "company": "Pydantic",
+      "repo": "pydantic/pydantic-ai",
+      "number": 6071,
+      "url": "https://github.com/pydantic/pydantic-ai/issues/6071",
+      "title": "DBOS fork_workflow re-executing a stdio-MCP get_tools step deadlocks on the fastmcp StdioTransport init handshake",
+      "importance": null,
+      "importance_rationale": null,
+      "career_signal": null,
+      "career_signal_rationale": null,
+      "career_assessed_at": null,
+      "difficulty": null,
+      "status": "rejected",
+      "verified_at": "2026-09-25T06:16:00Z",
+      "ownership_check": null,
+      "competing_prs": [],
+      "platform_plan": null
+    },
+    {
+      "company": "Pydantic",
+      "repo": "pydantic/pydantic-ai",
+      "number": 5892,
+      "url": "https://github.com/pydantic/pydantic-ai/issues/5892",
+      "title": "Cerebras: wire <think>-tag reasoning replay for qwen models (follow-up to #5891)",
+      "importance": null,
+      "importance_rationale": null,
+      "career_signal": null,
+      "career_signal_rationale": null,
+      "career_assessed_at": null,
+      "difficulty": null,
+      "status": "rejected",
+      "verified_at": "2026-09-25T06:16:00Z",
+      "ownership_check": null,
+      "competing_prs": [],
+      "platform_plan": null
+    },
+    {
+      "company": "Pydantic",
+      "repo": "pydantic/pydantic-ai",
+      "number": 4353,
+      "url": "https://github.com/pydantic/pydantic-ai/issues/4353",
+      "title": "MCP Tool result audience annotation is ignored",
+      "importance": null,
+      "importance_rationale": null,
+      "career_signal": null,
+      "career_signal_rationale": null,
+      "career_assessed_at": null,
+      "difficulty": null,
+      "status": "rejected",
+      "verified_at": "2026-09-25T06:16:00Z",
+      "ownership_check": null,
+      "competing_prs": [],
+      "platform_plan": null
     }
   ],
   "holds": [
@@ -3576,6 +3862,10 @@
     {
       "ts": "2026-09-25T06:17:12+00:00",
       "text": "Campaign owner: pause research after batches 21/22 drain (Fable budget), then implementation begins in a new GPT 5.6 Sol (high reasoning) T3 thread using jobs/SOL-THREAD-KICKOFF.md + jobs/IMPLEMENTATION-HANDOFF.md. Kickoff package finalized."
+    },
+    {
+      "ts": "2026-09-25T06:19:59+00:00",
+      "text": "Batch-21: +1 HIGH — litellm #26939 (Vertex/Gemini streaming drops per-request timeout -> 6000s hang; both streaming partials omit the timeout the enclosing scope holds while the non-streaming branch propagates it; zero competition). ADMITTED: litellm (CLA; internal Devin pipeline + ~7 external merges/day), crewAI (healthiest: 12/30 external; AI PRs require llm-generated disclosure label), pydantic-ai (conditional: maintainer must agree+assign before PR). graphrag REJECTED (maintenance mode, 0/100 external merges). All three trackers same-week farmed; the productive method is cross-reference screening for the 5-10% farmers miss."
     }
   ],
   "companies": [
@@ -3808,6 +4098,21 @@
       "company": "IBM/Docling",
       "fit": "high",
       "rationale": "IBM's mainstream document-AI/LLM-ingestion stack (67.9k), healthy external intake; fresh-issue farming means polling beats mining."
+    },
+    {
+      "company": "BerriAI/LiteLLM",
+      "fit": "high",
+      "rationale": "De-facto standard LLM gateway (59.6k); provider-integration correctness is strong signal; heavily farmed tracker."
+    },
+    {
+      "company": "CrewAI",
+      "fit": "high",
+      "rationale": "Major multi-agent framework (59k) with healthy external intake; AI disclosure label required."
+    },
+    {
+      "company": "Pydantic",
+      "fit": "high",
+      "rationale": "Prominent agent framework; agree+assign gate limits throughput."
     }
   ]
 }

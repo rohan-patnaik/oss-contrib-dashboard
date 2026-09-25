@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-25T08:50:39+00:00",
+  "generated": "2026-09-25T09:06:46+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-25T08:50:39+00:00",
+    "last_refresh": "2026-09-25T09:06:46+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49
   },
@@ -1542,14 +1542,17 @@
       "importance": "medium",
       "importance_rationale": "User-facing evaluation metric printed as 'cpWER' and written to results CSV by shipped diarization+ASR scripts/tutorial systematically under-reports relative to the per-session cpWER beside it (edits cross speaker boundaries again) - inconsistent published numbers for anyone benchmarking multispeaker ASR.",
       "difficulty": "medium",
-      "status": "vetted",
+      "status": "pr-open",
       "verified_at": "2026-09-24T20:05:11Z",
       "ownership_check": "Open, unassigned, 0 comments. Reporter udsy19's fix PR #16094 withdrawn closed-unmerged 2026-09-18; no active claim.",
       "competing_prs": [],
       "platform_plan": "Mac ARM64 CPU: source install; run the issue's CPU-only reproducer driving OfflineDiarWithASR.evaluate() with 3 synthetic CTM sessions pinned to the cross-boundary scenario from tests/collections/speaker_tasks/utils/test_cpwer.py; assert corpus average_cpWER equals the mean of per-session MeetEval cpWERs after fix. DCO sign-off required.",
       "career_signal": "high",
       "career_signal_rationale": "Evaluation-validity fix: corpus average_cpWER still uses the algorithm PR #15573 replaced, so reported diarization error rates are wrong; aligns the metric with the accepted implementation.",
-      "career_assessed_at": "2026-09-24T20:38:31+00:00"
+      "career_assessed_at": "2026-09-24T20:38:31+00:00",
+      "pr_url": "https://github.com/NVIDIA-NeMo/Speech/pull/16297",
+      "pr_raised_at": "2026-09-25T09:05:54+00:00",
+      "outcome": "PR #16297 open at independently approved DCO-signed commit 09ac905; evaluator regression fails on base, 170 speaker-metric tests pass, and 500 randomized corpora match exhaustive aggregation."
     },
     {
       "company": "NVIDIA",
@@ -3915,6 +3918,11 @@
       "ts": "2026-09-25T08:49:14+00:00",
       "text": "Whisper Discussion #2333 published via the campaign owner's explicit gate exception: openai/whisper PR #2865 validates non-1-D in-memory audio before batched decoding can fail with an unrelated AttributeError. Exact commit 6916964 independently APPROVED; four fail-before regressions and eight pass-after tests; fresh competition check clear.",
       "repo": "openai/whisper"
+    },
+    {
+      "ts": "2026-09-25T09:05:54+00:00",
+      "text": "NeMo Speech #16093 published: PR #16297 fixes corpus cpWER rejoining speaker transcripts and erasing cross-boundary errors. Exact DCO-signed commit 09ac905 independently APPROVED; evaluator fail-before captured, 170 tests pass, and 500 randomized corpora match exhaustive aggregation; closed #16094 disclosed as prior art.",
+      "repo": "NVIDIA-NeMo/Speech"
     }
   ],
   "companies": [

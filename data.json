@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-25T06:36:29+00:00",
+  "generated": "2026-09-25T07:38:44+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-25T06:36:29+00:00",
+    "last_refresh": "2026-09-25T07:38:44+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49
   },
@@ -1246,15 +1246,17 @@
       "importance": "high",
       "importance_rationale": "priority:high by maintainers: with OH_CONVERSATION_RUNTIME=docker + worktree=true, the created worktree is immediately 'prunable' from the host - routine host-side git gc/worktree prune severs the conversation's working tree, risking loss of in-progress agent work and breaking the worktree feature for every docker-runtime user.",
       "difficulty": "high",
-      "status": "authored",
+      "status": "pr-open",
       "verified_at": "2026-09-24T19:05:00Z",
-      "ownership_check": "Unassigned; ready-for-dev label applied by the readiness bot; only comment is the reporter's re-reproduction; no claim, no maintainer plan.",
+      "ownership_check": "Fresh publish check 2026-09-25T07:36:43Z: issue open and unassigned; no exact-issue, prunable-worktree, namespace, or OH_CONVERSATION_WORKTREE_ROOT competitor; broad Docker PR #4883 is a distinct execution-only design for #4187.",
       "competing_prs": [],
       "platform_plan": "Mac ARM64, CPU only: unit-test the worktree path/gitdir portability logic (pytest openhands-agent-server tests) with plain git - e.g. relative gitdir links or locating the worktree under the shared bind-mounted namespace - then end-to-end with Docker Desktop (CPU): run agent-server with OH_CONVERSATION_RUNTIME=docker against a host repo, create a conversation with worktree=true, assert 'git worktree list' on the host shows a valid (non-prunable) worktree. No GPU, no credentials.",
       "career_signal": "very_high",
       "career_signal_rationale": "Agent-runtime data-integrity fix: docker runtime's git worktrees span host/container namespaces and are prunable from the host, risking work loss — consequential execution-environment correctness requiring cross-namespace design.",
       "career_assessed_at": "2026-09-24T20:38:31+00:00",
-      "outcome": "author-complete commit 5112c9f preserved; awaiting implementation-thread review+publication (HUMAN template section needs Rohan)"
+      "outcome": "Draft PR #5318 open at independently approved commit 284c7ea; 47 Docker-runtime tests and published-image lifecycle E2E pass; awaiting Rohan's required HUMAN-section note before ready-for-review.",
+      "pr_url": "https://github.com/OpenHands/software-agent-sdk/pull/5318",
+      "pr_raised_at": "2026-09-25T07:37:56+00:00"
     },
     {
       "company": "OpenHands",

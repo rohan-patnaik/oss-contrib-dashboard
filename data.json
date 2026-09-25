@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-25T12:28:01+00:00",
+  "generated": "2026-09-25T12:44:18+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-25T12:28:01+00:00",
+    "last_refresh": "2026-09-25T12:44:18+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49
   },
@@ -1309,14 +1309,17 @@
       "importance": "medium",
       "importance_rationale": "Any batched TruncatedMultivariateNormal (batch of means/covariances, the natural shape coming out of batched GP posteriors) crashes in rsample with a broadcast ValueError; users must fall back to per-element Python loops. Maintainer hvarfner explicitly invited a community PR.",
       "difficulty": "high",
-      "status": "vetted",
+      "status": "pr-open",
       "verified_at": "2026-09-24T19:49:43Z",
       "ownership_check": "Open, unassigned, bug label. Reporter mathDR claimed 2026-01-16 and iterated through 2026-02-03 ('I have some cycles... Do you have a draft PR?') with no PR ever opened - claim stale >7 months (>90d window). Balandat's 2026-01-18 'let me give it a shot' also produced no PR. hvarfner (CONTRIBUTOR/maintainer) invited a PR 2026-01-16T21:38:54Z: 'Would you be interested in fixing the issue by contributing a PR?'",
       "competing_prs": [],
       "platform_plan": "Mac ARM64 CPU: pip install -e . (pure PyTorch); reproduce with the issue's 10x25 batched snippet; implement leading-batch-dim support in LinearEllipticalSliceSampler + TruncatedMultivariateNormal.rsample per kayween's in-thread shape plan (x:(batch,d,chains), A:(batch,m,d)); pytest test/utils/probability/test_truncated_multivariate_normal.py test/utils/probability/test_lin_ess.py.",
       "career_signal": "high",
       "career_signal_rationale": "Numerical correctness in Meta's Bayesian-optimization framework: batched truncated-MVN sampling collapses batch dimensions; requires distribution/shape-semantics ownership.",
-      "career_assessed_at": "2026-09-24T20:38:31+00:00"
+      "career_assessed_at": "2026-09-24T20:38:31+00:00",
+      "pr_url": "https://github.com/meta-pytorch/botorch/pull/3370",
+      "pr_raised_at": "2026-09-25T12:43:21+00:00",
+      "outcome": "PR #3370 open at independently approved commit f2141ae; batched truncated-MVN sampling now preserves arbitrary batch/sample shapes with independent sampler state, the base broadcast regression is covered, 45 probability tests plus 26 subtests pass, and Meta CLA is green."
     },
     {
       "company": "Meta/PyTorch",

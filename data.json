@@ -1,17 +1,17 @@
 {
-  "generated": "2026-09-25T05:33:07+00:00",
+  "generated": "2026-09-25T05:43:59+00:00",
   "campaign": {
     "phase": "RESUMED — find-only research",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
   },
   "summary": {
-    "eligible": 75,
+    "eligible": 77,
     "target": 100,
     "companies": 22,
     "repos_admitted": 31,
     "importance": {
       "low": 12,
-      "medium": 54,
+      "medium": 56,
       "high": 9
     },
     "reproduced": 5,
@@ -20,9 +20,9 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-25T05:33:07+00:00",
+    "last_refresh": "2026-09-25T05:43:59+00:00",
     "excluded_prior_repos": 26,
-    "pr_qualified": 44
+    "pr_qualified": 46
   },
   "repos": [
     {
@@ -2196,6 +2196,42 @@
       "ownership_check": "KeepNoob claimed in 2024 but never delivered to the right repo despite two maintainer pings; inactive 22 months — expired.",
       "competing_prs": [],
       "platform_plan": "Pure CPU: tiny UNet2DModel(sample_size=8, block_out_channels=(4,8)) + PNDMScheduler in DDPMPipeline, call pipe(num_inference_steps=5) — TypeError before fix, image after; also assert DDPMScheduler path still consumes the generator (reproducibility unchanged). Run `pytest tests/pipelines/ddpm/`."
+    },
+    {
+      "company": "Anyscale",
+      "repo": "ray-project/ray",
+      "number": 50980,
+      "url": "https://github.com/ray-project/ray/issues/50980",
+      "title": "[Core] calling remote function in `Future` callback breaks ray",
+      "importance": "medium",
+      "importance_rationale": "Documented public API (ObjectRef.future() + concurrent.futures add_done_callback) silently deadlocks the whole worker session: any Ray call (ray.get, .remote) inside the done-callback hangs, and afterwards NO new task can be submitted from the driver — the process is bricked until Ctrl+C. Silent, unrecoverable, and triggered by idiomatic asyncio/futures bridging code.",
+      "career_signal": "high",
+      "career_signal_rationale": "Diagnosing a cross-thread deadlock in Ray's core worker — user Python callbacks executed inline on the C++ GetAsync completion thread — and moving user-visible future completion onto a safe executor is distributed-runtime reliability work in the most-used Python distributed framework, directly defensible in an ML-infrastructure interview.",
+      "career_assessed_at": "2026-09-25T05:38:00Z",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-25T05:38:00Z",
+      "ownership_check": "Open, unassigned, ZERO comments since filing 2025-02-28 (19 months). Labels bug,P1,core,community-backlog. No claim, no maintainer plan (last label touch 2025-05-22).",
+      "competing_prs": [],
+      "platform_plan": "CPU-only. Repro today: `pip install 'ray[default]'` on Mac ARM64 or Linux CPU, run the issue script with a 60s watchdog — 'finish cb' never prints. Fix touches Cython (.pxi), so validation needs a from-source build: Linux CPU container, `pip install -e python` (bazel build, CPU-only, no GPU deps) then `python -m pytest python/ray/tests/<new test> -x --timeout=120`."
+    },
+    {
+      "company": "MCP",
+      "repo": "modelcontextprotocol/typescript-sdk",
+      "number": 2864,
+      "url": "https://github.com/modelcontextprotocol/typescript-sdk/issues/2864",
+      "title": "Closing a legacy Client during initialize leaves an unhandled rejection in workerd",
+      "importance": "medium",
+      "importance_rationale": "Closing a transport between the legacy `initialize` reply and the `notifications/initialized` send leaves a floating `NOT_CONNECTED` rejection that workerd (Cloudflare Workers — a first-class MCP deployment target) reports as unhandled, failing test suites and forcing consumers (reporter maintains a gateway) to ship workarounds that skip the initialized notification.",
+      "career_signal": "high",
+      "career_signal_rationale": "Protocol-lifecycle correctness in the official MCP TypeScript SDK: pinning down a cross-runtime (Node vs workerd) unhandled-rejection seam in the client handshake and making every close-interrupt failure settle into the connect() promise is consequential agent/protocol plumbing work, demonstrable with a runtime-comparative regression test.",
+      "career_assessed_at": "2026-09-25T05:38:00Z",
+      "difficulty": "medium-high",
+      "status": "vetted",
+      "verified_at": "2026-09-25T05:38:00Z",
+      "ownership_check": "Open, unassigned, 0 comments (created 2026-09-25T04:22:49Z, ~1h before vetting). Timeline cross-references are the reporter's own consumer-repo workaround PRs ('Avoid unhandled rejections when a close interrupts the legacy MCP handshake' / 'Cancel legacy MCP initialization cleanly on close', both closed there) — no SDK-side work.",
+      "competing_prs": [],
+      "platform_plan": "CPU-only, Mac ARM64: `pnpm install`; repo ships workerd test infra (test/integration/test/server/cloudflareWorkers.test.ts, packages/server/test/server/workerdSchemaPreload.test.ts; workerd has darwin-arm64 builds). Reproduce with the reporter's 0..30 microtask-tick sweep over `InMemoryTransport.createLinkedPair()` + `versionNegotiation: { mode: 'legacy' }` under the workerd vitest project; assert zero unhandled rejections; `pnpm test` for client + core-internal packages."
     }
   ],
   "holds": [
@@ -2525,6 +2561,10 @@
     {
       "ts": "2026-09-25T05:33:07+00:00",
       "text": "Batch-15: +9 — NeMo-Speech #16081 (manifest to_shards crash, freed by PR withdrawal, HIGH) + #16102 (adapter save/load no round-trip, HIGH) + 2 mediums + 1 low; botorch #2128 (bool buffer breaks DDP broadcast, maintainer-endorsed fix direction since 2023, HIGH) + #2398 (ModelList.fantasize breaks with MultiTaskGP, maintainer-filed 27mo, HIGH); diffusers #11902 + #7354 (both maintainer-invited, claimants gone, medium). gemma REJECTED: copybara internal-first, 2/100 external merges, 15+ community PRs unreviewed. NeMo udsy19 vein fully mapped (monthly recheck: 8 more free if remaining open PRs withdrawn); botorch aged slice exhausted; diffusers ack-pool nearly tapped."
+    },
+    {
+      "ts": "2026-09-25T05:43:59+00:00",
+      "text": "Batch-16: +2 HIGH — ray #50980 (ObjectRef.future() done-callbacks run inline on the C++ GetAsync thread; any Ray call inside deadlocks the worker; P1, 19 months, uncontested) and mcp/typescript-sdk #2864 (closing legacy client mid-initialize floats a NOT_CONNECTED rejection under workerd; NOTE repo PRs new issues in ~1-3h — re-poll before authoring). Veins closed: DeepSpeed bulk backlog now actively mined by competitors; onnxruntime r3 exhausted (stale-bot survivors ~90% features, live bugs contested). ray P1-core narrowing but productive; ts-sdk polling stays."
     }
   ],
   "companies": [

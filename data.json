@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-25T12:44:18+00:00",
+  "generated": "2026-09-25T13:03:39+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-25T12:44:18+00:00",
+    "last_refresh": "2026-09-25T13:03:39+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49
   },
@@ -1260,7 +1260,7 @@
       "career_signal": "very_high",
       "career_signal_rationale": "Agent-runtime data-integrity fix: docker runtime's git worktrees span host/container namespaces and are prunable from the host, risking work loss — consequential execution-environment correctness requiring cross-namespace design.",
       "career_assessed_at": "2026-09-24T20:38:31+00:00",
-      "outcome": "Draft PR #5318 open at independently approved commit 284c7ea; 47 Docker-runtime tests and published-image lifecycle E2E pass; awaiting Rohan's required HUMAN-section note before ready-for-review.",
+      "outcome": "PR #5318 ready at independently approved commit 284c7ea; Rohan supplied the required HUMAN section, description/artifact checks pass, and 47 Docker-runtime tests plus published-image lifecycle E2E pass.",
       "pr_url": "https://github.com/OpenHands/software-agent-sdk/pull/5318",
       "pr_raised_at": "2026-09-25T07:37:56+00:00"
     },

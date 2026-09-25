@@ -1,17 +1,17 @@
 {
-  "generated": "2026-09-25T05:18:19+00:00",
+  "generated": "2026-09-25T05:33:07+00:00",
   "campaign": {
     "phase": "RESUMED — find-only research",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
   },
   "summary": {
-    "eligible": 66,
+    "eligible": 75,
     "target": 100,
     "companies": 22,
     "repos_admitted": 31,
     "importance": {
       "low": 12,
-      "medium": 45,
+      "medium": 54,
       "high": 9
     },
     "reproduced": 5,
@@ -20,9 +20,9 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-25T05:18:19+00:00",
+    "last_refresh": "2026-09-25T05:33:07+00:00",
     "excluded_prior_repos": 26,
-    "pr_qualified": 40
+    "pr_qualified": 44
   },
   "repos": [
     {
@@ -785,6 +785,21 @@
       ],
       "decision": "rejected",
       "checked_at": "2026-09-24T21:42:48Z"
+    },
+    {
+      "company": "Google/DeepMind",
+      "repo": "google-deepmind/gemma",
+      "url": "https://github.com/google-deepmind/gemma",
+      "relevance": "JAX Gemma model library — technically CPU-small-config testable, but moot given intake is closed in practice.",
+      "stars": 5746,
+      "maintenance": "pushed 2026-09-16",
+      "previous_contribution": "none",
+      "policy": "Copybara-mirrored internal-first repo with effectively dead external intake: 2/100 recent merges external (last one 2026-01-08), a growing pile of unreviewed community bug-fix PRs from Aug-Sep 2026, mandatory Google CLA, and no maintainer engagement on pings. A correct PR would most likely rot unreviewed.",
+      "policy_links": [
+        "https://github.com/google-deepmind/gemma/blob/main/CONTRIBUTING.md"
+      ],
+      "decision": "rejected",
+      "checked_at": "2026-09-25T05:25:00Z"
     }
   ],
   "issues": [
@@ -2019,6 +2034,168 @@
       "ownership_check": "No maintainer response in 17 months despite P1; community analyzers explicitly routed their energy into the separate FR #59655 rather than claiming this fix.",
       "competing_prs": [],
       "platform_plan": "Pure Python, CPU, macOS ARM64 (logging layer is pip-install testable; for the ray.init path use 'pip install -e python' or even a pip ray since worker.py/log.py are pure Python): unit test — attach a capturing handler to the ROOT logger, import ray, ray.init(configure_logging=False, num_cpus=1); logging.getLogger('ray.some.module').info('probe'); assert at HEAD the record is captured by NOTHING (handlers cleared at worker.py:1630, propagate False from log.py:109); post-fix assert root captures it. Second test: configure_logging=True path unchanged (setup_logger applied). Third: user-attached handler on 'ray' logger survives configure_logging=False. Targeted run: pytest python/ray/tests/test_logging.py -x -k 'configure or propagate'."
+    },
+    {
+      "company": "NVIDIA",
+      "repo": "NVIDIA-NeMo/Speech",
+      "number": 16081,
+      "url": "https://github.com/NVIDIA-NeMo/Speech/issues/16081",
+      "title": "max_open_streams with a multi-manifest config raises AttributeError: LazyNeMoIterator has no attribute to_shards",
+      "importance": "medium",
+      "importance_rationale": "Any multi-manifest Lhotse config combining max_open_streams with non-tarred data or metadata_only crashes with a raw AttributeError instead of working (non-tarred) or raising the intended actionable assert (metadata_only); breaks the shipped estimate_duration_bins.py / estimate_data_weights.py utilities on real training configs.",
+      "career_signal": "high",
+      "career_signal_rationale": "Data-pipeline correctness fix in the Lhotse dataloading layer of NVIDIA's flagship speech framework: requires understanding tarred-vs-non-tarred iterator taxonomy, stream multiplexing (infinite_mux/max_open_streams semantics) and restoring an intended incompatibility guard — defensible ML data-engineering work, not a mechanical patch.",
+      "career_assessed_at": "2026-09-25T05:25:00Z",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-25T05:16:48Z",
+      "ownership_check": "No claim comments; original reporter withdrew their PR and invited pickup.",
+      "competing_prs": [],
+      "platform_plan": "CPU-only, Mac ARM64 or Linux container. `pip install -e '.[asr]'` from source (or PYTHONPATH the checkout with lhotse installed). Repro without audio: write two 3-line JSON manifests, then `from nemo.collections.common.data.lhotse.cutset import read_nemo_manifest; read_nemo_manifest(OmegaConf.create({'type':'nemo','manifest_filepath':[['m1.json'],['m2.json']],'max_open_streams':4}))` -> AttributeError before fix; after fix returns a muxed CutSet. Second repro with metadata_only=True must raise the mux() AssertionError. Regression test lives naturally in tests/collections/common/test_lhotse_dataloading.py."
+    },
+    {
+      "company": "NVIDIA",
+      "repo": "NVIDIA-NeMo/Speech",
+      "number": 16102,
+      "url": "https://github.com/NVIDIA-NeMo/Speech/issues/16102",
+      "title": "save_adapters/load_adapters do not round-trip: subset saves fail to load, and names are matched by substring",
+      "importance": "medium",
+      "importance_rationale": "The documented adapter-sharing workflow (docs/source/core/adapters/intro.rst:132, tutorial 02_NeMo_Adapters.ipynb) is broken two ways: a subset save cannot be loaded with the documented default name=None (KeyError), and substring matching silently serialises a second adapter's weights into a file advertised as one adapter, then fails strict load on prefix-overlapping names.",
+      "career_signal": "high",
+      "career_signal_rationale": "PEFT/adapter checkpoint serialization correctness in a major training framework: state-dict key namespace semantics, prefix-vs-substring matching, and choosing the right source of truth (saved keys vs stored config) for restore — interview-defensible fine-tuning infrastructure work.",
+      "career_assessed_at": "2026-09-25T05:25:00Z",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-25T05:16:48Z",
+      "ownership_check": "No claim comments besides the withdrawn companion PR.",
+      "competing_prs": [],
+      "platform_plan": "Pure CPU. Issue's repro uses only in-tree fixtures: `from tests.core.mixins.adapters.test_adapter_model_mixin import DefaultAdapterModel, get_adapter_cfg, get_model_config` with TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD=1. Before fix: (1) subset save then `load_adapters(fp)` raises KeyError for the absent adapter; (2) 'encoder:an4'/'encoder:an4_v2' pair leaks an4_v2 tensors into the an4 file and strict load raises RuntimeError. After fix both succeed and the file holds only the requested adapter's keys. Run `pytest tests/core/mixins/adapters/test_adapter_model_mixin.py`."
+    },
+    {
+      "company": "NVIDIA",
+      "repo": "NVIDIA-NeMo/Speech",
+      "number": 16073,
+      "url": "https://github.com/NVIDIA-NeMo/Speech/issues/16073",
+      "title": "DALI dataset silently accepts invalid window names: validation is unreachable dead code (dict.get in try/except)",
+      "importance": "medium",
+      "importance_rationale": "Misspelled window names ('hanning', 'Hann') in DALI dataset configs are silently accepted and train on DALI's default Hann features instead of raising the ValueError the code clearly intends — silent feature-extraction mismatch vs the correctly-validating non-DALI path (audio_preprocessing.py).",
+      "career_signal": "medium",
+      "career_signal_rationale": "Valid silent-misconfiguration fix in an ASR data pipeline, but the change is a small validation-logic correction (explicit membership check replacing dead try/except) — limited AI-engineering depth to defend beyond the diagnosis.",
+      "career_assessed_at": "2026-09-25T05:25:00Z",
+      "difficulty": "low",
+      "status": "vetted",
+      "verified_at": "2026-09-25T05:16:48Z",
+      "ownership_check": "No claims besides withdrawn companion PR.",
+      "competing_prs": [],
+      "platform_plan": "Pure CPU, no DALI needed for the unit test: the guard runs in _DALIDataloader.__init__ before any DALI call, and the issue's 12-line reproducer mirrors the logic with plain torch. Test: instantiating/validating with window='hanning' must raise ValueError; 'hann', 'ones', 'none' must pass. If importing the DALI module requires nvidia-dali, keep the check in a small helper and unit-test the helper (mirror audio_preprocessing.py:393-397's pattern)."
+    },
+    {
+      "company": "NVIDIA",
+      "repo": "NVIDIA-NeMo/Speech",
+      "number": 16106,
+      "url": "https://github.com/NVIDIA-NeMo/Speech/issues/16106",
+      "title": "FeatureLabel.uniq_labels collects the characters of each label, breaking FeatureToLabelDataset",
+      "importance": "medium",
+      "importance_rationale": "Public dataset class FeatureToLabelDataset's documented labels=None fallback is triply broken (character vocabulary instead of labels, unsubscriptable set, and a float-iteration TypeError that fires even with explicit labels on the regression path); the sibling SpeechLabel in the same file does it correctly. No shipped script hits it today (scope note in issue), capping impact at medium.",
+      "career_signal": "medium",
+      "career_signal_rationale": "Correct data-processing fix with a clean in-file pattern to mirror, but it is a two-line collection fix on a currently-unexercised class — limited differentiation despite the tidy three-failure diagnosis.",
+      "career_assessed_at": "2026-09-25T05:25:00Z",
+      "difficulty": "low",
+      "status": "vetted",
+      "verified_at": "2026-09-25T05:16:48Z",
+      "ownership_check": "No claims besides withdrawn companion PR.",
+      "competing_prs": [],
+      "platform_plan": "Pure CPU: write a 2-line feature manifest with torch.save'd .pt features, assert ASRFeatureLabel(...).uniq_labels == ['background','speech'], FeatureToLabelDataset(labels=None) builds num_classes=2, and is_regression_task=True no longer raises. Mirror FeatureToMultiLabelDataset behaviour on the same manifest as the oracle."
+    },
+    {
+      "company": "NVIDIA",
+      "repo": "NVIDIA-NeMo/Speech",
+      "number": 16091,
+      "url": "https://github.com/NVIDIA-NeMo/Speech/issues/16091",
+      "title": "Docs name the multitask metrics config key multitask_metrics_config; the code reads multitask_metrics_cfg",
+      "importance": "medium",
+      "importance_rationale": "Users copying the documented MultiTaskMetric block get silent fallback to unconstrained default WER+BLEU (no error), discarding every documented constraint/use_cer/bleu_tokenizer setting — a silent metrics-validity trap, though the fix is docs-only.",
+      "career_signal": "low",
+      "career_signal_rationale": "Documentation key rename (plus one docstring); the underlying silent-fallback insight is nice but the deliverable is mechanical and not interview-defensible engineering. Stays in research inventory per policy (low does not enter authoring).",
+      "career_assessed_at": "2026-09-25T05:25:00Z",
+      "difficulty": "low",
+      "status": "vetted",
+      "verified_at": "2026-09-25T05:16:48Z",
+      "ownership_check": "No claims besides withdrawn companion PR.",
+      "competing_prs": [],
+      "platform_plan": "CPU trivial: issue includes a runnable OmegaConf snippet proving cfg.get('multitask_metrics_cfg') returns None on the documented block. Docs build (`sphinx-build docs`) is the only check needed."
+    },
+    {
+      "company": "Meta",
+      "repo": "meta-pytorch/botorch",
+      "number": 2128,
+      "url": "https://github.com/meta-pytorch/botorch/issues/2128",
+      "title": "[Bug] Standardize transform breaks DistributedDataParallel",
+      "importance": "medium",
+      "importance_rationale": "Any module containing a Standardize (or Log/Power via the same base) outcome transform cannot be wrapped in DDP because the registered `_is_trained` bool buffer is rejected by gloo/nccl buffer broadcast — blocks distributed training pipelines that embed BoTorch transforms; open 22 months with maintainer agreement that the design is problematic and no fix.",
+      "career_signal": "high",
+      "career_signal_rationale": "Distributed-training compatibility fix in Meta's Bayesian-optimization framework: requires understanding DDP buffer-broadcast dtype constraints, nn.Module buffer/state-dict semantics, and designing a backward-compatible serialization change (old bool-tensor checkpoints must still load) — defensible ML-infrastructure engineering.",
+      "career_assessed_at": "2026-09-25T05:25:00Z",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-25T05:20:38Z",
+      "ownership_check": "No claim comments; reporter explicitly deferred to core team ('It's up to the BoTorch core team how you want to deal with this').",
+      "competing_prs": [],
+      "platform_plan": "Pure CPU: `pip install -e .`; repro with the issue's script using dist.init_process_group('gloo') and 2 CPU processes via mp.spawn — DDP construction fails on the bool buffer before fix, succeeds after. Regression: (a) a gloo 2-process spawn test guarded by torch.distributed availability, (b) state-dict round-trip test asserting old checkpoints containing a bool `_is_trained` still load (`pytest test/models/transforms/test_outcome.py`)."
+    },
+    {
+      "company": "Meta",
+      "repo": "meta-pytorch/botorch",
+      "number": 2398,
+      "url": "https://github.com/meta-pytorch/botorch/issues/2398",
+      "title": "`ModelListGP.fantasize` does not support `MultiTaskGP`s, but other `ModelListGP` methods do",
+      "importance": "medium",
+      "importance_rationale": "ModelList.fantasize indexes sub-models by OUTPUT index, so any list containing a multi-output sub-model (the exact construction the docs support and posterior/subset_output handle correctly) breaks under qMultiStepLookahead/KG fantasization — filed by maintainer esantorella from a user report; open 27 months.",
+      "career_signal": "high",
+      "career_signal_rationale": "Correctness fix in the fantasy-model machinery underpinning lookahead/knowledge-gradient acquisition in a major BO framework: multi-output GP output-vs-model index bookkeeping, sampler routing, and observation-noise slicing — substantive probabilistic-ML engineering defensible in an interview.",
+      "career_assessed_at": "2026-09-25T05:25:00Z",
+      "difficulty": "medium-high",
+      "status": "vetted",
+      "verified_at": "2026-09-25T05:20:38Z",
+      "ownership_check": "No claims; original user lucky-luke-98 provided repro only.",
+      "competing_prs": [],
+      "platform_plan": "Pure CPU: build ModelListGP(SingleTaskGP, MultiTaskGP) on random 10-point data (double dtype), call .fantasize(X, sampler=ListSampler(...)/SobolQMCNormalSampler) — IndexError/mis-fantasization before fix; after fix returns a ModelListGP whose sub-models were each fantasized once with their own output slice. Also run existing `pytest test/models/test_model_list_gp_regression.py test/models/test_model.py`."
+    },
+    {
+      "company": "Hugging Face",
+      "repo": "huggingface/diffusers",
+      "number": 11902,
+      "url": "https://github.com/huggingface/diffusers/issues/11902",
+      "title": "SD3.5-Controlnet-8b does not use encoder_hidden_states (train_controlnet_sd3.py passes them unconditionally)",
+      "importance": "medium",
+      "importance_rationale": "The official SD3 controlnet training script passes encoder_hidden_states=prompt_embeds unconditionally, but SD3ControlNetModel raises ValueError('encoder_hidden_states should not be provided when context_embedder is not used') for SD3.5-large-controlnet-style models — finetuning the 8b controlnet with the shipped script is impossible.",
+      "career_signal": "medium",
+      "career_signal_rationale": "Real training-script correctness fix for controlnet finetuning in the leading diffusion library, but the change is a small conditional (pass None when the controlnet has no context_embedder) — valid yet limited engineering depth.",
+      "career_assessed_at": "2026-09-25T05:25:00Z",
+      "difficulty": "low",
+      "status": "vetted",
+      "verified_at": "2026-09-25T05:22:59Z",
+      "ownership_check": "No claim comments; reporter explicitly bowed out 2026-01-09.",
+      "competing_prs": [],
+      "platform_plan": "Pure CPU: instantiate a tiny random SD3ControlNetModel with num_layers=1, context_embedder absent (extra_conditioning_channels/config matching SD3.5-8b style, i.e. joint_attention_dim=None path) and a matching tiny SD3Transformer2DModel; call the controlnet exactly as the script does — ValueError before fix, forward succeeds after. Mirror examples/controlnet/test suite (`pytest examples/controlnet -k sd3` runs the training smoke test with tiny models)."
+    },
+    {
+      "company": "Hugging Face",
+      "repo": "huggingface/diffusers",
+      "number": 7354,
+      "url": "https://github.com/huggingface/diffusers/issues/7354",
+      "title": "PNDMScheduler Does Not Compatible with DDPMPipeline",
+      "importance": "medium",
+      "importance_rationale": "DDPMPipeline advertises PNDMScheduler in scheduler.compatibles but crashes when it's used, because __call__ always passes generator= to scheduler.step and PNDMScheduler.step doesn't accept it — the documented swap-any-compatible-scheduler workflow (official tutorial) is broken for this pipeline.",
+      "career_signal": "medium",
+      "career_signal_rationale": "Pipeline/scheduler interface-compatibility fix in diffusers using the library's established accepts-kwarg introspection pattern; useful and maintainer-invited but mechanically simple — limited depth to defend.",
+      "career_assessed_at": "2026-09-25T05:25:00Z",
+      "difficulty": "low",
+      "status": "vetted",
+      "verified_at": "2026-09-25T05:22:59Z",
+      "ownership_check": "KeepNoob claimed in 2024 but never delivered to the right repo despite two maintainer pings; inactive 22 months — expired.",
+      "competing_prs": [],
+      "platform_plan": "Pure CPU: tiny UNet2DModel(sample_size=8, block_out_channels=(4,8)) + PNDMScheduler in DDPMPipeline, call pipe(num_inference_steps=5) — TypeError before fix, image after; also assert DDPMScheduler path still consumes the generator (reproducibility unchanged). Run `pytest tests/pipelines/ddpm/`."
     }
   ],
   "holds": [
@@ -2168,6 +2345,13 @@
       "url": "https://github.com/tinygrad/tinygrad",
       "reason": "REJECTED: README — new-contributor submissions that look AI-written are closed without feedback and may lead to a ban; 29/30 merges by 5 core collaborators.",
       "ts": "2026-09-24T22:08:23+00:00"
+    },
+    {
+      "company": "Google/DeepMind",
+      "item": "google-deepmind/gemma",
+      "url": "https://github.com/google-deepmind/gemma",
+      "reason": "REJECTED: internal-first copybara repo — 2/100 recent merges external, community fix PRs sit unreviewed with unanswered pings.",
+      "ts": "2026-09-25T05:33:07+00:00"
     }
   ],
   "active": [
@@ -2337,6 +2521,10 @@
     {
       "ts": "2026-09-25T05:18:19+00:00",
       "text": "Batch-13: +6 (5 HIGH) — Lightning #20551 (logger force-flush per step) + #20495 (LR-scheduler skip on restart -> one-epoch shift on resume); mlflow #14293 (Keras val metrics all collide at step 0, silent 20 months); ray #52401 (WaitRequest proto missing fetch_local -> head-node OOM, P1) + #52371 (configure_logging=False leaves propagate=False -> ray logs vanish from structlog/OTel, P1); mlflow #13316 medium (S3 no timeouts, maintainer's own fix auto-closed). Lightning aged backlog heavily farmed (16/20 best have open PRs); Ray core Python API P1 backlog is the clean vein. mlflow#15180 lead resolved: already fixed via merged PR (no-issue observation)."
+    },
+    {
+      "ts": "2026-09-25T05:33:07+00:00",
+      "text": "Batch-15: +9 — NeMo-Speech #16081 (manifest to_shards crash, freed by PR withdrawal, HIGH) + #16102 (adapter save/load no round-trip, HIGH) + 2 mediums + 1 low; botorch #2128 (bool buffer breaks DDP broadcast, maintainer-endorsed fix direction since 2023, HIGH) + #2398 (ModelList.fantasize breaks with MultiTaskGP, maintainer-filed 27mo, HIGH); diffusers #11902 + #7354 (both maintainer-invited, claimants gone, medium). gemma REJECTED: copybara internal-first, 2/100 external merges, 15+ community PRs unreviewed. NeMo udsy19 vein fully mapped (monthly recheck: 8 more free if remaining open PRs withdrawn); botorch aged slice exhausted; diffusers ack-pool nearly tapped."
     }
   ],
   "companies": [

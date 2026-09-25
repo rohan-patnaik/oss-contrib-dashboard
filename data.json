@@ -1,17 +1,17 @@
 {
-  "generated": "2026-09-25T05:14:18+00:00",
+  "generated": "2026-09-25T05:18:19+00:00",
   "campaign": {
     "phase": "RESUMED — find-only research",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
   },
   "summary": {
-    "eligible": 60,
+    "eligible": 66,
     "target": 100,
     "companies": 22,
     "repos_admitted": 31,
     "importance": {
       "low": 12,
-      "medium": 39,
+      "medium": 45,
       "high": 9
     },
     "reproduced": 5,
@@ -20,9 +20,9 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-25T05:14:18+00:00",
+    "last_refresh": "2026-09-25T05:18:19+00:00",
     "excluded_prior_repos": 26,
-    "pr_qualified": 35
+    "pr_qualified": 40
   },
   "repos": [
     {
@@ -1909,6 +1909,116 @@
       "ownership_check": "No participants besides the reporter; no claims.",
       "competing_prs": [],
       "platform_plan": "CPU-only: `pip install deepspeed`; single-process gloo. Unit test: tiny nn.Linear model, `net.half()`, ds_config {train_batch_size:1, micro:1, gas:1} with no fp16/bf16 section, `deepspeed.initialize(model=net, config=ds_config, model_parameters=...)` under the repo's DistributedTest CPU fixture -> today initializes silently; after fix raises/warns 'model parameters are torch.float16 but neither fp16 nor bf16 is enabled'. Repro of the NaN itself: DeepSpeedExamples cifar with `deepspeed --bind_cores_to_rank` per the issue (also CPU)."
+    },
+    {
+      "company": "Lightning AI",
+      "repo": "Lightning-AI/pytorch-lightning",
+      "number": 20551,
+      "url": "https://github.com/Lightning-AI/pytorch-lightning/issues/20551",
+      "title": "Every log_metrics call force-flushes every logger: logger_connector calls logger.save() per step, TensorBoardLogger.save() does experiment.flush() + remote-fs stat calls, defeating SummaryWriter's max_queue/flush_secs batching (severe on S3/remote fs)",
+      "importance": "medium",
+      "importance_rationale": "Hot-path perf defect in every Trainer run: the per-step synchronous flush turns TensorBoard's async buffered writer into a blocking write per training step, plus a filesystem _is_dir/isfile stat pair per call — reporter measured 'significantly degraded performance' on S3-mounted logs and confirmed removing the flush restores normal speed; users' max_queue/flush_secs arguments are silently dead parameters.",
+      "career_signal": "high",
+      "career_signal_rationale": "Measured-performance fix on the metric-logging hot path of the canonical PyTorch training framework: requires understanding TensorBoard's EventFileWriter async-queue design, each logger's own flush policy (CSVLogger flush_logs_every_n_steps vs TB flush_secs), and choosing the correct layer (call-site vs logger) so durability points (checkpoint/teardown/should_stop) still flush — a defensible systems-perf story, not a cosmetic tweak.",
+      "career_assessed_at": "2026-09-25T05:12:16Z",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-25T05:12:16Z",
+      "ownership_check": "Reporter leoleoasd diagnosed but never claimed; no other participants since 2025-01-17.",
+      "competing_prs": [],
+      "platform_plan": "Pure Python, macOS ARM64/Linux CPU: pip install -e '.[extra]' + tensorboard + pytest. Repro/benchmark: BoringModel, Trainer(max_steps=200, log_every_n_steps=1, logger=TensorBoardLogger(tmpdir, max_queue=1000, flush_secs=60)); patch fabric TensorBoardLogger.save with a counting mock -> assert called ~once per step at HEAD; time 200 steps against an fsspec MemoryFileSystem/slowed LocalFileSystem shim to show the stat+flush overhead. Regression test: mock experiment.flush and fs.isfile, run 50 steps, assert flush count is bounded by the logger's own policy (0 or boundary-only), and assert flush IS still called on trainer teardown/checkpoint. Targeted runs: pytest tests/tests_pytorch/loggers/test_tensorboard.py tests/tests_pytorch/trainer/logging_/ -x."
+    },
+    {
+      "company": "Lightning AI",
+      "repo": "Lightning-AI/pytorch-lightning",
+      "number": 20495,
+      "url": "https://github.com/Lightning-AI/pytorch-lightning/issues/20495",
+      "title": "Epoch-level LR scheduler off-by-one after resuming when check_val_every_n_epoch > 1: restart-stage classification leaves restarting=True for checkpoints saved at validation end of non-final-val epochs, skipping/shifting the epoch-end update_lr_schedulers step",
+      "importance": "medium",
+      "importance_rationale": "Silently corrupts the LR schedule of resumed trainings for a common config (validate every N>1 epochs + epoch-based scheduler + ModelCheckpoint on a val metric): reporter's LearningRateMonitor plots show the resumed run's CosineAnnealingWarmRestarts curve shifted one epoch vs the uninterrupted run — a training-validity bug that produces no error and quietly changes results after every resume.",
+      "career_signal": "high",
+      "career_signal_rationale": "Checkpoint/resume correctness in the training loop of the canonical PyTorch framework: requires reasoning about the RestartStage state machine, progress-counter semantics at the save point (on_validation_end vs epoch end), and proving with an end-to-end kill-and-resume test that the LR sequence of resumed training is bit-identical to uninterrupted training — a strong 'silently wrong training results' correctness narrative.",
+      "career_assessed_at": "2026-09-25T05:12:16Z",
+      "difficulty": "hard",
+      "status": "vetted",
+      "verified_at": "2026-09-25T05:12:16Z",
+      "ownership_check": "Reporter provided repro then went silent; lantiga (maintainer) asked one question in 2024 and never returned; no one else engaged.",
+      "competing_prs": [],
+      "platform_plan": "Pure CPU, macOS ARM64/Linux: pip install -e . + torch CPU. E2E repro (seconds): BoringModel + CosineAnnealingWarmRestarts(T_0=max_epochs) stepped per epoch, Trainer(max_epochs=8, check_val_every_n_epoch=2, callbacks=[ModelCheckpoint(monitor=..., every_n_epochs=1), LearningRateMonitor(logging_interval='epoch')], limit_train_batches=2, limit_val_batches=1); record optimizer.param_groups[0]['lr'] per epoch for (a) uninterrupted run, (b) run stopped after the epoch-3 checkpoint then Trainer.fit(ckpt_path=...) resumed — assert the per-epoch lr sequences are identical; at HEAD they diverge by one epoch. Also run the reporter's repro repo as corroboration. Unit-level: build a fit loop state where epoch_progress matches the :363-368 RESTARTED_MID_EPOCH pattern and assert scheduler.last_epoch advances exactly once per finished epoch across resume. Targeted runs: pytest tests/tests_pytorch/loops/test_loops.py tests/tests_pytorch/checkpointing/ -k restart -x."
+    },
+    {
+      "company": "Databricks",
+      "repo": "mlflow/mlflow",
+      "number": 14293,
+      "url": "https://github.com/mlflow/mlflow/issues/14293",
+      "title": "MlflowCallback (Keras) logs validation metrics without a step: on_test_end omits step= so every epoch's validation metrics land on step 0, rendering charts unusable and misaligned with training metrics",
+      "importance": "medium",
+      "importance_rationale": "Every Keras user of mlflow.keras.MlflowCallback gets validation metrics that cannot be plotted against training progress: on_test_end fires after each fit() validation pass and each log overwrites step 0, so the UI shows a vertical smear instead of a curve (reporter's screenshot) — the callback's core purpose (aligned train/val tracking) is defeated.",
+      "career_signal": "high",
+      "career_signal_rationale": "Framework-integration correctness in the industry-standard ML tracking platform's Keras autologging path: the fix requires choosing the correct step semantics across Keras's callback lifecycle (epoch counter vs optimizer.iterations, standalone evaluate() vs fit()-internal validation) so train/val curves align — small diff, but an interview-defensible metrics-correctness story with a visual before/after.",
+      "career_assessed_at": "2026-09-25T05:12:16Z",
+      "difficulty": "easy",
+      "status": "vetted",
+      "verified_at": "2026-09-25T05:12:16Z",
+      "ownership_check": "Reporter published a workaround subclass, never claimed a fix; serena-ruan engaged once (2025-01-23) with no ownership statement; no other participants in 20 months.",
+      "competing_prs": [],
+      "platform_plan": "Pure CPU, macOS ARM64: uv venv && uv pip install -e . keras tensorflow-cpu pytest (keras 3 default backend; callback only touches keras.callbacks.Callback API). Repro test: tiny Sequential model, model.fit(x, y, validation_data=..., epochs=3, callbacks=[MlflowCallback()]) against a local file/sqlite store; fetch metric history for 'validation_loss' via MlflowClient.get_metric_history and assert at HEAD all entries have step==0 (fails to distinguish epochs); post-fix assert steps == [0,1,2] (log_every_epoch) and monotone optimizer iterations (log_every_n_steps mode). Existing test file to extend: tests/keras/test_callback.py; run 'uv run pytest tests/keras/test_callback.py -x'."
+    },
+    {
+      "company": "Databricks",
+      "repo": "mlflow/mlflow",
+      "number": 13316,
+      "url": "https://github.com/mlflow/mlflow/issues/13316",
+      "title": "S3 artifact client ignores MLFLOW_ARTIFACT_UPLOAD_DOWNLOAD_TIMEOUT: boto3 Config carries no connect/read timeouts so large-artifact uploads die with ReadTimeoutError and no supported knob; maintainer's own fix PR #13378 was auto-closed for inactivity after 401 days",
+      "importance": "medium",
+      "importance_rationale": "Users on slow/high-latency links cannot upload large model artifacts to S3 at all: botocore's default 60s read timeout applies and the documented env var (which works for HTTP-proxied artifact ops) silently does nothing for direct S3 — reporter verified the fix restores control; the abandoned maintainer PR shows demand and an accepted design.",
+      "career_signal": "medium",
+      "career_signal_rationale": "Valid reliability/configuration fix in the artifact store of a major ML platform with a maintainer-endorsed design to revive, but the change is mechanical env-var plumbing into a boto3 Config — limited algorithmic or systems depth to defend beyond the cache-key subtlety, so it stays below the authoring gate.",
+      "career_assessed_at": "2026-09-25T05:12:16Z",
+      "difficulty": "easy",
+      "status": "vetted",
+      "verified_at": "2026-09-25T05:12:16Z",
+      "ownership_check": "harupy (maintainer) authored the original fix but let it lapse; the bot's 'feel free to reopen' explicitly releases it. Reporter nsrozak inactive since 2024-10-10.",
+      "competing_prs": [
+        "https://github.com/mlflow/mlflow/pull/13378"
+      ],
+      "platform_plan": "Pure CPU, macOS ARM64: uv pip install -e . boto3 moto pytest. Unit test without real S3: call _get_s3_client with the new env vars set (monkeypatch environ + clear the lru_cache) and assert client.meta.config.connect_timeout/read_timeout reflect them; assert default behavior unchanged when unset; existing test file tests/store/artifact/test_s3_artifact_repo.py already mocks boto3. Optional integration check via moto server. Run: uv run pytest tests/store/artifact/test_s3_artifact_repo.py -x."
+    },
+    {
+      "company": "Anyscale",
+      "repo": "ray-project/ray",
+      "number": 52401,
+      "url": "https://github.com/ray-project/ray/issues/52401",
+      "title": "Ray Client silently drops fetch_local=False: WaitRequest proto has no fetch_local field, so every ray.wait over ray:// fetches objects into the head/client-server object store — filling head memory and OOM-crashing small heads",
+      "importance": "medium",
+      "importance_rationale": "P1-labeled protocol defect: ray.wait(fetch_local=False) is the documented way to await results without pulling large objects locally, but through Ray Client the flag is accepted and discarded, so multi-GB results flood the head node's object store (reporter's docker head crashed) — a silent resource-control violation; scoped to the Ray Client path (deprecated-leaning but still shipped and defaulted for ray:// URIs).",
+      "career_signal": "high",
+      "career_signal_rationale": "Distributed-protocol correctness in Ray's client RPC layer with a concrete resource-exhaustion consequence: diagnosing a flag lost across a proto boundary, extending a gRPC message with backward/forward-compatible semantics (old client vs new server and vice versa — proto3 default False inverts today's implicit True, which must be reasoned about explicitly), and proving the fix with a two-node object-store-usage test — interview-defensible systems work on the dominant distributed-AI framework.",
+      "career_assessed_at": "2026-09-25T05:12:16Z",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-25T05:12:16Z",
+      "ownership_check": "Zero engagement from anyone in 17 months; reporter never claimed.",
+      "competing_prs": [],
+      "platform_plan": "CPU-only, Linux container or macOS: full repro needs the Ray Client server, available locally — 'ray start --head --num-cpus=1 --object-store-memory=...' then ray.init('ray://127.0.0.1:10001'). Python-level test: task returns a ~200MB numpy array; ray.wait([ref], fetch_local=False); then ray.experimental.internal_kv / 'ray memory' or ray._private.internal_api.memory_summary to assert the object was NOT pulled to the head's local plasma (at HEAD it is). Build note: editing ray_client.proto requires regenerating pb2 — use the documented python/ray/setup-dev.py + 'pip install -e python' flow (bazel builds protos; CPU-only, works on ARM64 mac and Linux). Targeted tests: pytest python/ray/tests/test_client.py python/ray/tests/test_client_builder.py -x plus a new wait-fetch_local test beside existing WaitObject tests."
+    },
+    {
+      "company": "Anyscale",
+      "repo": "ray-project/ray",
+      "number": 52371,
+      "url": "https://github.com/ray-project/ray/issues/52371",
+      "title": "configure_logging=False still destroys user logging: 'import ray' clobbers the 'ray' logger (propagate=False + own handler), and ray.init(configure_logging=False) then CLEARS all handlers without restoring propagate — driver-side ray logs vanish from structlog/OTel/loki pipelines",
+      "importance": "medium",
+      "importance_rationale": "The documented opt-out for Ray's logging setup produces the worst possible state (no handlers AND no propagation = logs silently discarded): P1 usability bug confirmed by three independent users (structlog+loki, OpenTelemetry, and khoover's Dec-2025 analysis) blocking production observability integration for any org with centralized logging.",
+      "career_signal": "high",
+      "career_signal_rationale": "Observability-integration correctness in Ray core's public init API: requires designing the correct opt-out contract for a library logger (remove only Ray's own import-time handler, restore propagate=True, never touch user handlers) against Python logging-hierarchy semantics, with regression tests covering structlog/OTel-style root-logger pipelines — production-reliability work every Ray-in-enterprise user hits, defensible in depth.",
+      "career_assessed_at": "2026-09-25T05:12:16Z",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-25T05:12:16Z",
+      "ownership_check": "No maintainer response in 17 months despite P1; community analyzers explicitly routed their energy into the separate FR #59655 rather than claiming this fix.",
+      "competing_prs": [],
+      "platform_plan": "Pure Python, CPU, macOS ARM64 (logging layer is pip-install testable; for the ray.init path use 'pip install -e python' or even a pip ray since worker.py/log.py are pure Python): unit test — attach a capturing handler to the ROOT logger, import ray, ray.init(configure_logging=False, num_cpus=1); logging.getLogger('ray.some.module').info('probe'); assert at HEAD the record is captured by NOTHING (handlers cleared at worker.py:1630, propagate False from log.py:109); post-fix assert root captures it. Second test: configure_logging=True path unchanged (setup_logger applied). Third: user-attached handler on 'ray' logger survives configure_logging=False. Targeted run: pytest python/ray/tests/test_logging.py -x -k 'configure or propagate'."
     }
   ],
   "holds": [
@@ -2223,6 +2333,10 @@
     {
       "ts": "2026-09-25T05:14:18+00:00",
       "text": "Batch-14: +6 — faiss #773 (PCA catastrophic cancellation, maintainer-filed, HIGH), #2464 (bare omp parallel-for turns exceptions into std::terminate, HIGH), #2487/#2407 mediums; DeepSpeed #6501 (zero.Init world_size=1 crash, maintainer-filed +5 confirmations, HIGH) and #5509 (dtype check is a no-op stub, medium). hermes-agent saturated - dropped from sourcing; faiss aged vein exhausted (168/168 examined); goose#11975 note: maintainer engaged with OUR PR #12499 (not competition)."
+    },
+    {
+      "ts": "2026-09-25T05:18:19+00:00",
+      "text": "Batch-13: +6 (5 HIGH) — Lightning #20551 (logger force-flush per step) + #20495 (LR-scheduler skip on restart -> one-epoch shift on resume); mlflow #14293 (Keras val metrics all collide at step 0, silent 20 months); ray #52401 (WaitRequest proto missing fetch_local -> head-node OOM, P1) + #52371 (configure_logging=False leaves propagate=False -> ray logs vanish from structlog/OTel, P1); mlflow #13316 medium (S3 no timeouts, maintainer's own fix auto-closed). Lightning aged backlog heavily farmed (16/20 best have open PRs); Ray core Python API P1 backlog is the clean vein. mlflow#15180 lead resolved: already fixed via merged PR (no-issue observation)."
     }
   ],
   "companies": [

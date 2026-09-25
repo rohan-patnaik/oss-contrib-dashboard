@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-25T11:49:27+00:00",
+  "generated": "2026-09-25T12:28:01+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-25T11:49:27+00:00",
+    "last_refresh": "2026-09-25T12:28:01+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49
   },
@@ -1141,14 +1141,17 @@
       "importance": "medium",
       "importance_rationale": "Every built-in Z.AI GLM-5.3 user silently runs at server-default maximum reasoning (~105 vs ~3 overhead tokens per trivial request per Z.AI's own measurements), burning paid GLM Coding Plan quota across every request with no per-model or per-recipe control.",
       "difficulty": "medium",
-      "status": "vetted",
+      "status": "pr-open",
       "verified_at": "2026-09-24T19:06:30Z",
       "ownership_check": "Unassigned (filipkujawa assigned 2026-09-14, later removed). Reporter clouatre made no claim.",
       "competing_prs": [],
       "platform_plan": "Mac ARM64, CPU only: unit tests on the anthropic engine payload builder asserting the declared/normalized ThinkingEffort serializes to thinking.budget_tokens (and that Off is normalized to low per the scoped policy, avoiding Z.AI HTTP 400 code 1210); recipe Settings round-trip test for the new field; cargo test -p goose-providers -p goose. No live Z.AI key required for the unit level.",
       "career_signal": "high",
       "career_signal_rationale": "LLM provider-integration correctness: reasoning-effort config ignored for zai/GLM engines causing silent quota burn at max reasoning; transferable provider-abstraction work.",
-      "career_assessed_at": "2026-09-24T20:38:31+00:00"
+      "career_assessed_at": "2026-09-24T20:38:31+00:00",
+      "pr_url": "https://github.com/aaif-goose/goose/pull/12519",
+      "pr_raised_at": "2026-09-25T12:25:48+00:00",
+      "outcome": "PR #12519 open at independently approved commit 2ff8cae; one shared GLM-5.3/Kimi K3 effort policy now drives Z.AI/Anthropic formatting, Databricks, and ACP, with base failure evidence, 876 provider tests/integrations plus both ACP cases passing, and full-workspace clippy clean."
     },
     {
       "company": "Block/Goose",

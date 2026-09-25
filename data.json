@@ -1,18 +1,18 @@
 {
-  "generated": "2026-09-25T04:54:09+00:00",
+  "generated": "2026-09-25T05:14:18+00:00",
   "campaign": {
     "phase": "RESUMED — find-only research",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
   },
   "summary": {
-    "eligible": 54,
+    "eligible": 60,
     "target": 100,
     "companies": 22,
     "repos_admitted": 31,
     "importance": {
-      "low": 11,
-      "medium": 35,
-      "high": 8
+      "low": 12,
+      "medium": 39,
+      "high": 9
     },
     "reproduced": 5,
     "authored": 4,
@@ -20,9 +20,9 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-25T04:54:09+00:00",
+    "last_refresh": "2026-09-25T05:14:18+00:00",
     "excluded_prior_repos": 26,
-    "pr_qualified": 32
+    "pr_qualified": 35
   },
   "repos": [
     {
@@ -1801,6 +1801,114 @@
       "ownership_check": "Reporter provided mechanism analysis but never claimed; zero engagement since filing.",
       "competing_prs": [],
       "platform_plan": "CPU-only, local: pip install -e python (tune is pure Python). E2E repro on macOS ARM64/Linux CPU: function trainable that tune.report()s an increasing metric with time.sleep jitter, PBT(synch=True, perturbation_interval=4), 4 trials, num_cpus=4; kill the driver (raise in a Callback after trial 0 lags a boundary), Tuner.restore(path, trainable), observe (a) no perturbation at the pending boundary and (b) permanent PAUSED stall at the following boundary. Unit tests run in seconds: assert scheduler state round-trips through the new save/restore, and a controller-level resume test asserting _next_perturbation_sync survives. Targeted run: pytest python/ray/tune/tests/test_trial_scheduler_pbt.py -x."
+    },
+    {
+      "company": "Meta",
+      "repo": "facebookresearch/faiss",
+      "number": 773,
+      "url": "https://github.com/facebookresearch/faiss/issues/773",
+      "title": "Numerical instability in Faiss' PCA computation",
+      "importance": "medium",
+      "importance_rationale": "PCAMatrix silently returns a wrong principal basis (identity-like instead of [1,-1]/sqrt(2)) whenever data has a large mean offset, due to catastrophic cancellation in the E[XY]-E[X]E[Y] covariance formula. Filed by maintainer mdouze himself from kno10's expert analysis with exact fp32 test matrices; any PCA/OPQ pre-transform trained on un-centered embeddings is affected. Open 7.5 years.",
+      "career_signal": "high",
+      "career_signal_rationale": "Diagnosing and fixing fp32 catastrophic cancellation in the covariance computation of the PCA transform of the most widely used vector-search library — numerical-methods work (two-pass centered covariance vs E[XY]-E[X]E[Y], BLAS ssyrk usage, fp32 vs fp64 accumulation trade-offs) with an sklearn-parity regression test; directly interview-defensible ML numerical-correctness engineering.",
+      "career_assessed_at": "2026-09-25T05:10:00Z",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-25T05:08:56Z",
+      "ownership_check": "No claim comments ever. kno10 (2019) explicitly declined to implement (\"I am not aware of an easy way to do these with BLAS\").",
+      "competing_prs": [],
+      "platform_plan": "CPU-only, Mac ARM64 (brew install libomp) or Linux CPU container. Build: `cmake -B build -DFAISS_ENABLE_GPU=OFF -DFAISS_ENABLE_PYTHON=ON -DBUILD_TESTING=ON -DCMAKE_BUILD_TYPE=Release . && make -C build -j8 swigfaiss && (cd build/faiss/python && pip install -e .)`. Repro: run the issue's exact 4-matrix script (d0..d3, offsets 1 to 1e5); before fix, d2/d3 return the identity-like basis [[0,1],[1,0]] instead of ±sqrt(2)/2 * [1,-1]; after fix all four match sklearn.decomposition.PCA components within 1e-3. Regression: pytest tests/test_index.py (existing PCA tests) plus the new offset test."
+    },
+    {
+      "company": "Meta",
+      "repo": "facebookresearch/faiss",
+      "number": 2464,
+      "url": "https://github.com/facebookresearch/faiss/issues/2464",
+      "title": "IndexIVFScalarQuantizer exception (std::terminate in train when coarse quantizer lacks a direct map)",
+      "importance": "medium",
+      "importance_rationale": "Training an IVF index whose coarse quantizer is itself an IVF index (a documented pattern for huge nlist) aborts the whole Python process with 'terminate called recursively' instead of raising a catchable exception, because quantizer->reconstruct throws inside a bare `#pragma omp parallel for`. Maintainer mdouze confirmed: 'It's an issue'. Same std::terminate class that Meta systematically fixed in the search paths during 2026 (merged PRs #5037/#5053/#5105/#5106/#5133) — this residual site was missed.",
+      "career_signal": "high",
+      "career_signal_rationale": "Turning a process-killing std::terminate into a catchable, actionable error on a core training path of faiss, by identifying the one OpenMP region the maintainers' own 2026 exception-safety campaign missed and applying their established omp_rethrow_if_exception pattern — concrete C++/OpenMP reliability engineering on ML infrastructure, easy to narrate in an interview.",
+      "career_assessed_at": "2026-09-25T05:10:00Z",
+      "difficulty": "low",
+      "status": "vetted",
+      "verified_at": "2026-09-25T05:08:56Z",
+      "ownership_check": "Reporter self-solved with a workaround in 2022 and never claimed a fix; no other participants.",
+      "competing_prs": [],
+      "platform_plan": "CPU-only, Mac ARM64/Linux. Build as for #773. Repro (pure CPU, synthetic): d=32; coarse = faiss.index_factory(d,'IVF16,SQ8'); train+add 2000 random vectors to coarse; index = faiss.IndexIVFScalarQuantizer(coarse, d, coarse.ntotal, faiss.ScalarQuantizer.QT_8bit); index.train(xb) -> process aborts before fix (run in subprocess and assert non-zero returncode/SIGABRT), raises RuntimeError('direct map not initialized') after fix. Regression: new python test in tests/test_index.py using subprocess pre-check or just asserting RuntimeError post-fix; `make -C build test` for C++ suite."
+    },
+    {
+      "company": "Meta",
+      "repo": "facebookresearch/faiss",
+      "number": 2487,
+      "url": "https://github.com/facebookresearch/faiss/issues/2487",
+      "title": "random generator produces the same number sequence with the same seed (NSG search candidate pool)",
+      "importance": "low",
+      "importance_rationale": "NSG search pads its candidate pool with 'random' vertices from a RandomGenerator hard-seeded 0x1234, so every query sees the same fixed vertex set — a search-quality smell both maintainers acknowledged (mdouze: 'in NSG this is actually a valid concern'; KinglittleQ proposed query-dependent seeding and mdouze pointed at the hash function). Impact on recall unquantified; deterministic-per-query behavior must be preserved.",
+      "career_signal": "medium",
+      "career_signal_rationale": "A maintainer-endorsed graph-ANN search improvement (query-hash-seeded candidate initialization) shows understanding of NSG search internals, but the benefit is unquantified and the change is small — useful portfolio color, not a headline correctness fix.",
+      "career_assessed_at": "2026-09-25T05:10:00Z",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-25T05:08:56Z",
+      "ownership_check": "KinglittleQ (NSG author) last engaged 2022; no activity since. No claims.",
+      "competing_prs": [],
+      "platform_plan": "CPU-only. Build as for #773. Validation: (1) determinism preserved — same query searched twice returns identical ids/distances; (2) different queries now draw different init pools (observable via a small index where k > graph degree so padding matters; compare pre/post recall on a synthetic set with recall@k harness from benchs/). Regression: pytest tests/test_graph_based.py (NSG tests)."
+    },
+    {
+      "company": "Meta",
+      "repo": "facebookresearch/faiss",
+      "number": 2407,
+      "url": "https://github.com/facebookresearch/faiss/issues/2407",
+      "title": "code_size mismatch between index and extract_index_ivf(index).invlists for IndexIVFPQFastScan (merge_ondisk unusable/corrupting)",
+      "importance": "medium",
+      "importance_rationale": "contrib.ondisk.merge_ondisk on any fast-scan IVF index fails with a cryptic C++ assert ('il->nlist == nlist && il->code_size == code_size'), and the reporter showed that naively patching code_size produces an index that searches with RANDOM results — silent corruption one step away. mdouze: 'TODO is implement merge (and remove, while we are at it) for fast_scan indexes.' Minimal guard fix prevents the corruption path today.",
+      "career_signal": "medium",
+      "career_signal_rationale": "The maintainable near-term contribution is a clear-error guard in contrib/ondisk.py plus a targeted C++ error message — valid defensive-engineering work in a major ANN library but limited algorithmic depth; the full BlockInvertedLists merge implementation would grade higher yet is a large maintainer-flagged TODO with high review risk.",
+      "career_assessed_at": "2026-09-25T05:10:00Z",
+      "difficulty": "low",
+      "status": "vetted",
+      "verified_at": "2026-09-25T05:08:56Z",
+      "ownership_check": "No claims; reporter last active 2022.",
+      "competing_prs": [],
+      "platform_plan": "CPU-only. Build as for #773 (python). Repro: `index = faiss.index_factory(64, 'IVF64,PQ32x4fs')`, train/add, write two shards, run contrib.ondisk.merge_ondisk -> RuntimeError from OnDiskInvertedLists::merge_from before fix; clear ValueError('fast-scan indexes ... not supported by merge_ondisk') after. Regression: pytest tests/test_contrib.py."
+    },
+    {
+      "company": "Microsoft AI / DeepSpeed (LF)",
+      "repo": "deepspeedai/DeepSpeed",
+      "number": 6501,
+      "url": "https://github.com/deepspeedai/DeepSpeed/issues/6501",
+      "title": "[BUG] Config mesh_device None — HF zero.Init builds DeepSpeedConfig with world_size=1 before dist init, tripping _batch_assertion",
+      "importance": "high",
+      "importance_rationale": "The documented HF 'Non-Trainer DeepSpeed integration' path (HfDeepSpeedConfig + from_pretrained) crashes with 'train_batch_size is not equal to micro_batch_per_gpu * gradient_acc_step * world_size' because zero.Init constructs DeepSpeedConfig before torch.distributed is initialized and the except-branch hard-codes world_size=1. Filed by DeepSpeed core developer GuanhuaWang; 5 independent +1/same-error confirmations across 2024-2026; workarounds circulating in-thread.",
+      "career_signal": "high",
+      "career_signal_rationale": "Fixing world-size resolution in DeepSpeed's config engine for the HuggingFace ZeRO-3 integration path — a widely-hit distributed-training initialization-order bug — demonstrates understanding of launcher/env/dist bootstrap contracts in a mainstream training framework, with a clean CPU-unit-testable fix; strongly defensible in an ML-infra interview.",
+      "career_assessed_at": "2026-09-25T05:10:00Z",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-25T05:08:56Z",
+      "ownership_check": "Issue author is a DeepSpeed insider but left it unassigned for 2 years; commenters only posted workarounds (deepspeed.init_distributed() first). No claims.",
+      "competing_prs": [],
+      "platform_plan": "CPU-only, Mac ARM64 or Linux CPU container: `pip install deepspeed` (CPU accelerator; no GPU ops needed for the config class). Failing unit test pre-fix: `WORLD_SIZE=2 python -c \"from deepspeed.runtime.config import DeepSpeedConfig; DeepSpeedConfig({'train_batch_size':2,'train_micro_batch_size_per_gpu':1,'gradient_accumulation_steps':1})\"` -> AssertionError today (dist uninitialized => world_size=1); passes after fix. Regression: pytest tests/unit/runtime/test_ds_config_dict.py (CPU-safe) plus the new case with/without WORLD_SIZE env."
+    },
+    {
+      "company": "Microsoft AI / DeepSpeed (LF)",
+      "repo": "deepspeedai/DeepSpeed",
+      "number": 5509,
+      "url": "https://github.com/deepspeedai/DeepSpeed/issues/5509",
+      "title": "[BUG] Mismatch between dtype settings in model and ds_config results in NaN loss (dtype check is a no-op)",
+      "importance": "medium",
+      "importance_rationale": "A model pre-cast to half with an fp32 ds_config (esp. ZeRO stage 0) trains silently to NaN — no error, no warning. The engine has a dtype-check hook, but it is an empty stub, so the reporter's proposed guard simply does not exist. CPU-reproducible with the cifar example (`deepspeed --bind_cores_to_rank`).",
+      "career_signal": "medium",
+      "career_signal_rationale": "A user-protecting validation guard in DeepSpeed engine init (restoring a gutted check) prevents silent NaN training — valid reliability work with a clean CPU repro, but it is input validation rather than deep algorithmic engineering. CAUTION: the empty `return` looks deliberate, so maintainer buy-in (warning vs assert, frozen/quantized-param exemptions) is the main risk.",
+      "career_assessed_at": "2026-09-25T05:10:00Z",
+      "difficulty": "low",
+      "status": "vetted",
+      "verified_at": "2026-09-25T05:08:56Z",
+      "ownership_check": "No participants besides the reporter; no claims.",
+      "competing_prs": [],
+      "platform_plan": "CPU-only: `pip install deepspeed`; single-process gloo. Unit test: tiny nn.Linear model, `net.half()`, ds_config {train_batch_size:1, micro:1, gas:1} with no fp16/bf16 section, `deepspeed.initialize(model=net, config=ds_config, model_parameters=...)` under the repo's DistributedTest CPU fixture -> today initializes silently; after fix raises/warns 'model parameters are torch.float16 but neither fp16 nor bf16 is enabled'. Repro of the NaN itself: DeepSpeedExamples cifar with `deepspeed --bind_cores_to_rank` per the issue (also CPU)."
     }
   ],
   "holds": [
@@ -2111,6 +2219,10 @@
     {
       "ts": "2026-09-25T04:54:09+00:00",
       "text": "RESUMED at user request after a ~6.7 h pause. Two vetting batches launched on the recorded priority veins: Lightning-AI/pytorch-lightning first pass (incl. the known MLFlowLogger float-step lead), MLflow pre-cutoff aged round-2, Ray Data/Serve/core round-2; faiss aged remainder + freed-competitor checks, DeepSpeed slice-3, hermes-agent P2 slice-3, plus cheap freshness polls on software-agent-sdk/goose/inspect_ai."
+    },
+    {
+      "ts": "2026-09-25T05:14:18+00:00",
+      "text": "Batch-14: +6 — faiss #773 (PCA catastrophic cancellation, maintainer-filed, HIGH), #2464 (bare omp parallel-for turns exceptions into std::terminate, HIGH), #2487/#2407 mediums; DeepSpeed #6501 (zero.Init world_size=1 crash, maintainer-filed +5 confirmations, HIGH) and #5509 (dtype check is a no-op stub, medium). hermes-agent saturated - dropped from sourcing; faiss aged vein exhausted (168/168 examined); goose#11975 note: maintainer engaged with OUR PR #12499 (not competition)."
     }
   ],
   "companies": [

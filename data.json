@@ -1,17 +1,17 @@
 {
-  "generated": "2026-09-25T06:29:07+00:00",
+  "generated": "2026-09-25T06:36:29+00:00",
   "campaign": {
-    "phase": "pausing after final two batches; implementation transferring to GPT 5.6 Sol thread",
+    "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
   },
   "summary": {
-    "eligible": 80,
+    "eligible": 81,
     "target": 100,
-    "companies": 27,
-    "repos_admitted": 42,
+    "companies": 29,
+    "repos_admitted": 44,
     "importance": {
       "low": 12,
-      "medium": 58,
+      "medium": 59,
       "high": 10
     },
     "reproduced": 5,
@@ -20,9 +20,9 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-25T06:29:07+00:00",
+    "last_refresh": "2026-09-25T06:36:29+00:00",
     "excluded_prior_repos": 26,
-    "pr_qualified": 48
+    "pr_qualified": 49
   },
   "repos": [
     {
@@ -965,6 +965,32 @@
       "policy_links": [],
       "decision": "rejected",
       "checked_at": "2026-09-25T06:05:00Z"
+    },
+    {
+      "company": "SGLang",
+      "repo": "sgl-project/sglang",
+      "url": "https://github.com/sgl-project/sglang",
+      "relevance": "Mainstream LLM inference runtime (vllm-class): scheduler/tokenizer/config correctness is core AI-infra career signal; unit tests run CPU-only without model weights.",
+      "stars": 36413,
+      "maintenance": "pushed 2026-09-25",
+      "previous_contribution": "none",
+      "policy": "run-ci label must be applied by an authorized user (CI_PERMISSIONS.json) before CI runs; PR authors may /rerun-failed-ci on their own PR. Merge Oncall shepherds every PR; CODEOWNERS approval required per protected file. Unit-test admission criteria (.claude/rules/unit-test-admission.md): regression test must fail on pre-fix code and the docstring must describe the bug mechanism. PR checklist asks ",
+      "policy_links": [],
+      "decision": "admitted",
+      "checked_at": "2026-09-25T06:30:00Z"
+    },
+    {
+      "company": "Unstructured",
+      "repo": "unstructured-io/unstructured",
+      "url": "https://github.com/unstructured-io/unstructured",
+      "relevance": "LLM data-ingestion/ETL: file-format partitioning correctness (docx/html/pdf/email), chunking, metadata - pure Python, pytest with checked-in fixture documents, fully CPU-verifiable. Strong RAG-pipeline career signal.",
+      "stars": 15484,
+      "maintenance": "pushed 2026-09-25",
+      "previous_contribution": "none",
+      "policy": "Mechanical only: CHANGELOG.md + __version__.py must be bumped when core code changes; conventional-commit PR titles (fix:/feat:/perf:); make test + make check locally; squash-and-merge; branch naming <username>/<description>; comment-to-claim convention on issues. No assignment gate, no issue-first gate, no CLA. AI policy: None. No mention of AI/agents in CONTRIBUTING.md; maintainers themselves ru",
+      "policy_links": [],
+      "decision": "admitted",
+      "checked_at": "2026-09-25T06:30:00Z"
     }
   ],
   "issues": [
@@ -3495,6 +3521,24 @@
       "ownership_check": null,
       "competing_prs": [],
       "platform_plan": null
+    },
+    {
+      "company": "Unstructured",
+      "repo": "unstructured-io/unstructured",
+      "number": 3365,
+      "url": "https://github.com/unstructured-io/unstructured/issues/3365",
+      "title": "bug(json): partition_json() does not preserve original element_id or metadata",
+      "importance": "medium",
+      "importance_rationale": "partition_json() is the documented mechanism for step-wise pipelines (partition once, filter/enrich/chunk later); silently rewriting element_id, parent_id, filename, file_directory, filetype and last_modified on every rehydration corrupts element identity across every such pipeline (dedup keys, vector-store upserts, provenance).",
+      "career_signal": "high",
+      "career_signal_rationale": "Data-identity correctness in the rehydration path of a 15.5k-star LLM data-ingestion library: the fix requires reasoning about decorator-driven metadata post-processing and preserving a serialization round-trip contract, exactly the RAG-pipeline data-integrity work that is defensible in an interview. Not very_high: it is ETL plumbing, not a core inference/eval path.",
+      "career_assessed_at": "2026-09-25T06:33:25Z",
+      "difficulty": "medium",
+      "status": "vetted",
+      "verified_at": "2026-09-25T06:33:25Z",
+      "ownership_check": "Open, unassigned, ZERO comments since filing (2024-07-09). Reporter is scanny - the (since-departed) architecture owner of this code, so the issue itself constitutes maintainer triage/design agreement. Timeline xrefs: only PR #4391 (MERGED 2026-07, arbitrary-JSON feature - rewrote the function body but kept the offending decorators) and an out-of-repo reference. Competition queries (gh pr list -R unstructured-io/unstructured --state all --search): '3365' -> only #4391; 'partition_json' -> #4483 (OPEN, encoding= only), #4488 (md), #4391, older merged; 'rehydrate' -> #4391 + 2023 PRs; 'element_id preserve' -> #2673 (2024, the hash-ID feature itself). No matching PR found as of 2026-09-25T06:28:02Z.",
+      "competing_prs": [],
+      "platform_plan": "Mac ARM64 CPU-only: python3.12 -m venv .venv && pip install -e . (core install; JSON path needs no extras) then pytest test_unstructured/partition/test_json.py test_unstructured/partition/test_ndjson.py. Repro: elements_from_json(example_doc_path('simple.json')) vs partition_json(example_doc_path('simple.json')); assert elements_to_dicts equality - fails today on element_id/filename/file_directory/filetype/last_modified. No models, no network."
     }
   ],
   "holds": [
@@ -3667,18 +3711,7 @@
       "ts": "2026-09-25T05:53:22+00:00"
     }
   ],
-  "active": [
-    {
-      "what": "Vet-13: pytorch-lightning first pass, mlflow round-2 (pre-cutoff aged), ray round-2 (Data/Serve/core)",
-      "owner": "fable-worker",
-      "since": "2026-09-25T04:54:09+00:00"
-    },
-    {
-      "what": "Vet-14: faiss aged remainder, DeepSpeed slice-3, hermes-agent P2 slice-3, freshness polls",
-      "owner": "fable-worker",
-      "since": "2026-09-25T04:54:09+00:00"
-    }
-  ],
+  "active": [],
   "updates": [
     {
       "ts": "2026-09-24T17:51:58+00:00",
@@ -3866,6 +3899,10 @@
     {
       "ts": "2026-09-25T06:19:59+00:00",
       "text": "Batch-21: +1 HIGH — litellm #26939 (Vertex/Gemini streaming drops per-request timeout -> 6000s hang; both streaming partials omit the timeout the enclosing scope holds while the non-streaming branch propagates it; zero competition). ADMITTED: litellm (CLA; internal Devin pipeline + ~7 external merges/day), crewAI (healthiest: 12/30 external; AI PRs require llm-generated disclosure label), pydantic-ai (conditional: maintainer must agree+assign before PR). graphrag REJECTED (maintenance mode, 0/100 external merges). All three trackers same-week farmed; the productive method is cross-reference screening for the 5-10% farmers miss."
+    },
+    {
+      "ts": "2026-09-25T06:36:29+00:00",
+      "text": "FINAL BATCH (22): +1 HIGH — unstructured #3365 (partition_json destroys original element_id/metadata via three verified overwrite mechanisms; filed by the architecture owner, zero competition in 2+ years). ADMITTED: unstructured-io/unstructured (15.5k, welcoming, 12/30 external merges) and sgl-project/sglang CONDITIONAL (36.4k; no human-review AGENTS clause — verified clean; farm-saturated tracker, friction gates). Research phase ends: 81/100 eligible, 49 PR-qualified + 1 exception. Implementation owned by the GPT 5.6 Sol thread on the Omarchy PC via the private handoff repo."
     }
   ],
   "companies": [
@@ -4113,6 +4150,16 @@
       "company": "Pydantic",
       "fit": "high",
       "rationale": "Prominent agent framework; agree+assign gate limits throughput."
+    },
+    {
+      "company": "Unstructured",
+      "fit": "high",
+      "rationale": "Mainstream LLM data-ingestion/ETL; welcoming intake; healthiest vein of the final batch."
+    },
+    {
+      "company": "SGLang",
+      "fit": "high",
+      "rationale": "Major inference runtime; no AI clause but farm-saturated tracker + shepherding friction."
     }
   ]
 }

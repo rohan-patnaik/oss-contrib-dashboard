@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-25T09:06:46+00:00",
+  "generated": "2026-09-25T09:24:50+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-25T09:06:46+00:00",
+    "last_refresh": "2026-09-25T09:24:50+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49
   },
@@ -1524,14 +1524,17 @@
       "importance": "medium",
       "importance_rationale": "Silent training-quality bug: every data-parallel rank applies the identical reverberation coin-flip sequence and impulse-response choices, collapsing effective RIR augmentation diversity in distributed ASR training; nothing errors, models just generalize worse than the config implies.",
       "difficulty": "low",
-      "status": "vetted",
+      "status": "pr-open",
       "verified_at": "2026-09-24T20:05:11Z",
       "ownership_check": "Open, unassigned, 0 comments. Reporter udsy19's fix PR #16101 withdrawn closed-unmerged 2026-09-18; no active claim.",
       "competing_prs": [],
       "platform_plan": "Mac ARM64 CPU: source install + lhotse; build the sampler twice with rank-0/rank-1 env (per the issue's CPU-only snippet using lhotse DummyManifest) and assert the ReverbWithImpulseResponse RNG state differs after the fix / is identical before. pytest tests/collections/common -k lhotse dataloader seeds. DCO sign-off required.",
       "career_signal": "high",
       "career_signal_rationale": "Distributed-training data-diversity bug: RIR augmentation seeded identically across data-parallel ranks; subtle shard-seed correctness in Lhotse dataloading.",
-      "career_assessed_at": "2026-09-24T20:38:31+00:00"
+      "career_assessed_at": "2026-09-24T20:38:31+00:00",
+      "pr_url": "https://github.com/NVIDIA-NeMo/Speech/pull/16298",
+      "pr_raised_at": "2026-09-25T09:24:03+00:00",
+      "outcome": "PR #16298 open at independently approved DCO-signed commit 6ae6af2; two deterministic regressions fail on base, and the full affected dataloader file passes 73 tests with one existing skip."
     },
     {
       "company": "NVIDIA",
@@ -3922,6 +3925,11 @@
     {
       "ts": "2026-09-25T09:05:54+00:00",
       "text": "NeMo Speech #16093 published: PR #16297 fixes corpus cpWER rejoining speaker transcripts and erasing cross-boundary errors. Exact DCO-signed commit 09ac905 independently APPROVED; evaluator fail-before captured, 170 tests pass, and 500 randomized corpora match exhaustive aggregation; closed #16094 disclosed as prior art.",
+      "repo": "NVIDIA-NeMo/Speech"
+    },
+    {
+      "ts": "2026-09-25T09:24:03+00:00",
+      "text": "NeMo Speech #16100 published: PR #16298 switches RIR augmentation from the global seed to resolved shard_seed, restoring default per-rank diversity while preserving fixed-integer reproducibility. Exact DCO-signed commit 6ae6af2 independently APPROVED; two fail-before regressions, 73 tests pass/1 existing skip; randomized/worker limitation disclosed.",
       "repo": "NVIDIA-NeMo/Speech"
     }
   ],

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-25T09:37:15+00:00",
+  "generated": "2026-09-25T11:49:27+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-25T09:37:15+00:00",
+    "last_refresh": "2026-09-25T11:49:27+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49
   },
@@ -1120,14 +1120,17 @@
       "importance": "medium",
       "importance_rationale": "Silently breaks session attribution for gateway providers (x-opencode-session and custom overrides): requests made on the resume path go out without the header, corrupting server-side session tracking with no visible error.",
       "difficulty": "medium",
-      "status": "vetted",
+      "status": "pr-open",
       "verified_at": "2026-09-24T19:06:00Z",
       "ownership_check": "Unassigned (jamadeo assigned 2026-09-15, later removed). Reporter rookiejet made no claim; sole comment is jamadeo's fix guidance.",
       "competing_prs": [],
       "platform_plan": "Mac ARM64, CPU only: extend crates/goose/tests/session_id_propagation_test.rs with a wiremock EnforceSessionId fixture that resumes a session with a different provider and asserts the header on the first request (including fetch_model_info); hoist with_session_id to Agent::reply / resume_state_machine_turn per jamadeo's guidance; cargo test -p goose.",
       "career_signal": "high",
       "career_signal_rationale": "Agent session-state correctness (resume path loses session header) on goose's provider/session boundary; maintainer-confirmed fix with clear user impact.",
-      "career_assessed_at": "2026-09-24T20:38:31+00:00"
+      "career_assessed_at": "2026-09-24T20:38:31+00:00",
+      "pr_url": "https://github.com/aaif-goose/goose/pull/12516",
+      "pr_raised_at": "2026-09-25T11:48:03+00:00",
+      "outcome": "PR #12516 open at independently approved commit ab286926; base regressions expose missing context in legacy resume and direct ACP setup, four focused lifecycle tests pass, and full-workspace clippy is clean."
     },
     {
       "company": "Block/Goose",

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-27T10:33:26+00:00",
+  "generated": "2026-09-27T11:05:37+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -14,13 +14,13 @@
       "medium": 59,
       "high": 10
     },
-    "reproduced": 17,
-    "authored": 17,
-    "open_prs": 17,
+    "reproduced": 18,
+    "authored": 18,
+    "open_prs": 18,
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-27T10:33:26+00:00",
+    "last_refresh": "2026-09-27T11:05:37+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49
   },
@@ -1729,14 +1729,17 @@
       "career_signal_rationale": "Correctness of the conversational context an agent consumes on a first-class messaging surface of an established, very widely used agent platform: the fix requires reasoning about a durable cross-restart state store (eviction policy, per-chat fairness), an adapter/platform contract, and graceful degradation semantics, with a real 'agent acts on the wrong message' failure mode - concrete, defensible integration-correctness work, not cosmetic.",
       "career_assessed_at": "2026-09-24T21:36:24Z",
       "difficulty": "medium",
-      "status": "vetted",
+      "status": "pr-open",
       "verified_at": "2026-09-24T21:36:24Z",
-      "ownership_check": "Reporter andrexibiza (CONTRIBUTOR, filed 2026-08-06 as part of WhatsApp epic #79890 'wave-3 validation lane') has NOT claimed it and has filed no related PR in the 7 weeks since (their 20 recent PRs checked at 2026-09-24T21:31Z: all desktop-refactor/kanban/voice, none touch whatsapp). No claim comments; only comment is teknium1's leave-open triage.",
+      "ownership_check": "Fresh publish check 2026-09-27T11:02:50Z: issue open and unassigned. Exact-issue and unresolved-content searches found only #116817, which indexes outbound Cloud chunks and explicitly does not recover unknown or evicted messages; no competing fallback or per-chat eviction implementation exists.",
       "competing_prs": [
         "https://github.com/NousResearch/hermes-agent/pull/116817",
         "https://github.com/NousResearch/hermes-agent/pull/119095"
       ],
-      "platform_plan": "Pure-Python gateway code, no platform credentials needed for tests. macOS ARM64: uv venv && uv pip install -e . (or repo's documented dev install); pytest tests/gateway/test_whatsapp_cloud.py tests/gateway/test_whatsapp_reply_prefix.py -x. Reproduce with a webhook-payload fixture whose context.id references a wamid absent from rich_sent_index.json: MessageEvent carries reply_to_message_id with reply_to_text=None, and _prepend_inbound_reply_context emits no pointer (assert on message_text)."
+      "platform_plan": "Pure-Python gateway code, no platform credentials needed for tests. macOS ARM64: uv venv && uv pip install -e . (or repo's documented dev install); pytest tests/gateway/test_whatsapp_cloud.py tests/gateway/test_whatsapp_reply_prefix.py -x. Reproduce with a webhook-payload fixture whose context.id references a wamid absent from rich_sent_index.json: MessageEvent carries reply_to_message_id with reply_to_text=None, and _prepend_inbound_reply_context emits no pointer (assert on message_text).",
+      "pr_url": "https://github.com/NousResearch/hermes-agent/pull/125116",
+      "pr_raised_at": "2026-09-27T11:04:22+00:00",
+      "outcome": "PR #125116 open ready at independently approved commit e0a42ab; unresolved WhatsApp Cloud quotes retain an explicit relationship pointer, one chat can no longer consume the durable quote index, both regressions fail on base, 59 affected tests plus the Slack thread negative control pass, and missing historical text remains explicitly unavailable."
     },
     {
       "company": "Nous",

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-27T11:43:29+00:00",
+  "generated": "2026-09-27T12:39:41+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -14,13 +14,13 @@
       "medium": 59,
       "high": 10
     },
-    "reproduced": 20,
-    "authored": 20,
-    "open_prs": 20,
+    "reproduced": 21,
+    "authored": 21,
+    "open_prs": 21,
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-27T11:43:29+00:00",
+    "last_refresh": "2026-09-27T12:39:41+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49
   },
@@ -1795,11 +1795,14 @@
       "career_signal_rationale": "Diagnosing silent caller-visible tensor corruption caused by a memory-optimization that frees input storage in place (aliasing + autograd identity + deliberate .data replacement) is genuine ML-systems debugging on DeepSpeed's core training path, and designing a fix that preserves the memory savings is defensible senior-level work.",
       "career_assessed_at": "2026-09-24T21:45:00Z",
       "difficulty": "high",
-      "status": "vetted",
+      "status": "pr-open",
       "verified_at": "2026-09-24T21:32:38Z",
-      "ownership_check": "Open, unassigned, bug+training labels, ZERO comments since creation 2025-01-23 (20 months). No claim, no maintainer response.",
+      "ownership_check": "Fresh publish check 2026-09-27T12:36:15Z: issue open, unassigned, and without comments. Exact-issue, symptom, deallocated-reuse, and timeline searches found no competing implementation.",
       "competing_prs": [],
-      "platform_plan": "Pure CPU: deepspeed.init_distributed(dist_backend='gloo') single process; from deepspeed.runtime.activation_checkpointing import checkpointing; checkpointing.configure(None, partition_activations=True) (mp_size defaults to 1); build two tiny nn.Linear blocks; shared = torch.randn(4,4, requires_grad=True); out1 = checkpointing.checkpoint(block1, x, shared); assert shared.shape == (4,4) -> fails on HEAD (shared becomes 0-dim); passing shared to block2 reproduces the downstream corruption. Same repro via cpu_checkpointing=True."
+      "platform_plan": "Pure CPU: deepspeed.init_distributed(dist_backend='gloo') single process; from deepspeed.runtime.activation_checkpointing import checkpointing; checkpointing.configure(None, partition_activations=True) (mp_size defaults to 1); build two tiny nn.Linear blocks; shared = torch.randn(4,4, requires_grad=True); out1 = checkpointing.checkpoint(block1, x, shared); assert shared.shape == (4,4) -> fails on HEAD (shared becomes 0-dim); passing shared to block2 reproduces the downstream corruption. Same repro via cpu_checkpointing=True.",
+      "pr_url": "https://github.com/deepspeedai/DeepSpeed/pull/8682",
+      "pr_raised_at": "2026-09-27T12:37:31+00:00",
+      "outcome": "PR #8682 open ready and mergeable at independently approved DCO-signed commit 0542329. A private lifecycle marker makes both checkpoint engines reject still-deallocated inputs, including inside supported containers, while restoration clears the marker for legitimate reuse. The base silently forwards scalar placeholders; 8 targeted GPU regressions, the complete 87-test activation suite, a restoration control, and all changed-file pre-commit hooks pass. DCO is green."
     },
     {
       "company": "Microsoft AI / DeepSpeed (LF)",
@@ -3981,6 +3984,11 @@
     {
       "ts": "2026-09-27T11:41:41+00:00",
       "text": "DeepSpeed #6699 published: PR #8681 teaches zero_to_fp32 to recognize the existing BF16 stage-0 optimizer signature and reuse ZeRO-1 reconstruction. Exact DCO-signed commit 5a2b322 independently APPROVED; the reported base failure is captured, exact two-shard CPU recovery and an independent padded three-rank probe pass, all changed-file pre-commit checks pass, and DCO is green.",
+      "repo": "deepspeedai/DeepSpeed"
+    },
+    {
+      "ts": "2026-09-27T12:37:31+00:00",
+      "text": "DeepSpeed #6969 published: PR #8682 rejects cross-checkpoint reuse while activation partitioning or CPU offload still holds an input's storage, including through supported nested containers. Exact DCO-signed commit 0542329 independently APPROVED after review caught and closed container-bypass and metadata false-positive boundaries; 8 targeted GPU regressions, all 87 adjacent tests, restoration control, and changed-file hooks pass. DCO is green.",
       "repo": "deepspeedai/DeepSpeed"
     }
   ],

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-27T17:21:54+00:00",
+  "generated": "2026-09-27T17:35:32+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -14,13 +14,13 @@
       "medium": 59,
       "high": 10
     },
-    "reproduced": 35,
-    "authored": 35,
-    "open_prs": 35,
+    "reproduced": 36,
+    "authored": 36,
+    "open_prs": 36,
     "merged": 0,
     "landed_other": 0,
-    "active_work": 1,
-    "last_refresh": "2026-09-27T17:21:54+00:00",
+    "active_work": 0,
+    "last_refresh": "2026-09-27T17:35:32+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49
   },
@@ -4075,6 +4075,11 @@
       "ts": "2026-09-27T17:21:26+00:00",
       "text": "LiteLLM #26939 published: PR #43451 forwards per-request timeout values through both sync and async Google AI Studio streaming requests. Exact commit 4a62921 independently APPROVED; both fail-before regressions pass at the HTTPX transport boundary, the full mapped module passes 206 tests, and repository discipline, strict Ruff, circular-import, and import-safety checks are green.",
       "repo": "BerriAI/litellm"
+    },
+    {
+      "ts": "2026-09-27T17:35:01+00:00",
+      "text": "Unstructured #3365 published: PR #4504 preserves serialized element IDs and source metadata during JSON rehydration while retaining branch-correct metadata and deterministic IDs for arbitrary and chunked outputs. Exact commit 2b5617d independently APPROVED after review caught pre-chunk ID normalization; 60 applicable JSON tests, an adversarial strategy matrix, whole-tree Ruff, and version synchronization pass.",
+      "repo": "unstructured-io/unstructured"
     }
   ],
   "companies": [

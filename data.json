@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-27T13:53:02+00:00",
+  "generated": "2026-09-27T14:10:58+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-27T13:53:02+00:00",
+    "last_refresh": "2026-09-27T14:10:58+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49
   },
@@ -1899,9 +1899,12 @@
       "difficulty": "medium",
       "status": "vetted",
       "verified_at": "2026-09-24T21:58:32Z",
-      "ownership_check": "Reporter xianglous inactive since filing; no claimants.",
+      "ownership_check": "Fresh publish check 2026-09-27T14:09:14Z: issue open, unassigned, and uncommented; exact-issue, SearchParametersPQ/selector, IndexPQ/IDSelector, and timeline searches found no active or linked competing implementation.",
       "competing_prs": [],
-      "platform_plan": "CPU-only. Same source build as #3495. Repro: index_factory(64, 'IDMap2,PQ8x8') (train/add random data), search with SearchParametersPQ(sel=IDSelectorBatch([...])) -> RuntimeError 'selector not supported' before fix; after fix, results equal brute-force search restricted to the selected ids (allowing PQ quantization error: compare against IndexPQ search over only the selected subset). Regression: `pytest tests/test_index.py -k PQ -x` and tests/test_search_params.py if present (`pytest tests/test_search_params.py`)."
+      "platform_plan": "CPU-only. Same source build as #3495. Repro: index_factory(64, 'IDMap2,PQ8x8') (train/add random data), search with SearchParametersPQ(sel=IDSelectorBatch([...])) -> RuntimeError 'selector not supported' before fix; after fix, results equal brute-force search restricted to the selected ids (allowing PQ quantization error: compare against IndexPQ search over only the selected subset). Regression: `pytest tests/test_index.py -k PQ -x` and tests/test_search_params.py if present (`pytest tests/test_search_params.py`).",
+      "pr_url": "https://github.com/facebookresearch/faiss/pull/5677",
+      "pr_raised_at": "2026-09-27T14:10:12+00:00",
+      "outcome": "PR #5677 open ready and mergeable at independently approved commit c7faa7e. Default ST_PQ selector searches use the existing generic selector-aware scan while preserving public IndexPQ statistics; specialized modes still reject selectors. Direct and IDMap2-wrapped L2/IP selection, external IDs, empty/fewer-than-k results, restoration after errors, 56 search-parameter tests, and 47 adjacent tests pass; Meta CLA/import checks are green."
     },
     {
       "company": "Meta",

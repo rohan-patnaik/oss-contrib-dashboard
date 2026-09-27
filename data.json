@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-27T15:54:29+00:00",
+  "generated": "2026-09-27T16:17:20+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -14,13 +14,13 @@
       "medium": 59,
       "high": 10
     },
-    "reproduced": 31,
-    "authored": 31,
-    "open_prs": 31,
+    "reproduced": 32,
+    "authored": 32,
+    "open_prs": 32,
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-27T15:54:29+00:00",
+    "last_refresh": "2026-09-27T16:17:20+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49
   },
@@ -4055,6 +4055,11 @@
       "ts": "2026-09-27T15:54:00+00:00",
       "text": "Lightning #20551 published: PR #21976 stops the logger connector from force-flushing after every metric update so TensorBoard, CSV, and custom logger buffering policies can operate. Exact commit 0f5708e independently APPROVED; all 3 connector paths fail on base and pass on the candidate, with all changed-file hooks green locally.",
       "repo": "Lightning-AI/pytorch-lightning"
+    },
+    {
+      "ts": "2026-09-27T16:15:33+00:00",
+      "text": "MLflow #14293 published: PR #26214 aligns Keras validation metrics with epoch or optimizer-iteration training steps while preserving no-step standalone evaluation for fresh and reused callbacks. Exact DCO-signed commit 5f646c3 independently APPROVED after review caught stale lifecycle state; the base fails both alignment regressions, while all 9 callback tests and changed-file hooks pass. DCO is green.",
+      "repo": "mlflow/mlflow"
     }
   ],
   "companies": [

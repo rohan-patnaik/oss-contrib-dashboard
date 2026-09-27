@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-27T12:39:41+00:00",
+  "generated": "2026-09-27T13:12:23+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -14,13 +14,13 @@
       "medium": 59,
       "high": 10
     },
-    "reproduced": 21,
-    "authored": 21,
-    "open_prs": 21,
+    "reproduced": 22,
+    "authored": 22,
+    "open_prs": 22,
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-27T12:39:41+00:00",
+    "last_refresh": "2026-09-27T13:12:23+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49
   },
@@ -1021,7 +1021,7 @@
       "importance": "low",
       "importance_rationale": "Developer/CI experience: parallel self-contained tests replacing compose+sleep orchestration; maintainer invited a PR with benchmark conditions.",
       "difficulty": "medium",
-      "status": "vetted",
+      "status": "pr-open",
       "verified_at": "2026-09-24T18:27:51Z",
       "ownership_check": "Open, unassigned; stale claim by issue author 2025-11-19 (>10 months, outside 90-day window); maintainer domdomegg 2025-11-17 explicitly invited a PR with acceptance conditions. No matching PR found as of 2026-09-24T18:26:29Z; queries: search 759 / testcontainers.",
       "competing_prs": [],
@@ -1818,9 +1818,12 @@
       "difficulty": "high",
       "status": "vetted",
       "verified_at": "2026-09-24T21:39:05Z",
-      "ownership_check": "Open, unassigned, bug+training labels, ZERO comments since creation 2025-06-15 (15.3 months). No claim. Sibling #7270 (2025-05-03): maintainer tjruwase asked for a repro 2025-06-06, reporter provided repo github.com/mmkjj/deepspeed_pipeline_parallelism_issue same day, no follow-up since - no maintainer plan, no claim there either.",
+      "ownership_check": "Fresh publish check 2026-09-27T13:10:00Z: issue open, unassigned, and without comments. Exact-issue, semantic, receive-buffer, and timeline searches found no competing implementation.",
       "competing_prs": [],
-      "platform_plan": "Linux CPU container or Mac ARM64: 2-process gloo (deepspeed.init_distributed('gloo'), DS_ACCELERATOR=cpu). PipelineModule(layers=[LayerSpec(...) x4], num_stages=2) with a batch tuple (x, float_label_requires_grad_False); engine.train_batch reproduces the requires_grad flip on stage 1 and the backward failure. Lighter unit-level check (no full engine): drive _send_tensor_meta/_recv_tensor_meta + p2p send/recv between two gloo ranks and assert the received tensor preserves requires_grad=False after the fix. Pipeline p2p uses dist.send/recv which gloo supports; fp32 default (no fp16 needed)."
+      "platform_plan": "Linux CPU container or Mac ARM64: 2-process gloo (deepspeed.init_distributed('gloo'), DS_ACCELERATOR=cpu). PipelineModule(layers=[LayerSpec(...) x4], num_stages=2) with a batch tuple (x, float_label_requires_grad_False); engine.train_batch reproduces the requires_grad flip on stage 1 and the backward failure. Lighter unit-level check (no full engine): drive _send_tensor_meta/_recv_tensor_meta + p2p send/recv between two gloo ranks and assert the received tensor preserves requires_grad=False after the fix. Pipeline p2p uses dist.send/recv which gloo supports; fp32 default (no fp16 needed).",
+      "pr_url": "https://github.com/deepspeedai/DeepSpeed/pull/8683",
+      "pr_raised_at": "2026-09-27T13:10:50+00:00",
+      "outcome": "PR #8683 open ready and mergeable at independently approved DCO-signed commit a16bd94. Pipeline metadata preserves per-tensor requires_grad values and gradient send/receive/backward cardinality follows the same flags. The base flips a non-gradient floating tensor to gradient-bearing; 3 exact-head CPU/Gloo pipeline tests and all changed-file pre-commit hooks pass. DCO is green; shared protocol edge paths were source-audited and mixed-version stages are unsupported."
     },
     {
       "company": "Microsoft AI / DeepSpeed (LF)",
@@ -3989,6 +3992,11 @@
     {
       "ts": "2026-09-27T12:37:31+00:00",
       "text": "DeepSpeed #6969 published: PR #8682 rejects cross-checkpoint reuse while activation partitioning or CPU offload still holds an input's storage, including through supported nested containers. Exact DCO-signed commit 0542329 independently APPROVED after review caught and closed container-bypass and metadata false-positive boundaries; 8 targeted GPU regressions, all 87 adjacent tests, restoration control, and changed-file hooks pass. DCO is green.",
+      "repo": "deepspeedai/DeepSpeed"
+    },
+    {
+      "ts": "2026-09-27T13:11:33+00:00",
+      "text": "DeepSpeed #7357 published: PR #8683 preserves each pipeline activation's requires_grad flag and uses it consistently for gradient traffic and backward pairing. Exact DCO-signed commit a16bd94 independently APPROVED; the base flips a non-gradient floating target, 3 static/dynamic CPU/Gloo pipeline regressions and controls pass, and all changed-file hooks pass. DCO is green; shared protocol edge paths were source-audited.",
       "repo": "deepspeedai/DeepSpeed"
     }
   ],

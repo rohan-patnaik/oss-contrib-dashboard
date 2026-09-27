@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-27T11:05:37+00:00",
+  "generated": "2026-09-27T11:27:47+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -14,13 +14,13 @@
       "medium": 59,
       "high": 10
     },
-    "reproduced": 18,
-    "authored": 18,
-    "open_prs": 18,
+    "reproduced": 19,
+    "authored": 19,
+    "open_prs": 19,
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-27T11:05:37+00:00",
+    "last_refresh": "2026-09-27T11:27:47+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49
   },
@@ -1753,11 +1753,14 @@
       "career_signal_rationale": "Context-compression correctness on the core agent execution path of a major agent platform: designing what a generic MCP-result summarizer must preserve (bounded excerpt vs byte-count stub) directly determines whether the agent can keep working after compaction, with a measurable duplicate-fetch/token-cost regression story - transferable agent-memory/context-engineering work an interviewer can probe.",
       "career_assessed_at": "2026-09-24T21:36:24Z",
       "difficulty": "medium",
-      "status": "vetted",
+      "status": "pr-open",
       "verified_at": "2026-09-24T21:36:24Z",
-      "ownership_check": "Reporter elchic00 (assoc NONE), detailed report with real-session evidence; zero comments, zero claims, unassigned for 5+ weeks.",
+      "ownership_check": "Fresh publish check 2026-09-27T11:26:21Z: issue open and unassigned; exact issue, MCP compression, and MCP result-excerpt searches found no open competing implementation. Closed marker PRs #121608/#121798 address adjacent issues and their landed shared marker is reused rather than duplicated.",
       "competing_prs": [],
-      "platform_plan": "Pure Python, fully CPU-testable on macOS ARM64: pytest tests/agent/test_summarize_tool_result_type_safety.py tests/agent/test_context_compressor.py -x. Reproduce in a unit test: call _summarize_tool_result('mcp__docs__fetch', '{\"uri\": \"...\"}', '<40KB payload>') at HEAD and assert the returned summary contains none of the payload (current behavior), then assert the fixed behavior preserves a bounded excerpt."
+      "platform_plan": "Pure Python, fully CPU-testable on macOS ARM64: pytest tests/agent/test_summarize_tool_result_type_safety.py tests/agent/test_context_compressor.py -x. Reproduce in a unit test: call _summarize_tool_result('mcp__docs__fetch', '{\"uri\": \"...\"}', '<40KB payload>') at HEAD and assert the returned summary contains none of the payload (current behavior), then assert the fixed behavior preserves a bounded excerpt.",
+      "pr_url": "https://github.com/NousResearch/hermes-agent/pull/125141",
+      "pr_raised_at": "2026-09-27T11:26:58+00:00",
+      "outcome": "PR #125141 open ready at independently approved commit 8b5d8d2; aged MCP results retain a bounded excerpt, argument preview, and original size with stable non-imitable marker handling. The base regression fails, 160 focused/adjacent tests pass, and pre-compression caps plus cross-turn dedup remain out of scope."
     },
     {
       "company": "Microsoft AI / DeepSpeed (LF)",

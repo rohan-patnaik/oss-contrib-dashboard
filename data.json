@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-27T11:27:47+00:00",
+  "generated": "2026-09-27T11:43:29+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -14,13 +14,13 @@
       "medium": 59,
       "high": 10
     },
-    "reproduced": 19,
-    "authored": 19,
-    "open_prs": 19,
+    "reproduced": 20,
+    "authored": 20,
+    "open_prs": 20,
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-27T11:27:47+00:00",
+    "last_refresh": "2026-09-27T11:43:29+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49
   },
@@ -1774,11 +1774,14 @@
       "career_signal_rationale": "Extending DeepSpeed's official checkpoint-conversion tool to the BF16_Optimizer/stage-0 shard layout requires understanding the partitioned fp32 master-weight format (SINGLE_PARTITION_OF_FP32_GROUPS flat partitions, GROUP_PADDINGS, PARAM_SLICE_MAPPINGS) and reconstructing full fp32 weights across DP ranks - concrete, interview-defensible checkpoint-tooling work in a major training framework.",
       "career_assessed_at": "2026-09-24T21:45:00Z",
       "difficulty": "medium",
-      "status": "vetted",
+      "status": "pr-open",
       "verified_at": "2026-09-24T21:39:05Z",
-      "ownership_check": "Open, unassigned, 'enhancement' label, ZERO comments since creation 2024-11-01 (22.8 months). No claim, no maintainer plan.",
+      "ownership_check": "Fresh publish check 2026-09-27T11:40:40Z: issue open, unassigned, and without comments. Exact-issue, stage-0 converter, BF16_Optimizer, and timeline searches found no competing implementation; open #8515 concerns non-floating buffers, and the sole cross-reference is the closed accelerate#3210 duplicate with no implementation.",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64 / Linux CPU: DS_ACCELERATOR=cpu, single rank gloo. deepspeed.initialize(model=tiny 2-layer MLP, config={'train_micro_batch_size_per_gpu':1, 'bf16':{'enabled':true}, 'zero_optimization':{'stage':0}, optimizer adamw}) -> engine.save_checkpoint('/tmp/ck') writes bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt; python deepspeed/utils/zero_to_fp32.py /tmp/ck /tmp/out reproduces the ValueError on HEAD. After fix, assert returned fp32 state_dict allclose to the model's fp32 master weights. Fully CPU."
+      "platform_plan": "Mac ARM64 / Linux CPU: DS_ACCELERATOR=cpu, single rank gloo. deepspeed.initialize(model=tiny 2-layer MLP, config={'train_micro_batch_size_per_gpu':1, 'bf16':{'enabled':true}, 'zero_optimization':{'stage':0}, optimizer adamw}) -> engine.save_checkpoint('/tmp/ck') writes bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt; python deepspeed/utils/zero_to_fp32.py /tmp/ck /tmp/out reproduces the ValueError on HEAD. After fix, assert returned fp32 state_dict allclose to the model's fp32 master weights. Fully CPU.",
+      "pr_url": "https://github.com/deepspeedai/DeepSpeed/pull/8681",
+      "pr_raised_at": "2026-09-27T11:41:41+00:00",
+      "outcome": "PR #8681 open ready at independently approved DCO-signed commit 5a2b322; the parser recognizes the existing BF16 stage-0 signature and reuses ZeRO-1 reconstruction while preserving explicit ZeRO precedence and foreign-layout errors. The base regression fails with the reported ValueError, the two-shard CPU conversion recovers exact FP32 tensors, 5 adjacent tests pass/1 distributed test skips, and all changed-file pre-commit checks pass."
     },
     {
       "company": "Microsoft AI / DeepSpeed (LF)",
@@ -3974,6 +3977,11 @@
       "ts": "2026-09-27T09:46:23+00:00",
       "text": "NeMo RL #1574 published: PR #4279 defers system-led prefixes for user-dependent chat templates while preserving exact BOS handling and re-raising later errors. Exact DCO-signed commit 56c1a58 independently APPROVED after the first review caught duplicate BOS; both reported exceptions fail on base and 3 focused tests pass. DCO is green; NVIDIA runner validation awaits a maintainer.",
       "repo": "NVIDIA-NeMo/RL"
+    },
+    {
+      "ts": "2026-09-27T11:41:41+00:00",
+      "text": "DeepSpeed #6699 published: PR #8681 teaches zero_to_fp32 to recognize the existing BF16 stage-0 optimizer signature and reuse ZeRO-1 reconstruction. Exact DCO-signed commit 5a2b322 independently APPROVED; the reported base failure is captured, exact two-shard CPU recovery and an independent padded three-rank probe pass, all changed-file pre-commit checks pass, and DCO is green.",
+      "repo": "deepspeedai/DeepSpeed"
     }
   ],
   "companies": [

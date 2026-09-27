@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-27T13:35:56+00:00",
+  "generated": "2026-09-27T13:53:02+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -14,13 +14,13 @@
       "medium": 59,
       "high": 10
     },
-    "reproduced": 23,
-    "authored": 23,
-    "open_prs": 23,
+    "reproduced": 24,
+    "authored": 24,
+    "open_prs": 24,
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-27T13:35:56+00:00",
+    "last_refresh": "2026-09-27T13:53:02+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49
   },
@@ -1162,7 +1162,7 @@
       "importance": "medium",
       "importance_rationale": "A mismatched imported mapping (outer config key vs embedded extension name) can make disable/removal silently affect a different entry or leave the selected executable extension enabled - a correctness and trust problem for anyone importing extension configs.",
       "difficulty": "high",
-      "status": "vetted",
+      "status": "pr-open",
       "verified_at": "2026-09-24T19:07:00Z",
       "ownership_check": "Unassigned (alexhancock/jbg assignments removed). No claim comments. Risk note: author jbg runs an active remediation pipeline (his sibling-issue PRs #11850/#12441 exist) but has published no branch or PR for this issue.",
       "competing_prs": [],
@@ -1878,9 +1878,12 @@
       "difficulty": "medium",
       "status": "vetted",
       "verified_at": "2026-09-24T21:58:32Z",
-      "ownership_check": "Reporter qwevdb inactive since 2024-09-26 ping. No other claimants.",
+      "ownership_check": "Fresh publish check 2026-09-27T13:51:28Z: issue open and unassigned; exact-issue, Jensen-Shannon, HNSW, and timeline searches found no active or linked competing implementation.",
       "competing_prs": [],
-      "platform_plan": "CPU-only. Same source build as #3495. Repro (must run under `timeout 60`): issue's script — IndexHNSWFlat(2, 10, faiss.METRIC_JensenShannon), add randint(0,10) data -> hangs before fix, completes after. Correctness: compare faiss.pairwise_distances(xq, yb, METRIC_JensenShannon) against scipy.spatial.distance.jensenshannon(x,y)**2 on vectors containing zeros (L1-normalized rows with sparse zeros). Regression: `pytest tests/test_extra_distances.py -x`."
+      "platform_plan": "CPU-only. Same source build as #3495. Repro (must run under `timeout 60`): issue's script — IndexHNSWFlat(2, 10, faiss.METRIC_JensenShannon), add randint(0,10) data -> hangs before fix, completes after. Correctness: compare faiss.pairwise_distances(xq, yb, METRIC_JensenShannon) against scipy.spatial.distance.jensenshannon(x,y)**2 on vectors containing zeros (L1-normalized rows with sparse zeros). Regression: `pytest tests/test_extra_distances.py -x`.",
+      "pr_url": "https://github.com/facebookresearch/faiss/pull/5676",
+      "pr_raised_at": "2026-09-27T13:52:04+00:00",
+      "outcome": "PR #5676 open ready and mergeable at independently approved commit 2192d4f. The CPU kernel applies exact zero-side Jensen-Shannon limits, including float32 subnormals. Current main no longer literally hangs on the reporter's tiny script, but base returns NaN sparse distances and unusable HNSW labels. Focused, randomized, and 55 adjacent tests pass; Meta CLA/import checks are green. GPU and out-of-domain negatives are unchanged."
     },
     {
       "company": "Meta",
@@ -4005,6 +4008,11 @@
     {
       "ts": "2026-09-27T13:35:19+00:00",
       "text": "Faiss #3495 published: PR #5675 prevents inner-ID collisions when merging IDMap/IDMap2 over direct or transformed IVF storage while preserving positional Flat behavior. Exact commit d6913bd independently APPROVED after review caught and closed an IndexPreTransform gap; 5 focused, 62 adjacent Python, and 6 C++ merge tests pass. Meta CLA and import checks are green.",
+      "repo": "facebookresearch/faiss"
+    },
+    {
+      "ts": "2026-09-27T13:52:23+00:00",
+      "text": "Faiss #3828 published: PR #5676 applies finite zero-side limits in the CPU Jensen-Shannon kernel, restoring sparse SciPy agreement and valid HNSW neighbors through the minimum float32 subnormal boundary. Exact commit 2192d4f independently APPROVED after review caught and closed midpoint underflow; 55 adjacent tests and 1,200 randomized sparse comparisons pass. Meta CLA/import checks are green.",
       "repo": "facebookresearch/faiss"
     }
   ],

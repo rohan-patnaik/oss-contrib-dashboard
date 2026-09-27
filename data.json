@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 0,
-    "last_refresh": "2026-09-27T17:35:32+00:00",
+    "last_refresh": "2026-09-27T20:47:49+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49
   },
@@ -4080,6 +4080,11 @@
       "ts": "2026-09-27T17:35:01+00:00",
       "text": "Unstructured #3365 published: PR #4504 preserves serialized element IDs and source metadata during JSON rehydration while retaining branch-correct metadata and deterministic IDs for arbitrary and chunked outputs. Exact commit 2b5617d independently APPROVED after review caught pre-chunk ID normalization; 60 applicable JSON tests, an adversarial strategy matrix, whole-tree Ruff, and version synchronization pass.",
       "repo": "unstructured-io/unstructured"
+    },
+    {
+      "ts": "2026-09-27T20:47:49+00:00",
+      "text": "Maintenance refresh: Unstructured #4504, Curator #2445, Hermes Agent #125141, and Goose #12516 are conflict-free with their actionable review or CI findings resolved. Unstructured passes 64 JSON tests, Curator's DCO and Greptile checks are green, Hermes passes 160 compression tests after rebasing, and Goose's complete refreshed hosted suite is green after isolating an unrelated scheduler timing flake.",
+      "repo": "campaign-maintenance"
     }
   ],
   "companies": [

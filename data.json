@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-27T09:09:42+00:00",
+  "generated": "2026-09-27T09:47:17+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -14,13 +14,13 @@
       "medium": 59,
       "high": 10
     },
-    "reproduced": 5,
-    "authored": 4,
-    "open_prs": 3,
+    "reproduced": 16,
+    "authored": 16,
+    "open_prs": 16,
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-27T09:09:42+00:00",
+    "last_refresh": "2026-09-27T09:47:17+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49
   },
@@ -1630,11 +1630,14 @@
       "career_signal_rationale": "Chat-template/tokenization correctness in the SFT data path of NVIDIA's RLHF training framework: requires reasoning about incremental jinja template rendering vs full-render equivalence and token-boundary accounting, and delivering it with regression tests across template families (Llama 3.1, Qwen3). Interview-defensible data-processing correctness work in an established ML training framework; a prior maintainer-approved-then-abandoned fix (#2864) shows the design is valued.",
       "career_assessed_at": "2026-09-24T20:47:00Z",
       "difficulty": "medium",
-      "status": "vetted",
+      "status": "pr-open",
       "verified_at": "2026-09-24T20:40:00Z",
       "ownership_check": "Open, unassigned, zero comments, labels bug + i-tme (internal-TME triage). No claim comments. Prior fix PR #2864 (external contributor bzantium, opened 2026-06-17) was APPROVED in-thread by RayenTian ('LGTM, pending CI' 2026-06-25) but stalled on copy-pr-bot CI re-approval and was closed by its own author 2026-08-27 with no comment — abandoned, maintainer appetite for the fix already demonstrated.",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64 CPU: pip install transformers jinja2 (no GPU deps needed for this unit); failing test = call get_formatted_message_log with a message_log starting with a system turn under (a) a template that indexes messages[-1] after popping system (Llama-3.1 pattern, reproducible with a local chat-template fixture — no gated download needed) and (b) a Qwen3 tokenizer ('No user query found'). Fix along PR #2864's approved approach: defer pre-user turns whose prefix render fails, fold their tokens into the first user chunk, keep concatenation equal to the full render. Run uv run --group test pytest tests/unit/data/test_llm_message_utils.py. Gates: DCO sign-off (hard gate), maintainer /ok to test for CI."
+      "platform_plan": "Mac ARM64 CPU: pip install transformers jinja2 (no GPU deps needed for this unit); failing test = call get_formatted_message_log with a message_log starting with a system turn under (a) a template that indexes messages[-1] after popping system (Llama-3.1 pattern, reproducible with a local chat-template fixture — no gated download needed) and (b) a Qwen3 tokenizer ('No user query found'). Fix along PR #2864's approved approach: defer pre-user turns whose prefix render fails, fold their tokens into the first user chunk, keep concatenation equal to the full render. Run uv run --group test pytest tests/unit/data/test_llm_message_utils.py. Gates: DCO sign-off (hard gate), maintainer /ok to test for CI.",
+      "pr_url": "https://github.com/NVIDIA-NeMo/RL/pull/4279",
+      "pr_raised_at": "2026-09-27T09:46:23+00:00",
+      "outcome": "PR #4279 open ready at independently approved DCO-signed commit 56c1a58; leading pre-user template failures now defer into the first user chunk, BOS remains exact for template/manual paths, both reported exceptions fail on base, and 3 focused tests pass. DCO is green; NVIDIA runner validation awaits a maintainer."
     },
     {
       "company": "NVIDIA",
@@ -3957,6 +3960,11 @@
       "ts": "2026-09-25T09:36:19+00:00",
       "text": "NeMo Speech #16072 published: PR #16299 accumulates long-audio chunk advances in raw frames before subsampling, preventing timestamp rounding loss from growing at every boundary. Exact DCO-signed commit e4d64ab independently APPROVED; the hour-scale case fails at 43483 vs 43512 on base and all 6 focused tests pass; closed #16074 and #15186 sequencing risk disclosed.",
       "repo": "NVIDIA-NeMo/Speech"
+    },
+    {
+      "ts": "2026-09-27T09:46:23+00:00",
+      "text": "NeMo RL #1574 published: PR #4279 defers system-led prefixes for user-dependent chat templates while preserving exact BOS handling and re-raising later errors. Exact DCO-signed commit 56c1a58 independently APPROVED after the first review caught duplicate BOS; both reported exceptions fail on base and 3 focused tests pass. DCO is green; NVIDIA runner validation awaits a maintainer.",
+      "repo": "NVIDIA-NeMo/RL"
     }
   ],
   "companies": [

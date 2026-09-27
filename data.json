@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-27T08:15:00+00:00",
+  "generated": "2026-09-27T09:09:42+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-27T08:15:00+00:00",
+    "last_refresh": "2026-09-27T09:09:42+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49
   },
@@ -1444,14 +1444,17 @@
       "importance": "medium",
       "importance_rationale": "Models containing Where over int8/uint32 tensors (common in quantized models and in WebNN-on-CPU, per the reporter - a Microsoft DirectML/WebNN engineer) fail outright on the CPU EP with 'Could not find an implementation'; the requested types are bitcast-aliases of already-registered uint8/int32 kernels, so the reporter pre-empted the usual binary-size objection in the issue itself.",
       "difficulty": "medium",
-      "status": "vetted",
+      "status": "pr-open",
       "verified_at": "2026-09-24T19:49:43Z",
       "ownership_check": "Open, unassigned, feature-request label. Only comments are the reporter's own label housekeeping and an FYI ping to WebNN folks (2025-07-07). No claim, no maintainer objection; note ORT's stated type-registration policy (skottmckay on #32719: types added when a production scenario requires them) - this issue documents that scenario (WebNN decomposition on CPU) and the zero-bloat bitcast argument up front.",
       "competing_prs": [],
       "platform_plan": "Mac ARM64 CPU: build from source (./build.sh --config RelWithDebInfo --build_wheel --parallel, CPU-only, no EP flags; long but pure CPU); enable the registrations via the existing bitcast/alias pattern (uint8_t kernel for int8, int32_t for uint32, as the issue and onnx#6887 outline), regenerate docs/OperatorKernels.md, add cases to onnxruntime/test/providers/cpu/tensor/where_op_test.cc; validate end-to-end with a python onnx.helper model running Where(int8)/Where(uint32) through InferenceSession on CPUExecutionProvider.",
       "career_signal": "high",
       "career_signal_rationale": "CPU execution-provider kernel coverage (Where int8/uint32) in a flagship inference runtime, with the binary-size trade-off already framed by a Microsoft engineer.",
-      "career_assessed_at": "2026-09-24T20:38:31+00:00"
+      "career_assessed_at": "2026-09-24T20:38:31+00:00",
+      "pr_url": "https://github.com/microsoft/onnxruntime/pull/32846",
+      "pr_raised_at": "2026-09-27T09:07:56+00:00",
+      "outcome": "PR #32846 open ready at independently approved commit 55ed880; CPU Where now registers int8 and uint32 across opsets 9+, with CPU-pinned boundary regressions, generated kernel docs, registration validation, lintrunner, and all Where tests passing. Microsoft CLA is green."
     },
     {
       "company": "NVIDIA",

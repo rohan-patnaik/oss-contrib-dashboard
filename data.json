@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-27T15:22:34+00:00",
+  "generated": "2026-09-27T15:33:44+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -14,13 +14,13 @@
       "medium": 59,
       "high": 10
     },
-    "reproduced": 28,
-    "authored": 28,
-    "open_prs": 28,
+    "reproduced": 29,
+    "authored": 29,
+    "open_prs": 29,
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-27T15:22:34+00:00",
+    "last_refresh": "2026-09-27T15:33:44+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49
   },
@@ -4039,6 +4039,11 @@
     {
       "ts": "2026-09-27T15:22:10+00:00",
       "text": "Faiss #773 published: PR #5679 computes PCA covariance from centered samples, eliminating catastrophic cancellation while preserving the zero-copy no-bias/ITQ path. Exact commit 0c7acec independently APPROVED after review caught a full-matrix memory regression; the base produces eigenvalues [-1024,-1024], while 53 build-block tests and an independent numerical matrix pass. Meta CLA/import checks are green.",
+      "repo": "facebookresearch/faiss"
+    },
+    {
+      "ts": "2026-09-27T15:33:12+00:00",
+      "text": "Faiss #2464 published: PR #5681 propagates residual-computation exceptions out of OpenMP instead of aborting the host process. Exact commit b4d12c4 independently APPROVED; the base exits 134, while exact error propagation, repair/retry, 49 adjacent tests, and 8 subtests pass (one unrelated tolerance failure is base-identical). Meta CLA/import checks are green.",
       "repo": "facebookresearch/faiss"
     }
   ],

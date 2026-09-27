@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-27T14:28:52+00:00",
+  "generated": "2026-09-27T14:58:15+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -14,13 +14,13 @@
       "medium": 59,
       "high": 10
     },
-    "reproduced": 24,
-    "authored": 24,
-    "open_prs": 24,
+    "reproduced": 27,
+    "authored": 27,
+    "open_prs": 27,
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-27T14:28:52+00:00",
+    "last_refresh": "2026-09-27T14:58:15+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49
   },
@@ -4020,6 +4020,21 @@
       "ts": "2026-09-27T13:52:23+00:00",
       "text": "Faiss #3828 published: PR #5676 applies finite zero-side limits in the CPU Jensen-Shannon kernel, restoring sparse SciPy agreement and valid HNSW neighbors through the minimum float32 subnormal boundary. Exact commit 2192d4f independently APPROVED after review caught and closed midpoint underflow; 55 adjacent tests and 1,200 randomized sparse comparisons pass. Meta CLA/import checks are green.",
       "repo": "facebookresearch/faiss"
+    },
+    {
+      "ts": "2026-09-27T14:10:30+00:00",
+      "text": "Faiss #3559 published: PR #5677 adds selector support to default PQ scanning for direct and IDMap2-wrapped IndexPQ while preserving fast no-selector paths and public statistics. Exact commit c7faa7e independently APPROVED after review caught missing stats accounting; 3 focused, 56 search-parameter, and 47 adjacent tests pass. Meta CLA/import checks are green.",
+      "repo": "facebookresearch/faiss"
+    },
+    {
+      "ts": "2026-09-27T14:28:21+00:00",
+      "text": "Faiss #5566 published: PR #5678 reports and applies logical duplicate-ID removals correctly while validating cardinality and direct-map support before mutation. Exact commit 4f932f6 independently APPROVED after review caught reset underflow and mutation-before-error; 41 composite tests plus 4 subtests, 6 C++ IVF tests, and 96 independent cases pass. Meta CLA/import checks are green.",
+      "repo": "facebookresearch/faiss"
+    },
+    {
+      "ts": "2026-09-27T14:57:29+00:00",
+      "text": "MLflow #13575 published: PR #26213 keeps SQL logged-model history within the 8,000-character tag limit by retaining the newest valid JSON suffix and warning only after commit. Exact DCO-signed commit efcd027 independently APPROVED after review caught a false rollback warning; 8 focused tests and the complete 303-test SQL run-store module pass (8 skipped). DCO is green; core-maintainer approval is pending.",
+      "repo": "mlflow/mlflow"
     }
   ],
   "companies": [

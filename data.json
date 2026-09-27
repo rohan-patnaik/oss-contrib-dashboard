@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-27T09:47:17+00:00",
+  "generated": "2026-09-27T10:33:26+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -14,13 +14,13 @@
       "medium": 59,
       "high": 10
     },
-    "reproduced": 16,
-    "authored": 16,
-    "open_prs": 16,
+    "reproduced": 17,
+    "authored": 17,
+    "open_prs": 17,
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-27T09:47:17+00:00",
+    "last_refresh": "2026-09-27T10:33:26+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49
   },
@@ -1234,14 +1234,17 @@
       "importance": "medium",
       "importance_rationale": "Stages that only work on one backend (notably deduplication on RayActorPool) currently run on incompatible executors and produce unexpected behavior or errors with no guardrail - a silent-wrong-results / confusing-failure class for pipeline users.",
       "difficulty": "medium",
-      "status": "vetted",
+      "status": "pr-open",
       "verified_at": "2026-09-24T19:01:30Z",
-      "ownership_check": "Unassigned; 0 comments; no claim of any age; no maintainer plan comment. Filed by the team (2025-09-30) as an acknowledged gap - deep backlog is explicitly acceptable per the repo's small-fix on-ramp.",
+      "ownership_check": "Fresh publish check 2026-09-27T10:30:07Z: issue open and unassigned with no comments; exact-issue, supported_backends validation, incompatible-executor, and timeline searches found no competing implementation.",
       "competing_prs": [],
       "platform_plan": "Mac ARM64 / Linux CPU container, pure CPU: uv/pip install the text-cpu extra; add supported_backends (default: all three) to ProcessingStage, executor-side validation raising a clear error, and mark actor-pool-only dedup stages; pytest tests/ for the attribute, the validation error path, and no-regression on existing CPU stage tests. No GPU/RAPIDS needed for the attribute+validation mechanism.",
       "career_signal": "high",
       "career_signal_rationale": "ML data-curation pipeline correctness: stages silently run on incompatible executors; adds backend-compatibility validation in NVIDIA's curation infrastructure.",
-      "career_assessed_at": "2026-09-24T20:38:31+00:00"
+      "career_assessed_at": "2026-09-24T20:38:31+00:00",
+      "pr_url": "https://github.com/NVIDIA-NeMo/Curator/pull/2445",
+      "pr_raised_at": "2026-09-27T10:31:04+00:00",
+      "outcome": "PR #2445 open ready at independently approved signed and DCO-compliant commit b76a51f; post-decomposition validation rejects incompatible backends while preserving legacy custom executors, 4 focused and 13 surrounding tests pass, and DCO is green. NVIDIA runner validation awaits a maintainer."
     },
     {
       "company": "OpenHands",

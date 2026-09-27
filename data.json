@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-27T15:44:42+00:00",
+  "generated": "2026-09-27T15:54:29+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -14,13 +14,13 @@
       "medium": 59,
       "high": 10
     },
-    "reproduced": 30,
-    "authored": 30,
-    "open_prs": 30,
+    "reproduced": 31,
+    "authored": 31,
+    "open_prs": 31,
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-27T15:44:42+00:00",
+    "last_refresh": "2026-09-27T15:54:29+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49
   },
@@ -4050,6 +4050,11 @@
       "ts": "2026-09-27T15:44:11+00:00",
       "text": "DeepSpeed #6501 published: PR #8685 uses launcher rank/world size when configuration precedes distributed initialization, preserving single-process defaults and sequence-parallel adjustment. Exact DCO-signed commit 577c913 independently APPROVED; the base repro fails, while 3 fallback contracts and 70 CPU-safe neighboring tests pass. DCO is green.",
       "repo": "deepspeedai/DeepSpeed"
+    },
+    {
+      "ts": "2026-09-27T15:54:00+00:00",
+      "text": "Lightning #20551 published: PR #21976 stops the logger connector from force-flushing after every metric update so TensorBoard, CSV, and custom logger buffering policies can operate. Exact commit 0f5708e independently APPROVED; all 3 connector paths fail on base and pass on the candidate, with all changed-file hooks green locally.",
+      "repo": "Lightning-AI/pytorch-lightning"
     }
   ],
   "companies": [

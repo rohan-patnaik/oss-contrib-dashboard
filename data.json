@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-27T13:12:23+00:00",
+  "generated": "2026-09-27T13:35:56+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -14,13 +14,13 @@
       "medium": 59,
       "high": 10
     },
-    "reproduced": 22,
-    "authored": 22,
-    "open_prs": 22,
+    "reproduced": 23,
+    "authored": 23,
+    "open_prs": 23,
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-27T13:12:23+00:00",
+    "last_refresh": "2026-09-27T13:35:56+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49
   },
@@ -1039,7 +1039,7 @@
       "importance": "low",
       "importance_rationale": "Every remote-only server publisher hits the same onboarding dead-end; substantive docs gap, not typo work.",
       "difficulty": "low",
-      "status": "vetted",
+      "status": "pr-open",
       "verified_at": "2026-09-24T18:27:51Z",
       "ownership_check": "Open, unassigned, zero comments (created 2026-09-21). Issue headline partially overstated (remote-servers.mdx exists) — fix shape corrected to cross-link + gap notes. No matching PR found as of 2026-09-24T18:26:29Z; queries: search 1656 / remote-only.",
       "competing_prs": [],
@@ -1857,9 +1857,12 @@
       "difficulty": "medium",
       "status": "vetted",
       "verified_at": "2026-09-24T21:58:32Z",
-      "ownership_check": "Reporter nkpart inactive in-thread since 2024. prabhaks diagnosed but did not claim and has no faiss PRs (checked 2026-09-24T21:56Z).",
+      "ownership_check": "Fresh publish check 2026-09-27T13:34:15Z: issue open and unassigned; the July diagnosis/offer has no follow-up or branch. Exact-issue, semantic, direct-map, and timeline searches found no active or linked competing implementation.",
       "competing_prs": [],
-      "platform_plan": "CPU-only, Mac ARM64 or Linux container. Build: `git clone --branch main ... && cmake -B build -DFAISS_ENABLE_GPU=OFF -DFAISS_ENABLE_PYTHON=ON -DBUILD_TESTING=ON -DCMAKE_BUILD_TYPE=Release . && make -C build -j8 swigfaiss && (cd build/faiss/python && pip install -e .)` (needs libomp: `brew install libomp` on macOS). Repro: run the issue's script (two IDMap2,IVF32,Flat shards of 500 vectors each, merge_from, make_direct_map, reconstruct_batch(all_ids)) -> RuntimeError '-1 entry in direct_map' before fix, clean reconstruction after. Regression: `pytest tests/test_index_composite.py -x` plus new test."
+      "platform_plan": "CPU-only, Mac ARM64 or Linux container. Build: `git clone --branch main ... && cmake -B build -DFAISS_ENABLE_GPU=OFF -DFAISS_ENABLE_PYTHON=ON -DBUILD_TESTING=ON -DCMAKE_BUILD_TYPE=Release . && make -C build -j8 swigfaiss && (cd build/faiss/python && pip install -e .)` (needs libomp: `brew install libomp` on macOS). Repro: run the issue's script (two IDMap2,IVF32,Flat shards of 500 vectors each, merge_from, make_direct_map, reconstruct_batch(all_ids)) -> RuntimeError '-1 entry in direct_map' before fix, clean reconstruction after. Regression: `pytest tests/test_index_composite.py -x` plus new test.",
+      "pr_url": "https://github.com/facebookresearch/faiss/pull/5675",
+      "pr_raised_at": "2026-09-27T13:35:02+00:00",
+      "outcome": "PR #5675 open ready and mergeable at independently approved commit d6913bd. IDMap merges offset terminal IVF internal IDs through direct and IndexPreTransform paths while positional Flat storage keeps zero. The base silently reconstructs wrong vectors; 5 focused, 62 adjacent Python, and 6 C++ merge tests pass. Meta CLA and import checks are green; internal import status is queued."
     },
     {
       "company": "Meta",
@@ -3998,6 +4001,11 @@
       "ts": "2026-09-27T13:11:33+00:00",
       "text": "DeepSpeed #7357 published: PR #8683 preserves each pipeline activation's requires_grad flag and uses it consistently for gradient traffic and backward pairing. Exact DCO-signed commit a16bd94 independently APPROVED; the base flips a non-gradient floating target, 3 static/dynamic CPU/Gloo pipeline regressions and controls pass, and all changed-file hooks pass. DCO is green; shared protocol edge paths were source-audited.",
       "repo": "deepspeedai/DeepSpeed"
+    },
+    {
+      "ts": "2026-09-27T13:35:19+00:00",
+      "text": "Faiss #3495 published: PR #5675 prevents inner-ID collisions when merging IDMap/IDMap2 over direct or transformed IVF storage while preserving positional Flat behavior. Exact commit d6913bd independently APPROVED after review caught and closed an IndexPreTransform gap; 5 focused, 62 adjacent Python, and 6 C++ merge tests pass. Meta CLA and import checks are green.",
+      "repo": "facebookresearch/faiss"
     }
   ],
   "companies": [

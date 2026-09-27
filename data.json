@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-27T14:10:58+00:00",
+  "generated": "2026-09-27T14:28:52+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -20,7 +20,7 @@
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-27T14:10:58+00:00",
+    "last_refresh": "2026-09-27T14:28:52+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49
   },
@@ -1920,11 +1920,14 @@
       "difficulty": "medium",
       "status": "vetted",
       "verified_at": "2026-09-24T21:58:32Z",
-      "ownership_check": "Reporter leemeii: no claim comment, no linked PR (timeline empty of PRs at 21:51Z; their open fix PRs cover other issues only).",
+      "ownership_check": "Fresh publish check 2026-09-27T14:26:55Z: issue open, unassigned, and uncommented; closed internal removal export #5570 was not merged, no active removal implementation or timeline cross-reference exists, and open #5609 owns only the separate reset path.",
       "competing_prs": [
         "https://github.com/facebookresearch/faiss/pull/5609"
       ],
-      "platform_plan": "CPU-only. Same source build as #3495. Repro: run the issue's script verbatim (d=4, nlist=2, nprobe=2, ids [10,20,30] with vec(20)==vec(10)); before fix: remove_ids returns 0, ntotal stays 3, search padded with -1; after fix: returns 1, ntotal 2, clean search. Regression: `pytest tests/test_index_composite.py -k Dedup -x` (TestIVFFlatDedup at tests/test_index_composite.py:436)."
+      "platform_plan": "CPU-only. Same source build as #3495. Repro: run the issue's script verbatim (d=4, nlist=2, nprobe=2, ids [10,20,30] with vec(20)==vec(10)); before fix: remove_ids returns 0, ntotal stays 3, search padded with -1; after fix: returns 1, ntotal 2, clean search. Regression: `pytest tests/test_index_composite.py -k Dedup -x` (TestIVFFlatDedup at tests/test_index_composite.py:436).",
+      "pr_url": "https://github.com/facebookresearch/faiss/pull/5678",
+      "pr_raised_at": "2026-09-27T14:28:06+00:00",
+      "outcome": "PR #5678 open ready and mergeable at independently approved commit 4f932f6. Duplicate-only removals, representative promotion, and physical removals now contribute exactly once while entry guards preserve atomic errors and prevent stale-reset underflow. All 41 composite Python tests plus 4 subtests, 6 C++ IVF tests, and a 96-case insertion-order/subset review matrix pass; Meta CLA/import checks are green. Reset remains separately owned by #5609."
     },
     {
       "company": "Meta",

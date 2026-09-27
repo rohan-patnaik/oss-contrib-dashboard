@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-27T16:42:49+00:00",
+  "generated": "2026-09-27T17:13:04+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -14,13 +14,13 @@
       "medium": 59,
       "high": 10
     },
-    "reproduced": 33,
-    "authored": 33,
-    "open_prs": 33,
+    "reproduced": 34,
+    "authored": 34,
+    "open_prs": 34,
     "merged": 0,
     "landed_other": 0,
     "active_work": 1,
-    "last_refresh": "2026-09-27T16:42:49+00:00",
+    "last_refresh": "2026-09-27T17:13:04+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49
   },
@@ -4065,6 +4065,11 @@
       "ts": "2026-09-27T16:42:22+00:00",
       "text": "BoTorch #2398 published: PR #3374 makes ModelListGP fantasization route by constituent model and supports MultiTaskGP long-format inputs, fixed noise, and shared decoupled masks. Exact commit 292c56b independently APPROVED after review caught singleton-noise compatibility; 33 tests, 13 subtests, adversarial mapping probes, and changed-file hooks pass. Meta CLA/import checks are green.",
       "repo": "meta-pytorch/botorch"
+    },
+    {
+      "ts": "2026-09-27T17:12:24+00:00",
+      "text": "NeMo Speech #15658 published: PR #16305 restores old boosting-tree checkpoint compatibility by merging legacy DictConfig values with current structured defaults while preserving schema validation and structured subclasses. Exact DCO-signed commit 49e111f independently APPROVED after three review-driven revisions; 9 focused and 25 adjacent CPU tests pass. DCO is green.",
+      "repo": "NVIDIA-NeMo/Speech"
     }
   ],
   "companies": [

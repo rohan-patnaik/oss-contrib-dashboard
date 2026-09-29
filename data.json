@@ -16,11 +16,11 @@
     },
     "reproduced": 36,
     "authored": 36,
-    "open_prs": 36,
-    "merged": 0,
+    "open_prs": 35,
+    "merged": 1,
     "landed_other": 0,
     "active_work": 0,
-    "last_refresh": "2026-09-27T20:47:49+00:00",
+    "last_refresh": "2026-09-29T20:40:54+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49
   },
@@ -1120,7 +1120,7 @@
       "importance": "medium",
       "importance_rationale": "Silently breaks session attribution for gateway providers (x-opencode-session and custom overrides): requests made on the resume path go out without the header, corrupting server-side session tracking with no visible error.",
       "difficulty": "medium",
-      "status": "pr-open",
+      "status": "merged",
       "verified_at": "2026-09-24T19:06:00Z",
       "ownership_check": "Unassigned (jamadeo assigned 2026-09-15, later removed). Reporter rookiejet made no claim; sole comment is jamadeo's fix guidance.",
       "competing_prs": [],
@@ -1130,7 +1130,7 @@
       "career_assessed_at": "2026-09-24T20:38:31+00:00",
       "pr_url": "https://github.com/aaif-goose/goose/pull/12516",
       "pr_raised_at": "2026-09-25T11:48:03+00:00",
-      "outcome": "PR #12516 open at independently approved commit ab286926; base regressions expose missing context in legacy resume and direct ACP setup, four focused lifecycle tests pass, and full-workspace clippy is clean."
+      "outcome": "PR #12516 merged on 2026-09-29 as commit add40e7 after its complete hosted suite passed; base regressions expose missing context in legacy resume and direct ACP setup, four focused lifecycle tests pass, and full-workspace clippy is clean."
     },
     {
       "company": "Block/Goose",
@@ -4084,6 +4084,11 @@
     {
       "ts": "2026-09-27T20:47:49+00:00",
       "text": "Maintenance refresh: Unstructured #4504, Curator #2445, Hermes Agent #125141, and Goose #12516 are conflict-free with their actionable review or CI findings resolved. Unstructured passes 64 JSON tests, Curator's DCO and Greptile checks are green, Hermes passes 160 compression tests after rebasing, and Goose's complete refreshed hosted suite is green after isolating an unrelated scheduler timing flake.",
+      "repo": "campaign-maintenance"
+    },
+    {
+      "ts": "2026-09-29T20:40:54+00:00",
+      "text": "Goose #12516 merged as add40e7. Maintenance rebased and resolved upstream conflicts in Goose #12499/#12519, MLflow #26213, and T3 Code #12785, leaving all four mergeable. T3 Code's width-binding and diff-scope findings were fixed and its re-review is clean; Hermes #125116 received a scope clarification that preserves adapter safety. Goose #12499's refreshed suite is green; #12519 passes Rust/TLS/desktop/SDK validation and awaits a maintainer rerun of one unrelated MCP SSE-retry flake.",
       "repo": "campaign-maintenance"
     }
   ],

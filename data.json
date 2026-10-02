@@ -4099,7 +4099,7 @@
     },
     {
       "ts": "2026-10-02T10:04:58Z",
-      "text": "Unstructured #4504 release conflicts resolved in 09d7669: upstream changelog retained, version advanced to 0.27.13, unchanged JSON implementation passes 64 tests and scoped Ruff/version checks. T3 Code #12785 narrowed to width-only in b84003dae, preserving Appearance at 0%, then fixed detached-row observation in 2a0c30701; 128 focused tests, web typecheck, and 45 browser CSS cases pass. Both ready and mergeable, concise comments posted. T3's fresh automated review is pending; Unstructured workflows await upstream approval. This targeted maintenance does not refresh the campaign-wide summary counts.",
+      "text": "Unstructured #4504 release conflicts resolved in 09d7669: upstream changelog retained, version advanced to 0.27.13, unchanged JSON implementation passes 64 tests and scoped Ruff/version checks. T3 Code #12785 narrowed to width-only, preserving Appearance at 0%, with final detached-row/insertion fixes in fe5f975be; 128 focused tests, web typecheck, and 45 browser CSS cases pass. Both ready and mergeable, concise comments posted. T3's fresh automated review is pending; Unstructured workflows await upstream approval. Additional native-observer preview proof was unavailable. This targeted maintenance does not refresh the campaign-wide summary counts.",
       "repo": "campaign-maintenance"
     }
   ],

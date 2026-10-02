@@ -4096,6 +4096,11 @@
       "ts": "2026-09-30T11:39:29Z",
       "text": "BoTorch #3372 landed through Meta import (e2a40c5); #3370 approved/imported and awaits landing, with unrelated macOS failures. OpenHands #5318 received a review-driven fix (6159d92): targeted registration cleanup preserves unmounted siblings, and deletion finishes after Git cleanup failures. Both threads resolved, 168 affected tests/hooks and real Docker lifecycle pass; HUMAN body unchanged. Campaign: 36 authored, 34 open, 1 GitHub merge plus 1 Meta-import landing. Other maintainer-only gates and Goose #12519's already-reported MCP retry flake remain unchanged.",
       "repo": "campaign-maintenance"
+    },
+    {
+      "ts": "2026-10-02T10:04:58Z",
+      "text": "Unstructured #4504 release conflicts resolved in 09d7669: upstream changelog retained, version advanced to 0.27.13, unchanged JSON implementation passes 64 tests and scoped Ruff/version checks. T3 Code #12785 narrowed to width-only in b84003dae, preserving Appearance at 0% and fixing minimap refresh; 127 focused tests and 45 browser CSS cases pass. Both ready and mergeable, concise comments posted. T3's fresh automated review is pending; Unstructured workflows await upstream approval. This targeted maintenance does not refresh the campaign-wide summary counts.",
+      "repo": "campaign-maintenance"
     }
   ],
   "companies": [

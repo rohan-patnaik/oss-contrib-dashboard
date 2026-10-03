@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-30T11:44:33+00:00",
+  "generated": "2026-10-03T07:00:52.391Z",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -16,11 +16,11 @@
     },
     "reproduced": 36,
     "authored": 36,
-    "open_prs": 34,
-    "merged": 1,
-    "landed_other": 1,
+    "open_prs": 32,
+    "merged": 2,
+    "landed_other": 2,
     "active_work": 0,
-    "last_refresh": "2026-09-30T11:44:33+00:00",
+    "last_refresh": "2026-10-03T07:00:52.391Z",
     "excluded_prior_repos": 26,
     "pr_qualified": 49
   },
@@ -1263,7 +1263,7 @@
       "career_signal": "very_high",
       "career_signal_rationale": "Agent-runtime data-integrity fix: docker runtime's git worktrees span host/container namespaces and are prunable from the host, risking work loss — consequential execution-environment correctness requiring cross-namespace design.",
       "career_assessed_at": "2026-09-24T20:38:31+00:00",
-      "outcome": "PR #5318 updated at 6159d92: targeted registration cleanup preserves unmounted sibling worktrees, and Git cleanup failures no longer block deletion. Both review threads resolved; 168 affected tests, hooks, and actual source-backed Docker lifecycle pass. HUMAN body untouched; description/artifact checks green. Fresh review awaits upstream permissions.",
+      "outcome": "2026-10-03: merged current main and pushed c80888fb3305cfba100bc25e38204ce3dedd417e. Preserved launch mediation, scoped worktree cleanup and browser-setting behavior; adapted regression tests to the new worktree-plan API and covered Git/non-Git workspace forwarding. All 213 affected tests, required hooks and the real source-backed Docker lifecycle pass. Correct Rohan identity, DCO and repository-required OpenHands co-author trailer. Hosted SHA verified and mergeable; description/artifact checks pass. Entire PR body including HUMAN remains verbatim.",
       "pr_url": "https://github.com/OpenHands/software-agent-sdk/pull/5318",
       "pr_raised_at": "2026-09-25T07:37:56+00:00"
     },
@@ -1312,7 +1312,7 @@
       "importance": "medium",
       "importance_rationale": "Any batched TruncatedMultivariateNormal (batch of means/covariances, the natural shape coming out of batched GP posteriors) crashes in rsample with a broadcast ValueError; users must fall back to per-element Python loops. Maintainer hvarfner explicitly invited a community PR.",
       "difficulty": "high",
-      "status": "pr-open",
+      "status": "landed",
       "verified_at": "2026-09-24T19:49:43Z",
       "ownership_check": "Open, unassigned, bug label. Reporter mathDR claimed 2026-01-16 and iterated through 2026-02-03 ('I have some cycles... Do you have a draft PR?') with no PR ever opened - claim stale >7 months (>90d window). Balandat's 2026-01-18 'let me give it a shot' also produced no PR. hvarfner (CONTRIBUTOR/maintainer) invited a PR 2026-01-16T21:38:54Z: 'Would you be interested in fixing the issue by contributing a PR?'",
       "competing_prs": [],
@@ -1322,7 +1322,7 @@
       "career_assessed_at": "2026-09-24T20:38:31+00:00",
       "pr_url": "https://github.com/meta-pytorch/botorch/pull/3370",
       "pr_raised_at": "2026-09-25T12:43:21+00:00",
-      "outcome": "PR #3370 approved by maintainer saitcakmak and imported as D122435453; still open and mergeable. Linux/Windows/docs/lint/tutorials/internal validation passes. Two macOS failures are the unchanged relevance-pursuit test also seen on already-landed #3372, not a batched-sampling regression."
+      "outcome": "Landed through Meta import on 2026-09-30 as b81834ef22014770a51a85e45ed2d920e3afcdcf. Explicit maintainer merge comment, ClosedEvent commit and upstream resolving commit message confirmed live on 2026-10-03. GitHub mergedAt is null because this is an import workflow, not an unmerged rejection."
     },
     {
       "company": "Meta/PyTorch",
@@ -1448,7 +1448,7 @@
       "importance": "medium",
       "importance_rationale": "Models containing Where over int8/uint32 tensors (common in quantized models and in WebNN-on-CPU, per the reporter - a Microsoft DirectML/WebNN engineer) fail outright on the CPU EP with 'Could not find an implementation'; the requested types are bitcast-aliases of already-registered uint8/int32 kernels, so the reporter pre-empted the usual binary-size objection in the issue itself.",
       "difficulty": "medium",
-      "status": "pr-open",
+      "status": "merged",
       "verified_at": "2026-09-24T19:49:43Z",
       "ownership_check": "Open, unassigned, feature-request label. Only comments are the reporter's own label housekeeping and an FYI ping to WebNN folks (2025-07-07). No claim, no maintainer objection; note ORT's stated type-registration policy (skottmckay on #32719: types added when a production scenario requires them) - this issue documents that scenario (WebNN decomposition on CPU) and the zero-bloat bitcast argument up front.",
       "competing_prs": [],
@@ -1458,7 +1458,7 @@
       "career_assessed_at": "2026-09-24T20:38:31+00:00",
       "pr_url": "https://github.com/microsoft/onnxruntime/pull/32846",
       "pr_raised_at": "2026-09-27T09:07:56+00:00",
-      "outcome": "PR #32846 open ready at independently approved commit 55ed880; CPU Where now registers int8 and uint32 across opsets 9+, with CPU-pinned boundary regressions, generated kernel docs, registration validation, lintrunner, and all Where tests passing. Microsoft CLA is green."
+      "outcome": "Merged natively on 2026-09-30T14:27:13Z; live GitHub merge state and merge commit verified in the 2026-10-03 daily refresh. Merge commit: 2cdcde06613e28eb06376f2f2000010f3814fcfd."
     },
     {
       "company": "NVIDIA",
@@ -2414,11 +2414,13 @@
       "career_signal_rationale": "Correctness fix in the fantasy-model machinery underpinning lookahead/knowledge-gradient acquisition in a major BO framework: multi-output GP output-vs-model index bookkeeping, sampler routing, and observation-noise slicing — substantive probabilistic-ML engineering defensible in an interview.",
       "career_assessed_at": "2026-09-25T05:25:00Z",
       "difficulty": "medium-high",
-      "status": "vetted",
+      "status": "pr-open",
       "verified_at": "2026-09-25T05:20:38Z",
       "ownership_check": "No claims; original user lucky-luke-98 provided repro only.",
       "competing_prs": [],
-      "platform_plan": "Pure CPU: build ModelListGP(SingleTaskGP, MultiTaskGP) on random 10-point data (double dtype), call .fantasize(X, sampler=ListSampler(...)/SobolQMCNormalSampler) — IndexError/mis-fantasization before fix; after fix returns a ModelListGP whose sub-models were each fantasized once with their own output slice. Also run existing `pytest test/models/test_model_list_gp_regression.py test/models/test_model.py`."
+      "platform_plan": "Pure CPU: build ModelListGP(SingleTaskGP, MultiTaskGP) on random 10-point data (double dtype), call .fantasize(X, sampler=ListSampler(...)/SobolQMCNormalSampler) — IndexError/mis-fantasization before fix; after fix returns a ModelListGP whose sub-models were each fantasized once with their own output slice. Also run existing `pytest test/models/test_model_list_gp_regression.py test/models/test_model.py`.",
+      "outcome": "2026-10-03: pushed 363b7aa753e45e0d086def32e5490caf34f1165c from the maintainer-rebased PR head, without rewriting history. Fixed unobserved-task fixed-noise NaNs and empty decoupled multitask fantasies. Both reviewer counterexamples fail before the fix; 35 affected tests and 13 subtests plus all changed-file hooks pass. Both inline threads answered/resolved; hosted SHA verified and mergeable. New CI is still running.",
+      "pr_url": "https://github.com/meta-pytorch/botorch/pull/3374"
     },
     {
       "company": "Hugging Face",
@@ -3602,11 +3604,13 @@
       "career_signal_rationale": "Data-identity correctness in the rehydration path of a 15.5k-star LLM data-ingestion library: the fix requires reasoning about decorator-driven metadata post-processing and preserving a serialization round-trip contract, exactly the RAG-pipeline data-integrity work that is defensible in an interview. Not very_high: it is ETL plumbing, not a core inference/eval path.",
       "career_assessed_at": "2026-09-25T06:33:25Z",
       "difficulty": "medium",
-      "status": "vetted",
+      "status": "pr-open",
       "verified_at": "2026-09-25T06:33:25Z",
       "ownership_check": "Open, unassigned, ZERO comments since filing (2024-07-09). Reporter is scanny - the (since-departed) architecture owner of this code, so the issue itself constitutes maintainer triage/design agreement. Timeline xrefs: only PR #4391 (MERGED 2026-07, arbitrary-JSON feature - rewrote the function body but kept the offending decorators) and an out-of-repo reference. Competition queries (gh pr list -R unstructured-io/unstructured --state all --search): '3365' -> only #4391; 'partition_json' -> #4483 (OPEN, encoding= only), #4488 (md), #4391, older merged; 'rehydrate' -> #4391 + 2023 PRs; 'element_id preserve' -> #2673 (2024, the hash-ID feature itself). No matching PR found as of 2026-09-25T06:28:02Z.",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64 CPU-only: python3.12 -m venv .venv && pip install -e . (core install; JSON path needs no extras) then pytest test_unstructured/partition/test_json.py test_unstructured/partition/test_ndjson.py. Repro: elements_from_json(example_doc_path('simple.json')) vs partition_json(example_doc_path('simple.json')); assert elements_to_dicts equality - fails today on element_id/filename/file_directory/filetype/last_modified. No models, no network."
+      "platform_plan": "Mac ARM64 CPU-only: python3.12 -m venv .venv && pip install -e . (core install; JSON path needs no extras) then pytest test_unstructured/partition/test_json.py test_unstructured/partition/test_ndjson.py. Repro: elements_from_json(example_doc_path('simple.json')) vs partition_json(example_doc_path('simple.json')); assert elements_to_dicts equality - fails today on element_id/filename/file_directory/filetype/last_modified. No models, no network.",
+      "outcome": "2026-10-03: pushed 3f89166e8d5bcb66790602012fcaeccc440edffe. Explicit timestamps are applied to rehydrated originals before chunking so orig_elements provenance is correct; no-override timestamps are preserved. Eight basic/by_title and serialization cases reproduce four baseline failures; all 72 JSON tests, whole-tree Ruff and version synchronization pass. Merged current main, preserving releases and advancing to 0.27.17. Hosted SHA verified, mergeable, concise reply posted; external-fork workflow execution remains maintainer-owned.",
+      "pr_url": "https://github.com/Unstructured-IO/unstructured/pull/4504"
     }
   ],
   "holds": [
@@ -4100,6 +4104,11 @@
     {
       "ts": "2026-10-02T10:04:58Z",
       "text": "Unstructured #4504 release conflicts resolved in 09d7669: upstream changelog retained, version advanced to 0.27.13, unchanged JSON implementation passes 64 tests and scoped Ruff/version checks. T3 Code #12785 narrowed to width-only, preserving Appearance at 0%, with final detached-row/insertion fixes in fe5f975be; 128 focused tests, web typecheck, and 45 browser CSS cases pass. Both ready and mergeable, concise comments posted. T3's final automated re-review is green with no new actionable findings; Unstructured workflows await upstream approval. Additional native-observer preview proof was unavailable. This targeted maintenance does not refresh the campaign-wide summary counts.",
+      "repo": "campaign-maintenance"
+    },
+    {
+    "ts": "2026-10-03T07:00:52.391Z",
+      "text": "Daily maintenance ran automatically at 12 PM IST. BoTorch #3374 reviewer edge cases, Unstructured #4504 timestamp provenance/release conflicts, and OpenHands #5318 launch/worktree conflicts fixed and pushed with regression tests and scoped validation. Four campaign PRs are explicitly landed (two native merges, two Meta imports); 32 remain open. T3 width PR #12785 closed unmerged for V2; no new contribution raised.",
       "repo": "campaign-maintenance"
     }
   ],

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-09T05:24:53.930685+00:00",
+  "generated": "2026-10-09T06:51:20.801684+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -20,9 +20,14 @@
     "merged": 2,
     "landed_other": 2,
     "active_work": 0,
-    "last_refresh": "2026-10-03T07:00:52.391Z",
+    "last_refresh": "2026-10-09T06:51:20.801684+00:00",
     "excluded_prior_repos": 26,
-    "pr_qualified": 49
+    "pr_qualified": 49,
+    "monitored_open_prs": 60,
+    "monitored_drafts": 0,
+    "monitored_recent_landed": 4,
+    "monitored_recent_closed_unmerged": 2,
+    "author_action_items": 2
   },
   "repos": [
     {
@@ -1163,7 +1168,9 @@
       "career_assessed_at": "2026-09-24T20:38:31+00:00",
       "pr_url": "https://github.com/aaif-goose/goose/pull/12499",
       "pr_raised_at": "2026-09-24T20:59:25+00:00",
-      "outcome": "PR #12499 open (review: APPROVE with 4 independent probes; gate: very_high)"
+      "outcome": "2026-10-09: current PR head eeecca95e remains CONFLICTING. Prepared an isolated, uncommitted merge against main 7bdeadb9: retain bounded thinking-only recovery in the surviving state machine, alongside upstream empty-response recovery, and drop deleted legacy-loop code. Scoped Rust 1.98 edition-2021 formatting and diff checks pass; current-main tests and Clippy are NOT run. Storage is below the 10 GB heavy-build reserve and pinned Rust 1.99.0 is unavailable. No commit/push/public nudge. Resume patch and exact source worktree are recorded in pr-daily-maintenance/20261009/outputs/goose-validation-blocker.json.",
+      "last_maintained": "2026-10-09T06:51:20.801684+00:00",
+      "head": "eeecca95e9842ef9589ef0a61b70359b36175449"
     },
     {
       "company": "Block/Goose",
@@ -3685,7 +3692,9 @@
       "pr_url": "https://github.com/python/cpython/pull/159046",
       "pr_number": 159046,
       "head": "c1d37aef7daf1628463889cbfe6acaf10e1c8f67",
-      "updated_at": "2026-10-09T05:02:49.047896+00:00"
+      "updated_at": "2026-10-09T05:02:49.047896+00:00",
+      "outcome": "2026-10-09 daily sweep: current-head docs, doctest, EPUB, lint, required checks and preview pass. CLA Signing fails pending Rohan signing https://cla.python.org/ for the committing identity. No code finding; no legal agreement signed by the agent.",
+      "last_maintained": "2026-10-09T06:51:20.801684+00:00"
     },
     {
       "company": "Cursor/Anysphere",
@@ -3706,7 +3715,9 @@
       "pr_url": "https://github.com/anysphere/k8s-workers/pull/10",
       "pr_number": 10,
       "head": "adcd38ae866b1eab273824894185eb36421b5557",
-      "updated_at": "2026-10-09T05:02:49.047896+00:00"
+      "updated_at": "2026-10-09T05:02:49.047896+00:00",
+      "outcome": "2026-10-09 daily sweep: Socket succeeds; exact-head ci run 37886631826 is action_required with zero jobs, awaiting maintainer authorization. No code finding or conflict.",
+      "last_maintained": "2026-10-09T06:51:20.801684+00:00"
     },
     {
       "company": "Cursor",
@@ -3728,7 +3739,9 @@
       "pr_number": 529,
       "head": "33a7d45f4d09505f2594aa58c05089e287ceb8bf",
       "updated_at": "2026-10-09T05:24:53.930685+00:00",
-      "note": "Follow-up pushed after independent APPROVE. Both Bugbot findings addressed: skill passes absolute helper path/workspace, and helper accepts named options. Old updater command fails without CURSOR_PLUGIN_ROOT; corrected command passes. All 13 Bun tests pass. Replies and both review-thread resolutions verified; hosted re-review pending."
+      "note": "Follow-up pushed after independent APPROVE. Both Bugbot findings addressed: skill passes absolute helper path/workspace, and helper accepts named options. Old updater command fails without CURSOR_PLUGIN_ROOT; corrected command passes. All 13 Bun tests pass. Replies and both review-thread resolutions verified; hosted re-review pending.",
+      "outcome": "2026-10-09 daily sweep: Bugbot succeeds at 33a7d45f; both prior findings remain resolved with verified author replies. No new finding or conflict.",
+      "last_maintained": "2026-10-09T06:51:20.801684+00:00"
     },
     {
       "company": "Rails",
@@ -3749,7 +3762,9 @@
       "pr_url": "https://github.com/rails/rails/pull/59007",
       "pr_number": 59007,
       "head": "0720d04c4518349dd5b904d0a2e621bae06b8c21",
-      "updated_at": "2026-10-09T05:20:38.134399+00:00"
+      "updated_at": "2026-10-09T05:20:38.134399+00:00",
+      "outcome": "2026-10-09 daily sweep: all current-head reported checks succeed, including hosted docs/API previews, Markdown API and rails-new-docker. No review findings or conflict.",
+      "last_maintained": "2026-10-09T06:51:20.801684+00:00"
     }
   ],
   "holds": [
@@ -4253,6 +4268,10 @@
     {
       "ts": "2026-10-09T05:24:53.930685+00:00",
       "text": "Approved foundation/company batch: opened CPython #159046, Rails #59007, anysphere/k8s-workers #10 and cursor/plugins #529 after independent reviews and scoped validation. CPython exact diff/title/body human-approved; hosted docs checks passed, Python CLA signature awaits Rohan. Cursor follow-up 33a7d45 addresses both Bugbot findings with 13 passing tests and verified replies/resolutions; re-review pending. Two Kubernetes leads now claimed/covered and skipped. Remaining 14 leads pending/held for policy, coordination, protocol or validation needs; artifact free space ~1.946 GB is below the 10 GB heavy-build reserve. Full 20-lead status retained at /run/media/rohan/Stuff/Artifacts/oss-foundation-implementation-20261009/outputs/batch-status.json. This is targeted contribution work, not a refreshed full-campaign census."
+    },
+    {
+      "ts": "2026-10-09T06:51:20.801684+00:00",
+      "text": "Compared live authenticated GitHub state with successful 2026-10-08T06:32:54.562139+00:00 sweep. 60 authored open PRs, zero drafts, 5 filtered notifications, complete nested comments/reviews/threads/checks and 60 exact-head workflow histories. Five new authored PRs were published under separate authorization since that sweep; this maintenance opened none. Two new conflicts: T3 #15109 fixed/pushed with 99 tests, web typecheck, scoped static checks and independent APPROVE; verified mergeable and concise reply posted. Goose #12499 isolated resolution prepared but uncommitted/unpushed: current-main tests/Clippy blocked by below-10-GB storage and absent pinned Rust 1.99.0. Rohan must sign CPython CLA; these are two remaining author-side items (one conflict plus one legal blocker). Rails checks, Cursor Bugbot and T3 #17227 CodeRabbit now pass. T3/worker workflow authorization, T3 width scope approval and existing maintainer/import queues remain external. Old flake/cancellations and four answered outdated threads unchanged; no duplicate nudge or rerun. Monitored recent closures: four verified landings/two closed-unmerged. Original campaign 36: 32 open/four landed/zero closed-unmerged. Meta merge comments/resolving commits reread; T3 #12768 unchanged; OpenHands body/HUMAN unchanged. Evidence: /run/media/rohan/Stuff/Artifacts/pr-daily-maintenance/20261009/."
     }
   ],
   "companies": [

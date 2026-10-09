@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-03T07:00:52.391Z",
+  "generated": "2026-10-09T05:24:53.930685+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -991,6 +991,60 @@
       "policy_links": [],
       "decision": "admitted",
       "checked_at": "2026-09-25T06:30:00Z"
+    },
+    {
+      "company": "CPython",
+      "repo": "python/cpython",
+      "url": "https://github.com/python/cpython",
+      "relevance": "Correct the language-reference explanation of how `in` looks up __contains__; link the special-method lookup rule. No runtime change.",
+      "maintenance": "Current upstream inspected",
+      "previous_contribution": "none",
+      "policy": "External contributions eligible; project policy and publication review required.",
+      "policy_links": [
+        "https://github.com/python/cpython"
+      ],
+      "decision": "admitted",
+      "checked_at": "2026-10-09T04:56:01.133333+00:00"
+    },
+    {
+      "company": "Cursor/Anysphere",
+      "repo": "anysphere/k8s-workers",
+      "url": "https://github.com/anysphere/k8s-workers",
+      "relevance": "Add worker-specific service-account configuration, preserving existing defaults and the distinction from the controller service account.",
+      "maintenance": "Current upstream inspected",
+      "previous_contribution": "none",
+      "policy": "External contributions eligible; project policy and publication review required.",
+      "policy_links": [
+        "https://github.com/anysphere/k8s-workers"
+      ],
+      "decision": "admitted",
+      "checked_at": "2026-10-09T04:56:01.133333+00:00"
+    },
+    {
+      "company": "Cursor",
+      "repo": "cursor/plugins",
+      "url": "https://github.com/cursor/plugins",
+      "relevance": "Implement only repository exclusion. Leave cadence and shared-memory redesigns outside this PR.",
+      "maintenance": "active",
+      "policy": "Public MIT plugins; no additional contribution/CLA policy found in root or .github.",
+      "policy_links": [
+        "https://github.com/cursor/plugins"
+      ],
+      "decision": "admitted",
+      "checked_at": "2026-10-09T05:02:21.897953+00:00"
+    },
+    {
+      "company": "Rails",
+      "repo": "rails/rails",
+      "url": "https://github.com/rails/rails",
+      "relevance": "Document that normalization targets the store attribute, not individual store accessors; provide a correct small example. Do not redesign the attribute system.",
+      "maintenance": "active",
+      "policy": "Contributing guide and AGENTS read; documentation clarification accepted in issue discussion.",
+      "policy_links": [
+        "https://github.com/rails/rails/blob/main/CONTRIBUTING.md"
+      ],
+      "decision": "admitted",
+      "checked_at": "2026-10-09T05:07:57.920981+00:00"
     }
   ],
   "issues": [
@@ -3611,6 +3665,91 @@
       "platform_plan": "Mac ARM64 CPU-only: python3.12 -m venv .venv && pip install -e . (core install; JSON path needs no extras) then pytest test_unstructured/partition/test_json.py test_unstructured/partition/test_ndjson.py. Repro: elements_from_json(example_doc_path('simple.json')) vs partition_json(example_doc_path('simple.json')); assert elements_to_dicts equality - fails today on element_id/filename/file_directory/filetype/last_modified. No models, no network.",
       "outcome": "2026-10-03: pushed 3f89166e8d5bcb66790602012fcaeccc440edffe. Explicit timestamps are applied to rehydrated originals before chunking so orig_elements provenance is correct; no-override timestamps are preserved. Eight basic/by_title and serialization cases reproduce four baseline failures; all 72 JSON tests, whole-tree Ruff and version synchronization pass. Merged current main, preserving releases and advancing to 0.27.17. Hosted SHA verified, mergeable, concise reply posted; external-fork workflow execution remains maintainer-owned.",
       "pr_url": "https://github.com/Unstructured-IO/unstructured/pull/4504"
+    },
+    {
+      "company": "CPython",
+      "repo": "python/cpython",
+      "number": 159034,
+      "url": "https://github.com/python/cpython/issues/159034",
+      "title": "Clarify membership-test special-method lookup",
+      "importance": "low",
+      "difficulty": "low",
+      "status": "pr-open",
+      "verified_at": "2026-10-09T04:56:01.133333+00:00",
+      "ownership_check": "Live issue open and unassigned; no competing PR found in latest implementation preflight.",
+      "competing_prs": [],
+      "platform_plan": "Verify the example on current Python; build the affected documentation and check references.",
+      "career_signal": "low",
+      "career_signal_rationale": "Correct the language-reference explanation of how `in` looks up __contains__; link the special-method lookup rule. No runtime change.",
+      "career_assessed_at": "2026-10-09T04:56:01.133333+00:00",
+      "pr_url": "https://github.com/python/cpython/pull/159046",
+      "pr_number": 159046,
+      "head": "c1d37aef7daf1628463889cbfe6acaf10e1c8f67",
+      "updated_at": "2026-10-09T05:02:49.047896+00:00"
+    },
+    {
+      "company": "Cursor/Anysphere",
+      "repo": "anysphere/k8s-workers",
+      "number": 9,
+      "url": "https://github.com/anysphere/k8s-workers/issues/9",
+      "title": "Configure worker Pod service accounts",
+      "importance": "medium",
+      "difficulty": "medium",
+      "status": "pr-open",
+      "verified_at": "2026-10-09T04:56:01.133333+00:00",
+      "ownership_check": "Live issue open and unassigned; no competing PR found in latest implementation preflight.",
+      "competing_prs": [],
+      "platform_plan": "Helm render and schema tests for defaults, explicit worker accounts and token automount; disposable-cluster smoke test.",
+      "career_signal": "high",
+      "career_signal_rationale": "Add worker-specific service-account configuration, preserving existing defaults and the distinction from the controller service account.",
+      "career_assessed_at": "2026-10-09T04:56:01.133333+00:00",
+      "pr_url": "https://github.com/anysphere/k8s-workers/pull/10",
+      "pr_number": 10,
+      "head": "adcd38ae866b1eab273824894185eb36421b5557",
+      "updated_at": "2026-10-09T05:02:49.047896+00:00"
+    },
+    {
+      "company": "Cursor",
+      "repo": "cursor/plugins",
+      "number": 141,
+      "url": "https://github.com/cursor/plugins/issues/141",
+      "title": "Add a repository denylist to continual learning",
+      "importance": "medium",
+      "difficulty": "medium",
+      "status": "pr-open",
+      "verified_at": "2026-10-09T05:02:21.897953+00:00",
+      "ownership_check": "Open unassigned; member acknowledges denylist gap. Live searches show no competing denylist PR; cadence and memory-file PRs excluded.",
+      "competing_prs": [],
+      "platform_plan": "Hook tests for excluded/allowed repositories, canonical paths and unchanged defaults; verify no memory update is scheduled for an excluded repository.",
+      "career_signal": "high",
+      "career_signal_rationale": "Implement only repository exclusion. Leave cadence and shared-memory redesigns outside this PR.",
+      "career_assessed_at": "2026-10-09T05:02:21.897953+00:00",
+      "pr_url": "https://github.com/cursor/plugins/pull/529",
+      "pr_number": 529,
+      "head": "33a7d45f4d09505f2594aa58c05089e287ceb8bf",
+      "updated_at": "2026-10-09T05:24:53.930685+00:00",
+      "note": "Follow-up pushed after independent APPROVE. Both Bugbot findings addressed: skill passes absolute helper path/workspace, and helper accepts named options. Old updater command fails without CURSOR_PLUGIN_ROOT; corrected command passes. All 13 Bun tests pass. Replies and both review-thread resolutions verified; hosted re-review pending."
+    },
+    {
+      "company": "Rails",
+      "repo": "rails/rails",
+      "number": 49762,
+      "url": "https://github.com/rails/rails/issues/49762",
+      "title": "Explain normalization of store-backed attributes",
+      "importance": "low",
+      "difficulty": "low",
+      "status": "pr-open",
+      "verified_at": "2026-10-09T05:07:57.920981+00:00",
+      "ownership_check": "Open/unassigned; maintainer proposes docs clarification; fresh issue and keyword PR searches have no competing docs change.",
+      "competing_prs": [],
+      "platform_plan": "Scoped Ruby syntax, RDoc rendering and repository RuboCop configuration.",
+      "career_signal": "low",
+      "career_signal_rationale": "Clarifies limitation of existing normalization API; approved foundation entry slot, no runtime change.",
+      "career_assessed_at": "2026-10-09T05:07:57.920981+00:00",
+      "pr_url": "https://github.com/rails/rails/pull/59007",
+      "pr_number": 59007,
+      "head": "0720d04c4518349dd5b904d0a2e621bae06b8c21",
+      "updated_at": "2026-10-09T05:20:38.134399+00:00"
     }
   ],
   "holds": [
@@ -4107,9 +4246,13 @@
       "repo": "campaign-maintenance"
     },
     {
-    "ts": "2026-10-03T07:00:52.391Z",
+      "ts": "2026-10-03T07:00:52.391Z",
       "text": "Daily maintenance ran automatically at 12 PM IST. BoTorch #3374 reviewer edge cases, Unstructured #4504 timestamp provenance/release conflicts, and OpenHands #5318 launch/worktree conflicts fixed and pushed with regression tests and scoped validation. Four campaign PRs are explicitly landed (two native merges, two Meta imports); 32 remain open. T3 width PR #12785 closed unmerged for V2; no new contribution raised.",
       "repo": "campaign-maintenance"
+    },
+    {
+      "ts": "2026-10-09T05:24:53.930685+00:00",
+      "text": "Approved foundation/company batch: opened CPython #159046, Rails #59007, anysphere/k8s-workers #10 and cursor/plugins #529 after independent reviews and scoped validation. CPython exact diff/title/body human-approved; hosted docs checks passed, Python CLA signature awaits Rohan. Cursor follow-up 33a7d45 addresses both Bugbot findings with 13 passing tests and verified replies/resolutions; re-review pending. Two Kubernetes leads now claimed/covered and skipped. Remaining 14 leads pending/held for policy, coordination, protocol or validation needs; artifact free space ~1.946 GB is below the 10 GB heavy-build reserve. Full 20-lead status retained at /run/media/rohan/Stuff/Artifacts/oss-foundation-implementation-20261009/outputs/batch-status.json. This is targeted contribution work, not a refreshed full-campaign census."
     }
   ],
   "companies": [

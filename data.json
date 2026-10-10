@@ -1050,6 +1050,19 @@
       ],
       "decision": "admitted",
       "checked_at": "2026-10-09T05:07:57.920981+00:00"
+    },
+    {
+      "company": "T3 Code",
+      "repo": "pingdotgg/t3code",
+      "url": "https://github.com/pingdotgg/t3code",
+      "relevance": "User-directed T3 contributions including the ChatGPT credit balance proposal.",
+      "maintenance": "active",
+      "policy": "AGENTS.md and CONTRIBUTING.md read at 8b81a8880. Maintainer approval for new features is pending; user expressly requests this proposal and PR despite possible decline. No claim of maintainer approval.",
+      "policy_links": [
+        "https://github.com/pingdotgg/t3code/blob/main/CONTRIBUTING.md"
+      ],
+      "decision": "admitted",
+      "checked_at": "2026-10-10T03:58:19.593086+00:00"
     }
   ],
   "issues": [
@@ -3765,6 +3778,28 @@
       "updated_at": "2026-10-09T05:20:38.134399+00:00",
       "outcome": "2026-10-09 daily sweep: all current-head reported checks succeed, including hosted docs/API previews, Markdown API and rails-new-docker. No review findings or conflict.",
       "last_maintained": "2026-10-09T06:51:20.801684+00:00"
+    },
+    {
+      "company": "T3 Code",
+      "repo": "pingdotgg/t3code",
+      "number": 17704,
+      "url": "https://github.com/pingdotgg/t3code/issues/17704",
+      "title": "Show ChatGPT credit balance alongside Codex usage limits",
+      "importance": "medium",
+      "difficulty": "medium",
+      "status": "pr-open",
+      "verified_at": "2026-10-10T03:56:28.925301+00:00",
+      "ownership_check": "User-requested new proposal; authenticated mechanism/title issue and PR searches on 2026-10-10 found no focused spendable ChatGPT balance implementation.",
+      "competing_prs": [],
+      "platform_plan": "Focused mapper, sparse updates, account identity/dedupe and refresh regressions; web/server typechecks; scoped lint/format; real web before/after and refresh. Native device access disabled.",
+      "career_signal": "medium",
+      "career_signal_rationale": "Useful read-only provider accounting feature with cross-client and stale-account handling. Explicit user-requested contribution.",
+      "career_assessed_at": "2026-10-10T03:56:28.925301+00:00",
+      "updated_at": "2026-10-10T04:01:06.586747+00:00",
+      "outcome": "Published linked ChatGPT credit-balance proposal and PR. 91 focused tests; web/server typechecks, scoped lint/format/diff checks pass; independent exact-commit APPROVE. Synthetic before/after, dark/narrow web evidence and refresh verified. Native device access disabled. Maintainer feature approval and hosted checks pending. Additional user-directed contribution; no refreshed global census.",
+      "pr_url": "https://github.com/pingdotgg/t3code/pull/17705",
+      "pr_number": 17705,
+      "head": "92a3f2be48395aeb63d43457cdc8c9ebdcb6c727"
     }
   ],
   "holds": [
@@ -4272,6 +4307,10 @@
     {
       "ts": "2026-10-09T06:51:20.801684+00:00",
       "text": "Compared live authenticated GitHub state with successful 2026-10-08T06:32:54.562139+00:00 sweep. 60 authored open PRs, zero drafts, 5 filtered notifications, complete nested comments/reviews/threads/checks and 60 exact-head workflow histories. Five new authored PRs were published under separate authorization since that sweep; this maintenance opened none. Two new conflicts: T3 #15109 fixed/pushed with 99 tests, web typecheck, scoped static checks and independent APPROVE; verified mergeable and concise reply posted. Goose #12499 isolated resolution prepared but uncommitted/unpushed: current-main tests/Clippy blocked by below-10-GB storage and absent pinned Rust 1.99.0. Rohan must sign CPython CLA; these are two remaining author-side items (one conflict plus one legal blocker). Rails checks, Cursor Bugbot and T3 #17227 CodeRabbit now pass. T3/worker workflow authorization, T3 width scope approval and existing maintainer/import queues remain external. Old flake/cancellations and four answered outdated threads unchanged; no duplicate nudge or rerun. Monitored recent closures: four verified landings/two closed-unmerged. Original campaign 36: 32 open/four landed/zero closed-unmerged. Meta merge comments/resolving commits reread; T3 #12768 unchanged; OpenHands body/HUMAN unchanged. Evidence: /run/media/rohan/Stuff/Artifacts/pr-daily-maintenance/20261009/."
+    },
+    {
+      "ts": "2026-10-10T04:01:06.586747+00:00",
+      "text": "T3 #17704/#17705: Published linked ChatGPT credit-balance proposal and PR. 91 focused tests; web/server typechecks, scoped lint/format/diff checks pass; independent exact-commit APPROVE. Synthetic before/after, dark/narrow web evidence and refresh verified. Native device access disabled. Maintainer feature approval and hosted checks pending. Additional user-directed contribution; no refreshed global census."
     }
   ],
   "companies": [

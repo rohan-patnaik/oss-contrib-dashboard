@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-09T06:51:20.801684+00:00",
+  "generated": "2026-10-10T07:18:15.504173+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -20,10 +20,10 @@
     "merged": 2,
     "landed_other": 2,
     "active_work": 0,
-    "last_refresh": "2026-10-09T06:51:20.801684+00:00",
+    "last_refresh": "2026-10-10T07:18:15.504173+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49,
-    "monitored_open_prs": 60,
+    "monitored_open_prs": 61,
     "monitored_drafts": 0,
     "monitored_recent_landed": 4,
     "monitored_recent_closed_unmerged": 2,
@@ -1181,8 +1181,8 @@
       "career_assessed_at": "2026-09-24T20:38:31+00:00",
       "pr_url": "https://github.com/aaif-goose/goose/pull/12499",
       "pr_raised_at": "2026-09-24T20:59:25+00:00",
-      "outcome": "2026-10-09: current PR head eeecca95e remains CONFLICTING. Prepared an isolated, uncommitted merge against main 7bdeadb9: retain bounded thinking-only recovery in the surviving state machine, alongside upstream empty-response recovery, and drop deleted legacy-loop code. Scoped Rust 1.98 edition-2021 formatting and diff checks pass; current-main tests and Clippy are NOT run. Storage is below the 10 GB heavy-build reserve and pinned Rust 1.99.0 is unavailable. No commit/push/public nudge. Resume patch and exact source worktree are recorded in pr-daily-maintenance/20261009/outputs/goose-validation-blocker.json.",
-      "last_maintained": "2026-10-09T06:51:20.801684+00:00",
+      "outcome": "2026-10-10: live eeecca95e remains CONFLICTING. Prior uncommitted isolated resolution preserved; upstream now 3bd85200. Required Rust 1.99.0 remains unavailable (installed 1.98.0/1.96.1), and 5.70 GB free is below the 10 GB heavy-build reserve. Current-main tests and Clippy remain unrun; no commit, push or repeat public nudge.",
+      "last_maintained": "2026-10-10T07:18:15.504173+00:00",
       "head": "eeecca95e9842ef9589ef0a61b70359b36175449"
     },
     {
@@ -3683,8 +3683,10 @@
       "ownership_check": "Open, unassigned, ZERO comments since filing (2024-07-09). Reporter is scanny - the (since-departed) architecture owner of this code, so the issue itself constitutes maintainer triage/design agreement. Timeline xrefs: only PR #4391 (MERGED 2026-07, arbitrary-JSON feature - rewrote the function body but kept the offending decorators) and an out-of-repo reference. Competition queries (gh pr list -R unstructured-io/unstructured --state all --search): '3365' -> only #4391; 'partition_json' -> #4483 (OPEN, encoding= only), #4488 (md), #4391, older merged; 'rehydrate' -> #4391 + 2023 PRs; 'element_id preserve' -> #2673 (2024, the hash-ID feature itself). No matching PR found as of 2026-09-25T06:28:02Z.",
       "competing_prs": [],
       "platform_plan": "Mac ARM64 CPU-only: python3.12 -m venv .venv && pip install -e . (core install; JSON path needs no extras) then pytest test_unstructured/partition/test_json.py test_unstructured/partition/test_ndjson.py. Repro: elements_from_json(example_doc_path('simple.json')) vs partition_json(example_doc_path('simple.json')); assert elements_to_dicts equality - fails today on element_id/filename/file_directory/filetype/last_modified. No models, no network.",
-      "outcome": "2026-10-03: pushed 3f89166e8d5bcb66790602012fcaeccc440edffe. Explicit timestamps are applied to rehydrated originals before chunking so orig_elements provenance is correct; no-override timestamps are preserved. Eight basic/by_title and serialization cases reproduce four baseline failures; all 72 JSON tests, whole-tree Ruff and version synchronization pass. Merged current main, preserving releases and advancing to 0.27.17. Hosted SHA verified, mergeable, concise reply posted; external-fork workflow execution remains maintainer-owned.",
-      "pr_url": "https://github.com/Unstructured-IO/unstructured/pull/4504"
+      "outcome": "2026-10-10: Fixed all three COMMENTED compatibility findings: explicit URL/HTML overrides, arbitrary-JSON chunker attachment metadata, and blank-input custom chunker post-processing including empty filenames. Verified pushed head f4ae89bd05c67a79209eff18b7393d0fdfa7e9da; 200 focused tests pass. Focused tests, whole-tree Ruff/formatting and version synchronization pass; seven existing optional-dependency skips. Independent exact-commit APPROVE, concise reply read back: https://github.com/Unstructured-IO/unstructured/pull/4504#issuecomment-6094878591. Hosted code workflows need maintainer authorization; feature/scope approval remains maintainer-owned where applicable. Reused dependencies; no fresh frozen-lock or native-mobile build.",
+      "pr_url": "https://github.com/Unstructured-IO/unstructured/pull/4504",
+      "last_maintained": "2026-10-10T07:18:15.504173+00:00",
+      "head": "f4ae89bd05c67a79209eff18b7393d0fdfa7e9da"
     },
     {
       "company": "CPython",
@@ -3706,8 +3708,8 @@
       "pr_number": 159046,
       "head": "c1d37aef7daf1628463889cbfe6acaf10e1c8f67",
       "updated_at": "2026-10-09T05:02:49.047896+00:00",
-      "outcome": "2026-10-09 daily sweep: current-head docs, doctest, EPUB, lint, required checks and preview pass. CLA Signing fails pending Rohan signing https://cla.python.org/ for the committing identity. No code finding; no legal agreement signed by the agent.",
-      "last_maintained": "2026-10-09T06:51:20.801684+00:00"
+      "outcome": "2026-10-10: docs, doctest, EPUB, lint and required checks succeed at the unchanged head. CLA Signing still fails pending Rohan signing https://cla.python.org/ for the committing identity. No code finding or legal signature by the agent.",
+      "last_maintained": "2026-10-10T07:18:15.504173+00:00"
     },
     {
       "company": "Cursor/Anysphere",
@@ -3796,10 +3798,11 @@
       "career_signal_rationale": "Useful read-only provider accounting feature with cross-client and stale-account handling. Explicit user-requested contribution.",
       "career_assessed_at": "2026-10-10T03:56:28.925301+00:00",
       "updated_at": "2026-10-10T04:01:06.586747+00:00",
-      "outcome": "Published linked ChatGPT credit-balance proposal and PR. 91 focused tests; web/server typechecks, scoped lint/format/diff checks pass; independent exact-commit APPROVE. Synthetic before/after, dark/narrow web evidence and refresh verified. Native device access disabled. Maintainer feature approval and hosted checks pending. Additional user-directed contribution; no refreshed global census.",
+      "outcome": "2026-10-10: Merged current main, preserved workspace-aware grouping, prevented stale balances after identity loss, and fixed the new CodeRabbit finding: credit-only snapshots retain the freshest usable quota windows. Addressed inline thread resolved after verified push. Verified pushed head 7bce6161d4ac83ce5507c96e361459df9a0222bd; 102 focused tests pass. Focused tests, web/server/shared/provider-core/contracts typechecks and scoped lint/format/diff checks pass. Independent exact-commit APPROVE, concise reply read back: https://github.com/pingdotgg/t3code/pull/17705#discussion_r4236838452. Hosted code workflows need maintainer authorization; feature/scope approval remains maintainer-owned where applicable. Reused dependencies; no fresh frozen-lock or native-mobile build.",
       "pr_url": "https://github.com/pingdotgg/t3code/pull/17705",
       "pr_number": 17705,
-      "head": "92a3f2be48395aeb63d43457cdc8c9ebdcb6c727"
+      "head": "7bce6161d4ac83ce5507c96e361459df9a0222bd",
+      "last_maintained": "2026-10-10T07:18:15.504173+00:00"
     }
   ],
   "holds": [
@@ -4311,6 +4314,10 @@
     {
       "ts": "2026-10-10T04:01:06.586747+00:00",
       "text": "T3 #17704/#17705: Published linked ChatGPT credit-balance proposal and PR. 91 focused tests; web/server typechecks, scoped lint/format/diff checks pass; independent exact-commit APPROVE. Synthetic before/after, dark/narrow web evidence and refresh verified. Native device access disabled. Maintainer feature approval and hosted checks pending. Additional user-directed contribution; no refreshed global census."
+    },
+    {
+      "ts": "2026-10-10T07:18:15.504173+00:00",
+      "text": "Compared authenticated live GitHub with the successful 2026-10-09T06:51:20.801684+00:00 sweep: 61 authored open/0 draft, 3 filtered notifications, complete comments/reviews/threads/head checks and 61 current-head workflow histories. Four PRs updated with verified pushes and independent reviews: T3 desktop #12768 (94 tests), width #15109 (255), credits #17705 (102), Unstructured #4504 (200 plus 7 existing optional skips). Resolved the valid new CodeRabbit quota-window thread after push; triaged and fixed all three Unstructured COMMENTED findings. Hosted code CI authorization and T3 feature/scope approval remain maintainers; credit re-review pending. Two author-side blockers remain: CPython CLA signature and Goose conflict validation (missing Rust 1.99.0 and below-10-GB build space). Stale flakes/cancellations and four answered outdated threads unchanged; no duplicate nudge or rerun. Recent monitored closures: 4 verified landings/2 closed-unmerged. Original campaign: 36 authored, 32 open/4 landed/0 closed-unmerged; Meta resolving commits verified. OpenHands body/HUMAN unchanged. No new contribution, merge, close, legal signature or gate bypass."
     }
   ],
   "companies": [

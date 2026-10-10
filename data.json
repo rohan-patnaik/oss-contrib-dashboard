@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-10T07:18:15.504173+00:00",
+  "generated": "2026-10-10T08:52:34.822930+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -27,7 +27,7 @@
     "monitored_drafts": 0,
     "monitored_recent_landed": 4,
     "monitored_recent_closed_unmerged": 2,
-    "author_action_items": 2
+    "author_action_items": 1
   },
   "repos": [
     {
@@ -3708,8 +3708,9 @@
       "pr_number": 159046,
       "head": "c1d37aef7daf1628463889cbfe6acaf10e1c8f67",
       "updated_at": "2026-10-09T05:02:49.047896+00:00",
-      "outcome": "2026-10-10: docs, doctest, EPUB, lint and required checks succeed at the unchanged head. CLA Signing still fails pending Rohan signing https://cla.python.org/ for the committing identity. No code finding or legal signature by the agent.",
-      "last_maintained": "2026-10-10T07:18:15.504173+00:00"
+      "outcome": "PSF CLA signed by Rohan. Live GitHub CLA Signing status is SUCCESS at unchanged c1d37aef7daf1628463889cbfe6acaf10e1c8f67 (status updated 2026-10-10T08:51:03Z). All reported checks succeed or are expected skips; PR is open and mergeable, awaiting maintainer review. No source or PR text change.",
+      "last_maintained": "2026-10-10T08:52:34.822930+00:00",
+      "cla_status": "signed-and-github-success"
     },
     {
       "company": "Cursor/Anysphere",
@@ -4318,6 +4319,11 @@
     {
       "ts": "2026-10-10T07:18:15.504173+00:00",
       "text": "Compared authenticated live GitHub with the successful 2026-10-09T06:51:20.801684+00:00 sweep: 61 authored open/0 draft, 3 filtered notifications, complete comments/reviews/threads/head checks and 61 current-head workflow histories. Four PRs updated with verified pushes and independent reviews: T3 desktop #12768 (94 tests), width #15109 (255), credits #17705 (102), Unstructured #4504 (200 plus 7 existing optional skips). Resolved the valid new CodeRabbit quota-window thread after push; triaged and fixed all three Unstructured COMMENTED findings. Hosted code CI authorization and T3 feature/scope approval remain maintainers; credit re-review pending. Two author-side blockers remain: CPython CLA signature and Goose conflict validation (missing Rust 1.99.0 and below-10-GB build space). Stale flakes/cancellations and four answered outdated threads unchanged; no duplicate nudge or rerun. Recent monitored closures: 4 verified landings/2 closed-unmerged. Original campaign: 36 authored, 32 open/4 landed/0 closed-unmerged; Meta resolving commits verified. OpenHands body/HUMAN unchanged. No new contribution, merge, close, legal signature or gate bypass."
+    },
+    {
+      "ts": "2026-10-10T08:52:34.822930+00:00",
+      "repo": "python/cpython",
+      "text": "PSF CLA signed by Rohan. Live GitHub CLA Signing status is SUCCESS at unchanged c1d37aef7daf1628463889cbfe6acaf10e1c8f67 (status updated 2026-10-10T08:51:03Z). All reported checks succeed or are expected skips; PR is open and mergeable, awaiting maintainer review. No source or PR text change. Targeted follow-up; last successful full-sweep timestamp and PR census unchanged. Goose conflict validation is the sole remaining author-side blocker."
     }
   ],
   "companies": [

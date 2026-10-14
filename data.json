@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-13T06:46:32.718672+00:00",
+  "generated": "2026-10-14T07:00:57.106287+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -16,18 +16,19 @@
     },
     "reproduced": 36,
     "authored": 36,
-    "open_prs": 32,
-    "merged": 2,
+    "open_prs": 31,
+    "merged": 3,
     "landed_other": 2,
     "active_work": 0,
-    "last_refresh": "2026-10-13T06:46:32.718672+00:00",
+    "last_refresh": "2026-10-14T07:00:57.106287+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49,
-    "monitored_open_prs": 62,
+    "monitored_open_prs": 61,
     "monitored_drafts": 0,
-    "monitored_recent_landed": 4,
+    "monitored_recent_landed": 8,
     "monitored_recent_closed_unmerged": 2,
-    "author_action_items": 0
+    "author_action_items": 1,
+    "monitored_personal_project_landings": 3
   },
   "repos": [
     {
@@ -1181,8 +1182,8 @@
       "career_assessed_at": "2026-09-24T20:38:31+00:00",
       "pr_url": "https://github.com/aaif-goose/goose/pull/12499",
       "pr_raised_at": "2026-09-24T20:59:25+00:00",
-      "outcome": "2026-10-13: afb505830 verified mergeable; all current-head checks are successful or expected skips, including Rust lint/tests, both TLS backends, desktop/updater, Kotlin GDK and conformance. October12 verified119-test conflict/recovery fix remains intact. Awaiting maintainer review; no new source change or nudge.",
-      "last_maintained": "2026-10-13T06:46:32.718672+00:00",
+      "outcome": "2026-10-14: new current-main conflict at published afb505830. Isolated uncommitted merge preserves upstream centralized state-machine builder and subagent refactor, registers the existing bounded thinking recovery and retains three regressions. Static diff and installed stable rustfmt pass; pinned Rust1.99 is absent and required test/Clippy validation is blocked by Stuff capacity while preserving10GB build reserve. No commit/push/reply or claim of verified resolution. Prior dirty worktrees and October12 verified fix retained.",
+      "last_maintained": "2026-10-14T07:00:57.106287+00:00",
       "head": "afb50583034bd1519d0b1985bb9ed00151fd1824"
     },
     {
@@ -3678,15 +3679,17 @@
       "career_signal_rationale": "Data-identity correctness in the rehydration path of a 15.5k-star LLM data-ingestion library: the fix requires reasoning about decorator-driven metadata post-processing and preserving a serialization round-trip contract, exactly the RAG-pipeline data-integrity work that is defensible in an interview. Not very_high: it is ETL plumbing, not a core inference/eval path.",
       "career_assessed_at": "2026-09-25T06:33:25Z",
       "difficulty": "medium",
-      "status": "pr-open",
+      "status": "merged",
       "verified_at": "2026-09-25T06:33:25Z",
       "ownership_check": "Open, unassigned, ZERO comments since filing (2024-07-09). Reporter is scanny - the (since-departed) architecture owner of this code, so the issue itself constitutes maintainer triage/design agreement. Timeline xrefs: only PR #4391 (MERGED 2026-07, arbitrary-JSON feature - rewrote the function body but kept the offending decorators) and an out-of-repo reference. Competition queries (gh pr list -R unstructured-io/unstructured --state all --search): '3365' -> only #4391; 'partition_json' -> #4483 (OPEN, encoding= only), #4488 (md), #4391, older merged; 'rehydrate' -> #4391 + 2023 PRs; 'element_id preserve' -> #2673 (2024, the hash-ID feature itself). No matching PR found as of 2026-09-25T06:28:02Z.",
       "competing_prs": [],
       "platform_plan": "Mac ARM64 CPU-only: python3.12 -m venv .venv && pip install -e . (core install; JSON path needs no extras) then pytest test_unstructured/partition/test_json.py test_unstructured/partition/test_ndjson.py. Repro: elements_from_json(example_doc_path('simple.json')) vs partition_json(example_doc_path('simple.json')); assert elements_to_dicts equality - fails today on element_id/filename/file_directory/filetype/last_modified. No models, no network.",
-      "outcome": "2026-10-10: Fixed all three COMMENTED compatibility findings: explicit URL/HTML overrides, arbitrary-JSON chunker attachment metadata, and blank-input custom chunker post-processing including empty filenames. Verified pushed head f4ae89bd05c67a79209eff18b7393d0fdfa7e9da; 200 focused tests pass. Focused tests, whole-tree Ruff/formatting and version synchronization pass; seven existing optional-dependency skips. Independent exact-commit APPROVE, concise reply read back: https://github.com/Unstructured-IO/unstructured/pull/4504#issuecomment-6094878591. Hosted code workflows need maintainer authorization; feature/scope approval remains maintainer-owned where applicable. Reused dependencies; no fresh frozen-lock or native-mobile build.",
+      "outcome": "2026-10-14: verified merged2026-10-13T17:39:39Z in upstream25826858a87dcd933463d65080aa9472688fd56d. Live GitHub merge evidence, resolving commit and successful hosted checks read back. Original campaign now31 open/5 landed.",
       "pr_url": "https://github.com/Unstructured-IO/unstructured/pull/4504",
-      "last_maintained": "2026-10-10T07:18:15.504173+00:00",
-      "head": "f4ae89bd05c67a79209eff18b7393d0fdfa7e9da"
+      "last_maintained": "2026-10-14T07:00:57.106287+00:00",
+      "head": "7e29002247bcfd42ef5de7f32fad0d9cce1ea8ba",
+      "merged_at": "2026-10-13T17:39:39Z",
+      "merge_commit": "25826858a87dcd933463d65080aa9472688fd56d"
     },
     {
       "company": "CPython",
@@ -4341,6 +4344,10 @@
     {
       "ts": "2026-10-13T06:46:32.718672+00:00",
       "text": "Compared live authenticated GitHub with 2026-10-12T06:44:29.012060+00:00:62 authored open/0 draft,4 recent verified landings/2 closed-unmerged,0 remaining author-side items. Read comments, reviews including bot COMMENTED/summary findings, all review threads, current-head check rollups and62 workflow histories;4 filtered notifications. Fixed T3#18298 MIME boundary in 2a9c4025cf with112 tests, scoped lint/format/diff and independent APPROVE;23 server typecheck errors reproduce unchanged on prior service. Push/reply/body readbacks verified. Goose#12499 previous follow-up is mergeable and all current-head CI succeeds or skips as expected. No other new defect, conflict or genuine flake rerun. Four addressed outdated threads remain unchanged. Existing failures/cancellations and authorization queues unchanged. CPython CLA remains cleared. Issue18675 closed by maintainer as duplicate of remote-delegation direction; no new issue/PR or reply raised here. Maintainers own workflow authorization, T3 feature/scope approval and review/import queues. Original campaign36 authored/32 open/4 landed; Meta merge evidence/resolving commits verified. OpenHands HUMAN/body unchanged; source, dirty drafts, unrelated edits and concurrent jobs preserved."
+    },
+    {
+      "ts": "2026-10-14T07:00:57.106287+00:00",
+      "text": "Compared live authenticated GitHub with 2026-10-13T06:46:32.718672+00:00:61 authored open/0 draft;8 monitored recent landed (3 personal-project merges)/2 closed-unmerged; original OSS campaign36 authored/31 open/5 landed. Read all issue/inline comments, reviews including bot COMMENTED summaries, unresolved threads, exact-head checks and61 workflow histories;3 filtered notifications. Unstructured4504 newly landed. T3#18298 conflicts safely resolved/pushed as 3c3c22bfea,253 tests/four typechecks/scoped checks pass, independent APPROVE, concise reply and body readback. Goose#12499 remains one author-side conflict item: isolated uncommitted candidate, required Rust1.99/tests/Clippy blocked by artifact storage reserve. No other new author defect or genuine flake rerun; four addressed outdated threads unchanged, stale failures and skipped/authorization/import queues distinguished. CPython CLA cleared. OpenHands body/HUMAN section unchanged. Maintainers own workflow authorization, T3 scope approval and review/import queues. No legal agreement signed, approval bypass, merge/close or new contribution; dirty/unrelated work preserved."
     }
   ],
   "companies": [

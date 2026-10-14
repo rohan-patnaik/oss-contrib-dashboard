@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-14T07:52:45.188124+00:00",
+  "generated": "2026-10-14T07:53:20.072151+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -1182,7 +1182,7 @@
       "career_assessed_at": "2026-09-24T20:38:31+00:00",
       "pr_url": "https://github.com/aaif-goose/goose/pull/12499",
       "pr_raised_at": "2026-09-24T20:59:25+00:00",
-      "outcome": "2026-10-14 follow-up: resolved current-main conflicts in 3d2c431c92 and retained thinking recovery in the new shared state-machine builder. The three recovery regressions fail against upstream dbac280609 and pass with the fix. All 131 state-machine tests, scoped all-target Clippy (rustls-tls,tree-sitter,scheduler,acp-http; warnings denied), formatting and independent exact-commit review pass on Rust 1.99.0. Verified normal push, hosted head and mergeable=true; concise reply https://github.com/aaif-goose/goose/pull/12499#issuecomment-6163608715. Full workspace/live-provider tests not rerun; hosted CI not claimed green. Backup Plus used under explicit user authorization; disposable build folder scheduled for removal after evidence retention. This clears the previously recorded Goose author-side blocker; targeted follow-up only, previous full-sweep timestamp preserved.",
+      "outcome": "2026-10-14 follow-up: resolved current-main conflicts in 3d2c431c92 and retained thinking recovery in the new shared state-machine builder. The three recovery regressions fail against upstream dbac280609 and pass with the fix. All 131 state-machine tests, scoped all-target Clippy (rustls-tls,tree-sitter,scheduler,acp-http; warnings denied), formatting and independent exact-commit review pass on Rust 1.99.0. Verified normal push, hosted head and mergeable=true; concise reply https://github.com/aaif-goose/goose/pull/12499#issuecomment-6163608715. Full workspace/live-provider tests not rerun; hosted CI not claimed green. Backup Plus used under explicit user authorization; disposable Backup Plus build folder removed and verified absent, releasing 40.02 GB; both mounts and the loop device released. Small validation evidence retained. This clears the previously recorded Goose author-side blocker; targeted follow-up only, previous full-sweep timestamp preserved.",
       "last_maintained": "2026-10-14T07:52:45.188124+00:00",
       "head": "3d2c431c92b00e3388b8f42fa1f3419a32dfd5ed"
     },
@@ -4351,7 +4351,7 @@
     },
     {
       "ts": "2026-10-14T07:52:45.188124+00:00",
-      "text": "2026-10-14 follow-up: resolved current-main conflicts in 3d2c431c92 and retained thinking recovery in the new shared state-machine builder. The three recovery regressions fail against upstream dbac280609 and pass with the fix. All 131 state-machine tests, scoped all-target Clippy (rustls-tls,tree-sitter,scheduler,acp-http; warnings denied), formatting and independent exact-commit review pass on Rust 1.99.0. Verified normal push, hosted head and mergeable=true; concise reply https://github.com/aaif-goose/goose/pull/12499#issuecomment-6163608715. Full workspace/live-provider tests not rerun; hosted CI not claimed green. Backup Plus used under explicit user authorization; disposable build folder scheduled for removal after evidence retention. This clears the previously recorded Goose author-side blocker; targeted follow-up only, previous full-sweep timestamp preserved."
+      "text": "2026-10-14 follow-up: resolved current-main conflicts in 3d2c431c92 and retained thinking recovery in the new shared state-machine builder. The three recovery regressions fail against upstream dbac280609 and pass with the fix. All 131 state-machine tests, scoped all-target Clippy (rustls-tls,tree-sitter,scheduler,acp-http; warnings denied), formatting and independent exact-commit review pass on Rust 1.99.0. Verified normal push, hosted head and mergeable=true; concise reply https://github.com/aaif-goose/goose/pull/12499#issuecomment-6163608715. Full workspace/live-provider tests not rerun; hosted CI not claimed green. Backup Plus used under explicit user authorization; disposable Backup Plus build folder removed and verified absent, releasing 40.02 GB; both mounts and the loop device released. Small validation evidence retained. This clears the previously recorded Goose author-side blocker; targeted follow-up only, previous full-sweep timestamp preserved."
     }
   ],
   "companies": [

@@ -3821,6 +3821,30 @@
       "pr_state": "closed",
       "closed_at": "2026-10-14T21:26:37Z",
       "closure_reason": "Closed by maintainer: ChatGPT credit cards and balance plumbing require prior direction/scope approval through Ideas."
+    },
+    {
+      "company": "T3 Code",
+      "repo": "pingdotgg/t3code",
+      "number": 19922,
+      "url": "https://github.com/pingdotgg/t3code/issues/19922",
+      "title": "Large stored image attachments freeze scrolling while decoding",
+      "importance": "medium",
+      "difficulty": "low",
+      "status": "pr-open",
+      "verified_at": "2026-10-15T15:20:26.462303+00:00",
+      "ownership_check": "Authenticated image/scroll/decode/thumbnail searches; related composer thumbnail and broad thread hydration PRs do not address this img decoding hint. Synthetic cold-decode repro on current main.",
+      "competing_prs": [],
+      "platform_plan": "Actual Linux browser before/after frame evidence,254 focused tests,web typecheck,scoped lint/format. One-line native decoding hint.",
+      "career_signal": "medium",
+      "career_signal_rationale": "Small verified performance defect; explicitly requested issue, minimal PR and local fix by Rohan.",
+      "career_assessed_at": "2026-10-15T15:20:26.462303+00:00",
+      "updated_at": "2026-10-15T15:37:51.847080+00:00",
+      "pr_url": "https://github.com/pingdotgg/t3code/pull/19923",
+      "pr_number": 19923,
+      "pr_raised_at": "2026-10-15T15:26:18.133759+00:00",
+      "head": "1383e0353fef02fd0d82cc8c999fac858eef7a54",
+      "pr_state": "open",
+      "outcome": "Published one-line image cold-decoding fix with synthetic before/after proof and254 focused tests. Independent review,1431 maintained tests,five typechecks,packaging/Connect and276 OMA tests pass. Verified3158001 installed on disk; activation next normal restart."
     }
   ],
   "holds": [

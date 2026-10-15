@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-14T07:53:20.072151+00:00",
+  "generated": "2026-10-15T06:43:19.278844+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -16,19 +16,21 @@
     },
     "reproduced": 36,
     "authored": 36,
-    "open_prs": 31,
+    "open_prs": 30,
     "merged": 3,
     "landed_other": 2,
     "active_work": 0,
-    "last_refresh": "2026-10-14T07:00:57.106287+00:00",
+    "last_refresh": "2026-10-15T06:43:19.278844+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49,
-    "monitored_open_prs": 61,
-    "monitored_drafts": 0,
-    "monitored_recent_landed": 8,
-    "monitored_recent_closed_unmerged": 2,
-    "author_action_items": 0,
-    "monitored_personal_project_landings": 3
+    "monitored_open_prs": 57,
+    "monitored_drafts": 1,
+    "monitored_recent_landed": 9,
+    "monitored_recent_closed_unmerged": 7,
+    "author_action_items": 2,
+    "monitored_personal_project_landings": 4,
+    "campaign_closed_unmerged": 1,
+    "deferred_closed_review_findings": 1
   },
   "repos": [
     {
@@ -1182,8 +1184,8 @@
       "career_assessed_at": "2026-09-24T20:38:31+00:00",
       "pr_url": "https://github.com/aaif-goose/goose/pull/12499",
       "pr_raised_at": "2026-09-24T20:59:25+00:00",
-      "outcome": "2026-10-14 follow-up: resolved current-main conflicts in 3d2c431c92 and retained thinking recovery in the new shared state-machine builder. The three recovery regressions fail against upstream dbac280609 and pass with the fix. All 131 state-machine tests, scoped all-target Clippy (rustls-tls,tree-sitter,scheduler,acp-http; warnings denied), formatting and independent exact-commit review pass on Rust 1.99.0. Verified normal push, hosted head and mergeable=true; concise reply https://github.com/aaif-goose/goose/pull/12499#issuecomment-6163608715. Full workspace/live-provider tests not rerun; hosted CI not claimed green. Backup Plus used under explicit user authorization; disposable Backup Plus build folder removed and verified absent, releasing 40.02 GB; both mounts and the loop device released. Small validation evidence retained. This clears the previously recorded Goose author-side blocker; targeted follow-up only, previous full-sweep timestamp preserved.",
-      "last_maintained": "2026-10-14T07:52:45.188124+00:00",
+      "outcome": "2026-10-15: published3d2c431c92 current-head CI fully succeeds or skips as expected, including CI and MCP Conformance. Fresh upstreamdd17bf2021f3fb3b326c471593c352e1b0d62bbd introduces a new state_machine/mod.rs conflict confirmed by read-only merge-tree. Yesterday131 tests/Clippy/fmt/review remain verified for that published update; no claim of validation against new main. Dedicated Backup Plus environment was removed as requested. New Rust validation blocked by current Stuff-only daily artifact policy and capacity; no source edits/commit/push.",
+      "last_maintained": "2026-10-15T06:43:19.278844+00:00",
       "head": "3d2c431c92b00e3388b8f42fa1f3419a32dfd5ed"
     },
     {
@@ -1836,7 +1838,9 @@
       "platform_plan": "Pure Python, fully CPU-testable on macOS ARM64: pytest tests/agent/test_summarize_tool_result_type_safety.py tests/agent/test_context_compressor.py -x. Reproduce in a unit test: call _summarize_tool_result('mcp__docs__fetch', '{\"uri\": \"...\"}', '<40KB payload>') at HEAD and assert the returned summary contains none of the payload (current behavior), then assert the fixed behavior preserves a bounded excerpt.",
       "pr_url": "https://github.com/NousResearch/hermes-agent/pull/125141",
       "pr_raised_at": "2026-09-27T11:26:58+00:00",
-      "outcome": "PR #125141 open ready at independently approved commit 8b5d8d2; aged MCP results retain a bounded excerpt, argument preview, and original size with stable non-imitable marker handling. The base regression fails, 160 focused/adjacent tests pass, and pre-compression caps plus cross-turn dedup remain out of scope."
+      "outcome": "2026-10-15: fresh conflict at published c8949c29bd. Isolated uncommitted merge against7bda2a3368024f7ae1c70cef16583e7c2c891674 preserves bounded MCP summaries and upstream lean-tail demotion stubs. Syntax/diff checks only; canonical tests, scripts/check and independent final review unrun. Previous test environment retired; fresh PM environment blocked by Stuff capacity/reserve. No commit/push/reply; prior source and untracked markers preserved.",
+      "last_maintained": "2026-10-15T06:43:19.278844+00:00",
+      "head": "c8949c29bd7c503bab42d10e76988ffc43d15b1d"
     },
     {
       "company": "Microsoft AI / DeepSpeed (LF)",
@@ -3445,11 +3449,18 @@
       "career_signal_rationale": "Reliability/integration correctness fix on the Vertex/Gemini streaming path of the dominant open-source LLM gateway (59.6k stars): diagnosing timeout propagation loss through functools.partial streaming closures and fixing it symmetrically with the provider's non-streaming branch and the Anthropic handler's established pattern, with a mocked-client regression test asserting the timeout reaches the HTTP layer. Interview-defensible provider-integration engineering; not very_high because the change is localized plumbing rather than core execution semantics.",
       "career_assessed_at": "2026-09-25T06:18:00Z",
       "difficulty": "low-medium",
-      "status": "vetted",
+      "status": "authored",
       "verified_at": "2026-09-25T06:17:08Z",
       "ownership_check": "No claim. deepanshululla's comment is an explicit handoff invitation, not a claim, and their fork branch never became a PR (gh pr list --author deepanshululla at 2026-09-25T06:14:28Z: 10 PRs, none touching vertex timeout).",
       "competing_prs": [],
-      "platform_plan": "CPU-only, Mac ARM64 or Linux container; no credentials (mocked provider). Setup: `git clone https://github.com/BerriAI/litellm && cd litellm && make install-dev` (uv). Repro/regression (mirrors existing tests around L5101 of the mapped test file which already verify a user client is passed to make_call): in tests/test_litellm/llms/vertex_ai/gemini/test_vertex_and_google_ai_studio_gemini.py, build a MagicMock HTTPHandler/AsyncHTTPHandler whose .post returns a stubbed streaming response, call litellm.completion(model='gemini/gemini-2.5-flash', messages=[...], stream=True, timeout=2, api_key='fake', client=mock) and drain one chunk, then assert mock.post was called with timeout=2 (pre-fix: no timeout kwarg -> test fails; post-fix: passes). Run: `uv run pytest tests/test_litellm/llms/vertex_ai/gemini/test_vertex_and_google_ai_studio_gemini.py -v` and `make lint`."
+      "platform_plan": "CPU-only, Mac ARM64 or Linux container; no credentials (mocked provider). Setup: `git clone https://github.com/BerriAI/litellm && cd litellm && make install-dev` (uv). Repro/regression (mirrors existing tests around L5101 of the mapped test file which already verify a user client is passed to make_call): in tests/test_litellm/llms/vertex_ai/gemini/test_vertex_and_google_ai_studio_gemini.py, build a MagicMock HTTPHandler/AsyncHTTPHandler whose .post returns a stubbed streaming response, call litellm.completion(model='gemini/gemini-2.5-flash', messages=[...], stream=True, timeout=2, api_key='fake', client=mock) and drain one chunk, then assert mock.post was called with timeout=2 (pre-fix: no timeout kwarg -> test fails; post-fix: passes). Run: `uv run pytest tests/test_litellm/llms/vertex_ai/gemini/test_vertex_and_google_ai_studio_gemini.py -v` and `make lint`.",
+      "pr_url": "https://github.com/BerriAI/litellm/pull/43451",
+      "pr_raised_at": "2026-09-27T17:21:11Z",
+      "pr_state": "closed",
+      "closed_at": "2026-10-14T17:51:41Z",
+      "closure_reason": "Closed as superseded: issue26939 fixed by a separate upstream PR, merged2026-10-14T17:51:19Z. No evidence this authored PR itself landed; count closed-unmerged.",
+      "outcome": "Closed as superseded: issue26939 fixed by a separate upstream PR, merged2026-10-14T17:51:19Z. No evidence this authored PR itself landed; count closed-unmerged.",
+      "last_maintained": "2026-10-15T06:43:19.278844+00:00"
     },
     {
       "company": "BerriAI",
@@ -3733,10 +3744,10 @@
       "career_assessed_at": "2026-10-09T04:56:01.133333+00:00",
       "pr_url": "https://github.com/anysphere/k8s-workers/pull/10",
       "pr_number": 10,
-      "head": "adcd38ae866b1eab273824894185eb36421b5557",
+      "head": "0df12aa49b1d9b47033f92ca004389479ca18af7",
       "updated_at": "2026-10-09T05:02:49.047896+00:00",
-      "outcome": "2026-10-09 daily sweep: Socket succeeds; exact-head ci run 37886631826 is action_required with zero jobs, awaiting maintainer authorization. No code finding or conflict.",
-      "last_maintained": "2026-10-09T06:51:20.801684+00:00"
+      "outcome": "2026-10-15: resolved current-main version conflicts in 0df12aa49b1d9b47033f92ca004389479ca18af7; advanced chart/appVersion to0.2.5 and preserved upstream0.2.4 identity-token flow plus worker ServiceAccount feature. Full Helm4.1 lint/render/spawn-hook suite, chart version check, shell syntax and diff checks pass. Independent exact-commit APPROVE with independent full suite rerun. Verified intended branch/head, mergeability and concise reply https://github.com/anysphere/k8s-workers/pull/10#issuecomment-6186113524. Hosted ci requires maintainer authorization; no live Kubernetes identity test.",
+      "last_maintained": "2026-10-15T06:43:19.278844+00:00"
     },
     {
       "company": "Cursor",
@@ -3793,7 +3804,7 @@
       "title": "Show ChatGPT credit balance alongside Codex usage limits",
       "importance": "medium",
       "difficulty": "medium",
-      "status": "pr-open",
+      "status": "authored",
       "verified_at": "2026-10-10T03:56:28.925301+00:00",
       "ownership_check": "User-requested new proposal; authenticated mechanism/title issue and PR searches on 2026-10-10 found no focused spendable ChatGPT balance implementation.",
       "competing_prs": [],
@@ -3802,11 +3813,14 @@
       "career_signal_rationale": "Useful read-only provider accounting feature with cross-client and stale-account handling. Explicit user-requested contribution.",
       "career_assessed_at": "2026-10-10T03:56:28.925301+00:00",
       "updated_at": "2026-10-10T04:01:06.586747+00:00",
-      "outcome": "2026-10-11 daily sweep: CodeRabbit accepts exact 7bce6161d4ac83ce5507c96e361459df9a0222bd, reports no remaining actionable finding and passes all four pre-merge checks. Quota-window thread remains resolved. Hosted code workflows require maintainer authorization; feature approval remains pending. No source change or duplicate reply.",
+      "outcome": "Closed by maintainer: ChatGPT credit cards and balance plumbing require prior direction/scope approval through Ideas.",
       "pr_url": "https://github.com/pingdotgg/t3code/pull/17705",
       "pr_number": 17705,
       "head": "7bce6161d4ac83ce5507c96e361459df9a0222bd",
-      "last_maintained": "2026-10-11T06:32:50.319031+00:00"
+      "last_maintained": "2026-10-15T06:43:19.278844+00:00",
+      "pr_state": "closed",
+      "closed_at": "2026-10-14T21:26:37Z",
+      "closure_reason": "Closed by maintainer: ChatGPT credit cards and balance plumbing require prior direction/scope approval through Ideas."
     }
   ],
   "holds": [
@@ -4352,6 +4366,10 @@
     {
       "ts": "2026-10-14T07:52:45.188124+00:00",
       "text": "2026-10-14 follow-up: resolved current-main conflicts in 3d2c431c92 and retained thinking recovery in the new shared state-machine builder. The three recovery regressions fail against upstream dbac280609 and pass with the fix. All 131 state-machine tests, scoped all-target Clippy (rustls-tls,tree-sitter,scheduler,acp-http; warnings denied), formatting and independent exact-commit review pass on Rust 1.99.0. Verified normal push, hosted head and mergeable=true; concise reply https://github.com/aaif-goose/goose/pull/12499#issuecomment-6163608715. Full workspace/live-provider tests not rerun; hosted CI not claimed green. Backup Plus used under explicit user authorization; disposable Backup Plus build folder removed and verified absent, releasing 40.02 GB; both mounts and the loop device released. Small validation evidence retained. This clears the previously recorded Goose author-side blocker; targeted follow-up only, previous full-sweep timestamp preserved."
+    },
+    {
+      "ts": "2026-10-15T06:43:19.278844+00:00",
+      "text": "Compared live authenticated GitHub with 2026-10-14T07:00:57.106287+00:00, including verified Goose Backup Plus follow-up:57 authored open/1 draft;9 recent monitored landings (4 personal-project merges)/7 closed-unmerged. Original OSS campaign36 authored/30 open/5 landed/1 closed-superseded. Read all comments, reviews including bot COMMENTED summaries, unresolved threads, current-head rollups and57 workflow histories;5 filtered notifications, no collection overflows. Four T3 proposals15109/17227/17705/18298 closed for maintainer approval/scope; no reopen/new contribution/nudge. Valid PDF bot finding on closed18298 triaged and deferred. LiteLLM43451 closed as separately fixed upstream, not counted landed. Fixed workers10 conflict and version collision in 0df12aa49b, full Helm/version/shell checks and independent APPROVE; normal push/reply/mergeability verified. Two remaining open author-side conflicts: Hermes125141 (isolated uncommitted candidate), Goose12499 (read-only diagnosis); required environments blocked by artifact capacity. No new genuine flake rerun; old failures, skips and authorization/import queues distinguished. Goose published-head CI green; T3 feature approvals and other hosted workflow authorizations remain maintainer-owned. T3#12768 remains open;#15109 closure verified. Protected OpenHands body/HUMAN unchanged; no legal agreement signed, gate bypass, merge/close or new PR. Concurrent personal Codebloom4 appeared during run, completed checks pass; its ongoing work preserved."
     }
   ],
   "companies": [

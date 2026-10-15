@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-15T06:43:19.278844+00:00",
+  "generated": "2026-10-15T08:11:51.095992+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -27,7 +27,7 @@
     "monitored_drafts": 1,
     "monitored_recent_landed": 9,
     "monitored_recent_closed_unmerged": 7,
-    "author_action_items": 2,
+    "author_action_items": 0,
     "monitored_personal_project_landings": 4,
     "campaign_closed_unmerged": 1,
     "deferred_closed_review_findings": 1
@@ -1184,9 +1184,9 @@
       "career_assessed_at": "2026-09-24T20:38:31+00:00",
       "pr_url": "https://github.com/aaif-goose/goose/pull/12499",
       "pr_raised_at": "2026-09-24T20:59:25+00:00",
-      "outcome": "2026-10-15: published3d2c431c92 current-head CI fully succeeds or skips as expected, including CI and MCP Conformance. Fresh upstreamdd17bf2021f3fb3b326c471593c352e1b0d62bbd introduces a new state_machine/mod.rs conflict confirmed by read-only merge-tree. Yesterday131 tests/Clippy/fmt/review remain verified for that published update; no claim of validation against new main. Dedicated Backup Plus environment was removed as requested. New Rust validation blocked by current Stuff-only daily artifact policy and capacity; no source edits/commit/push.",
-      "last_maintained": "2026-10-15T06:43:19.278844+00:00",
-      "head": "3d2c431c92b00e3388b8f42fa1f3419a32dfd5ed"
+      "outcome": "2026-10-15 Backup Plus follow-up: merged upstream dd17bf2021f3 and pushed 5f4c5b3812. Preserved the upstream subagent operation reexport and thinking recovery in the shared builder. Three regressions fail against upstream; all 129 state-machine tests, scoped all-target Clippy with warnings denied, formatting and diff checks pass on Rust 1.99.0. Independent review APPROVE; intended branch/head, PR body/reply and mergeability verified. Hosted CI is not claimed green.",
+      "last_maintained": "2026-10-15T08:11:51.095992+00:00",
+      "head": "5f4c5b3812cb2d8e7850b0e7ae44071cc919f4e4"
     },
     {
       "company": "Block/Goose",
@@ -1838,9 +1838,9 @@
       "platform_plan": "Pure Python, fully CPU-testable on macOS ARM64: pytest tests/agent/test_summarize_tool_result_type_safety.py tests/agent/test_context_compressor.py -x. Reproduce in a unit test: call _summarize_tool_result('mcp__docs__fetch', '{\"uri\": \"...\"}', '<40KB payload>') at HEAD and assert the returned summary contains none of the payload (current behavior), then assert the fixed behavior preserves a bounded excerpt.",
       "pr_url": "https://github.com/NousResearch/hermes-agent/pull/125141",
       "pr_raised_at": "2026-09-27T11:26:58+00:00",
-      "outcome": "2026-10-15: fresh conflict at published c8949c29bd. Isolated uncommitted merge against7bda2a3368024f7ae1c70cef16583e7c2c891674 preserves bounded MCP summaries and upstream lean-tail demotion stubs. Syntax/diff checks only; canonical tests, scripts/check and independent final review unrun. Previous test environment retired; fresh PM environment blocked by Stuff capacity/reserve. No commit/push/reply; prior source and untracked markers preserved.",
-      "last_maintained": "2026-10-15T06:43:19.278844+00:00",
-      "head": "c8949c29bd7c503bab42d10e76988ffc43d15b1d"
+      "outcome": "2026-10-15 Backup Plus follow-up: merged upstream 450ad5055eb3 and pushed 0b5e3b64e8. Preserved bounded MCP excerpts and upstream demotion stubs; extracted cohesive helpers to pass the file-size ratchet. Two regressions fail on upstream; 321 focused tests and all 12 canonical checks pass. Independent final review APPROVE; intended branch/head, PR body/reply and mergeability verified. Hosted CI is not claimed green.",
+      "last_maintained": "2026-10-15T08:11:51.095992+00:00",
+      "head": "0b5e3b64e84d028a8aa3784b50f39624b49ffa89"
     },
     {
       "company": "Microsoft AI / DeepSpeed (LF)",
@@ -4370,6 +4370,11 @@
     {
       "ts": "2026-10-15T06:43:19.278844+00:00",
       "text": "Compared live authenticated GitHub with 2026-10-14T07:00:57.106287+00:00, including verified Goose Backup Plus follow-up:57 authored open/1 draft;9 recent monitored landings (4 personal-project merges)/7 closed-unmerged. Original OSS campaign36 authored/30 open/5 landed/1 closed-superseded. Read all comments, reviews including bot COMMENTED summaries, unresolved threads, current-head rollups and57 workflow histories;5 filtered notifications, no collection overflows. Four T3 proposals15109/17227/17705/18298 closed for maintainer approval/scope; no reopen/new contribution/nudge. Valid PDF bot finding on closed18298 triaged and deferred. LiteLLM43451 closed as separately fixed upstream, not counted landed. Fixed workers10 conflict and version collision in 0df12aa49b, full Helm/version/shell checks and independent APPROVE; normal push/reply/mergeability verified. Two remaining open author-side conflicts: Hermes125141 (isolated uncommitted candidate), Goose12499 (read-only diagnosis); required environments blocked by artifact capacity. No new genuine flake rerun; old failures, skips and authorization/import queues distinguished. Goose published-head CI green; T3 feature approvals and other hosted workflow authorizations remain maintainer-owned. T3#12768 remains open;#15109 closure verified. Protected OpenHands body/HUMAN unchanged; no legal agreement signed, gate bypass, merge/close or new PR. Concurrent personal Codebloom4 appeared during run, completed checks pass; its ongoing work preserved."
+    },
+    {
+      "ts": "2026-10-15T08:11:51.095992+00:00",
+      "text": "Validated and pushed the two remaining Oct15 author-side conflict fixes: Hermes125141 (321 tests/all12 checks) and Goose12499 (129 tests/Clippy/fmt). Both reviewed independently and mergeable on GitHub; concise evidence-backed replies posted. This is a targeted follow-up, not a new all-PR census. User authorized temporary Backup Plus storage and cleanup afterward; compact evidence retained.",
+      "repo": null
     }
   ],
   "companies": [

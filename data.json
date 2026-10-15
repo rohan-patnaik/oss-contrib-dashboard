@@ -3845,6 +3845,20 @@
       "head": "1383e0353fef02fd0d82cc8c999fac858eef7a54",
       "pr_state": "open",
       "outcome": "Published one-line image cold-decoding fix with synthetic before/after proof and254 focused tests. Independent review,1431 maintained tests,five typechecks,packaging/Connect and276 OMA tests pass. Verified3158001 installed on disk; activation next normal restart."
+    },
+    {
+      "repo": "pingdotgg/t3code",
+      "number": 17956,
+      "title": "HTML report links are unreadable in light mode",
+      "url": "https://github.com/pingdotgg/t3code/issues/17956",
+      "status": "pr-open",
+      "career_signal": "medium",
+      "career_signal_rationale": "Small agent-facing theme guidance correction with verified cross-theme contrast reproduction; explicitly requested by Rohan.",
+      "career_assessed_at": "2026-10-15T18:33:30.887870+00:00",
+      "pr_url": "https://github.com/pingdotgg/t3code/pull/19981",
+      "pr_raised_at": "2026-10-15T18:36:55.825842+00:00",
+      "implementation_note": "Guidance-only correction for HTML link color token misuse. 12 theme/appearance browser checks;26 tests,scoped lint/format,shared typecheck and independent review pass. Saved HTML is not automatically rewritten.",
+      "head": "a044ac2f9996a2875bf21b1a18c488800b308595"
     }
   ],
   "holds": [

@@ -3804,7 +3804,7 @@
       "title": "Show ChatGPT credit balance alongside Codex usage limits",
       "importance": "medium",
       "difficulty": "medium",
-      "status": "authored",
+      "status": "pr-open",
       "verified_at": "2026-10-10T03:56:28.925301+00:00",
       "ownership_check": "User-requested new proposal; authenticated mechanism/title issue and PR searches on 2026-10-10 found no focused spendable ChatGPT balance implementation.",
       "competing_prs": [],
@@ -3812,15 +3812,27 @@
       "career_signal": "medium",
       "career_signal_rationale": "Useful read-only provider accounting feature with cross-client and stale-account handling. Explicit user-requested contribution.",
       "career_assessed_at": "2026-10-10T03:56:28.925301+00:00",
-      "updated_at": "2026-10-10T04:01:06.586747+00:00",
-      "outcome": "Closed by maintainer: ChatGPT credit cards and balance plumbing require prior direction/scope approval through Ideas.",
-      "pr_url": "https://github.com/pingdotgg/t3code/pull/17705",
-      "pr_number": 17705,
-      "head": "7bce6161d4ac83ce5507c96e361459df9a0222bd",
-      "last_maintained": "2026-10-15T06:43:19.278844+00:00",
-      "pr_state": "closed",
-      "closed_at": "2026-10-14T21:26:37Z",
-      "closure_reason": "Closed by maintainer: ChatGPT credit cards and balance plumbing require prior direction/scope approval through Ideas."
+      "updated_at": "2026-10-18T11:52:07.923364+00:00",
+      "outcome": "User-authorized replacement published; maintainer product approval and hosted checks pending.",
+      "pr_url": "https://github.com/pingdotgg/t3code/pull/21173",
+      "pr_number": 21173,
+      "head": "881a4057aca044359dbd62b302ac13095b449908",
+      "last_maintained": "2026-10-18T11:52:07.923364+00:00",
+      "pr_state": "open",
+      "previous_prs": [
+        {
+          "pr_number": 17705,
+          "pr_url": "https://github.com/pingdotgg/t3code/pull/17705",
+          "head": "7bce6161d4ac83ce5507c96e361459df9a0222bd",
+          "pr_state": "closed",
+          "closed_at": "2026-10-14T21:26:37Z",
+          "closure_reason": "Closed by maintainer: ChatGPT credit cards and balance plumbing require prior direction/scope approval through Ideas.",
+          "outcome": "Closed by maintainer: ChatGPT credit cards and balance plumbing require prior direction/scope approval through Ideas."
+        }
+      ],
+      "pr_raised_at": "2026-10-18T11:48:01Z",
+      "replacement_of": 17705,
+      "validation": "98 node and7 browser tests;web/server typechecks/scoped lint/format;synthetic refresh regression;exact independent APPROVE. Native mobile runtime not exercised."
     },
     {
       "company": "T3 Code",
@@ -3859,6 +3871,56 @@
       "pr_raised_at": "2026-10-15T18:36:55.825842+00:00",
       "implementation_note": "Guidance-only correction for HTML link color token misuse. 12 theme/appearance browser checks;26 tests,scoped lint/format,shared typecheck and independent review pass. Saved HTML is not automatically rewritten.",
       "head": "a044ac2f9996a2875bf21b1a18c488800b308595"
+    },
+    {
+      "repo": "pingdotgg/t3code",
+      "company": "T3 Code",
+      "number": 12793,
+      "title": "SideChat: independent snapshot composers alongside a running thread",
+      "url": "https://github.com/pingdotgg/t3code/issues/12793",
+      "status": "pr-open",
+      "career_signal": "medium",
+      "career_signal_rationale": "Explicitly requested local feature contribution; product approval remains pending.",
+      "career_assessed_at": "2026-10-18T11:35:17.242740+00:00",
+      "verified_at": "2026-10-18T11:35:17.242740+00:00",
+      "ownership_check": "Live issue and PR search: prior proposal closed; new replacement explicitly user-authorized. SideChat overlaps open #18243 but uses independent composers and visible in-flight snapshots.",
+      "competing_prs": [
+        18243
+      ],
+      "pr_url": "https://github.com/pingdotgg/t3code/pull/21175",
+      "pr_number": 21175,
+      "head": "bd9f16d99e07564a2037975c68f5df7f9ab082f5",
+      "pr_state": "open",
+      "pr_raised_at": "2026-10-18T11:51:54Z",
+      "updated_at": "2026-10-18T11:52:07.923364+00:00",
+      "last_maintained": "2026-10-18T11:52:07.923364+00:00",
+      "outcome": "User-authorized replacement published; maintainer product approval and hosted checks pending.",
+      "replacement_of": 12794,
+      "validation": "253 focused web tests;31 changed node tests;71 fork/transition/runtime checks;4 secret-request checks;scoped web/server typechecks/lint/format;exact independent APPROVE after secure-input red/green regression."
+    },
+    {
+      "repo": "pingdotgg/t3code",
+      "company": "T3 Code",
+      "number": 12784,
+      "title": "Thread width control V2",
+      "url": "https://github.com/pingdotgg/t3code/issues/12784",
+      "status": "pr-open",
+      "career_signal": "medium",
+      "career_signal_rationale": "Explicitly requested local feature contribution; product approval remains pending.",
+      "career_assessed_at": "2026-10-18T11:35:17.242740+00:00",
+      "verified_at": "2026-10-18T11:35:17.242740+00:00",
+      "ownership_check": "Live issue open; prior #15109 closed pending product scope agreement; replacement explicitly user-authorized.",
+      "competing_prs": [],
+      "pr_url": "https://github.com/pingdotgg/t3code/pull/21172",
+      "pr_number": 21172,
+      "head": "bea1050dd365b87817b0eaf75071d717dba1fa48",
+      "pr_state": "open",
+      "pr_raised_at": "2026-10-18T11:47:32Z",
+      "updated_at": "2026-10-18T11:52:07.923364+00:00",
+      "last_maintained": "2026-10-18T11:52:07.923364+00:00",
+      "outcome": "User-authorized replacement published; maintainer product approval and hosted checks pending.",
+      "replacement_of": 15109,
+      "validation": "12 focused tests;web typecheck/scoped lint/format;0/50/100% layout checks with workspace and right panel at1600/1000px;exact independent APPROVE."
     }
   ],
   "holds": [
@@ -4413,6 +4475,11 @@
       "ts": "2026-10-15T08:11:51.095992+00:00",
       "text": "Validated and pushed the two remaining Oct15 author-side conflict fixes: Hermes125141 (321 tests/all12 checks) and Goose12499 (129 tests/Clippy/fmt). Both reviewed independently and mergeable on GitHub; concise evidence-backed replies posted. This is a targeted follow-up, not a new all-PR census. User authorized temporary Backup Plus storage and cleanup afterward; compact evidence retained.",
       "repo": null
+    },
+    {
+      "ts": "2026-10-18T11:52:07.923364+00:00",
+      "repo": "pingdotgg/t3code",
+      "text": "Published three user-authorized replacements: #21175 Independent SideChat composers and snapshots, #21172 In-thread conversation width control, #21173 Remaining ChatGPT credits on Codex Usage. Exact-commit independent reviews and focused checks pass; maintainer product approval/hosted CI remain pending. This is a scoped update, not a full daily sweep."
     }
   ],
   "companies": [

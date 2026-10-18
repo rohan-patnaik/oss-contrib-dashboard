@@ -3889,14 +3889,14 @@
       ],
       "pr_url": "https://github.com/pingdotgg/t3code/pull/21175",
       "pr_number": 21175,
-      "head": "bd9f16d99e07564a2037975c68f5df7f9ab082f5",
+      "head": "ae0599b053e8184697349716ba825b4ea6d017bf",
       "pr_state": "open",
       "pr_raised_at": "2026-10-18T11:51:54Z",
-      "updated_at": "2026-10-18T11:52:07.923364+00:00",
-      "last_maintained": "2026-10-18T11:52:07.923364+00:00",
-      "outcome": "User-authorized replacement published; maintainer product approval and hosted checks pending.",
+      "updated_at": "2026-10-18T12:10:56.308552+00:00",
+      "last_maintained": "2026-10-18T12:10:56.308552+00:00",
+      "outcome": "Addressed all 10 current SideChat review findings (2 Macroscope, 8 CodeRabbit); verified push and replies, all threads resolved. Product approval and hosted workflow authorization remain pending.",
       "replacement_of": 12794,
-      "validation": "253 focused web tests;31 changed node tests;71 fork/transition/runtime checks;4 secret-request checks;scoped web/server typechecks/lint/format;exact independent APPROVE after secure-input red/green regression."
+      "validation": "253 focused web tests;31 changed node tests;71 fork/transition/runtime checks;4 secret-request checks;scoped web/server typechecks/lint/format;exact independent APPROVE after secure-input red/green regression. Follow-up: 134 focused tests for attachment/editor fixes;8 backend and19 browser tests plus6 scoped React Compiler cases;web/server typechecks and scoped lint/format pass;native app context/header checks;independent exact-commit APPROVE."
     },
     {
       "repo": "pingdotgg/t3code",

@@ -1,7 +1,7 @@
 {
   "generated": "2026-10-19T06:49:18.847130+00:00",
   "campaign": {
-    "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
+    "phase": "RESEARCH COMPLETE/STOPPED \u2014 implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
   },
   "summary": {
@@ -127,11 +127,11 @@
       "company": "OpenAI",
       "repo": "openai/gpt-oss",
       "url": "https://github.com/openai/gpt-oss",
-      "relevance": "GPU-heavy overall; CPU-verifiable scope = harmony/chat/tool code paths (gpt_oss/tools/*, gpt_oss/chat.py, responses_api), tokenizer usage — NOT model inference (torch/triton/metal/vllm implementations need weights+GPU).",
+      "relevance": "GPU-heavy overall; CPU-verifiable scope = harmony/chat/tool code paths (gpt_oss/tools/*, gpt_oss/chat.py, responses_api), tokenizer usage \u2014 NOT model inference (torch/triton/metal/vllm implementations need weights+GPU).",
       "stars": 20429,
       "maintenance": "pushed 2026-07-24",
       "previous_contribution": "none",
-      "policy": "Bug fixes ONLY — features explicitly rejected (README Contributing section at HEAD 7b58334). No CONTRIBUTING.md, no AGENTS.md/CLAUDE.md/AI files anywhere in recursive tree. No CLA. AI policy: None found.",
+      "policy": "Bug fixes ONLY \u2014 features explicitly rejected (README Contributing section at HEAD 7b58334). No CONTRIBUTING.md, no AGENTS.md/CLAUDE.md/AI files anywhere in recursive tree. No CLA. AI policy: None found.",
       "policy_links": [],
       "decision": "admitted",
       "checked_at": "2026-09-25T05:36:04Z"
@@ -191,11 +191,11 @@
       "company": "Anthropic",
       "repo": "anthropics/anthropic-sdk-python",
       "url": "https://github.com/anthropics/anthropic-sdk-python",
-      "relevance": "Anthropic's official Python SDK ('anthropic' on PyPI) — the flagship client library for the Claude API.",
+      "relevance": "Anthropic's official Python SDK ('anthropic' on PyPI) \u2014 the flagship client library for the Claude API.",
       "stars": 3919,
       "maintenance": "pushed 2026-09-22",
       "previous_contribution": "none",
-      "policy": "No issue-first or prior-approval gate for code. Docs changes are issue-only ('To suggest changes, open an issue'). Structural gate: most of the SDK is Stainless-generated; only src/anthropic/lib/, examples/, and tests/lib/ are fully hand-written — edits elsewhere may conflict with the next codegen push, and .stats.yml/.github/workflows/_version.py are generator- or release-please-owned (do not edit). CLAUDE.md: check line provenance via the Stainless-Generated-From commit trailer before editing; generator-owned behavior bugs belong upstream in the generator/spec. No PR template. AI policy: Explicitly AI-friendly, no prohibition. CLAUDE.md opens: 'Context for contributors (human or AI) on how this SDK is put together, plus the things reviews most often come back to.'",
+      "policy": "No issue-first or prior-approval gate for code. Docs changes are issue-only ('To suggest changes, open an issue'). Structural gate: most of the SDK is Stainless-generated; only src/anthropic/lib/, examples/, and tests/lib/ are fully hand-written \u2014 edits elsewhere may conflict with the next codegen push, and .stats.yml/.github/workflows/_version.py are generator- or release-please-owned (do not edit). CLAUDE.md: check line provenance via the Stainless-Generated-From commit trailer before editing; generator-owned behavior bugs belong upstream in the generator/spec. No PR template. AI policy: Explicitly AI-friendly, no prohibition. CLAUDE.md opens: 'Context for contributors (human or AI) on how this SDK is put together, plus the things reviews most often come back to.'",
       "policy_links": [
         "https://github.com/anthropics/anthropic-sdk-python/blob/main/CONTRIBUTING.md",
         "https://github.com/anthropics/anthropic-sdk-python/blob/main/CLAUDE.md",
@@ -208,7 +208,7 @@
       "company": "Anthropic",
       "repo": "anthropics/anthropic-sdk-typescript",
       "url": "https://github.com/anthropics/anthropic-sdk-typescript",
-      "relevance": "Anthropic's official TypeScript/JavaScript SDK (@anthropic-ai/sdk on npm) — the flagship JS client for the Claude API.",
+      "relevance": "Anthropic's official TypeScript/JavaScript SDK (@anthropic-ai/sdk on npm) \u2014 the flagship JS client for the Claude API.",
       "stars": 2122,
       "maintenance": "pushed 2026-09-22",
       "previous_contribution": "none",
@@ -225,11 +225,11 @@
       "company": "Hugging Face",
       "repo": "huggingface/tokenizers",
       "url": "https://github.com/huggingface/tokenizers",
-      "relevance": "Hugging Face's core Rust tokenization library powering transformers — one of the most-used components in the HF ecosystem.",
+      "relevance": "Hugging Face's core Rust tokenization library powering transformers \u2014 one of the most-used components in the HF ecosystem.",
       "stars": 11110,
       "maintenance": "pushed 2026-09-24",
       "previous_contribution": "none",
-      "policy": "No prior-approval/assignment gate, but a strict quality bar: keep PRs as drafts until fully owned ('A PR marked ready for review is a claim that you have done the work'); bug fixes must include a regression test; fix the cause not the symptom; any performance claim requires before/after numbers from the tokbench benchmark on your machine with CPU/OS listed; byte-exactness of output ids is non-negotiable. No PR template or issue templates in .github. AI policy: Restriction, not prohibition. Exact text: 'No AI slop. Using a model to help is fine. Opening a PR you have not read, do not understand, and cannot defend is not.' Also: 'You are responsible for the code you push. If you cannot explain every line of your diff, why it is correct, and what it breaks if it is wrong — do not open it as ready for review.' AI-assisted work is explicitly permitted if the author can defend every line.",
+      "policy": "No prior-approval/assignment gate, but a strict quality bar: keep PRs as drafts until fully owned ('A PR marked ready for review is a claim that you have done the work'); bug fixes must include a regression test; fix the cause not the symptom; any performance claim requires before/after numbers from the tokbench benchmark on your machine with CPU/OS listed; byte-exactness of output ids is non-negotiable. No PR template or issue templates in .github. AI policy: Restriction, not prohibition. Exact text: 'No AI slop. Using a model to help is fine. Opening a PR you have not read, do not understand, and cannot defend is not.' Also: 'You are responsible for the code you push. If you cannot explain every line of your diff, why it is correct, and what it breaks if it is wrong \u2014 do not open it as ready for review.' AI-assisted work is explicitly permitted if the author can defend every line.",
       "policy_links": [
         "https://github.com/huggingface/tokenizers/blob/main/CONTRIBUTING.md",
         "https://github.com/huggingface/tokenizers/blob/main/README.md"
@@ -261,7 +261,7 @@
       "stars": 7950,
       "maintenance": "pushed 2026-09-21",
       "previous_contribution": "none",
-      "policy": "No approval gate. docs/contributing.md opens 'We happily accept contributions!' and points to good-first-issue/help-wanted labels. Style gates: minimalism is enforced ('This repository rewards minimal code'), pre-commit required, specific commit-message format (fix/feat/enh/docs/ref/chore with component). PR template is minimal (reference the issue). AI policy: No prohibition — the repo ships AGENTS.md/CLAUDE.md/copilot-instructions.md specifically to guide AI contributors. It even acknowledges LM-written code and asks for cleanup: 'Many LMs write very verbose code -- please clean it up!' Only trailer rule: 'Do NOT add Co-authored-by: Cursor lines to the commit message.'",
+      "policy": "No approval gate. docs/contributing.md opens 'We happily accept contributions!' and points to good-first-issue/help-wanted labels. Style gates: minimalism is enforced ('This repository rewards minimal code'), pre-commit required, specific commit-message format (fix/feat/enh/docs/ref/chore with component). PR template is minimal (reference the issue). AI policy: No prohibition \u2014 the repo ships AGENTS.md/CLAUDE.md/copilot-instructions.md specifically to guide AI contributors. It even acknowledges LM-written code and asks for cleanup: 'Many LMs write very verbose code -- please clean it up!' Only trailer rule: 'Do NOT add Co-authored-by: Cursor lines to the commit message.'",
       "policy_links": [
         "https://github.com/SWE-agent/mini-swe-agent/blob/main/docs/contributing.md",
         "https://github.com/SWE-agent/mini-swe-agent/blob/main/AGENTS.md",
@@ -274,7 +274,7 @@
       "company": "Cline",
       "repo": "cline/cline",
       "url": "https://github.com/cline/cline",
-      "relevance": "Cline's flagship product — one of the most popular open-source AI coding agents / VS Code extensions (69k+ stars).",
+      "relevance": "Cline's flagship product \u2014 one of the most popular open-source AI coding agents / VS Code extensions (69k+ stars).",
       "stars": 69227,
       "maintenance": "pushed 2026-09-24",
       "previous_contribution": "none",
@@ -293,7 +293,7 @@
       "url": "https://github.com/NousResearch/hermes-agent",
       "relevance": "Nous Research's flagship open-source personal AI agent (Hermes), their primary public codebase and community focal point.",
       "stars": 248661,
-      "maintenance": "pushed 2026-09-24 — CAUTION: metrics anomalous (248k stars vs 960 watchers, 43k open issues; heavy bot activity)",
+      "maintenance": "pushed 2026-09-24 \u2014 CAUTION: metrics anomalous (248k stars vs 960 watchers, 43k open issues; heavy bot activity)",
       "previous_contribution": "none",
       "policy": "No prior-approval gate; search-first is required (search open AND merged PRs/issues before building; 'For larger work, comment on the issue to signal you're working on it'). Hard scope exclusions regardless of quality: new memory providers under plugins/memory/ are closed ('We are no longer accepting new memory providers into this repo'), and any third-party product integration plugin must ship as a standalone plugin repo. AGENTS.md rubric rejects speculative infrastructure, new HERMES_* env vars for non-secret config, new core tools when a skill suffices, and cache-breaking changes. An automated triage sweeper closes PRs on implemented_on_main/cannot_reproduce/incoherent. PR template requires Conventional Commits, tests for bug fixes, duplicate search, platform tested. AI policy: Explicitly AI-welcoming, no prohibition. AGENTS.md opens: 'Instructions for AI coding assistants and developers working on the hermes-agent codebase.' Contribution priorities put bug fixes first; quality/premise-verification rules apply equally to human and AI authors.",
       "policy_links": [
@@ -346,7 +346,7 @@
       "stars": 146993,
       "maintenance": "pushed 2026-09-24",
       "previous_contribution": "none",
-      "policy": "HARD GATE (org CONTRIBUTING, current): 'All pull requests must link to an issue or discussion where a solution has been approved by a maintainer. PRs without prior approval will be closed.' PR template adds: '...and you must be assigned to that issue.' NO small-bug-fix exception exists in the current text — the historical 'small fixes allowed without approval' note is OUTDATED. AI policy: Restrict",
+      "policy": "HARD GATE (org CONTRIBUTING, current): 'All pull requests must link to an issue or discussion where a solution has been approved by a maintainer. PRs without prior approval will be closed.' PR template adds: '...and you must be assigned to that issue.' NO small-bug-fix exception exists in the current text \u2014 the historical 'small fixes allowed without approval' note is OUTDATED. AI policy: Restrict",
       "policy_links": [
         "https://github.com/langchain-ai/.github/blob/main/CONTRIBUTING.md",
         "https://github.com/langchain-ai/langchain/blob/5704d9d4813f8c0527f04e2662cf313e1350f96f/AGENTS.md",
@@ -380,7 +380,7 @@
       "stars": 40972,
       "maintenance": "pushed 2026-09-24",
       "previous_contribution": "none",
-      "policy": "'We welcome pull requests that add significant value to Faiss. If you plan to do a major development... please contact us first.' No issue-first gate for bug fixes. Note: 'There is a Facebook internal test suite for Faiss, and we need to run all changes to Faiss through it' — PRs land via meta-codesync internal import (GitHub PR shows as Closed with a bot comment 'merged this pull request in faceb",
+      "policy": "'We welcome pull requests that add significant value to Faiss. If you plan to do a major development... please contact us first.' No issue-first gate for bug fixes. Note: 'There is a Facebook internal test suite for Faiss, and we need to run all changes to Faiss through it' \u2014 PRs land via meta-codesync internal import (GitHub PR shows as Closed with a bot comment 'merged this pull request in faceb",
       "policy_links": [
         "https://github.com/facebookresearch/faiss/blob/2496f63f764595b10a8c0bc8eeb1ccf54a36b897/CONTRIBUTING.md",
         "https://github.com/facebookresearch/faiss/blob/2496f63f764595b10a8c0bc8eeb1ccf54a36b897/README.md",
@@ -397,7 +397,7 @@
       "stars": 186787,
       "maintenance": "pushed 2026-09-21",
       "previous_contribution": "none",
-      "policy": "No issue-first or approval gate. Scope gate only: in-scope = converter fidelity, 'Bug fixes, performance improvements, and security fixes', CLI, markitdown-mcp, tests/docs/tooling; out of scope = new apps/servers/frontends, and 'New formats are added sparingly — especially if they incur new dependencies.' CONTRIBUTING.md does not exist (404 at HEAD; community profile confirms no contributing file)",
+      "policy": "No issue-first or approval gate. Scope gate only: in-scope = converter fidelity, 'Bug fixes, performance improvements, and security fixes', CLI, markitdown-mcp, tests/docs/tooling; out of scope = new apps/servers/frontends, and 'New formats are added sparingly \u2014 especially if they incur new dependencies.' CONTRIBUTING.md does not exist (404 at HEAD; community profile confirms no contributing file)",
       "policy_links": [
         null,
         "https://github.com/microsoft/markitdown/blob/b8f79c57ebc0044be41323d89b2a45d3fda8460e/README.md",
@@ -431,7 +431,7 @@
       "stars": 7461,
       "maintenance": "pushed 2026-09-04",
       "previous_contribution": "org has prior satellite contribution",
-      "policy": "Bug fixes: no gate — 'Unlike bug fix or improving existing feature (where users usually directly submit a PR and we review it), adding a new feature to GPT-NeoX requires several steps: (1) proposal and discussion, (2) implementation and verification, (3) release and maintenance.' New features require an issue with design + planned convergence/performance experiments before implementation. Pre-comm",
+      "policy": "Bug fixes: no gate \u2014 'Unlike bug fix or improving existing feature (where users usually directly submit a PR and we review it), adding a new feature to GPT-NeoX requires several steps: (1) proposal and discussion, (2) implementation and verification, (3) release and maintenance.' New features require an issue with design + planned convergence/performance experiments before implementation. Pre-comm",
       "policy_links": [
         "https://github.com/EleutherAI/gpt-neox/blob/cf40e42142694e40aab158b6c81ff3f1d4fc921a/CONTRIBUTING.md",
         "https://github.com/EleutherAI/gpt-neox/blob/cf40e42142694e40aab158b6c81ff3f1d4fc921a/README.md",
@@ -548,7 +548,7 @@
       "stars": 43157,
       "maintenance": "pushed 2026-09-24",
       "previous_contribution": "none",
-      "policy": "Small-fix exception explicit: 'Unlike bug fix or improving existing feature (where users usually directly submit a PR and we review it), adding a new feature to DeepSpeed requires several steps: (1) proposal and discussion...'. New features need a proposal issue with experimental evidence. AI policy: No prohibition. AGENTS.md/CLAUDE.md is written for AI coding agents ('AGENTS.md — Workspace-level ",
+      "policy": "Small-fix exception explicit: 'Unlike bug fix or improving existing feature (where users usually directly submit a PR and we review it), adding a new feature to DeepSpeed requires several steps: (1) proposal and discussion...'. New features need a proposal issue with experimental evidence. AI policy: No prohibition. AGENTS.md/CLAUDE.md is written for AI coding agents ('AGENTS.md \u2014 Workspace-level ",
       "policy_links": [
         "https://github.com/deepspeedai/DeepSpeed/blob/master/CONTRIBUTING.md",
         "https://github.com/deepspeedai/DeepSpeed/blob/master/AGENTS.md",
@@ -582,7 +582,7 @@
       "stars": 3601,
       "maintenance": "pushed 2026-09-23",
       "previous_contribution": "org has prior satellite contribution (torchft)",
-      "policy": "Standard fork-and-PR flow; new-feature contributors must commit to ~1 year of maintenance support ('expect a resolution of the issues within 90 days'); no issue-assignment gate; no AI-specific gate. No AGENTS.md/CLAUDE.md/AI policy exists. AI policy: None found — no AI/agent/LLM language in CONTRIBUTING.md, PR template, or repo root.",
+      "policy": "Standard fork-and-PR flow; new-feature contributors must commit to ~1 year of maintenance support ('expect a resolution of the issues within 90 days'); no issue-assignment gate; no AI-specific gate. No AGENTS.md/CLAUDE.md/AI policy exists. AI policy: None found \u2014 no AI/agent/LLM language in CONTRIBUTING.md, PR template, or repo root.",
       "policy_links": [
         "https://github.com/meta-pytorch/botorch/blob/main/CONTRIBUTING.md",
         "https://github.com/meta-pytorch/botorch/blob/main/.github/PULL_REQUEST_TEMPLATE.md"
@@ -611,7 +611,7 @@
       "company": "NVIDIA",
       "repo": "NVIDIA-NeMo/RL",
       "url": "https://github.com/NVIDIA-NeMo/RL",
-      "relevance": "NVIDIA's post-training/RLHF framework (GRPO/DPO/SFT) — highly current LLM-training infra.",
+      "relevance": "NVIDIA's post-training/RLHF framework (GRPO/DPO/SFT) \u2014 highly current LLM-training infra.",
       "stars": 2031,
       "maintenance": "pushed 2026-09-24",
       "previous_contribution": "none",
@@ -666,7 +666,7 @@
       "stars": 129429,
       "maintenance": "pushed 2026-09-24",
       "previous_contribution": "none",
-      "policy": "Features must begin with an issue; bug-fix PRs must include a reproducible issue and a regression test; new contributors limited to 1 open PR and told 'Do not submit trivial fixes (e.g. typos, formatting changes)' — the opposite of a small-fix exception. AI policy: Decisive prohibitions. CONTRIBUTING.md: 'AI-generated code is allowed. You are 100% responsible for every line, however it was produce",
+      "policy": "Features must begin with an issue; bug-fix PRs must include a reproducible issue and a regression test; new contributors limited to 1 open PR and told 'Do not submit trivial fixes (e.g. typos, formatting changes)' \u2014 the opposite of a small-fix exception. AI policy: Decisive prohibitions. CONTRIBUTING.md: 'AI-generated code is allowed. You are 100% responsible for every line, however it was produce",
       "policy_links": [
         "https://github.com/ggml-org/llama.cpp/blob/master/CONTRIBUTING.md",
         "https://github.com/ggml-org/llama.cpp/blob/master/AGENTS.md",
@@ -713,11 +713,11 @@
       "company": "OpenAI",
       "repo": "openai/whisper",
       "url": "https://github.com/openai/whisper",
-      "relevance": "OpenAI's flagship open-source speech recognition model — one of the most used ML repos on GitHub (109k stars)",
+      "relevance": "OpenAI's flagship open-source speech recognition model \u2014 one of the most used ML repos on GitHub (109k stars)",
       "stars": 109554,
       "maintenance": "batch-maintained (external merges Aug/Jul/Jun 2026; pushed 2026-08-31)",
       "previous_contribution": "none",
-      "policy": "No CONTRIBUTING file; no AI prohibition; external bug-fix PRs demonstrably merged in batches. Issues DISABLED — candidates sourced from existing public Discussions (2,198) describing real user-reported bugs, per campaign-owner rule amendment 2026-09-25 IST. 152 open PRs: rigorous competition checks required. Slow batch review cadence recorded as acceptance risk.",
+      "policy": "No CONTRIBUTING file; no AI prohibition; external bug-fix PRs demonstrably merged in batches. Issues DISABLED \u2014 candidates sourced from existing public Discussions (2,198) describing real user-reported bugs, per campaign-owner rule amendment 2026-09-25 IST. 152 open PRs: rigorous competition checks required. Slow batch review cadence recorded as acceptance risk.",
       "policy_links": [
         "https://github.com/openai/whisper/discussions"
       ],
@@ -728,7 +728,7 @@
       "company": "Lightning AI",
       "repo": "Lightning-AI/pytorch-lightning",
       "url": "https://github.com/Lightning-AI/pytorch-lightning",
-      "relevance": "Canonical PyTorch training framework (Trainer/Fabric, checkpointing, loops) — pure-Python, CPU-verifiable, high-visibility ML infrastructure.",
+      "relevance": "Canonical PyTorch training framework (Trainer/Fabric, checkpointing, loops) \u2014 pure-Python, CPU-verifiable, high-visibility ML infrastructure.",
       "stars": 31360,
       "maintenance": "pushed 2026-09-21",
       "previous_contribution": "none",
@@ -794,7 +794,7 @@
       "company": "Google/DeepMind",
       "repo": "google-deepmind/gemma",
       "url": "https://github.com/google-deepmind/gemma",
-      "relevance": "JAX Gemma model library — technically CPU-small-config testable, but moot given intake is closed in practice.",
+      "relevance": "JAX Gemma model library \u2014 technically CPU-small-config testable, but moot given intake is closed in practice.",
       "stars": 5746,
       "maintenance": "pushed 2026-09-16",
       "previous_contribution": "none",
@@ -813,7 +813,7 @@
       "stars": 21098,
       "maintenance": "pushed 2026-09-25",
       "previous_contribution": "none",
-      "policy": "No root CONTRIBUTING.md, no PR/issue templates, no CODEOWNERS. Recursive tree at HEAD 66a8cf1: no AGENTS.md, no CLAUDE.md, no .cursorrules, no copilot-instructions — no trl-style AI clause anywhere. AI policy: None found (explicitly checked for trl-style clauses).",
+      "policy": "No root CONTRIBUTING.md, no PR/issue templates, no CODEOWNERS. Recursive tree at HEAD 66a8cf1: no AGENTS.md, no CLAUDE.md, no .cursorrules, no copilot-instructions \u2014 no trl-style AI clause anywhere. AI policy: None found (explicitly checked for trl-style clauses).",
       "policy_links": [],
       "decision": "admitted",
       "checked_at": "2026-09-25T05:36:04Z"
@@ -822,7 +822,7 @@
       "company": "Hugging Face",
       "repo": "huggingface/accelerate",
       "url": "https://github.com/huggingface/accelerate",
-      "relevance": "Launcher/config/state correctness on CPU paths — accelerate runs fully on CPU (accelerate launch --cpu, config files, checkpointing state).",
+      "relevance": "Launcher/config/state correctness on CPU paths \u2014 accelerate runs fully on CPU (accelerate launch --cpu, config files, checkpointing state).",
       "stars": 9885,
       "maintenance": "pushed 2026-09-24",
       "previous_contribution": "none",
@@ -835,7 +835,7 @@
       "company": "Stanford CRFM",
       "repo": "stanford-crfm/helm",
       "url": "https://github.com/stanford-crfm/helm",
-      "relevance": "Would have been ideal: metric computation, scenario/adapter correctness, run-spec handling — all CPU-verifiable. Vein exists but the door is unstaffed.",
+      "relevance": "Would have been ideal: metric computation, scenario/adapter correctness, run-spec handling \u2014 all CPU-verifiable. Vein exists but the door is unstaffed.",
       "stars": 2921,
       "maintenance": "pushed 2026-09-01",
       "previous_contribution": "none",
@@ -852,7 +852,7 @@
       "stars": 5502,
       "maintenance": "pushed 2026-04-29",
       "previous_contribution": "none",
-      "policy": "Standard fork-branch-PR + tests; pre-commit. No AGENTS.md/CLAUDE.md/AI files in recursive tree at HEAD 6405188 (truncated:false). No CLA/DCO. DECISIVE OPERATIONAL GATE: PR #3934 'Remove GitHub Actions workflows and dependabot configuration' merged 2026-03-25 — repo has NO CI anymore, so external PRs cannot even be validated. AI policy: None found.",
+      "policy": "Standard fork-branch-PR + tests; pre-commit. No AGENTS.md/CLAUDE.md/AI files in recursive tree at HEAD 6405188 (truncated:false). No CLA/DCO. DECISIVE OPERATIONAL GATE: PR #3934 'Remove GitHub Actions workflows and dependabot configuration' merged 2026-03-25 \u2014 repo has NO CI anymore, so external PRs cannot even be validated. AI policy: None found.",
       "policy_links": [],
       "decision": "rejected",
       "checked_at": "2026-09-25T05:52:00Z"
@@ -865,7 +865,7 @@
       "stars": 4448,
       "maintenance": "pushed 2026-03-25",
       "previous_contribution": "none",
-      "policy": "No CONTRIBUTING.md, no PR template. No AGENTS.md/CLAUDE.md/AI files in recursive tree at HEAD 0cdb2f4 (truncated:false). DECISIVE OPERATIONAL GATE: final commit to main is PR #1887 'Remove GitHub Actions workflows and dependabot configuration' (2026-03-25) — no CI, repo frozen since. AI policy: None found.",
+      "policy": "No CONTRIBUTING.md, no PR template. No AGENTS.md/CLAUDE.md/AI files in recursive tree at HEAD 0cdb2f4 (truncated:false). DECISIVE OPERATIONAL GATE: final commit to main is PR #1887 'Remove GitHub Actions workflows and dependabot configuration' (2026-03-25) \u2014 no CI, repo frozen since. AI policy: None found.",
       "policy_links": [],
       "decision": "rejected",
       "checked_at": "2026-09-25T05:52:00Z"
@@ -878,7 +878,7 @@
       "stars": 3821,
       "maintenance": "pushed 2026-09-25",
       "previous_contribution": "org has prior satellite contribution (production-stack)",
-      "policy": "ORG-CLAUSE QUESTION RESOLVED: vllm-project/vllm's AGENTS.md is REPO-scoped ('These instructions apply to all AI-assisted contributions to `vllm-project/vllm`') and there is NO vllm-project/.github org repo (404) and NO AGENTS.md/CLAUDE.md in llm-compressor's recursive tree at HEAD 766a1b1 (truncated:false) — the vllm human-review AGENTS clause does NOT extend here. The repo does ship .agents/skill",
+      "policy": "ORG-CLAUSE QUESTION RESOLVED: vllm-project/vllm's AGENTS.md is REPO-scoped ('These instructions apply to all AI-assisted contributions to `vllm-project/vllm`') and there is NO vllm-project/.github org repo (404) and NO AGENTS.md/CLAUDE.md in llm-compressor's recursive tree at HEAD 766a1b1 (truncated:false) \u2014 the vllm human-review AGENTS clause does NOT extend here. The repo does ship .agents/skill",
       "policy_links": [],
       "decision": "admitted",
       "checked_at": "2026-09-25T05:52:00Z"
@@ -904,7 +904,7 @@
       "stars": 90582,
       "maintenance": "pushed 2026-09-22",
       "previous_contribution": "none",
-      "policy": "Standard GitHub flow, no label gate, no issue-first requirement. TS tests must use vitest (CONTRIBUTING + CLAUDE.md), Python servers use uv/pytest/pyright/ruff. Monorepo now holds only 7 reference servers (everything, filesystem, memory, sequentialthinking TS; fetch, git, time Py) — all other servers retired to the registry, so only issues against these 7 are in scope. Workflows: python.yml, types",
+      "policy": "Standard GitHub flow, no label gate, no issue-first requirement. TS tests must use vitest (CONTRIBUTING + CLAUDE.md), Python servers use uv/pytest/pyright/ruff. Monorepo now holds only 7 reference servers (everything, filesystem, memory, sequentialthinking TS; fetch, git, time Py) \u2014 all other servers retired to the registry, so only issues against these 7 are in scope. Workflows: python.yml, types",
       "policy_links": [],
       "decision": "admitted",
       "checked_at": "2026-09-25T05:56:00Z"
@@ -913,7 +913,7 @@
       "company": "IBM/Docling",
       "repo": "docling-project/docling",
       "url": "https://github.com/docling-project/docling",
-      "relevance": "Format parsing/conversion correctness (docx/pptx/xlsx/html/md/csv/epub backends) is pure-Python, CPU-perfect, pytest-covered — ideal for data-processing career signal.",
+      "relevance": "Format parsing/conversion correctness (docx/pptx/xlsx/html/md/csv/epub backends) is pure-Python, CPU-perfect, pytest-covered \u2014 ideal for data-processing career signal.",
       "stars": 67902,
       "maintenance": "pushed 2026-09-25",
       "previous_contribution": "none",
@@ -926,11 +926,11 @@
       "company": "Pydantic",
       "repo": "pydantic/pydantic-ai",
       "url": "https://github.com/pydantic/pydantic-ai",
-      "relevance": "Provider integration correctness (pricing/usage, message mapping, streaming), agent-loop and tool-call bugs — all pure Python, mocked-provider pytest, fully CPU-verifiable.",
+      "relevance": "Provider integration correctness (pricing/usage, message mapping, streaming), agent-loop and tool-call bugs \u2014 all pure Python, mocked-provider pytest, fully CPU-verifiable.",
       "stars": 20161,
       "maintenance": "pushed 2026-09-25",
       "previous_contribution": "none",
-      "policy": "HARD ASSIGNMENT GATE for non-trivial changes: maintainer must agree the approach on the issue AND assign the contributor before a PR is opened; unassigned PRs may be auto-closed. Trivial/obvious one-line fixes exempt. Automated review by Devin (advisory). 'We may rewrite or supersede your code' — contributed code treated as illustrative. Stale-issue agentic workflows (pydantic-ai-stale-issues-find",
+      "policy": "HARD ASSIGNMENT GATE for non-trivial changes: maintainer must agree the approach on the issue AND assign the contributor before a PR is opened; unassigned PRs may be auto-closed. Trivial/obvious one-line fixes exempt. Automated review by Devin (advisory). 'We may rewrite or supersede your code' \u2014 contributed code treated as illustrative. Stale-issue agentic workflows (pydantic-ai-stale-issues-find",
       "policy_links": [],
       "decision": "admitted",
       "checked_at": "2026-09-25T06:05:00Z"
@@ -939,7 +939,7 @@
       "company": "BerriAI/LiteLLM",
       "repo": "BerriAI/litellm",
       "url": "https://github.com/BerriAI/litellm",
-      "relevance": "Provider transformation/streaming/usage-cost correctness, router/fallback logic, tool-call mapping — pure Python with an established mocked-test convention in tests/test_litellm/; ideal CPU-verifiable provider-integration career signal.",
+      "relevance": "Provider transformation/streaming/usage-cost correctness, router/fallback logic, tool-call mapping \u2014 pure Python with an established mocked-test convention in tests/test_litellm/; ideal CPU-verifiable provider-integration career signal.",
       "stars": 59582,
       "maintenance": "pushed 2026-09-25",
       "previous_contribution": "none",
@@ -952,11 +952,11 @@
       "company": "CrewAI",
       "repo": "crewAIInc/crewAI",
       "url": "https://github.com/crewAIInc/crewAI",
-      "relevance": "Agent-loop/tool-call/LLM-provider correctness (lib/crewai/src/crewai/llm.py, agents, memory, rag) — pure Python, pytest+mocks, CPU-verifiable.",
+      "relevance": "Agent-loop/tool-call/LLM-provider correctness (lib/crewai/src/crewai/llm.py, agents, memory, rag) \u2014 pure Python, pytest+mocks, CPU-verifiable.",
       "stars": 58996,
       "maintenance": "pushed 2026-09-25",
       "previous_contribution": "none",
-      "policy": "First-time contributor MUST link an existing open issue (enforced by ftc-require-issue.yml on pull_request_target — allow-list is MEMBER/OWNER/COLLABORATOR/CONTRIBUTOR). Conventional-commit PR titles, strict mypy on 3.10-3.13, ruff, tests via uv run pytest lib/crewai/tests/. uv workspace monorepo (core in lib/crewai/). AI-authored PRs must carry the llm-generated label (mandatory disclosure, not a",
+      "policy": "First-time contributor MUST link an existing open issue (enforced by ftc-require-issue.yml on pull_request_target \u2014 allow-list is MEMBER/OWNER/COLLABORATOR/CONTRIBUTOR). Conventional-commit PR titles, strict mypy on 3.10-3.13, ruff, tests via uv run pytest lib/crewai/tests/. uv workspace monorepo (core in lib/crewai/). AI-authored PRs must carry the llm-generated label (mandatory disclosure, not a",
       "policy_links": [],
       "decision": "admitted",
       "checked_at": "2026-09-25T06:05:00Z"
@@ -1080,7 +1080,7 @@
       "difficulty": "medium",
       "status": "pr-open",
       "verified_at": "2026-09-24T18:27:51Z",
-      "ownership_check": "Open, unassigned, zero comments/claims. No maintainer triage yet on this issue (sibling #1102 Maven is help-wanted; analogous Go PR #1321 unreviewed since 2026-06 — review-latency risk recorded). No matching PR found as of 2026-09-24T18:26:29Z; queries: search 1582 / rubygems / ruby / gem in:title.",
+      "ownership_check": "Open, unassigned, zero comments/claims. No maintainer triage yet on this issue (sibling #1102 Maven is help-wanted; analogous Go PR #1321 unreviewed since 2026-06 \u2014 review-latency risk recorded). No matching PR found as of 2026-09-24T18:26:29Z; queries: search 1582 / rubygems / ruby / gem in:title.",
       "competing_prs": [],
       "platform_plan": "Mac ARM64 CPU: go build ./...; go test ./internal/validators/... with mocked-HTTP validator tests; make check.",
       "career_signal": "medium",
@@ -1116,7 +1116,7 @@
       "difficulty": "low",
       "status": "pr-open",
       "verified_at": "2026-09-24T18:27:51Z",
-      "ownership_check": "Open, unassigned, zero comments (created 2026-09-21). Issue headline partially overstated (remote-servers.mdx exists) — fix shape corrected to cross-link + gap notes. No matching PR found as of 2026-09-24T18:26:29Z; queries: search 1656 / remote-only.",
+      "ownership_check": "Open, unassigned, zero comments (created 2026-09-21). Issue headline partially overstated (remote-servers.mdx exists) \u2014 fix shape corrected to cross-link + gap notes. No matching PR found as of 2026-09-24T18:26:29Z; queries: search 1656 / remote-only.",
       "competing_prs": [],
       "platform_plan": "CPU-only doc edits; verify with grep against quickstart.mdx and schema files; make check.",
       "career_signal": "low",
@@ -1130,7 +1130,7 @@
       "url": "https://github.com/microsoft/markitdown/issues/1247",
       "title": "Failed to convert text in macros (.docx to .md)",
       "importance": "medium",
-      "importance_rationale": "Silent content loss: DOCX text carried in Word fields (MACROBUTTON — standard in 3GPP/standards-body/legal templates for 'Proposal N:'/'Observation N:' lines) vanishes from the Markdown with no warning or error, corrupting downstream pipelines that trust the output.",
+      "importance_rationale": "Silent content loss: DOCX text carried in Word fields (MACROBUTTON \u2014 standard in 3GPP/standards-body/legal templates for 'Proposal N:'/'Observation N:' lines) vanishes from the Markdown with no warning or error, corrupting downstream pipelines that trust the output.",
       "difficulty": "medium",
       "status": "pr-open",
       "verified_at": "2026-09-24T18:36:00Z",
@@ -1141,7 +1141,7 @@
       "pr_raised_at": "2026-09-24T19:14:07+00:00",
       "outcome": "PR #2553 open (review passed: APPROVE, 16 adversarial checks + property test)",
       "career_signal": "high",
-      "career_signal_rationale": "Silent data-loss correctness fix in Microsoft's LLM document-ingestion tool: OOXML field semantics, minimal preprocessor design, adversarially reviewed regression tests — a defensible data-processing ownership story.",
+      "career_signal_rationale": "Silent data-loss correctness fix in Microsoft's LLM document-ingestion tool: OOXML field semantics, minimal preprocessor design, adversarially reviewed regression tests \u2014 a defensible data-processing ownership story.",
       "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
@@ -1151,7 +1151,7 @@
       "url": "https://github.com/EleutherAI/gpt-neox/issues/1364",
       "title": "MoE Top-K Training",
       "importance": "medium",
-      "importance_rationale": "Silent misconfiguration: the docs say the TopK MoE router is unsupported for training ('only used for inference/eval'), yet training configs with moe_router_type='topk' are accepted without any error or warning — users can burn large training runs on a router path that has no load-balancing loss, getting degenerate expert routing with no signal that anything is wrong.",
+      "importance_rationale": "Silent misconfiguration: the docs say the TopK MoE router is unsupported for training ('only used for inference/eval'), yet training configs with moe_router_type='topk' are accepted without any error or warning \u2014 users can burn large training runs on a router path that has no load-balancing loss, getting degenerate expert routing with no signal that anything is wrong.",
       "difficulty": "low",
       "status": "pr-open",
       "verified_at": "2026-09-24T18:35:00Z",
@@ -1180,7 +1180,7 @@
       "competing_prs": [],
       "platform_plan": "Mac ARM64, CPU only: cargo test -p goose. Add failing tests using the existing mock-provider harnesses (crates/goose/src/agents/state_machine/tests/provider_lifecycle.rs already builds thinking-content responses; legacy-loop tests around agent.rs:5288 cover the zero-content variant) that return a stream containing exactly one non-empty Thinking block and assert the loop performs the continuation-recovery instead of exiting silently. The issue additionally ships a stdlib-only python mock OpenAI endpoint (repro.py) for a manual end-to-end check with goose CLI - no credentials or GPU.",
       "career_signal": "very_high",
-      "career_signal_rationale": "Core agent-loop reliability fix in a 54k-star agent platform: bounded recovery for thinking-only turns implemented across both execution engines (incl. a new state-machine operation) to a maintainer-agreed design — consequential agent-execution correctness with substantial implementation.",
+      "career_signal_rationale": "Core agent-loop reliability fix in a 54k-star agent platform: bounded recovery for thinking-only turns implemented across both execution engines (incl. a new state-machine operation) to a maintainer-agreed design \u2014 consequential agent-execution correctness with substantial implementation.",
       "career_assessed_at": "2026-09-24T20:38:31+00:00",
       "pr_url": "https://github.com/aaif-goose/goose/pull/12499",
       "pr_raised_at": "2026-09-24T20:59:25+00:00",
@@ -1264,7 +1264,7 @@
       "competing_prs": [],
       "platform_plan": "Mac ARM64, CPU only: vitest for the new Desktop list entry/persistence/unavailable-state components (cd ui/desktop && npm test), Rust unit tests around explicit_model_path listing/persistence with a small dummy .gguf fixture file (no inference run needed to validate add/persist/missing-file states); manual smoke via the desktop app with a real small GGUF is optional and still CPU-capable (llama.cpp Metal/CPU).",
       "career_signal": "medium",
-      "career_signal_rationale": "Desktop UI entry for local GGUF models; backend already accepts paths — mostly UI plumbing despite local-model relevance.",
+      "career_signal_rationale": "Desktop UI entry for local GGUF models; backend already accepts paths \u2014 mostly UI plumbing despite local-model relevance.",
       "career_assessed_at": "2026-09-24T20:38:31+00:00"
     },
     {
@@ -1339,7 +1339,7 @@
       "competing_prs": [],
       "platform_plan": "Mac ARM64, CPU only: unit-test the worktree path/gitdir portability logic (pytest openhands-agent-server tests) with plain git - e.g. relative gitdir links or locating the worktree under the shared bind-mounted namespace - then end-to-end with Docker Desktop (CPU): run agent-server with OH_CONVERSATION_RUNTIME=docker against a host repo, create a conversation with worktree=true, assert 'git worktree list' on the host shows a valid (non-prunable) worktree. No GPU, no credentials.",
       "career_signal": "very_high",
-      "career_signal_rationale": "Agent-runtime data-integrity fix: docker runtime's git worktrees span host/container namespaces and are prunable from the host, risking work loss — consequential execution-environment correctness requiring cross-namespace design.",
+      "career_signal_rationale": "Agent-runtime data-integrity fix: docker runtime's git worktrees span host/container namespaces and are prunable from the host, risking work loss \u2014 consequential execution-environment correctness requiring cross-namespace design.",
       "career_assessed_at": "2026-09-24T20:38:31+00:00",
       "outcome": "2026-10-03: merged current main and pushed c80888fb3305cfba100bc25e38204ce3dedd417e. Preserved launch mediation, scoped worktree cleanup and browser-setting behavior; adapted regression tests to the new worktree-plan API and covered Git/non-Git workspace forwarding. All 213 affected tests, required hooks and the real source-backed Docker lifecycle pass. Correct Rohan identity, DCO and repository-required OpenHands co-author trailer. Hosted SHA verified and mergeable; description/artifact checks pass. Entire PR body including HUMAN remains verbatim.",
       "pr_url": "https://github.com/OpenHands/software-agent-sdk/pull/5318",
@@ -1714,9 +1714,9 @@
       "difficulty": "medium",
       "status": "pr-open",
       "verified_at": "2026-09-24T20:40:00Z",
-      "ownership_check": "Open, unassigned, zero comments, labels bug + i-tme (internal-TME triage). No claim comments. Prior fix PR #2864 (external contributor bzantium, opened 2026-06-17) was APPROVED in-thread by RayenTian ('LGTM, pending CI' 2026-06-25) but stalled on copy-pr-bot CI re-approval and was closed by its own author 2026-08-27 with no comment — abandoned, maintainer appetite for the fix already demonstrated.",
+      "ownership_check": "Open, unassigned, zero comments, labels bug + i-tme (internal-TME triage). No claim comments. Prior fix PR #2864 (external contributor bzantium, opened 2026-06-17) was APPROVED in-thread by RayenTian ('LGTM, pending CI' 2026-06-25) but stalled on copy-pr-bot CI re-approval and was closed by its own author 2026-08-27 with no comment \u2014 abandoned, maintainer appetite for the fix already demonstrated.",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64 CPU: pip install transformers jinja2 (no GPU deps needed for this unit); failing test = call get_formatted_message_log with a message_log starting with a system turn under (a) a template that indexes messages[-1] after popping system (Llama-3.1 pattern, reproducible with a local chat-template fixture — no gated download needed) and (b) a Qwen3 tokenizer ('No user query found'). Fix along PR #2864's approved approach: defer pre-user turns whose prefix render fails, fold their tokens into the first user chunk, keep concatenation equal to the full render. Run uv run --group test pytest tests/unit/data/test_llm_message_utils.py. Gates: DCO sign-off (hard gate), maintainer /ok to test for CI.",
+      "platform_plan": "Mac ARM64 CPU: pip install transformers jinja2 (no GPU deps needed for this unit); failing test = call get_formatted_message_log with a message_log starting with a system turn under (a) a template that indexes messages[-1] after popping system (Llama-3.1 pattern, reproducible with a local chat-template fixture \u2014 no gated download needed) and (b) a Qwen3 tokenizer ('No user query found'). Fix along PR #2864's approved approach: defer pre-user turns whose prefix render fails, fold their tokens into the first user chunk, keep concatenation equal to the full render. Run uv run --group test pytest tests/unit/data/test_llm_message_utils.py. Gates: DCO sign-off (hard gate), maintainer /ok to test for CI.",
       "pr_url": "https://github.com/NVIDIA-NeMo/RL/pull/4279",
       "pr_raised_at": "2026-09-27T09:46:23+00:00",
       "outcome": "PR #4279 open ready at independently approved DCO-signed commit 56c1a58; leading pre-user template failures now defer into the first user chunk, BOS remains exact for template/manual paths, both reported exceptions fail on base, and 3 focused tests pass. DCO is green; NVIDIA runner validation awaits a maintainer."
@@ -1735,7 +1735,7 @@
       "difficulty": "low",
       "status": "vetted",
       "verified_at": "2026-09-24T20:40:00Z",
-      "ownership_check": "Open, unassigned, labels bug + i-tme + t-onbonarding. Maintainer snowmanwwg explicitly invited a PR 2025-12-03T04:18:30Z: '@AmeliaYe mind just submitting a PR with the \"upfront note\"? THank you' — reporter never acted (>9 months, outside 90-day claim window). Maintainer-sanctioned fix shape: an upfront HF-auth/gated-model note in the guide.",
+      "ownership_check": "Open, unassigned, labels bug + i-tme + t-onbonarding. Maintainer snowmanwwg explicitly invited a PR 2025-12-03T04:18:30Z: '@AmeliaYe mind just submitting a PR with the \"upfront note\"? THank you' \u2014 reporter never acted (>9 months, outside 90-day claim window). Maintainer-sanctioned fix shape: an upfront HF-auth/gated-model note in the guide.",
       "competing_prs": [],
       "platform_plan": "Mac ARM64 CPU, docs-only: verify gating with 'curl -s https://huggingface.co/api/models/meta-llama/Llama-3.1-8B | jq .gated' and an unauthenticated GET of tokenizer_config.json (expect 401, matching the issue's traceback); add the upfront prerequisite note to docs/guides/sft-openmathinstruct2.md (and the quickstart pointer in docs/guides/sft.md if applicable); verify with grep + docs build. DCO sign-off required."
     },
@@ -1764,16 +1764,16 @@
       "url": "https://github.com/openai/whisper/discussions/2333",
       "title": "transcribe.py decode_with_fallback() only expects a single DecodingResult from model.decode() but it can be a list of DecodingResult",
       "importance": "medium",
-      "importance_rationale": "Passing a natural tensor input to model.transcribe() — e.g. torchaudio.load()'s (channels, samples) stereo tensor or a (1, samples) batched tensor — crashes deep inside decode_with_fallback with AttributeError: 'list' object has no attribute 'compression_ratio', far from the actual cause. Reported 2024-09-10 and independently confirmed by two more users (2024-10-30, 2025-02-05); still crashes identically at HEAD.",
+      "importance_rationale": "Passing a natural tensor input to model.transcribe() \u2014 e.g. torchaudio.load()'s (channels, samples) stereo tensor or a (1, samples) batched tensor \u2014 crashes deep inside decode_with_fallback with AttributeError: 'list' object has no attribute 'compression_ratio', far from the actual cause. Reported 2024-09-10 and independently confirmed by two more users (2024-10-30, 2025-02-05); still crashes identically at HEAD.",
       "career_signal": "medium",
-      "career_signal_rationale": "Genuine input-contract robustness fix at the flagship model's main inference entrypoint (the (C, N) torchaudio convention makes this a common trap), but the diagnosis is already spelled out in the thread and the defensible change is shape validation/downmix plus tests — limited ML engineering depth, so conservatively Medium rather than High.",
+      "career_signal_rationale": "Genuine input-contract robustness fix at the flagship model's main inference entrypoint (the (C, N) torchaudio convention makes this a common trap), but the diagnosis is already spelled out in the thread and the defensible change is shape validation/downmix plus tests \u2014 limited ML engineering depth, so conservatively Medium rather than High.",
       "career_assessed_at": "2026-09-24T21:00:13Z",
       "difficulty": "low",
       "status": "vetted",
       "verified_at": "2026-09-24T21:00:13Z",
       "ownership_check": "Discussion open (discussions have no assignee/label mechanics). Commenter noahvandal said 'A PR could be made' on 2024-10-30 but never opened one (verified via PR search); ~23 months stale, no active claim. No maintainer response in thread. | USER-AUTHORIZED GATE EXCEPTION 2026-09-25 IST: PR-eligible despite medium career signal (control/exceptions.json).",
       "competing_prs": [],
-      "platform_plan": "Mac ARM64 CPU (or Linux CPU container): venv + pip install -e local whisper clone + torch CPU wheel; download tiny model (~39MB, allowed). Failing repro: model.transcribe(torch.zeros(2, 16000)) and model.transcribe(torch.zeros(1, 16000)) → AttributeError at transcribe.py:206. Write regression test alongside existing tests/test_transcribe.py (which already runs tiny on CPU) asserting either a clear ValueError naming the expected shape or correct mono-downmix output; verify unchanged behavior for str path, 1-D np.ndarray, and 1-D tensor inputs.",
+      "platform_plan": "Mac ARM64 CPU (or Linux CPU container): venv + pip install -e local whisper clone + torch CPU wheel; download tiny model (~39MB, allowed). Failing repro: model.transcribe(torch.zeros(2, 16000)) and model.transcribe(torch.zeros(1, 16000)) \u2192 AttributeError at transcribe.py:206. Write regression test alongside existing tests/test_transcribe.py (which already runs tiny on CPU) asserting either a clear ValueError naming the expected shape or correct mono-downmix output; verify unchanged behavior for str path, 1-D np.ndarray, and 1-D tensor inputs.",
       "pr_url": "https://github.com/openai/whisper/pull/2865",
       "pr_raised_at": "2026-09-25T08:49:14+00:00",
       "outcome": "PR #2865 open at independently approved commit 6916964; four rank-2 NumPy/Torch regressions fail on base and seven focused cases plus the existing audio test pass."
@@ -1787,7 +1787,7 @@
       "importance": "medium",
       "importance_rationale": "On Apple Silicon with --device mps and default fp16=True, medium/large models crash after minutes with 'Expected parameter logits ... found invalid values: tensor([[nan, ...]], device=mps:0)'; turbo and base complete fine. Reproduced by a second user on whisper 20250625/PyTorch 2.12.1 (2026-06-30 comment). Breaks the biggest models for all MPS users unless they know to pass fp16=False.",
       "career_signal": "medium",
-      "career_signal_rationale": "Inference-reliability work on a flagship speech model sounds strong, but without a local reproduction the defensible contribution is a speculative NaN guard around an upstream PyTorch MPS fp16 issue — conservatively Medium; would rise to High only with a real reproduction plus a measured, tested fallback path.",
+      "career_signal_rationale": "Inference-reliability work on a flagship speech model sounds strong, but without a local reproduction the defensible contribution is a speculative NaN guard around an upstream PyTorch MPS fp16 issue \u2014 conservatively Medium; would rise to High only with a real reproduction plus a measured, tested fallback path.",
       "career_assessed_at": "2026-09-24T21:00:13Z",
       "difficulty": "high",
       "status": "hold",
@@ -1825,7 +1825,7 @@
       "repo": "NousResearch/hermes-agent",
       "number": 88042,
       "url": "https://github.com/NousResearch/hermes-agent/issues/88042",
-      "title": "MCP tool results bypass compression's per-tool summarizers — no size cap, no cross-turn dedup",
+      "title": "MCP tool results bypass compression's per-tool summarizers \u2014 no size cap, no cross-turn dedup",
       "importance": "medium",
       "importance_rationale": "Every mcp__*-prefixed tool result that ages out of the protected tail is collapsed by the generic fallback to a one-line stub with ZERO retrievable content ('[tool] arg=... (N chars result)'), while built-in tools get informative summarizers. For MCP servers returning document/search payloads this creates a measured duplicate-fetch loop: the model re-issues identical calls to recover content compression just destroyed, repeatedly re-tripping compression - degrades every MCP-heavy session (MCP is a headline feature of the platform).",
       "career_signal": "high",
@@ -1933,7 +1933,7 @@
       "importance": "high",
       "importance_rationale": "Silent index corruption in a documented sharded-build workflow (train once, add to clones, merge): after IndexIDMap2-over-IVF merge_from, inner stored ids collide (both sides keep 0..n-1), so make_direct_map/reconstruct fails with \"-1 entry in direct_map\" and any id-addressed operation on the merged half is wrong. Open 2+ years with multiple affected users (reporter nkpart, chaitanya-meesho 2025-03-02, prabhaks repro on 1.13.0 2026-07-12).",
       "career_signal": "high",
-      "career_signal_rationale": "Root-causing and fixing silent ID-mapping corruption across composite index merge in the most widely used vector-search library: requires reasoning about explicit vs positional id storage (IVF vs FlatCodes), DirectMap invariants, and a backward-compatible API contract for merge_from(add_id) — concrete, interview-defensible correctness work on a core ML-infra data path.",
+      "career_signal_rationale": "Root-causing and fixing silent ID-mapping corruption across composite index merge in the most widely used vector-search library: requires reasoning about explicit vs positional id storage (IVF vs FlatCodes), DirectMap invariants, and a backward-compatible API contract for merge_from(add_id) \u2014 concrete, interview-defensible correctness work on a core ML-infra data path.",
       "career_assessed_at": "2026-09-24T22:00:00Z",
       "difficulty": "medium",
       "status": "vetted",
@@ -1952,16 +1952,16 @@
       "url": "https://github.com/facebookresearch/faiss/issues/3828",
       "title": "HNSWFlat index with JensenShannon metric brings program stuck",
       "importance": "high",
-      "importance_rationale": "Silent infinite hang (no error, no crash) in IndexHNSWFlat.add() with METRIC_JensenShannon whenever any vector component is 0 or negative — and zero components are squarely in-domain for JS (sparse probability vectors). Maintainer asadoughi reproduced it (2024-09-26: 'I am able to reproduce the issue with the code provided') but declined to prioritize; bug label, 2 years open. The repo's own JS-vs-scipy test is disabled (tests/test_extra_distances.py:84 'xx_test_jensenshannon').",
+      "importance_rationale": "Silent infinite hang (no error, no crash) in IndexHNSWFlat.add() with METRIC_JensenShannon whenever any vector component is 0 or negative \u2014 and zero components are squarely in-domain for JS (sparse probability vectors). Maintainer asadoughi reproduced it (2024-09-26: 'I am able to reproduce the issue with the code provided') but declined to prioritize; bug label, 2 years open. The repo's own JS-vs-scipy test is disabled (tests/test_extra_distances.py:84 'xx_test_jensenshannon').",
       "career_signal": "high",
-      "career_signal_rationale": "Numerical correctness of a distance-metric kernel in the canonical similarity-search library, with a user-visible failure mode (unbounded hang) traced through NaN propagation into graph-search termination conditions; the fix re-enables a disabled upstream correctness test against scipy — defensible, quantitative ML-infrastructure work.",
+      "career_signal_rationale": "Numerical correctness of a distance-metric kernel in the canonical similarity-search library, with a user-visible failure mode (unbounded hang) traced through NaN propagation into graph-search termination conditions; the fix re-enables a disabled upstream correctness test against scipy \u2014 defensible, quantitative ML-infrastructure work.",
       "career_assessed_at": "2026-09-24T22:00:00Z",
       "difficulty": "medium",
       "status": "vetted",
       "verified_at": "2026-09-24T21:58:32Z",
       "ownership_check": "Fresh publish check 2026-09-27T13:51:28Z: issue open and unassigned; exact-issue, Jensen-Shannon, HNSW, and timeline searches found no active or linked competing implementation.",
       "competing_prs": [],
-      "platform_plan": "CPU-only. Same source build as #3495. Repro (must run under `timeout 60`): issue's script — IndexHNSWFlat(2, 10, faiss.METRIC_JensenShannon), add randint(0,10) data -> hangs before fix, completes after. Correctness: compare faiss.pairwise_distances(xq, yb, METRIC_JensenShannon) against scipy.spatial.distance.jensenshannon(x,y)**2 on vectors containing zeros (L1-normalized rows with sparse zeros). Regression: `pytest tests/test_extra_distances.py -x`.",
+      "platform_plan": "CPU-only. Same source build as #3495. Repro (must run under `timeout 60`): issue's script \u2014 IndexHNSWFlat(2, 10, faiss.METRIC_JensenShannon), add randint(0,10) data -> hangs before fix, completes after. Correctness: compare faiss.pairwise_distances(xq, yb, METRIC_JensenShannon) against scipy.spatial.distance.jensenshannon(x,y)**2 on vectors containing zeros (L1-normalized rows with sparse zeros). Regression: `pytest tests/test_extra_distances.py -x`.",
       "pr_url": "https://github.com/facebookresearch/faiss/pull/5676",
       "pr_raised_at": "2026-09-27T13:52:04+00:00",
       "outcome": "PR #5676 open ready and mergeable at independently approved commit 2192d4f. The CPU kernel applies exact zero-side Jensen-Shannon limits, including float32 subnormals. Current main no longer literally hangs on the reporter's tiny script, but base returns NaN sparse distances and unusable HNSW labels. Focused, randomized, and 55 adjacent tests pass; Meta CLA/import checks are green. GPU and out-of-domain negatives are unchanged."
@@ -1973,9 +1973,9 @@
       "url": "https://github.com/facebookresearch/faiss/issues/3559",
       "title": "SearchParametersPQ not usable for IndexPQ",
       "importance": "medium",
-      "importance_rationale": "Filtered (IDSelector) search — a first-class faiss feature supported by IndexFlat, IndexScalarQuantizer and the generic IndexFlatCodes path — hard-fails on IndexPQ ('selector not supported'), which also breaks the common composite 'IDMap2,PQ32x8' pattern the reporter used. Users must fall back to unfiltered search plus post-filtering with wrong k semantics.",
+      "importance_rationale": "Filtered (IDSelector) search \u2014 a first-class faiss feature supported by IndexFlat, IndexScalarQuantizer and the generic IndexFlatCodes path \u2014 hard-fails on IndexPQ ('selector not supported'), which also breaks the common composite 'IDMap2,PQ32x8' pattern the reporter used. Users must fall back to unfiltered search plus post-filtering with wrong k semantics.",
       "career_signal": "high",
-      "career_signal_rationale": "Closing a filtered-search capability gap in a core CPU quantized index by routing through the library's existing distance-computer/result-handler architecture — demonstrates understanding of faiss's search dispatch design and selector semantics rather than bolt-on code; clear user-facing impact in an established ML framework.",
+      "career_signal_rationale": "Closing a filtered-search capability gap in a core CPU quantized index by routing through the library's existing distance-computer/result-handler architecture \u2014 demonstrates understanding of faiss's search dispatch design and selector semantics rather than bolt-on code; clear user-facing impact in an established ML framework.",
       "career_assessed_at": "2026-09-24T22:00:00Z",
       "difficulty": "medium",
       "status": "vetted",
@@ -1996,7 +1996,7 @@
       "importance": "medium",
       "importance_rationale": "Silent cardinality corruption: removing an ID held only in the dedup instances map (or an ID whose physical slot is inherited by its duplicate) succeeds logically but remove_ids returns an undercount and ntotal never decreases, so callers sizing searches/allocations by ntotal get -1 padding and drifting bookkeeping. Deterministic reproducer with nprobe==nlist provided by reporter.",
       "career_signal": "high",
-      "career_signal_rationale": "Correctness of deletion accounting in a deduplicating IVF index: the fix requires establishing the logical-vs-physical cardinality invariant across an unordered multimap of duplicate chains and the inverted-list compaction pass — real data-structure invariant work in core faiss, with a crisp deterministic regression test.",
+      "career_signal_rationale": "Correctness of deletion accounting in a deduplicating IVF index: the fix requires establishing the logical-vs-physical cardinality invariant across an unordered multimap of duplicate chains and the inverted-list compaction pass \u2014 real data-structure invariant work in core faiss, with a crisp deterministic regression test.",
       "career_assessed_at": "2026-09-24T22:00:00Z",
       "difficulty": "medium",
       "status": "vetted",
@@ -2035,16 +2035,16 @@
       "url": "https://github.com/facebookresearch/faiss/issues/5608",
       "title": "Compilation fails when compiled with -march=znver4: error: no member named 'clear' in 'faiss::simd32uint16_tpl<faiss::SIMDLevel::AVX512>'",
       "importance": "medium",
-      "importance_rationale": "Source builds with -march=znver4 (or any flag set defining __AVX512F__ without faiss's COMPILE_SIMD_AVX512 cmake configuration) fail outright in fast_scan — reported from the FreeBSD ports tree, affects packagers and performance-tuned downstream builds of a very widely built library.",
+      "importance_rationale": "Source builds with -march=znver4 (or any flag set defining __AVX512F__ without faiss's COMPILE_SIMD_AVX512 cmake configuration) fail outright in fast_scan \u2014 reported from the FreeBSD ports tree, affects packagers and performance-tuned downstream builds of a very widely built library.",
       "career_signal": "medium",
-      "career_signal_rationale": "Build-configuration/SIMD-dispatch guard fix — requires understanding the two-axis (compiler-macro vs cmake-define) SIMD gating but is compile-only with no runtime ML behavior change; conservatively medium, not PR-qualified.",
+      "career_signal_rationale": "Build-configuration/SIMD-dispatch guard fix \u2014 requires understanding the two-axis (compiler-macro vs cmake-define) SIMD gating but is compile-only with no runtime ML behavior change; conservatively medium, not PR-qualified.",
       "career_assessed_at": "2026-09-24T22:00:00Z",
       "difficulty": "medium",
       "status": "vetted",
       "verified_at": "2026-09-24T21:58:32Z",
       "ownership_check": "No claimants.",
       "competing_prs": [],
-      "platform_plan": "CPU-only, no x86 hardware needed: the failing configuration cross-compiles from Mac ARM64 (`clang++ -std=c++17 -fsyntax-only -target x86_64-apple-macos12 -march=znver4 -I. faiss/impl/fast_scan/fast_scan.cpp` — currently fails, must pass after fix), plus a normal `cmake -DFAISS_ENABLE_GPU=OFF` build+ctest on the host to prove no regression, plus a Linux x86_64 container build with CXXFLAGS=-march=znver4 for end-to-end confirmation."
+      "platform_plan": "CPU-only, no x86 hardware needed: the failing configuration cross-compiles from Mac ARM64 (`clang++ -std=c++17 -fsyntax-only -target x86_64-apple-macos12 -march=znver4 -I. faiss/impl/fast_scan/fast_scan.cpp` \u2014 currently fails, must pass after fix), plus a normal `cmake -DFAISS_ENABLE_GPU=OFF` build+ctest on the host to prove no regression, plus a Linux x86_64 container build with CXXFLAGS=-march=znver4 for end-to-end confirmation."
     },
     {
       "company": "Meta",
@@ -2089,16 +2089,16 @@
       "url": "https://github.com/mlflow/mlflow/issues/13575",
       "title": "mlflow.log-model.history tag exceeds the 8000-char cap after ~15 models in one run: SQL backends fail/StringDataRightTruncation, now silently swallowed -> model lineage silently lost",
       "importance": "medium",
-      "importance_rationale": "Any run that logs >~15 models (per-epoch model logging, per-timestep forecasting models — both patterns reported in-thread by mcerman and rsonger) permanently stops recording model history on postgres/mysql backends; at current HEAD the failure is even swallowed to a warning (mlflow/models/model.py:1034-1039 catches MlflowException), so users silently lose model lineage/UI attribution with no hard error. FileStore is unbounded and inconsistent with SQL backends.",
+      "importance_rationale": "Any run that logs >~15 models (per-epoch model logging, per-timestep forecasting models \u2014 both patterns reported in-thread by mcerman and rsonger) permanently stops recording model history on postgres/mysql backends; at current HEAD the failure is even swallowed to a warning (mlflow/models/model.py:1034-1039 catches MlflowException), so users silently lose model lineage/UI attribution with no hard error. FileStore is unbounded and inconsistent with SQL backends.",
       "career_signal": "high",
-      "career_signal_rationale": "Model-lineage data-integrity fix in the tracking store of the industry-standard ML lifecycle platform: requires reasoning about a capped SQL column vs an unbounded append-only JSON tag, a silent-failure path, and backward compatibility of a tag format the UI and deserializers depend on — a defensible correctness/data-processing fix, not cosmetic.",
+      "career_signal_rationale": "Model-lineage data-integrity fix in the tracking store of the industry-standard ML lifecycle platform: requires reasoning about a capped SQL column vs an unbounded append-only JSON tag, a silent-failure path, and backward compatibility of a tag format the UI and deserializers depend on \u2014 a defensible correctness/data-processing fix, not cosmetic.",
       "career_assessed_at": "2026-09-24T22:03:47Z",
       "difficulty": "medium",
       "status": "vetted",
       "verified_at": "2026-09-24T22:03:47Z",
       "ownership_check": "Reporter declared unwillingness to fix; second affected user rsonger (2024-11-22) reported being blocked but made no claim; no other participants in 23 months.",
       "competing_prs": [],
-      "platform_plan": "Pure Python + sqlite, macOS ARM64: uv venv && uv pip install -e . (repo standard; then pytest). Reproduce in a unit test: SqlAlchemyStore('sqlite:///...') + create run + call store.record_logged_model repeatedly with a Model whose get_tags_dict() is ~600 chars until json.dumps(history) > 8000; assert at HEAD the stored tag value exceeds MAX_TAG_VAL_LENGTH (sqlite doesn't enforce varchar — assert on len(value) to model the postgres failure), then assert fixed behavior keeps len<=8000 with valid JSON. Targeted run: uv run pytest tests/store/tracking/test_sqlalchemy_store.py -k logged_model."
+      "platform_plan": "Pure Python + sqlite, macOS ARM64: uv venv && uv pip install -e . (repo standard; then pytest). Reproduce in a unit test: SqlAlchemyStore('sqlite:///...') + create run + call store.record_logged_model repeatedly with a Model whose get_tags_dict() is ~600 chars until json.dumps(history) > 8000; assert at HEAD the stored tag value exceeds MAX_TAG_VAL_LENGTH (sqlite doesn't enforce varchar \u2014 assert on len(value) to model the postgres failure), then assert fixed behavior keeps len<=8000 with valid JSON. Targeted run: uv run pytest tests/store/tracking/test_sqlalchemy_store.py -k logged_model."
     },
     {
       "company": "Anyscale",
@@ -2107,9 +2107,9 @@
       "url": "https://github.com/ray-project/ray/issues/62173",
       "title": "PBT-perturbed hyperparameters silently ignored after checkpoint restore in PPO (Policy.set_state overwrites live config; optimizer param_groups restore stale lr)",
       "importance": "high",
-      "importance_rationale": "Silently invalidates Population-Based Training science on the RLlib old API stack: every exploit step's perturbations of clip_param/lambda/lr are discarded at checkpoint restore, so users' PBT runs report hyperparameter schedules that were never actually trained with — an eval/training-validity bug, not a crash, hence invisible.",
+      "importance_rationale": "Silently invalidates Population-Based Training science on the RLlib old API stack: every exploit step's perturbations of clip_param/lambda/lr are discarded at checkpoint restore, so users' PBT runs report hyperparameter schedules that were never actually trained with \u2014 an eval/training-validity bug, not a crash, hence invisible.",
       "career_signal": "high",
-      "career_signal_rationale": "Framework-correctness work on the training/HPO execution path of the dominant distributed-AI framework: designing checkpoint-restore config-precedence semantics (live perturbed config vs serialized snapshot) plus targeted optimizer-lr reconciliation across multi-optimizer algorithms, with a demonstrable 'your PBT results were a lie' failure mode — interview-defensible RL-infrastructure correctness. Graded high not very_high because it is scoped to the deprecated-but-shipping old API stack.",
+      "career_signal_rationale": "Framework-correctness work on the training/HPO execution path of the dominant distributed-AI framework: designing checkpoint-restore config-precedence semantics (live perturbed config vs serialized snapshot) plus targeted optimizer-lr reconciliation across multi-optimizer algorithms, with a demonstrable 'your PBT results were a lie' failure mode \u2014 interview-defensible RL-infrastructure correctness. Graded high not very_high because it is scoped to the deprecated-but-shipping old API stack.",
       "career_assessed_at": "2026-09-24T22:03:47Z",
       "difficulty": "hard",
       "status": "vetted",
@@ -2118,25 +2118,25 @@
       "competing_prs": [
         "https://github.com/ray-project/ray/pull/62345"
       ],
-      "platform_plan": "CPU-only, macOS ARM64/Linux: pip install 'ray[rllib]==nightly-equivalent from source checkout via pip install -e python' + torch CPU + gymnasium. Unit-level repro without Tune (seconds): build PPO policy on CartPole-v1, s = policy.get_state(); simulate PBT exploit by constructing a second policy whose config has perturbed lr/clip_param/lambda, call policy2.set_state(s); assert policy2.config['clip_param'] keeps the perturbed value and policy2._optimizers[0].param_groups[0]['lr'] == perturbed lr — fails at HEAD via policy.py:1031 and torch_policy_v2.py:951. Issue's full PBT repro (ray.init(num_cpus=4), PPO+PBT with HPInspector callback) also runs CPU-only for end-to-end evidence."
+      "platform_plan": "CPU-only, macOS ARM64/Linux: pip install 'ray[rllib]==nightly-equivalent from source checkout via pip install -e python' + torch CPU + gymnasium. Unit-level repro without Tune (seconds): build PPO policy on CartPole-v1, s = policy.get_state(); simulate PBT exploit by constructing a second policy whose config has perturbed lr/clip_param/lambda, call policy2.set_state(s); assert policy2.config['clip_param'] keeps the perturbed value and policy2._optimizers[0].param_groups[0]['lr'] == perturbed lr \u2014 fails at HEAD via policy.py:1031 and torch_policy_v2.py:951. Issue's full PBT repro (ray.init(num_cpus=4), PPO+PBT with HPInspector callback) also runs CPU-only for end-to-end evidence."
     },
     {
       "company": "Anyscale",
       "repo": "ray-project/ray",
       "number": 48726,
       "url": "https://github.com/ray-project/ray/issues/48726",
-      "title": "ray.train Checkpoint.to_directory() re-downloads into the shared per-checkpoint temp dir on every call — race corrupts data another actor is reading (hits synch PBT)",
+      "title": "ray.train Checkpoint.to_directory() re-downloads into the shared per-checkpoint temp dir on every call \u2014 race corrupts data another actor is reading (hits synch PBT)",
       "importance": "medium",
-      "importance_rationale": "Checkpoint reads can observe half-overwritten files: the per-checkpoint temp dir is deterministic (uuid-keyed) and shared across actors on a node, but to_directory unconditionally re-downloads whenever the lock is free, so a late-starting actor overwrites the directory a finished actor is actively reading — reporter (severity 'High: It blocks me') hit I/O errors in synchronous PBT, exactly where multiple trials clone one checkpoint.",
+      "importance_rationale": "Checkpoint reads can observe half-overwritten files: the per-checkpoint temp dir is deterministic (uuid-keyed) and shared across actors on a node, but to_directory unconditionally re-downloads whenever the lock is free, so a late-starting actor overwrites the directory a finished actor is actively reading \u2014 reporter (severity 'High: It blocks me') hit I/O errors in synchronous PBT, exactly where multiple trials clone one checkpoint.",
       "career_signal": "high",
-      "career_signal_rationale": "Checkpoint-loading correctness in Ray Train's core Checkpoint primitive: a classic TOCTOU/caching race whose fix requires a download-completion sentinel keyed to checkpoint identity, lock-ordering reasoning, and a deterministic multi-actor regression test — concrete distributed-training reliability work used by every Train/Tune user.",
+      "career_signal_rationale": "Checkpoint-loading correctness in Ray Train's core Checkpoint primitive: a classic TOCTOU/caching race whose fix requires a download-completion sentinel keyed to checkpoint identity, lock-ordering reasoning, and a deterministic multi-actor regression test \u2014 concrete distributed-training reliability work used by every Train/Tune user.",
       "career_assessed_at": "2026-09-24T22:03:47Z",
       "difficulty": "medium",
       "status": "vetted",
       "verified_at": "2026-09-24T22:03:47Z",
       "ownership_check": "No comments, no claims, no linked PRs since 2024-11-13.",
       "competing_prs": [],
-      "platform_plan": "Pure local, CPU-only, no cluster: the issue's own repro (two sequential ckpt.to_directory() calls; ls -l timestamps prove the second call rewrote the files) runs as-is on macOS ARM64 with pip install -e python (or even a pip-installed ray, since _checkpoint.py is pure Python — patchable in site-packages for a quick pre-check). Regression test: create Checkpoint from a local dir, call to_directory(), record inode/mtime of a file, call to_directory() again, assert unchanged; plus a threaded test (ThreadPoolExecutor, N=8 concurrent+staggered to_directory calls with a slow filesystem shim) asserting single download. Targeted run: pytest python/ray/train/tests/test_checkpoint.py -x (file exists in repo)."
+      "platform_plan": "Pure local, CPU-only, no cluster: the issue's own repro (two sequential ckpt.to_directory() calls; ls -l timestamps prove the second call rewrote the files) runs as-is on macOS ARM64 with pip install -e python (or even a pip-installed ray, since _checkpoint.py is pure Python \u2014 patchable in site-packages for a quick pre-check). Regression test: create Checkpoint from a local dir, call to_directory(), record inode/mtime of a file, call to_directory() again, assert unchanged; plus a threaded test (ThreadPoolExecutor, N=8 concurrent+staggered to_directory calls with a slow filesystem shim) asserting single download. Targeted run: pytest python/ray/train/tests/test_checkpoint.py -x (file exists in repo)."
     },
     {
       "company": "Anyscale",
@@ -2145,9 +2145,9 @@
       "url": "https://github.com/ray-project/ray/issues/58869",
       "title": "Synch PBT broken across experiment restore: paused trials force-set to PENDING and scheduler state (_next_perturbation_sync/_trial_state) never persisted -> perturbation skipped, then all trials stall forever",
       "importance": "high",
-      "importance_rationale": "Fault-tolerant resume of synchronous PBT — the advertised workflow for long HPO runs — is structurally broken: after Tuner.restore, trials that were waiting at the perturbation boundary run past it (perturbation silently skipped, corrupting the PBT schedule) and, once the un-restored scheduler pauses everything at the next boundary, choose_trial_to_run never unpauses anything, deadlocking the whole experiment.",
+      "importance_rationale": "Fault-tolerant resume of synchronous PBT \u2014 the advertised workflow for long HPO runs \u2014 is structurally broken: after Tuner.restore, trials that were waiting at the perturbation boundary run past it (perturbation silently skipped, corrupting the PBT schedule) and, once the un-restored scheduler pauses everything at the next boundary, choose_trial_to_run never unpauses anything, deadlocking the whole experiment.",
       "career_signal": "high",
-      "career_signal_rationale": "Fault-tolerance correctness for a distributed HPO scheduler: designing what PBT state must survive an experiment restore (per-trial train-time watermarks, the synchronization barrier), wiring it through Tune's experiment checkpoint alongside the searcher, and proving liveness with a kill-and-resume test — substantive, interview-defensible distributed-training reliability work.",
+      "career_signal_rationale": "Fault-tolerance correctness for a distributed HPO scheduler: designing what PBT state must survive an experiment restore (per-trial train-time watermarks, the synchronization barrier), wiring it through Tune's experiment checkpoint alongside the searcher, and proving liveness with a kill-and-resume test \u2014 substantive, interview-defensible distributed-training reliability work.",
       "career_assessed_at": "2026-09-24T22:03:47Z",
       "difficulty": "hard",
       "status": "vetted",
@@ -2165,14 +2165,14 @@
       "importance": "medium",
       "importance_rationale": "PCAMatrix silently returns a wrong principal basis (identity-like instead of [1,-1]/sqrt(2)) whenever data has a large mean offset, due to catastrophic cancellation in the E[XY]-E[X]E[Y] covariance formula. Filed by maintainer mdouze himself from kno10's expert analysis with exact fp32 test matrices; any PCA/OPQ pre-transform trained on un-centered embeddings is affected. Open 7.5 years.",
       "career_signal": "high",
-      "career_signal_rationale": "Diagnosing and fixing fp32 catastrophic cancellation in the covariance computation of the PCA transform of the most widely used vector-search library — numerical-methods work (two-pass centered covariance vs E[XY]-E[X]E[Y], BLAS ssyrk usage, fp32 vs fp64 accumulation trade-offs) with an sklearn-parity regression test; directly interview-defensible ML numerical-correctness engineering.",
+      "career_signal_rationale": "Diagnosing and fixing fp32 catastrophic cancellation in the covariance computation of the PCA transform of the most widely used vector-search library \u2014 numerical-methods work (two-pass centered covariance vs E[XY]-E[X]E[Y], BLAS ssyrk usage, fp32 vs fp64 accumulation trade-offs) with an sklearn-parity regression test; directly interview-defensible ML numerical-correctness engineering.",
       "career_assessed_at": "2026-09-25T05:10:00Z",
       "difficulty": "medium",
       "status": "vetted",
       "verified_at": "2026-09-25T05:08:56Z",
       "ownership_check": "No claim comments ever. kno10 (2019) explicitly declined to implement (\"I am not aware of an easy way to do these with BLAS\").",
       "competing_prs": [],
-      "platform_plan": "CPU-only, Mac ARM64 (brew install libomp) or Linux CPU container. Build: `cmake -B build -DFAISS_ENABLE_GPU=OFF -DFAISS_ENABLE_PYTHON=ON -DBUILD_TESTING=ON -DCMAKE_BUILD_TYPE=Release . && make -C build -j8 swigfaiss && (cd build/faiss/python && pip install -e .)`. Repro: run the issue's exact 4-matrix script (d0..d3, offsets 1 to 1e5); before fix, d2/d3 return the identity-like basis [[0,1],[1,0]] instead of ±sqrt(2)/2 * [1,-1]; after fix all four match sklearn.decomposition.PCA components within 1e-3. Regression: pytest tests/test_index.py (existing PCA tests) plus the new offset test."
+      "platform_plan": "CPU-only, Mac ARM64 (brew install libomp) or Linux CPU container. Build: `cmake -B build -DFAISS_ENABLE_GPU=OFF -DFAISS_ENABLE_PYTHON=ON -DBUILD_TESTING=ON -DCMAKE_BUILD_TYPE=Release . && make -C build -j8 swigfaiss && (cd build/faiss/python && pip install -e .)`. Repro: run the issue's exact 4-matrix script (d0..d3, offsets 1 to 1e5); before fix, d2/d3 return the identity-like basis [[0,1],[1,0]] instead of \u00b1sqrt(2)/2 * [1,-1]; after fix all four match sklearn.decomposition.PCA components within 1e-3. Regression: pytest tests/test_index.py (existing PCA tests) plus the new offset test."
     },
     {
       "company": "Meta",
@@ -2181,9 +2181,9 @@
       "url": "https://github.com/facebookresearch/faiss/issues/2464",
       "title": "IndexIVFScalarQuantizer exception (std::terminate in train when coarse quantizer lacks a direct map)",
       "importance": "medium",
-      "importance_rationale": "Training an IVF index whose coarse quantizer is itself an IVF index (a documented pattern for huge nlist) aborts the whole Python process with 'terminate called recursively' instead of raising a catchable exception, because quantizer->reconstruct throws inside a bare `#pragma omp parallel for`. Maintainer mdouze confirmed: 'It's an issue'. Same std::terminate class that Meta systematically fixed in the search paths during 2026 (merged PRs #5037/#5053/#5105/#5106/#5133) — this residual site was missed.",
+      "importance_rationale": "Training an IVF index whose coarse quantizer is itself an IVF index (a documented pattern for huge nlist) aborts the whole Python process with 'terminate called recursively' instead of raising a catchable exception, because quantizer->reconstruct throws inside a bare `#pragma omp parallel for`. Maintainer mdouze confirmed: 'It's an issue'. Same std::terminate class that Meta systematically fixed in the search paths during 2026 (merged PRs #5037/#5053/#5105/#5106/#5133) \u2014 this residual site was missed.",
       "career_signal": "high",
-      "career_signal_rationale": "Turning a process-killing std::terminate into a catchable, actionable error on a core training path of faiss, by identifying the one OpenMP region the maintainers' own 2026 exception-safety campaign missed and applying their established omp_rethrow_if_exception pattern — concrete C++/OpenMP reliability engineering on ML infrastructure, easy to narrate in an interview.",
+      "career_signal_rationale": "Turning a process-killing std::terminate into a catchable, actionable error on a core training path of faiss, by identifying the one OpenMP region the maintainers' own 2026 exception-safety campaign missed and applying their established omp_rethrow_if_exception pattern \u2014 concrete C++/OpenMP reliability engineering on ML infrastructure, easy to narrate in an interview.",
       "career_assessed_at": "2026-09-25T05:10:00Z",
       "difficulty": "low",
       "status": "vetted",
@@ -2199,16 +2199,16 @@
       "url": "https://github.com/facebookresearch/faiss/issues/2487",
       "title": "random generator produces the same number sequence with the same seed (NSG search candidate pool)",
       "importance": "low",
-      "importance_rationale": "NSG search pads its candidate pool with 'random' vertices from a RandomGenerator hard-seeded 0x1234, so every query sees the same fixed vertex set — a search-quality smell both maintainers acknowledged (mdouze: 'in NSG this is actually a valid concern'; KinglittleQ proposed query-dependent seeding and mdouze pointed at the hash function). Impact on recall unquantified; deterministic-per-query behavior must be preserved.",
+      "importance_rationale": "NSG search pads its candidate pool with 'random' vertices from a RandomGenerator hard-seeded 0x1234, so every query sees the same fixed vertex set \u2014 a search-quality smell both maintainers acknowledged (mdouze: 'in NSG this is actually a valid concern'; KinglittleQ proposed query-dependent seeding and mdouze pointed at the hash function). Impact on recall unquantified; deterministic-per-query behavior must be preserved.",
       "career_signal": "medium",
-      "career_signal_rationale": "A maintainer-endorsed graph-ANN search improvement (query-hash-seeded candidate initialization) shows understanding of NSG search internals, but the benefit is unquantified and the change is small — useful portfolio color, not a headline correctness fix.",
+      "career_signal_rationale": "A maintainer-endorsed graph-ANN search improvement (query-hash-seeded candidate initialization) shows understanding of NSG search internals, but the benefit is unquantified and the change is small \u2014 useful portfolio color, not a headline correctness fix.",
       "career_assessed_at": "2026-09-25T05:10:00Z",
       "difficulty": "medium",
       "status": "vetted",
       "verified_at": "2026-09-25T05:08:56Z",
       "ownership_check": "KinglittleQ (NSG author) last engaged 2022; no activity since. No claims.",
       "competing_prs": [],
-      "platform_plan": "CPU-only. Build as for #773. Validation: (1) determinism preserved — same query searched twice returns identical ids/distances; (2) different queries now draw different init pools (observable via a small index where k > graph degree so padding matters; compare pre/post recall on a synthetic set with recall@k harness from benchs/). Regression: pytest tests/test_graph_based.py (NSG tests)."
+      "platform_plan": "CPU-only. Build as for #773. Validation: (1) determinism preserved \u2014 same query searched twice returns identical ids/distances; (2) different queries now draw different init pools (observable via a small index where k > graph degree so padding matters; compare pre/post recall on a synthetic set with recall@k harness from benchs/). Regression: pytest tests/test_graph_based.py (NSG tests)."
     },
     {
       "company": "Meta",
@@ -2217,9 +2217,9 @@
       "url": "https://github.com/facebookresearch/faiss/issues/2407",
       "title": "code_size mismatch between index and extract_index_ivf(index).invlists for IndexIVFPQFastScan (merge_ondisk unusable/corrupting)",
       "importance": "medium",
-      "importance_rationale": "contrib.ondisk.merge_ondisk on any fast-scan IVF index fails with a cryptic C++ assert ('il->nlist == nlist && il->code_size == code_size'), and the reporter showed that naively patching code_size produces an index that searches with RANDOM results — silent corruption one step away. mdouze: 'TODO is implement merge (and remove, while we are at it) for fast_scan indexes.' Minimal guard fix prevents the corruption path today.",
+      "importance_rationale": "contrib.ondisk.merge_ondisk on any fast-scan IVF index fails with a cryptic C++ assert ('il->nlist == nlist && il->code_size == code_size'), and the reporter showed that naively patching code_size produces an index that searches with RANDOM results \u2014 silent corruption one step away. mdouze: 'TODO is implement merge (and remove, while we are at it) for fast_scan indexes.' Minimal guard fix prevents the corruption path today.",
       "career_signal": "medium",
-      "career_signal_rationale": "The maintainable near-term contribution is a clear-error guard in contrib/ondisk.py plus a targeted C++ error message — valid defensive-engineering work in a major ANN library but limited algorithmic depth; the full BlockInvertedLists merge implementation would grade higher yet is a large maintainer-flagged TODO with high review risk.",
+      "career_signal_rationale": "The maintainable near-term contribution is a clear-error guard in contrib/ondisk.py plus a targeted C++ error message \u2014 valid defensive-engineering work in a major ANN library but limited algorithmic depth; the full BlockInvertedLists merge implementation would grade higher yet is a large maintainer-flagged TODO with high review risk.",
       "career_assessed_at": "2026-09-25T05:10:00Z",
       "difficulty": "low",
       "status": "vetted",
@@ -2233,11 +2233,11 @@
       "repo": "deepspeedai/DeepSpeed",
       "number": 6501,
       "url": "https://github.com/deepspeedai/DeepSpeed/issues/6501",
-      "title": "[BUG] Config mesh_device None — HF zero.Init builds DeepSpeedConfig with world_size=1 before dist init, tripping _batch_assertion",
+      "title": "[BUG] Config mesh_device None \u2014 HF zero.Init builds DeepSpeedConfig with world_size=1 before dist init, tripping _batch_assertion",
       "importance": "high",
       "importance_rationale": "The documented HF 'Non-Trainer DeepSpeed integration' path (HfDeepSpeedConfig + from_pretrained) crashes with 'train_batch_size is not equal to micro_batch_per_gpu * gradient_acc_step * world_size' because zero.Init constructs DeepSpeedConfig before torch.distributed is initialized and the except-branch hard-codes world_size=1. Filed by DeepSpeed core developer GuanhuaWang; 5 independent +1/same-error confirmations across 2024-2026; workarounds circulating in-thread.",
       "career_signal": "high",
-      "career_signal_rationale": "Fixing world-size resolution in DeepSpeed's config engine for the HuggingFace ZeRO-3 integration path — a widely-hit distributed-training initialization-order bug — demonstrates understanding of launcher/env/dist bootstrap contracts in a mainstream training framework, with a clean CPU-unit-testable fix; strongly defensible in an ML-infra interview.",
+      "career_signal_rationale": "Fixing world-size resolution in DeepSpeed's config engine for the HuggingFace ZeRO-3 integration path \u2014 a widely-hit distributed-training initialization-order bug \u2014 demonstrates understanding of launcher/env/dist bootstrap contracts in a mainstream training framework, with a clean CPU-unit-testable fix; strongly defensible in an ML-infra interview.",
       "career_assessed_at": "2026-09-25T05:10:00Z",
       "difficulty": "medium",
       "status": "vetted",
@@ -2253,9 +2253,9 @@
       "url": "https://github.com/deepspeedai/DeepSpeed/issues/5509",
       "title": "[BUG] Mismatch between dtype settings in model and ds_config results in NaN loss (dtype check is a no-op)",
       "importance": "medium",
-      "importance_rationale": "A model pre-cast to half with an fp32 ds_config (esp. ZeRO stage 0) trains silently to NaN — no error, no warning. The engine has a dtype-check hook, but it is an empty stub, so the reporter's proposed guard simply does not exist. CPU-reproducible with the cifar example (`deepspeed --bind_cores_to_rank`).",
+      "importance_rationale": "A model pre-cast to half with an fp32 ds_config (esp. ZeRO stage 0) trains silently to NaN \u2014 no error, no warning. The engine has a dtype-check hook, but it is an empty stub, so the reporter's proposed guard simply does not exist. CPU-reproducible with the cifar example (`deepspeed --bind_cores_to_rank`).",
       "career_signal": "medium",
-      "career_signal_rationale": "A user-protecting validation guard in DeepSpeed engine init (restoring a gutted check) prevents silent NaN training — valid reliability work with a clean CPU repro, but it is input validation rather than deep algorithmic engineering. CAUTION: the empty `return` looks deliberate, so maintainer buy-in (warning vs assert, frozen/quantized-param exemptions) is the main risk.",
+      "career_signal_rationale": "A user-protecting validation guard in DeepSpeed engine init (restoring a gutted check) prevents silent NaN training \u2014 valid reliability work with a clean CPU repro, but it is input validation rather than deep algorithmic engineering. CAUTION: the empty `return` looks deliberate, so maintainer buy-in (warning vs assert, frozen/quantized-param exemptions) is the main risk.",
       "career_assessed_at": "2026-09-25T05:10:00Z",
       "difficulty": "low",
       "status": "vetted",
@@ -2271,9 +2271,9 @@
       "url": "https://github.com/Lightning-AI/pytorch-lightning/issues/20551",
       "title": "Every log_metrics call force-flushes every logger: logger_connector calls logger.save() per step, TensorBoardLogger.save() does experiment.flush() + remote-fs stat calls, defeating SummaryWriter's max_queue/flush_secs batching (severe on S3/remote fs)",
       "importance": "medium",
-      "importance_rationale": "Hot-path perf defect in every Trainer run: the per-step synchronous flush turns TensorBoard's async buffered writer into a blocking write per training step, plus a filesystem _is_dir/isfile stat pair per call — reporter measured 'significantly degraded performance' on S3-mounted logs and confirmed removing the flush restores normal speed; users' max_queue/flush_secs arguments are silently dead parameters.",
+      "importance_rationale": "Hot-path perf defect in every Trainer run: the per-step synchronous flush turns TensorBoard's async buffered writer into a blocking write per training step, plus a filesystem _is_dir/isfile stat pair per call \u2014 reporter measured 'significantly degraded performance' on S3-mounted logs and confirmed removing the flush restores normal speed; users' max_queue/flush_secs arguments are silently dead parameters.",
       "career_signal": "high",
-      "career_signal_rationale": "Measured-performance fix on the metric-logging hot path of the canonical PyTorch training framework: requires understanding TensorBoard's EventFileWriter async-queue design, each logger's own flush policy (CSVLogger flush_logs_every_n_steps vs TB flush_secs), and choosing the correct layer (call-site vs logger) so durability points (checkpoint/teardown/should_stop) still flush — a defensible systems-perf story, not a cosmetic tweak.",
+      "career_signal_rationale": "Measured-performance fix on the metric-logging hot path of the canonical PyTorch training framework: requires understanding TensorBoard's EventFileWriter async-queue design, each logger's own flush policy (CSVLogger flush_logs_every_n_steps vs TB flush_secs), and choosing the correct layer (call-site vs logger) so durability points (checkpoint/teardown/should_stop) still flush \u2014 a defensible systems-perf story, not a cosmetic tweak.",
       "career_assessed_at": "2026-09-25T05:12:16Z",
       "difficulty": "medium",
       "status": "vetted",
@@ -2289,16 +2289,16 @@
       "url": "https://github.com/Lightning-AI/pytorch-lightning/issues/20495",
       "title": "Epoch-level LR scheduler off-by-one after resuming when check_val_every_n_epoch > 1: restart-stage classification leaves restarting=True for checkpoints saved at validation end of non-final-val epochs, skipping/shifting the epoch-end update_lr_schedulers step",
       "importance": "medium",
-      "importance_rationale": "Silently corrupts the LR schedule of resumed trainings for a common config (validate every N>1 epochs + epoch-based scheduler + ModelCheckpoint on a val metric): reporter's LearningRateMonitor plots show the resumed run's CosineAnnealingWarmRestarts curve shifted one epoch vs the uninterrupted run — a training-validity bug that produces no error and quietly changes results after every resume.",
+      "importance_rationale": "Silently corrupts the LR schedule of resumed trainings for a common config (validate every N>1 epochs + epoch-based scheduler + ModelCheckpoint on a val metric): reporter's LearningRateMonitor plots show the resumed run's CosineAnnealingWarmRestarts curve shifted one epoch vs the uninterrupted run \u2014 a training-validity bug that produces no error and quietly changes results after every resume.",
       "career_signal": "high",
-      "career_signal_rationale": "Checkpoint/resume correctness in the training loop of the canonical PyTorch framework: requires reasoning about the RestartStage state machine, progress-counter semantics at the save point (on_validation_end vs epoch end), and proving with an end-to-end kill-and-resume test that the LR sequence of resumed training is bit-identical to uninterrupted training — a strong 'silently wrong training results' correctness narrative.",
+      "career_signal_rationale": "Checkpoint/resume correctness in the training loop of the canonical PyTorch framework: requires reasoning about the RestartStage state machine, progress-counter semantics at the save point (on_validation_end vs epoch end), and proving with an end-to-end kill-and-resume test that the LR sequence of resumed training is bit-identical to uninterrupted training \u2014 a strong 'silently wrong training results' correctness narrative.",
       "career_assessed_at": "2026-09-25T05:12:16Z",
       "difficulty": "hard",
       "status": "vetted",
       "verified_at": "2026-09-25T05:12:16Z",
       "ownership_check": "Reporter provided repro then went silent; lantiga (maintainer) asked one question in 2024 and never returned; no one else engaged.",
       "competing_prs": [],
-      "platform_plan": "Pure CPU, macOS ARM64/Linux: pip install -e . + torch CPU. E2E repro (seconds): BoringModel + CosineAnnealingWarmRestarts(T_0=max_epochs) stepped per epoch, Trainer(max_epochs=8, check_val_every_n_epoch=2, callbacks=[ModelCheckpoint(monitor=..., every_n_epochs=1), LearningRateMonitor(logging_interval='epoch')], limit_train_batches=2, limit_val_batches=1); record optimizer.param_groups[0]['lr'] per epoch for (a) uninterrupted run, (b) run stopped after the epoch-3 checkpoint then Trainer.fit(ckpt_path=...) resumed — assert the per-epoch lr sequences are identical; at HEAD they diverge by one epoch. Also run the reporter's repro repo as corroboration. Unit-level: build a fit loop state where epoch_progress matches the :363-368 RESTARTED_MID_EPOCH pattern and assert scheduler.last_epoch advances exactly once per finished epoch across resume. Targeted runs: pytest tests/tests_pytorch/loops/test_loops.py tests/tests_pytorch/checkpointing/ -k restart -x."
+      "platform_plan": "Pure CPU, macOS ARM64/Linux: pip install -e . + torch CPU. E2E repro (seconds): BoringModel + CosineAnnealingWarmRestarts(T_0=max_epochs) stepped per epoch, Trainer(max_epochs=8, check_val_every_n_epoch=2, callbacks=[ModelCheckpoint(monitor=..., every_n_epochs=1), LearningRateMonitor(logging_interval='epoch')], limit_train_batches=2, limit_val_batches=1); record optimizer.param_groups[0]['lr'] per epoch for (a) uninterrupted run, (b) run stopped after the epoch-3 checkpoint then Trainer.fit(ckpt_path=...) resumed \u2014 assert the per-epoch lr sequences are identical; at HEAD they diverge by one epoch. Also run the reporter's repro repo as corroboration. Unit-level: build a fit loop state where epoch_progress matches the :363-368 RESTARTED_MID_EPOCH pattern and assert scheduler.last_epoch advances exactly once per finished epoch across resume. Targeted runs: pytest tests/tests_pytorch/loops/test_loops.py tests/tests_pytorch/checkpointing/ -k restart -x."
     },
     {
       "company": "Databricks",
@@ -2307,9 +2307,9 @@
       "url": "https://github.com/mlflow/mlflow/issues/14293",
       "title": "MlflowCallback (Keras) logs validation metrics without a step: on_test_end omits step= so every epoch's validation metrics land on step 0, rendering charts unusable and misaligned with training metrics",
       "importance": "medium",
-      "importance_rationale": "Every Keras user of mlflow.keras.MlflowCallback gets validation metrics that cannot be plotted against training progress: on_test_end fires after each fit() validation pass and each log overwrites step 0, so the UI shows a vertical smear instead of a curve (reporter's screenshot) — the callback's core purpose (aligned train/val tracking) is defeated.",
+      "importance_rationale": "Every Keras user of mlflow.keras.MlflowCallback gets validation metrics that cannot be plotted against training progress: on_test_end fires after each fit() validation pass and each log overwrites step 0, so the UI shows a vertical smear instead of a curve (reporter's screenshot) \u2014 the callback's core purpose (aligned train/val tracking) is defeated.",
       "career_signal": "high",
-      "career_signal_rationale": "Framework-integration correctness in the industry-standard ML tracking platform's Keras autologging path: the fix requires choosing the correct step semantics across Keras's callback lifecycle (epoch counter vs optimizer.iterations, standalone evaluate() vs fit()-internal validation) so train/val curves align — small diff, but an interview-defensible metrics-correctness story with a visual before/after.",
+      "career_signal_rationale": "Framework-integration correctness in the industry-standard ML tracking platform's Keras autologging path: the fix requires choosing the correct step semantics across Keras's callback lifecycle (epoch counter vs optimizer.iterations, standalone evaluate() vs fit()-internal validation) so train/val curves align \u2014 small diff, but an interview-defensible metrics-correctness story with a visual before/after.",
       "career_assessed_at": "2026-09-25T05:12:16Z",
       "difficulty": "easy",
       "status": "vetted",
@@ -2325,9 +2325,9 @@
       "url": "https://github.com/mlflow/mlflow/issues/13316",
       "title": "S3 artifact client ignores MLFLOW_ARTIFACT_UPLOAD_DOWNLOAD_TIMEOUT: boto3 Config carries no connect/read timeouts so large-artifact uploads die with ReadTimeoutError and no supported knob; maintainer's own fix PR #13378 was auto-closed for inactivity after 401 days",
       "importance": "medium",
-      "importance_rationale": "Users on slow/high-latency links cannot upload large model artifacts to S3 at all: botocore's default 60s read timeout applies and the documented env var (which works for HTTP-proxied artifact ops) silently does nothing for direct S3 — reporter verified the fix restores control; the abandoned maintainer PR shows demand and an accepted design.",
+      "importance_rationale": "Users on slow/high-latency links cannot upload large model artifacts to S3 at all: botocore's default 60s read timeout applies and the documented env var (which works for HTTP-proxied artifact ops) silently does nothing for direct S3 \u2014 reporter verified the fix restores control; the abandoned maintainer PR shows demand and an accepted design.",
       "career_signal": "medium",
-      "career_signal_rationale": "Valid reliability/configuration fix in the artifact store of a major ML platform with a maintainer-endorsed design to revive, but the change is mechanical env-var plumbing into a boto3 Config — limited algorithmic or systems depth to defend beyond the cache-key subtlety, so it stays below the authoring gate.",
+      "career_signal_rationale": "Valid reliability/configuration fix in the artifact store of a major ML platform with a maintainer-endorsed design to revive, but the change is mechanical env-var plumbing into a boto3 Config \u2014 limited algorithmic or systems depth to defend beyond the cache-key subtlety, so it stays below the authoring gate.",
       "career_assessed_at": "2026-09-25T05:12:16Z",
       "difficulty": "easy",
       "status": "vetted",
@@ -2343,36 +2343,36 @@
       "repo": "ray-project/ray",
       "number": 52401,
       "url": "https://github.com/ray-project/ray/issues/52401",
-      "title": "Ray Client silently drops fetch_local=False: WaitRequest proto has no fetch_local field, so every ray.wait over ray:// fetches objects into the head/client-server object store — filling head memory and OOM-crashing small heads",
+      "title": "Ray Client silently drops fetch_local=False: WaitRequest proto has no fetch_local field, so every ray.wait over ray:// fetches objects into the head/client-server object store \u2014 filling head memory and OOM-crashing small heads",
       "importance": "medium",
-      "importance_rationale": "P1-labeled protocol defect: ray.wait(fetch_local=False) is the documented way to await results without pulling large objects locally, but through Ray Client the flag is accepted and discarded, so multi-GB results flood the head node's object store (reporter's docker head crashed) — a silent resource-control violation; scoped to the Ray Client path (deprecated-leaning but still shipped and defaulted for ray:// URIs).",
+      "importance_rationale": "P1-labeled protocol defect: ray.wait(fetch_local=False) is the documented way to await results without pulling large objects locally, but through Ray Client the flag is accepted and discarded, so multi-GB results flood the head node's object store (reporter's docker head crashed) \u2014 a silent resource-control violation; scoped to the Ray Client path (deprecated-leaning but still shipped and defaulted for ray:// URIs).",
       "career_signal": "high",
-      "career_signal_rationale": "Distributed-protocol correctness in Ray's client RPC layer with a concrete resource-exhaustion consequence: diagnosing a flag lost across a proto boundary, extending a gRPC message with backward/forward-compatible semantics (old client vs new server and vice versa — proto3 default False inverts today's implicit True, which must be reasoned about explicitly), and proving the fix with a two-node object-store-usage test — interview-defensible systems work on the dominant distributed-AI framework.",
+      "career_signal_rationale": "Distributed-protocol correctness in Ray's client RPC layer with a concrete resource-exhaustion consequence: diagnosing a flag lost across a proto boundary, extending a gRPC message with backward/forward-compatible semantics (old client vs new server and vice versa \u2014 proto3 default False inverts today's implicit True, which must be reasoned about explicitly), and proving the fix with a two-node object-store-usage test \u2014 interview-defensible systems work on the dominant distributed-AI framework.",
       "career_assessed_at": "2026-09-25T05:12:16Z",
       "difficulty": "medium",
       "status": "vetted",
       "verified_at": "2026-09-25T05:12:16Z",
       "ownership_check": "Zero engagement from anyone in 17 months; reporter never claimed.",
       "competing_prs": [],
-      "platform_plan": "CPU-only, Linux container or macOS: full repro needs the Ray Client server, available locally — 'ray start --head --num-cpus=1 --object-store-memory=...' then ray.init('ray://127.0.0.1:10001'). Python-level test: task returns a ~200MB numpy array; ray.wait([ref], fetch_local=False); then ray.experimental.internal_kv / 'ray memory' or ray._private.internal_api.memory_summary to assert the object was NOT pulled to the head's local plasma (at HEAD it is). Build note: editing ray_client.proto requires regenerating pb2 — use the documented python/ray/setup-dev.py + 'pip install -e python' flow (bazel builds protos; CPU-only, works on ARM64 mac and Linux). Targeted tests: pytest python/ray/tests/test_client.py python/ray/tests/test_client_builder.py -x plus a new wait-fetch_local test beside existing WaitObject tests."
+      "platform_plan": "CPU-only, Linux container or macOS: full repro needs the Ray Client server, available locally \u2014 'ray start --head --num-cpus=1 --object-store-memory=...' then ray.init('ray://127.0.0.1:10001'). Python-level test: task returns a ~200MB numpy array; ray.wait([ref], fetch_local=False); then ray.experimental.internal_kv / 'ray memory' or ray._private.internal_api.memory_summary to assert the object was NOT pulled to the head's local plasma (at HEAD it is). Build note: editing ray_client.proto requires regenerating pb2 \u2014 use the documented python/ray/setup-dev.py + 'pip install -e python' flow (bazel builds protos; CPU-only, works on ARM64 mac and Linux). Targeted tests: pytest python/ray/tests/test_client.py python/ray/tests/test_client_builder.py -x plus a new wait-fetch_local test beside existing WaitObject tests."
     },
     {
       "company": "Anyscale",
       "repo": "ray-project/ray",
       "number": 52371,
       "url": "https://github.com/ray-project/ray/issues/52371",
-      "title": "configure_logging=False still destroys user logging: 'import ray' clobbers the 'ray' logger (propagate=False + own handler), and ray.init(configure_logging=False) then CLEARS all handlers without restoring propagate — driver-side ray logs vanish from structlog/OTel/loki pipelines",
+      "title": "configure_logging=False still destroys user logging: 'import ray' clobbers the 'ray' logger (propagate=False + own handler), and ray.init(configure_logging=False) then CLEARS all handlers without restoring propagate \u2014 driver-side ray logs vanish from structlog/OTel/loki pipelines",
       "importance": "medium",
       "importance_rationale": "The documented opt-out for Ray's logging setup produces the worst possible state (no handlers AND no propagation = logs silently discarded): P1 usability bug confirmed by three independent users (structlog+loki, OpenTelemetry, and khoover's Dec-2025 analysis) blocking production observability integration for any org with centralized logging.",
       "career_signal": "high",
-      "career_signal_rationale": "Observability-integration correctness in Ray core's public init API: requires designing the correct opt-out contract for a library logger (remove only Ray's own import-time handler, restore propagate=True, never touch user handlers) against Python logging-hierarchy semantics, with regression tests covering structlog/OTel-style root-logger pipelines — production-reliability work every Ray-in-enterprise user hits, defensible in depth.",
+      "career_signal_rationale": "Observability-integration correctness in Ray core's public init API: requires designing the correct opt-out contract for a library logger (remove only Ray's own import-time handler, restore propagate=True, never touch user handlers) against Python logging-hierarchy semantics, with regression tests covering structlog/OTel-style root-logger pipelines \u2014 production-reliability work every Ray-in-enterprise user hits, defensible in depth.",
       "career_assessed_at": "2026-09-25T05:12:16Z",
       "difficulty": "medium",
       "status": "vetted",
       "verified_at": "2026-09-25T05:12:16Z",
       "ownership_check": "No maintainer response in 17 months despite P1; community analyzers explicitly routed their energy into the separate FR #59655 rather than claiming this fix.",
       "competing_prs": [],
-      "platform_plan": "Pure Python, CPU, macOS ARM64 (logging layer is pip-install testable; for the ray.init path use 'pip install -e python' or even a pip ray since worker.py/log.py are pure Python): unit test — attach a capturing handler to the ROOT logger, import ray, ray.init(configure_logging=False, num_cpus=1); logging.getLogger('ray.some.module').info('probe'); assert at HEAD the record is captured by NOTHING (handlers cleared at worker.py:1630, propagate False from log.py:109); post-fix assert root captures it. Second test: configure_logging=True path unchanged (setup_logger applied). Third: user-attached handler on 'ray' logger survives configure_logging=False. Targeted run: pytest python/ray/tests/test_logging.py -x -k 'configure or propagate'."
+      "platform_plan": "Pure Python, CPU, macOS ARM64 (logging layer is pip-install testable; for the ray.init path use 'pip install -e python' or even a pip ray since worker.py/log.py are pure Python): unit test \u2014 attach a capturing handler to the ROOT logger, import ray, ray.init(configure_logging=False, num_cpus=1); logging.getLogger('ray.some.module').info('probe'); assert at HEAD the record is captured by NOTHING (handlers cleared at worker.py:1630, propagate False from log.py:109); post-fix assert root captures it. Second test: configure_logging=True path unchanged (setup_logger applied). Third: user-attached handler on 'ray' logger survives configure_logging=False. Targeted run: pytest python/ray/tests/test_logging.py -x -k 'configure or propagate'."
     },
     {
       "company": "NVIDIA",
@@ -2383,7 +2383,7 @@
       "importance": "medium",
       "importance_rationale": "Any multi-manifest Lhotse config combining max_open_streams with non-tarred data or metadata_only crashes with a raw AttributeError instead of working (non-tarred) or raising the intended actionable assert (metadata_only); breaks the shipped estimate_duration_bins.py / estimate_data_weights.py utilities on real training configs.",
       "career_signal": "high",
-      "career_signal_rationale": "Data-pipeline correctness fix in the Lhotse dataloading layer of NVIDIA's flagship speech framework: requires understanding tarred-vs-non-tarred iterator taxonomy, stream multiplexing (infinite_mux/max_open_streams semantics) and restoring an intended incompatibility guard — defensible ML data-engineering work, not a mechanical patch.",
+      "career_signal_rationale": "Data-pipeline correctness fix in the Lhotse dataloading layer of NVIDIA's flagship speech framework: requires understanding tarred-vs-non-tarred iterator taxonomy, stream multiplexing (infinite_mux/max_open_streams semantics) and restoring an intended incompatibility guard \u2014 defensible ML data-engineering work, not a mechanical patch.",
       "career_assessed_at": "2026-09-25T05:25:00Z",
       "difficulty": "medium",
       "status": "vetted",
@@ -2401,7 +2401,7 @@
       "importance": "medium",
       "importance_rationale": "The documented adapter-sharing workflow (docs/source/core/adapters/intro.rst:132, tutorial 02_NeMo_Adapters.ipynb) is broken two ways: a subset save cannot be loaded with the documented default name=None (KeyError), and substring matching silently serialises a second adapter's weights into a file advertised as one adapter, then fails strict load on prefix-overlapping names.",
       "career_signal": "high",
-      "career_signal_rationale": "PEFT/adapter checkpoint serialization correctness in a major training framework: state-dict key namespace semantics, prefix-vs-substring matching, and choosing the right source of truth (saved keys vs stored config) for restore — interview-defensible fine-tuning infrastructure work.",
+      "career_signal_rationale": "PEFT/adapter checkpoint serialization correctness in a major training framework: state-dict key namespace semantics, prefix-vs-substring matching, and choosing the right source of truth (saved keys vs stored config) for restore \u2014 interview-defensible fine-tuning infrastructure work.",
       "career_assessed_at": "2026-09-25T05:25:00Z",
       "difficulty": "medium",
       "status": "vetted",
@@ -2417,9 +2417,9 @@
       "url": "https://github.com/NVIDIA-NeMo/Speech/issues/16073",
       "title": "DALI dataset silently accepts invalid window names: validation is unreachable dead code (dict.get in try/except)",
       "importance": "medium",
-      "importance_rationale": "Misspelled window names ('hanning', 'Hann') in DALI dataset configs are silently accepted and train on DALI's default Hann features instead of raising the ValueError the code clearly intends — silent feature-extraction mismatch vs the correctly-validating non-DALI path (audio_preprocessing.py).",
+      "importance_rationale": "Misspelled window names ('hanning', 'Hann') in DALI dataset configs are silently accepted and train on DALI's default Hann features instead of raising the ValueError the code clearly intends \u2014 silent feature-extraction mismatch vs the correctly-validating non-DALI path (audio_preprocessing.py).",
       "career_signal": "medium",
-      "career_signal_rationale": "Valid silent-misconfiguration fix in an ASR data pipeline, but the change is a small validation-logic correction (explicit membership check replacing dead try/except) — limited AI-engineering depth to defend beyond the diagnosis.",
+      "career_signal_rationale": "Valid silent-misconfiguration fix in an ASR data pipeline, but the change is a small validation-logic correction (explicit membership check replacing dead try/except) \u2014 limited AI-engineering depth to defend beyond the diagnosis.",
       "career_assessed_at": "2026-09-25T05:25:00Z",
       "difficulty": "low",
       "status": "vetted",
@@ -2437,7 +2437,7 @@
       "importance": "medium",
       "importance_rationale": "Public dataset class FeatureToLabelDataset's documented labels=None fallback is triply broken (character vocabulary instead of labels, unsubscriptable set, and a float-iteration TypeError that fires even with explicit labels on the regression path); the sibling SpeechLabel in the same file does it correctly. No shipped script hits it today (scope note in issue), capping impact at medium.",
       "career_signal": "medium",
-      "career_signal_rationale": "Correct data-processing fix with a clean in-file pattern to mirror, but it is a two-line collection fix on a currently-unexercised class — limited differentiation despite the tidy three-failure diagnosis.",
+      "career_signal_rationale": "Correct data-processing fix with a clean in-file pattern to mirror, but it is a two-line collection fix on a currently-unexercised class \u2014 limited differentiation despite the tidy three-failure diagnosis.",
       "career_assessed_at": "2026-09-25T05:25:00Z",
       "difficulty": "low",
       "status": "vetted",
@@ -2453,7 +2453,7 @@
       "url": "https://github.com/NVIDIA-NeMo/Speech/issues/16091",
       "title": "Docs name the multitask metrics config key multitask_metrics_config; the code reads multitask_metrics_cfg",
       "importance": "medium",
-      "importance_rationale": "Users copying the documented MultiTaskMetric block get silent fallback to unconstrained default WER+BLEU (no error), discarding every documented constraint/use_cer/bleu_tokenizer setting — a silent metrics-validity trap, though the fix is docs-only.",
+      "importance_rationale": "Users copying the documented MultiTaskMetric block get silent fallback to unconstrained default WER+BLEU (no error), discarding every documented constraint/use_cer/bleu_tokenizer setting \u2014 a silent metrics-validity trap, though the fix is docs-only.",
       "career_signal": "low",
       "career_signal_rationale": "Documentation key rename (plus one docstring); the underlying silent-fallback insight is nice but the deliverable is mechanical and not interview-defensible engineering. Stays in research inventory per policy (low does not enter authoring).",
       "career_assessed_at": "2026-09-25T05:25:00Z",
@@ -2471,16 +2471,16 @@
       "url": "https://github.com/meta-pytorch/botorch/issues/2128",
       "title": "[Bug] Standardize transform breaks DistributedDataParallel",
       "importance": "medium",
-      "importance_rationale": "Any module containing a Standardize (or Log/Power via the same base) outcome transform cannot be wrapped in DDP because the registered `_is_trained` bool buffer is rejected by gloo/nccl buffer broadcast — blocks distributed training pipelines that embed BoTorch transforms; open 22 months with maintainer agreement that the design is problematic and no fix.",
+      "importance_rationale": "Any module containing a Standardize (or Log/Power via the same base) outcome transform cannot be wrapped in DDP because the registered `_is_trained` bool buffer is rejected by gloo/nccl buffer broadcast \u2014 blocks distributed training pipelines that embed BoTorch transforms; open 22 months with maintainer agreement that the design is problematic and no fix.",
       "career_signal": "high",
-      "career_signal_rationale": "Distributed-training compatibility fix in Meta's Bayesian-optimization framework: requires understanding DDP buffer-broadcast dtype constraints, nn.Module buffer/state-dict semantics, and designing a backward-compatible serialization change (old bool-tensor checkpoints must still load) — defensible ML-infrastructure engineering.",
+      "career_signal_rationale": "Distributed-training compatibility fix in Meta's Bayesian-optimization framework: requires understanding DDP buffer-broadcast dtype constraints, nn.Module buffer/state-dict semantics, and designing a backward-compatible serialization change (old bool-tensor checkpoints must still load) \u2014 defensible ML-infrastructure engineering.",
       "career_assessed_at": "2026-09-25T05:25:00Z",
       "difficulty": "medium",
       "status": "vetted",
       "verified_at": "2026-09-25T05:20:38Z",
       "ownership_check": "No claim comments; reporter explicitly deferred to core team ('It's up to the BoTorch core team how you want to deal with this').",
       "competing_prs": [],
-      "platform_plan": "Pure CPU: `pip install -e .`; repro with the issue's script using dist.init_process_group('gloo') and 2 CPU processes via mp.spawn — DDP construction fails on the bool buffer before fix, succeeds after. Regression: (a) a gloo 2-process spawn test guarded by torch.distributed availability, (b) state-dict round-trip test asserting old checkpoints containing a bool `_is_trained` still load (`pytest test/models/transforms/test_outcome.py`)."
+      "platform_plan": "Pure CPU: `pip install -e .`; repro with the issue's script using dist.init_process_group('gloo') and 2 CPU processes via mp.spawn \u2014 DDP construction fails on the bool buffer before fix, succeeds after. Regression: (a) a gloo 2-process spawn test guarded by torch.distributed availability, (b) state-dict round-trip test asserting old checkpoints containing a bool `_is_trained` still load (`pytest test/models/transforms/test_outcome.py`)."
     },
     {
       "company": "Meta",
@@ -2489,16 +2489,16 @@
       "url": "https://github.com/meta-pytorch/botorch/issues/2398",
       "title": "`ModelListGP.fantasize` does not support `MultiTaskGP`s, but other `ModelListGP` methods do",
       "importance": "medium",
-      "importance_rationale": "ModelList.fantasize indexes sub-models by OUTPUT index, so any list containing a multi-output sub-model (the exact construction the docs support and posterior/subset_output handle correctly) breaks under qMultiStepLookahead/KG fantasization — filed by maintainer esantorella from a user report; open 27 months.",
+      "importance_rationale": "ModelList.fantasize indexes sub-models by OUTPUT index, so any list containing a multi-output sub-model (the exact construction the docs support and posterior/subset_output handle correctly) breaks under qMultiStepLookahead/KG fantasization \u2014 filed by maintainer esantorella from a user report; open 27 months.",
       "career_signal": "high",
-      "career_signal_rationale": "Correctness fix in the fantasy-model machinery underpinning lookahead/knowledge-gradient acquisition in a major BO framework: multi-output GP output-vs-model index bookkeeping, sampler routing, and observation-noise slicing — substantive probabilistic-ML engineering defensible in an interview.",
+      "career_signal_rationale": "Correctness fix in the fantasy-model machinery underpinning lookahead/knowledge-gradient acquisition in a major BO framework: multi-output GP output-vs-model index bookkeeping, sampler routing, and observation-noise slicing \u2014 substantive probabilistic-ML engineering defensible in an interview.",
       "career_assessed_at": "2026-09-25T05:25:00Z",
       "difficulty": "medium-high",
       "status": "pr-open",
       "verified_at": "2026-09-25T05:20:38Z",
       "ownership_check": "No claims; original user lucky-luke-98 provided repro only.",
       "competing_prs": [],
-      "platform_plan": "Pure CPU: build ModelListGP(SingleTaskGP, MultiTaskGP) on random 10-point data (double dtype), call .fantasize(X, sampler=ListSampler(...)/SobolQMCNormalSampler) — IndexError/mis-fantasization before fix; after fix returns a ModelListGP whose sub-models were each fantasized once with their own output slice. Also run existing `pytest test/models/test_model_list_gp_regression.py test/models/test_model.py`.",
+      "platform_plan": "Pure CPU: build ModelListGP(SingleTaskGP, MultiTaskGP) on random 10-point data (double dtype), call .fantasize(X, sampler=ListSampler(...)/SobolQMCNormalSampler) \u2014 IndexError/mis-fantasization before fix; after fix returns a ModelListGP whose sub-models were each fantasized once with their own output slice. Also run existing `pytest test/models/test_model_list_gp_regression.py test/models/test_model.py`.",
       "outcome": "2026-10-03: pushed 363b7aa753e45e0d086def32e5490caf34f1165c from the maintainer-rebased PR head, without rewriting history. Fixed unobserved-task fixed-noise NaNs and empty decoupled multitask fantasies. Both reviewer counterexamples fail before the fix; 35 affected tests and 13 subtests plus all changed-file hooks pass. Both inline threads answered/resolved; hosted SHA verified and mergeable. New CI is still running.",
       "pr_url": "https://github.com/meta-pytorch/botorch/pull/3374"
     },
@@ -2509,16 +2509,16 @@
       "url": "https://github.com/huggingface/diffusers/issues/11902",
       "title": "SD3.5-Controlnet-8b does not use encoder_hidden_states (train_controlnet_sd3.py passes them unconditionally)",
       "importance": "medium",
-      "importance_rationale": "The official SD3 controlnet training script passes encoder_hidden_states=prompt_embeds unconditionally, but SD3ControlNetModel raises ValueError('encoder_hidden_states should not be provided when context_embedder is not used') for SD3.5-large-controlnet-style models — finetuning the 8b controlnet with the shipped script is impossible.",
+      "importance_rationale": "The official SD3 controlnet training script passes encoder_hidden_states=prompt_embeds unconditionally, but SD3ControlNetModel raises ValueError('encoder_hidden_states should not be provided when context_embedder is not used') for SD3.5-large-controlnet-style models \u2014 finetuning the 8b controlnet with the shipped script is impossible.",
       "career_signal": "medium",
-      "career_signal_rationale": "Real training-script correctness fix for controlnet finetuning in the leading diffusion library, but the change is a small conditional (pass None when the controlnet has no context_embedder) — valid yet limited engineering depth.",
+      "career_signal_rationale": "Real training-script correctness fix for controlnet finetuning in the leading diffusion library, but the change is a small conditional (pass None when the controlnet has no context_embedder) \u2014 valid yet limited engineering depth.",
       "career_assessed_at": "2026-09-25T05:25:00Z",
       "difficulty": "low",
       "status": "vetted",
       "verified_at": "2026-09-25T05:22:59Z",
       "ownership_check": "No claim comments; reporter explicitly bowed out 2026-01-09.",
       "competing_prs": [],
-      "platform_plan": "Pure CPU: instantiate a tiny random SD3ControlNetModel with num_layers=1, context_embedder absent (extra_conditioning_channels/config matching SD3.5-8b style, i.e. joint_attention_dim=None path) and a matching tiny SD3Transformer2DModel; call the controlnet exactly as the script does — ValueError before fix, forward succeeds after. Mirror examples/controlnet/test suite (`pytest examples/controlnet -k sd3` runs the training smoke test with tiny models)."
+      "platform_plan": "Pure CPU: instantiate a tiny random SD3ControlNetModel with num_layers=1, context_embedder absent (extra_conditioning_channels/config matching SD3.5-8b style, i.e. joint_attention_dim=None path) and a matching tiny SD3Transformer2DModel; call the controlnet exactly as the script does \u2014 ValueError before fix, forward succeeds after. Mirror examples/controlnet/test suite (`pytest examples/controlnet -k sd3` runs the training smoke test with tiny models)."
     },
     {
       "company": "Hugging Face",
@@ -2527,16 +2527,16 @@
       "url": "https://github.com/huggingface/diffusers/issues/7354",
       "title": "PNDMScheduler Does Not Compatible with DDPMPipeline",
       "importance": "medium",
-      "importance_rationale": "DDPMPipeline advertises PNDMScheduler in scheduler.compatibles but crashes when it's used, because __call__ always passes generator= to scheduler.step and PNDMScheduler.step doesn't accept it — the documented swap-any-compatible-scheduler workflow (official tutorial) is broken for this pipeline.",
+      "importance_rationale": "DDPMPipeline advertises PNDMScheduler in scheduler.compatibles but crashes when it's used, because __call__ always passes generator= to scheduler.step and PNDMScheduler.step doesn't accept it \u2014 the documented swap-any-compatible-scheduler workflow (official tutorial) is broken for this pipeline.",
       "career_signal": "medium",
-      "career_signal_rationale": "Pipeline/scheduler interface-compatibility fix in diffusers using the library's established accepts-kwarg introspection pattern; useful and maintainer-invited but mechanically simple — limited depth to defend.",
+      "career_signal_rationale": "Pipeline/scheduler interface-compatibility fix in diffusers using the library's established accepts-kwarg introspection pattern; useful and maintainer-invited but mechanically simple \u2014 limited depth to defend.",
       "career_assessed_at": "2026-09-25T05:25:00Z",
       "difficulty": "low",
       "status": "vetted",
       "verified_at": "2026-09-25T05:22:59Z",
-      "ownership_check": "KeepNoob claimed in 2024 but never delivered to the right repo despite two maintainer pings; inactive 22 months — expired.",
+      "ownership_check": "KeepNoob claimed in 2024 but never delivered to the right repo despite two maintainer pings; inactive 22 months \u2014 expired.",
       "competing_prs": [],
-      "platform_plan": "Pure CPU: tiny UNet2DModel(sample_size=8, block_out_channels=(4,8)) + PNDMScheduler in DDPMPipeline, call pipe(num_inference_steps=5) — TypeError before fix, image after; also assert DDPMScheduler path still consumes the generator (reproducibility unchanged). Run `pytest tests/pipelines/ddpm/`."
+      "platform_plan": "Pure CPU: tiny UNet2DModel(sample_size=8, block_out_channels=(4,8)) + PNDMScheduler in DDPMPipeline, call pipe(num_inference_steps=5) \u2014 TypeError before fix, image after; also assert DDPMScheduler path still consumes the generator (reproducibility unchanged). Run `pytest tests/pipelines/ddpm/`."
     },
     {
       "company": "Anyscale",
@@ -2545,16 +2545,16 @@
       "url": "https://github.com/ray-project/ray/issues/50980",
       "title": "[Core] calling remote function in `Future` callback breaks ray",
       "importance": "medium",
-      "importance_rationale": "Documented public API (ObjectRef.future() + concurrent.futures add_done_callback) silently deadlocks the whole worker session: any Ray call (ray.get, .remote) inside the done-callback hangs, and afterwards NO new task can be submitted from the driver — the process is bricked until Ctrl+C. Silent, unrecoverable, and triggered by idiomatic asyncio/futures bridging code.",
+      "importance_rationale": "Documented public API (ObjectRef.future() + concurrent.futures add_done_callback) silently deadlocks the whole worker session: any Ray call (ray.get, .remote) inside the done-callback hangs, and afterwards NO new task can be submitted from the driver \u2014 the process is bricked until Ctrl+C. Silent, unrecoverable, and triggered by idiomatic asyncio/futures bridging code.",
       "career_signal": "high",
-      "career_signal_rationale": "Diagnosing a cross-thread deadlock in Ray's core worker — user Python callbacks executed inline on the C++ GetAsync completion thread — and moving user-visible future completion onto a safe executor is distributed-runtime reliability work in the most-used Python distributed framework, directly defensible in an ML-infrastructure interview.",
+      "career_signal_rationale": "Diagnosing a cross-thread deadlock in Ray's core worker \u2014 user Python callbacks executed inline on the C++ GetAsync completion thread \u2014 and moving user-visible future completion onto a safe executor is distributed-runtime reliability work in the most-used Python distributed framework, directly defensible in an ML-infrastructure interview.",
       "career_assessed_at": "2026-09-25T05:38:00Z",
       "difficulty": "medium",
       "status": "vetted",
       "verified_at": "2026-09-25T05:38:00Z",
       "ownership_check": "Open, unassigned, ZERO comments since filing 2025-02-28 (19 months). Labels bug,P1,core,community-backlog. No claim, no maintainer plan (last label touch 2025-05-22).",
       "competing_prs": [],
-      "platform_plan": "CPU-only. Repro today: `pip install 'ray[default]'` on Mac ARM64 or Linux CPU, run the issue script with a 60s watchdog — 'finish cb' never prints. Fix touches Cython (.pxi), so validation needs a from-source build: Linux CPU container, `pip install -e python` (bazel build, CPU-only, no GPU deps) then `python -m pytest python/ray/tests/<new test> -x --timeout=120`."
+      "platform_plan": "CPU-only. Repro today: `pip install 'ray[default]'` on Mac ARM64 or Linux CPU, run the issue script with a 60s watchdog \u2014 'finish cb' never prints. Fix touches Cython (.pxi), so validation needs a from-source build: Linux CPU container, `pip install -e python` (bazel build, CPU-only, no GPU deps) then `python -m pytest python/ray/tests/<new test> -x --timeout=120`."
     },
     {
       "company": "MCP",
@@ -2563,14 +2563,14 @@
       "url": "https://github.com/modelcontextprotocol/typescript-sdk/issues/2864",
       "title": "Closing a legacy Client during initialize leaves an unhandled rejection in workerd",
       "importance": "medium",
-      "importance_rationale": "Closing a transport between the legacy `initialize` reply and the `notifications/initialized` send leaves a floating `NOT_CONNECTED` rejection that workerd (Cloudflare Workers — a first-class MCP deployment target) reports as unhandled, failing test suites and forcing consumers (reporter maintains a gateway) to ship workarounds that skip the initialized notification.",
+      "importance_rationale": "Closing a transport between the legacy `initialize` reply and the `notifications/initialized` send leaves a floating `NOT_CONNECTED` rejection that workerd (Cloudflare Workers \u2014 a first-class MCP deployment target) reports as unhandled, failing test suites and forcing consumers (reporter maintains a gateway) to ship workarounds that skip the initialized notification.",
       "career_signal": "high",
       "career_signal_rationale": "Protocol-lifecycle correctness in the official MCP TypeScript SDK: pinning down a cross-runtime (Node vs workerd) unhandled-rejection seam in the client handshake and making every close-interrupt failure settle into the connect() promise is consequential agent/protocol plumbing work, demonstrable with a runtime-comparative regression test.",
       "career_assessed_at": "2026-09-25T05:38:00Z",
       "difficulty": "medium-high",
       "status": "vetted",
       "verified_at": "2026-09-25T05:38:00Z",
-      "ownership_check": "Open, unassigned, 0 comments (created 2026-09-25T04:22:49Z, ~1h before vetting). Timeline cross-references are the reporter's own consumer-repo workaround PRs ('Avoid unhandled rejections when a close interrupts the legacy MCP handshake' / 'Cancel legacy MCP initialization cleanly on close', both closed there) — no SDK-side work.",
+      "ownership_check": "Open, unassigned, 0 comments (created 2026-09-25T04:22:49Z, ~1h before vetting). Timeline cross-references are the reporter's own consumer-repo workaround PRs ('Avoid unhandled rejections when a close interrupts the legacy MCP handshake' / 'Cancel legacy MCP initialization cleanly on close', both closed there) \u2014 no SDK-side work.",
       "competing_prs": [],
       "platform_plan": "CPU-only, Mac ARM64: `pnpm install`; repo ships workerd test infra (test/integration/test/server/cloudflareWorkers.test.ts, packages/server/test/server/workerdSchemaPreload.test.ts; workerd has darwin-arm64 builds). Reproduce with the reporter's 0..30 microtask-tick sweep over `InMemoryTransport.createLinkedPair()` + `versionNegotiation: { mode: 'legacy' }` under the workerd vitest project; assert zero unhandled rejections; `pnpm test` for client + core-internal packages."
     },
@@ -2583,7 +2583,7 @@
       "importance": "medium",
       "importance_rationale": "Device::set_seed hard-errors on CPU, so any reproducibility-dependent workflow (and the shipped stable-diffusion example with --cpu, main.rs seed call) crashes; CUDA and Metal both support seeding, making CPU the odd backend out.",
       "career_signal": "medium",
-      "career_signal_rationale": "Valid reproducibility-infrastructure fix (seedable RNG state for the CPU backend of a 21k-star Rust ML framework), but it is plumbing rather than numerical/ML-path correctness — limited AI differentiation, so medium (conservative). Inventory only; not authoring-eligible under the 5b gate.",
+      "career_signal_rationale": "Valid reproducibility-infrastructure fix (seedable RNG state for the CPU backend of a 21k-star Rust ML framework), but it is plumbing rather than numerical/ML-path correctness \u2014 limited AI differentiation, so medium (conservative). Inventory only; not authoring-eligible under the 5b gate.",
       "career_assessed_at": "2026-09-25T05:45:00Z",
       "difficulty": "medium",
       "status": "vetted",
@@ -2813,7 +2813,7 @@
       "repo": "huggingface/candle",
       "number": 3698,
       "url": "https://github.com/huggingface/candle/issues/3698",
-      "title": "phi3: long-prompt degradation — BF16 RoPE table + ignored sliding_window",
+      "title": "phi3: long-prompt degradation \u2014 BF16 RoPE table + ignored sliding_window",
       "importance": null,
       "importance_rationale": null,
       "career_signal": null,
@@ -3896,14 +3896,14 @@
       ],
       "pr_url": "https://github.com/pingdotgg/t3code/pull/21175",
       "pr_number": 21175,
-      "head": "6e8f6eee0698482f5f1da1cd1c1cd1cede2806c8",
+      "head": "54e55893aa04fe3cdeeb91953747828b864f103d",
       "pr_state": "open",
       "pr_raised_at": "2026-10-18T11:51:54Z",
       "updated_at": "2026-10-18T12:10:56.308552+00:00",
-      "last_maintained": "2026-10-19T06:49:18.847130+00:00",
-      "outcome": "2026-10-19: fixed the new /side thread-context finding in ec3e6af480 and resolved current-main conflicts in 6e8f6eee0698482f5f1da1cd1c1cd1cede2806c8. Preserved thread/environment IDs and read-only context instructions, successful-only cleanup, upstream fork PR-link behavior and both MCP tests. 273 initial focused tests, then438 web and24 backend tests on merged main, web/server typechecks, scoped lint/format and independent exact-commit reviews pass. Native isolated app proof passes. Push/head/mergeability/replies/thread resolution verified; hosted workflows require maintainer authorization.",
+      "last_maintained": "2026-10-19T07:18:30.836246+00:00",
+      "outcome": "2026-10-19 follow-up: addressed all three new CodeRabbit findings in 54e55893aa04fe3cdeeb91953747828b864f103d: bounded 256-candidate snapshot payload read preserving priority/inherited context and truthful omissions; existing/tombstoned target rejection; physical KeyS shortcut. 59 backend and24 browser tests pass; final46 projection tests, web/server typechecks, scoped lint/format/diff checks, native isolated app before/after and independent exact-commit APPROVE. Push/ref/head/mergeability and three evidence replies verified; no unresolved review threads. CodeRabbit/hosted checks still pending; no green CI claim.",
       "replacement_of": 12794,
-      "validation": "253 focused web tests;31 changed node tests;71 fork/transition/runtime checks;4 secret-request checks;scoped web/server typechecks/lint/format;exact independent APPROVE after secure-input red/green regression. Follow-up: 134 focused tests for attachment/editor fixes;8 backend and19 browser tests plus6 scoped React Compiler cases;web/server typechecks and scoped lint/format pass;native app context/header checks;independent exact-commit APPROVE."
+      "validation": "253 focused web tests;31 changed node tests;71 fork/transition/runtime checks;4 secret-request checks;scoped web/server typechecks/lint/format;exact independent APPROVE after secure-input red/green regression. Follow-up: 134 focused tests for attachment/editor fixes;8 backend and19 browser tests plus6 scoped React Compiler cases;web/server typechecks and scoped lint/format pass;native app context/header checks;independent exact-commit APPROVE. Follow-up54e55893aa:59 backend/24 browser tests, final46 projection tests;scoped checks/typechecks, native shortcut before/after and independent exact-commit APPROVE."
     },
     {
       "repo": "pingdotgg/t3code",
@@ -3935,28 +3935,28 @@
       "company": "MCP",
       "item": "modelcontextprotocol/inspector",
       "url": "https://github.com/modelcontextprotocol/inspector",
-      "reason": "External PRs not accepted — maintainers open all PRs; outside contributors limited to issues.",
+      "reason": "External PRs not accepted \u2014 maintainers open all PRs; outside contributors limited to issues.",
       "ts": "2026-09-24T18:00:36+00:00"
     },
     {
       "company": "Cohere",
       "item": "cohere-ai/cohere-python",
       "url": "https://github.com/cohere-ai/cohere-python",
-      "reason": "400 stars — below 1,000-star default hold; no stronger Cohere OSS flagship identified yet.",
+      "reason": "400 stars \u2014 below 1,000-star default hold; no stronger Cohere OSS flagship identified yet.",
       "ts": "2026-09-24T18:00:36+00:00"
     },
     {
       "company": "Together AI",
       "item": "togethercomputer/together-python",
       "url": "https://github.com/togethercomputer/together-python",
-      "reason": "81 stars — below default hold threshold.",
+      "reason": "81 stars \u2014 below default hold threshold.",
       "ts": "2026-09-24T18:00:36+00:00"
     },
     {
       "company": "Qwen",
       "item": "QwenLM/Qwen-Agent",
       "url": "https://github.com/QwenLM/Qwen-Agent",
-      "reason": "17.1k stars but last push 2026-03-04 — stale maintenance signal; qwen-code held (issue-first + feedback wait).",
+      "reason": "17.1k stars but last push 2026-03-04 \u2014 stale maintenance signal; qwen-code held (issue-first + feedback wait).",
       "ts": "2026-09-24T18:00:36+00:00"
     },
     {
@@ -3977,7 +3977,7 @@
       "company": "OpenAI",
       "item": "openai/whisper",
       "url": "https://github.com/openai/whisper",
-      "reason": "CORRECTED 2026-09-25 IST: original hold reason ('effectively frozen for external code') was wrong — external bug-fix PRs merge in batches (Aug 2026, Jul 2026, Jun 2026) and no AI prohibition exists. Real blocker was: GitHub Issues are DISABLED, so no issue-based candidates existed. Re-admitted with Discussions-based sourcing per campaign-owner amendment.",
+      "reason": "CORRECTED 2026-09-25 IST: original hold reason ('effectively frozen for external code') was wrong \u2014 external bug-fix PRs merge in batches (Aug 2026, Jul 2026, Jun 2026) and no AI prohibition exists. Real blocker was: GitHub Issues are DISABLED, so no issue-based candidates existed. Re-admitted with Discussions-based sourcing per campaign-owner amendment.",
       "ts": "2026-09-24T20:30:59+00:00"
     },
     {
@@ -4012,7 +4012,7 @@
       "company": "Moonshot AI",
       "item": "MoonshotAI/kimi-code",
       "url": "https://github.com/MoonshotAI/kimi-code",
-      "reason": "External PRs only for maintainer-/approve'd bug issues, but census of all 249 open bugs found ZERO maintainer approvals ever granted — route exists on paper only.",
+      "reason": "External PRs only for maintainer-/approve'd bug issues, but census of all 249 open bugs found ZERO maintainer approvals ever granted \u2014 route exists on paper only.",
       "ts": "2026-09-24T18:20:30+00:00"
     },
     {
@@ -4026,21 +4026,21 @@
       "company": "Microsoft AI",
       "item": "microsoft/semantic-kernel",
       "url": "https://github.com/microsoft/semantic-kernel",
-      "reason": "Formally open but only 1/30 recent human merges external — weak acceptance path vs markitdown/agent-framework.",
+      "reason": "Formally open but only 1/30 recent human merges external \u2014 weak acceptance path vs markitdown/agent-framework.",
       "ts": "2026-09-24T18:20:30+00:00"
     },
     {
       "company": "Hugging Face",
       "item": "huggingface/trl",
       "url": "https://github.com/huggingface/trl",
-      "reason": "REJECTED: CONTRIBUTING states 'we will not review fully AI-generated PRs from first-time contributors' — decisive for this campaign.",
+      "reason": "REJECTED: CONTRIBUTING states 'we will not review fully AI-generated PRs from first-time contributors' \u2014 decisive for this campaign.",
       "ts": "2026-09-24T18:20:30+00:00"
     },
     {
       "company": "ggml/llama.cpp",
       "item": "ggml-org/llama.cpp",
       "url": "https://github.com/ggml-org/llama.cpp",
-      "reason": "REJECTED: explicit prohibitions — automated PR submissions may result in contributor ban; AI-written posts strictly prohibited; fully autonomous agents told not to contribute.",
+      "reason": "REJECTED: explicit prohibitions \u2014 automated PR submissions may result in contributor ban; AI-written posts strictly prohibited; fully autonomous agents told not to contribute.",
       "ts": "2026-09-24T18:53:01+00:00"
     },
     {
@@ -4054,7 +4054,7 @@
       "company": "Ollama",
       "item": "ollama/ollama",
       "url": "https://github.com/ollama/ollama",
-      "reason": "No policy bar, but 0/30 recent merges from genuine outsiders — external PRs unlikely to be reviewed.",
+      "reason": "No policy bar, but 0/30 recent merges from genuine outsiders \u2014 external PRs unlikely to be reviewed.",
       "ts": "2026-09-24T18:53:01+00:00"
     },
     {
@@ -4075,14 +4075,14 @@
       "company": "tinygrad",
       "item": "tinygrad/tinygrad",
       "url": "https://github.com/tinygrad/tinygrad",
-      "reason": "REJECTED: README — new-contributor submissions that look AI-written are closed without feedback and may lead to a ban; 29/30 merges by 5 core collaborators.",
+      "reason": "REJECTED: README \u2014 new-contributor submissions that look AI-written are closed without feedback and may lead to a ban; 29/30 merges by 5 core collaborators.",
       "ts": "2026-09-24T22:08:23+00:00"
     },
     {
       "company": "Google/DeepMind",
       "item": "google-deepmind/gemma",
       "url": "https://github.com/google-deepmind/gemma",
-      "reason": "REJECTED: internal-first copybara repo — 2/100 recent merges external, community fix PRs sit unreviewed with unanswered pings.",
+      "reason": "REJECTED: internal-first copybara repo \u2014 2/100 recent merges external, community fix PRs sit unreviewed with unanswered pings.",
       "ts": "2026-09-25T05:33:07+00:00"
     },
     {
@@ -4096,7 +4096,7 @@
       "company": "Databricks/MosaicML",
       "item": "mosaicml/composer + llm-foundry",
       "url": "https://github.com/mosaicml/composer",
-      "reason": "REJECTED: wound down — CI deliberately removed 2026-03-25, no merges since Apr, external PRs unreviewed up to 11 months.",
+      "reason": "REJECTED: wound down \u2014 CI deliberately removed 2026-03-25, no merges since Apr, external PRs unreviewed up to 11 months.",
       "ts": "2026-09-25T05:53:22+00:00"
     }
   ],
@@ -4123,7 +4123,7 @@
     },
     {
       "ts": "2026-09-24T18:16:59+00:00",
-      "text": "Issue-vetting batch 1 (tokenizers, mini-swe-agent, anthropic-sdk-python): 0 eligible candidates from 97 examined — every plausible in-scope bug already has an open competing PR or fresh claim (evidence per issue in local research records). These popular queues are saturated by fast claimants. Strategy: deeper backlog scans and less-contested admitted repos (markitdown, mcp/typescript-sdk, gpt-neox, faiss) next."
+      "text": "Issue-vetting batch 1 (tokenizers, mini-swe-agent, anthropic-sdk-python): 0 eligible candidates from 97 examined \u2014 every plausible in-scope bug already has an open competing PR or fresh claim (evidence per issue in local research records). These popular queues are saturated by fast claimants. Strategy: deeper backlog scans and less-contested admitted repos (markitdown, mcp/typescript-sdk, gpt-neox, faiss) next."
     },
     {
       "ts": "2026-09-24T18:20:30+00:00",
@@ -4132,21 +4132,21 @@
     },
     {
       "ts": "2026-09-24T18:26:13+00:00",
-      "text": "inspect_ai accepted-issue vein fully vetted: 0 eligible of 27 — 22 have open competing PRs, 2 active claims, 1 fixed at HEAD, 1 maintainer-deferred, 1 reporter-owned. Pre-approved queues are the most farmed. optax + mcp/registry deep-backlog vetting still in progress; markitdown/ts-sdk/gpt-neox/faiss batch running.",
+      "text": "inspect_ai accepted-issue vein fully vetted: 0 eligible of 27 \u2014 22 have open competing PRs, 2 active claims, 1 fixed at HEAD, 1 maintainer-deferred, 1 reporter-owned. Pre-approved queues are the most farmed. optax + mcp/registry deep-backlog vetting still in progress; markitdown/ts-sdk/gpt-neox/faiss batch running.",
       "repo": "UKGovernmentBEIS/inspect_ai"
     },
     {
       "ts": "2026-09-24T18:27:40+00:00",
-      "text": "optax fully vetted (all 32 open issues): 0 eligible — every unassigned correctness bug (#1754 #1771 #1784 #1789) has 1-2 open competing PRs (mostly <2 weeks old); older actionable items (#1214 #1342 #1388) also contested; remainder are feature requests/questions/assigned. Saturation pattern now confirmed across 4 vetting runs: popular AI repos' bug queues are farmed within days. mcp/registry + markitdown/ts-sdk/gpt-neox/faiss batches still running.",
+      "text": "optax fully vetted (all 32 open issues): 0 eligible \u2014 every unassigned correctness bug (#1754 #1771 #1784 #1789) has 1-2 open competing PRs (mostly <2 weeks old); older actionable items (#1214 #1342 #1388) also contested; remainder are feature requests/questions/assigned. Saturation pattern now confirmed across 4 vetting runs: popular AI repos' bug queues are farmed within days. mcp/registry + markitdown/ts-sdk/gpt-neox/faiss batches still running.",
       "repo": "google-deepmind/optax"
     },
     {
       "ts": "2026-09-24T18:30:19+00:00",
-      "text": "First 3 eligible candidates vetted in modelcontextprotocol/registry: #1582 RubyGems package type (medium; no-triage caveat recorded), #759 testcontainers migration (low; maintainer-invited with benchmark conditions), #1656 remote-only publishing docs gaps (low). All correctness bugs there were contested — 17 rejections recorded."
+      "text": "First 3 eligible candidates vetted in modelcontextprotocol/registry: #1582 RubyGems package type (medium; no-triage caveat recorded), #759 testcontainers migration (low; maintainer-invited with benchmark conditions), #1656 remote-only publishing docs gaps (low). All correctness bugs there were contested \u2014 17 rejections recorded."
     },
     {
       "ts": "2026-09-24T18:40:37+00:00",
-      "text": "Batch-2 vetting: markitdown#1247 (medium — DOCX field text silently dropped, confirmed live at HEAD with synthetic fixture) and gpt-neox#1364 (medium — MoE top-k router silently trains without load-balancing loss despite docs) vetted. MCP typescript-sdk 0/79 (fully saturated, some bugs have 3-9 competing PRs); faiss 0/12 (key HNSW path deprecated by maintainer, GPU holds); markitdown 1/70; gpt-neox 1/8. Screening yield so far: ~5 eligible per ~350 examined."
+      "text": "Batch-2 vetting: markitdown#1247 (medium \u2014 DOCX field text silently dropped, confirmed live at HEAD with synthetic fixture) and gpt-neox#1364 (medium \u2014 MoE top-k router silently trains without load-balancing loss despite docs) vetted. MCP typescript-sdk 0/79 (fully saturated, some bugs have 3-9 competing PRs); faiss 0/12 (key HNSW path deprecated by maintainer, GPU holds); markitdown 1/70; gpt-neox 1/8. Screening yield so far: ~5 eligible per ~350 examined."
     },
     {
       "ts": "2026-09-24T18:41:42+00:00",
@@ -4160,7 +4160,7 @@
     },
     {
       "ts": "2026-09-24T18:57:57+00:00",
-      "text": "markitdown#1247 authored locally: fldSimple unwrap + MACROBUTTON complex-field rewrite in DOCX preprocessor, 3 regression tests fail-before/pass-after at HEAD b8f79c5, full suite 997 pass/1 pre-existing unrelated failure. Honest caveat recorded: reporter's hosted sample has been reprocessed and no longer contains fields — PR will claim the mechanism, not that file. Now in independent review; no publication until review passes.",
+      "text": "markitdown#1247 authored locally: fldSimple unwrap + MACROBUTTON complex-field rewrite in DOCX preprocessor, 3 regression tests fail-before/pass-after at HEAD b8f79c5, full suite 997 pass/1 pre-existing unrelated failure. Honest caveat recorded: reporter's hosted sample has been reprocessed and no longer contains fields \u2014 PR will claim the mechanism, not that file. Now in independent review; no publication until review passes.",
       "repo": "microsoft/markitdown"
     },
     {
@@ -4170,7 +4170,7 @@
     },
     {
       "ts": "2026-09-24T19:18:09+00:00",
-      "text": "Batch-4 vetting: 11 eligible added — goose 7 (incl. #11975 HIGH: thinking-only response silently ends agent turn; all from the maintainer-curated Ready board), OpenHands/software-agent-sdk 3 (incl. #5307 HIGH: docker-runtime worktree work-loss risk), NeMo Curator 1 (#1148 silent executor incompatibility). 53 rejections recorded. A real source-found bug in ShinkaEvolve was EXCLUDED from eligibility (no existing issue backs it — repo has zero open issues) and is held as an observation only."
+      "text": "Batch-4 vetting: 11 eligible added \u2014 goose 7 (incl. #11975 HIGH: thinking-only response silently ends agent turn; all from the maintainer-curated Ready board), OpenHands/software-agent-sdk 3 (incl. #5307 HIGH: docker-runtime worktree work-loss risk), NeMo Curator 1 (#1148 silent executor incompatibility). 53 rejections recorded. A real source-found bug in ShinkaEvolve was EXCLUDED from eligibility (no existing issue backs it \u2014 repo has zero open issues) and is held as an observation only."
     },
     {
       "ts": "2026-09-24T19:32:40+00:00",
@@ -4179,25 +4179,25 @@
     },
     {
       "ts": "2026-09-24T19:37:30+00:00",
-      "text": "SECOND PR PUBLISHED: EleutherAI/gpt-neox PR #1437 (issue #1364 — top-k MoE routing silently trains without load-balancing loss; warning + docs + CPU regression tests). Review verdict APPROVE; competition re-check clean at 19:36Z; T3-registered.",
+      "text": "SECOND PR PUBLISHED: EleutherAI/gpt-neox PR #1437 (issue #1364 \u2014 top-k MoE routing silently trains without load-balancing loss; warning + docs + CPU regression tests). Review verdict APPROVE; competition re-check clean at 19:36Z; T3-registered.",
       "repo": "EleutherAI/gpt-neox"
     },
     {
       "ts": "2026-09-24T19:53:37+00:00",
-      "text": "Batch-5: +8 eligible — botorch 4 (TruncatedMVN batch crash, optimize_acqf infeasible-IC rejection, fit_gpytorch_mll validation, KroneckerMultiTaskGP prior sampling; maintenance-mode SLA risk recorded), diffusers 2 (gate met with maintainer in-thread invitations), DeepSpeed 1 (#7255 ZeRO-0 grad norm never recorded — zero competition), onnxruntime 1 (#25306 CPU Where int8/uint32). 38 rejections + 6 holds documented. DeepSpeed recent queue saturation confirmed; older backlog yields."
+      "text": "Batch-5: +8 eligible \u2014 botorch 4 (TruncatedMVN batch crash, optimize_acqf infeasible-IC rejection, fit_gpytorch_mll validation, KroneckerMultiTaskGP prior sampling; maintenance-mode SLA risk recorded), diffusers 2 (gate met with maintainer in-thread invitations), DeepSpeed 1 (#7255 ZeRO-0 grad norm never recorded \u2014 zero competition), onnxruntime 1 (#25306 CPU Where int8/uint32). 38 rejections + 6 holds documented. DeepSpeed recent queue saturation confirmed; older backlog yields."
     },
     {
       "ts": "2026-09-24T20:23:21+00:00",
-      "text": "Batch-6: +8 eligible — NVIDIA-NeMo/Speech 7 (incl. HIGH #16083 phoneme-dict truncation dropping 51/93 Vietnamese graphemes; vein opened by a contributor voluntarily withdrawing ~20 unreviewed PRs on 2026-09-18, prior-art + DCO/latency risks recorded per row) and hermes-agent #84667 (cron jobs silently skip attached skills). OLMo-core and prime-rl: 0 — every strong bug already has an open fix PR; cline: 0 (up to 12 competing PRs per approved issue). 80 rejections + 13 holds documented."
+      "text": "Batch-6: +8 eligible \u2014 NVIDIA-NeMo/Speech 7 (incl. HIGH #16083 phoneme-dict truncation dropping 51/93 Vietnamese graphemes; vein opened by a contributor voluntarily withdrawing ~20 unreviewed PRs on 2026-09-18, prior-art + DCO/latency risks recorded per row) and hermes-agent #84667 (cron jobs silently skip attached skills). OLMo-core and prime-rl: 0 \u2014 every strong bug already has an open fix PR; cline: 0 (up to 12 competing PRs per approved issue). 80 rejections + 13 holds documented."
     },
     {
       "ts": "2026-09-24T20:27:07+00:00",
-      "text": "goose#11975 authored: thinking-only recovery per maintainer-agreed design in both agent loops (bounded 3-retry, agent-only continuation, visible fallback), 4 regression tests fail-before/pass-after, 2319-test crate suite green, e2e verified with the issue's repro script. In independent review. Storage note: 6.7 GB free / goose build tree 36 GB — reviewer constrained to cache reuse.",
+      "text": "goose#11975 authored: thinking-only recovery per maintainer-agreed design in both agent loops (bounded 3-retry, agent-only continuation, visible fallback), 4 regression tests fail-before/pass-after, 2319-test crate suite green, e2e verified with the issue's repro script. In independent review. Storage note: 6.7 GB free / goose build tree 36 GB \u2014 reviewer constrained to cache reuse.",
       "repo": "aaif-goose/goose"
     },
     {
       "ts": "2026-09-24T20:30:59+00:00",
-      "text": "openai/whisper hold CORRECTED and repo admitted: the earlier 'frozen for external code' reason was wrong (external bug-fix merges verified Aug/Jul/Jun 2026, no AI prohibition). Actual constraint: GitHub Issues disabled. Campaign owner amended sourcing for this repo: existing public Discussions (real user bug reports) serve as the candidate source — no invented reports. Whisper vetting queued next (Discussions bug reports x 152 open-PR competition screening).",
+      "text": "openai/whisper hold CORRECTED and repo admitted: the earlier 'frozen for external code' reason was wrong (external bug-fix merges verified Aug/Jul/Jun 2026, no AI prohibition). Actual constraint: GitHub Issues disabled. Campaign owner amended sourcing for this repo: existing public Discussions (real user bug reports) serve as the candidate source \u2014 no invented reports. Whisper vetting queued next (Discussions bug reports x 152 open-PR competition screening).",
       "repo": "openai/whisper"
     },
     {
@@ -4206,16 +4206,16 @@
     },
     {
       "ts": "2026-09-24T20:45:26+00:00",
-      "text": "Batch-7: +3 eligible — NeMo-RL#1574 (career HIGH, PR-qualified: chat-template crash on system-led conversations, prior maintainer-approved fix abandoned), RL#1546 (low: gated-model docs note, maintainer-invited), onnxruntime#23023 (medium: int cap on arena initial_chunk_size, maintainer-acknowledged). Anthropic SDK re-scan: still fully contested, zero new issues; one batch-1 record corrected (#1695 was already closed, rejection stands on other grounds). agent-framework pool ~90% maintainer-assigned. 52 rejections documented."
+      "text": "Batch-7: +3 eligible \u2014 NeMo-RL#1574 (career HIGH, PR-qualified: chat-template crash on system-led conversations, prior maintainer-approved fix abandoned), RL#1546 (low: gated-model docs note, maintainer-invited), onnxruntime#23023 (medium: int cap on arena initial_chunk_size, maintainer-acknowledged). Anthropic SDK re-scan: still fully contested, zero new issues; one batch-1 record corrected (#1695 was already closed, rejection stands on other grounds). agent-framework pool ~90% maintainer-assigned. 52 rejections documented."
     },
     {
       "ts": "2026-09-24T20:59:25+00:00",
-      "text": "THIRD PR PUBLISHED (first Very High): aaif-goose/goose PR #12499 — thinking-only provider turns now recover per the maintainer-agreed design instead of silently ending the agent turn (issue #11975, Ready board). Independent review APPROVE (4 adversarial probes, e2e byte-identical across both engines); career gate passed (very_high); competition re-check clean at 20:58Z.",
+      "text": "THIRD PR PUBLISHED (first Very High): aaif-goose/goose PR #12499 \u2014 thinking-only provider turns now recover per the maintainer-agreed design instead of silently ending the agent turn (issue #11975, Ready board). Independent review APPROVE (4 adversarial probes, e2e byte-identical across both engines); career gate passed (very_high); competition re-check clean at 20:58Z.",
       "repo": "aaif-goose/goose"
     },
     {
       "ts": "2026-09-24T21:02:36+00:00",
-      "text": "Whisper (Discussions-sourced) vetted: 1 eligible (#2333 batched-audio decode crash, medium/medium — below PR gate), 1 hold (#2693 MPS fp16 NaN: upstream PyTorch, not reproducible within small-model limits), 30 rejections — every strong bug has a live competing PR (all 4 shortlist standouts contested; 2 leads empirically disconfirmed on this Mac). Zero PR-qualified at OpenAI despite Very High fit; repo stays on re-scan rotation."
+      "text": "Whisper (Discussions-sourced) vetted: 1 eligible (#2333 batched-audio decode crash, medium/medium \u2014 below PR gate), 1 hold (#2693 MPS fp16 NaN: upstream PyTorch, not reproducible within small-model limits), 30 rejections \u2014 every strong bug has a live competing PR (all 4 shortlist standouts contested; 2 leads empirically disconfirmed on this Mac). Zero PR-qualified at OpenAI despite Very High fit; repo stays on re-scan rotation."
     },
     {
       "ts": "2026-09-24T21:23:59+00:00",
@@ -4223,11 +4223,11 @@
     },
     {
       "ts": "2026-09-24T21:39:33+00:00",
-      "text": "Batch-10: +2 eligible, both HIGH (hermes-agent #80055 quoted-reply data loss — maintainer-acknowledged open gap; #88042 MCP tool results collapse to byte-count stubs in context compression). Goose Ready board frozen (identical 19 items), inspect_ai still fully contested (new accepted issue was claimed at +1 minute), Curator older backlog exhausted. 20 rejections documented."
+      "text": "Batch-10: +2 eligible, both HIGH (hermes-agent #80055 quoted-reply data loss \u2014 maintainer-acknowledged open gap; #88042 MCP tool results collapse to byte-count stubs in context compression). Goose Ready board frozen (identical 19 items), inspect_ai still fully contested (new accepted issue was claimed at +1 minute), Curator older backlog exhausted. 20 rejections documented."
     },
     {
       "ts": "2026-09-24T21:45:32+00:00",
-      "text": "Batch-9: +4 DeepSpeed (3 HIGH: #6699 zero_to_fp32 rejects ZeRO-0/BF16 checkpoints; #6969 activation checkpointing silently corrupts caller tensors; #7357 pipeline recv discards requires_grad across PP stages; +#7442 medium vars() TypeError). lerobot: 0 of 42 examined — fully saturated by competing AI-contribution campaigns; every aged dataset/config bug has 1-3 open fix PRs. DeepSpeed remains the deepest productive vein."
+      "text": "Batch-9: +4 DeepSpeed (3 HIGH: #6699 zero_to_fp32 rejects ZeRO-0/BF16 checkpoints; #6969 activation checkpointing silently corrupts caller tensors; #7357 pipeline recv discards requires_grad across PP stages; +#7442 medium vars() TypeError). lerobot: 0 of 42 examined \u2014 fully saturated by competing AI-contribution campaigns; every aged dataset/config bug has 1-3 open fix PRs. DeepSpeed remains the deepest productive vein."
     },
     {
       "ts": "2026-09-24T21:47:18+00:00",
@@ -4235,11 +4235,11 @@
     },
     {
       "ts": "2026-09-24T22:04:45+00:00",
-      "text": "Batch-12 (round-2 refreshes): +8 faiss at HEAD b1c1496 — 4 HIGH career (#3495 IDMap2 merge_from id corruption, #3828 JensenShannon NaN hangs HNSW add, #3559 IndexPQ selector support, #5566 IVFFlatDedup remove_ids undercount) + 4 medium inventory. markitdown/software-agent-sdk/mcp-registry refreshes dry (~3h window, all blocking PRs still open). faiss vein durable: aged backlog + freed-internal-fix checks; fresh reports contested within days by an external bug-finder campaign."
+      "text": "Batch-12 (round-2 refreshes): +8 faiss at HEAD b1c1496 \u2014 4 HIGH career (#3495 IDMap2 merge_from id corruption, #3828 JensenShannon NaN hangs HNSW add, #3559 IndexPQ selector support, #5566 IVFFlatDedup remove_ids undercount) + 4 medium inventory. markitdown/software-agent-sdk/mcp-registry refreshes dry (~3h window, all blocking PRs still open). faiss vein durable: aged backlog + freed-internal-fix checks; fresh reports contested within days by an external bug-finder campaign."
     },
     {
       "ts": "2026-09-24T22:08:23+00:00",
-      "text": "Batch-11: 3 new orgs admitted (Lightning AI; Ray — 24/30 external merges, DCO, disclosed-AI-assist allowed with human-defends-change rule; MLflow — LF/Databricks TSC verified, aged pre-2026-03-10 backlog is the PR-able surface due to auto-close bot). tinygrad REJECTED (README: AI-looking contributions closed without feedback, possible ban). +4 HIGH candidates: mlflow#13575 (model lineage silently lost on SQL backends), ray#62173 (PBT hyperparams discarded on restore), ray#48726 (checkpoint temp-dir corruption race), ray#58869 (Tune never persists scheduler state -> resumed PBT deadlock). 41 rejections + 3 gated holds documented."
+      "text": "Batch-11: 3 new orgs admitted (Lightning AI; Ray \u2014 24/30 external merges, DCO, disclosed-AI-assist allowed with human-defends-change rule; MLflow \u2014 LF/Databricks TSC verified, aged pre-2026-03-10 backlog is the PR-able surface due to auto-close bot). tinygrad REJECTED (README: AI-looking contributions closed without feedback, possible ban). +4 HIGH candidates: mlflow#13575 (model lineage silently lost on SQL backends), ray#62173 (PBT hyperparams discarded on restore), ray#48726 (checkpoint temp-dir corruption race), ray#58869 (Tune never persists scheduler state -> resumed PBT deadlock). 41 rejections + 3 gated holds documented."
     },
     {
       "ts": "2026-09-24T22:08:46+00:00",
@@ -4251,27 +4251,27 @@
     },
     {
       "ts": "2026-09-25T05:14:18+00:00",
-      "text": "Batch-14: +6 — faiss #773 (PCA catastrophic cancellation, maintainer-filed, HIGH), #2464 (bare omp parallel-for turns exceptions into std::terminate, HIGH), #2487/#2407 mediums; DeepSpeed #6501 (zero.Init world_size=1 crash, maintainer-filed +5 confirmations, HIGH) and #5509 (dtype check is a no-op stub, medium). hermes-agent saturated - dropped from sourcing; faiss aged vein exhausted (168/168 examined); goose#11975 note: maintainer engaged with OUR PR #12499 (not competition)."
+      "text": "Batch-14: +6 \u2014 faiss #773 (PCA catastrophic cancellation, maintainer-filed, HIGH), #2464 (bare omp parallel-for turns exceptions into std::terminate, HIGH), #2487/#2407 mediums; DeepSpeed #6501 (zero.Init world_size=1 crash, maintainer-filed +5 confirmations, HIGH) and #5509 (dtype check is a no-op stub, medium). hermes-agent saturated - dropped from sourcing; faiss aged vein exhausted (168/168 examined); goose#11975 note: maintainer engaged with OUR PR #12499 (not competition)."
     },
     {
       "ts": "2026-09-25T05:18:19+00:00",
-      "text": "Batch-13: +6 (5 HIGH) — Lightning #20551 (logger force-flush per step) + #20495 (LR-scheduler skip on restart -> one-epoch shift on resume); mlflow #14293 (Keras val metrics all collide at step 0, silent 20 months); ray #52401 (WaitRequest proto missing fetch_local -> head-node OOM, P1) + #52371 (configure_logging=False leaves propagate=False -> ray logs vanish from structlog/OTel, P1); mlflow #13316 medium (S3 no timeouts, maintainer's own fix auto-closed). Lightning aged backlog heavily farmed (16/20 best have open PRs); Ray core Python API P1 backlog is the clean vein. mlflow#15180 lead resolved: already fixed via merged PR (no-issue observation)."
+      "text": "Batch-13: +6 (5 HIGH) \u2014 Lightning #20551 (logger force-flush per step) + #20495 (LR-scheduler skip on restart -> one-epoch shift on resume); mlflow #14293 (Keras val metrics all collide at step 0, silent 20 months); ray #52401 (WaitRequest proto missing fetch_local -> head-node OOM, P1) + #52371 (configure_logging=False leaves propagate=False -> ray logs vanish from structlog/OTel, P1); mlflow #13316 medium (S3 no timeouts, maintainer's own fix auto-closed). Lightning aged backlog heavily farmed (16/20 best have open PRs); Ray core Python API P1 backlog is the clean vein. mlflow#15180 lead resolved: already fixed via merged PR (no-issue observation)."
     },
     {
       "ts": "2026-09-25T05:33:07+00:00",
-      "text": "Batch-15: +9 — NeMo-Speech #16081 (manifest to_shards crash, freed by PR withdrawal, HIGH) + #16102 (adapter save/load no round-trip, HIGH) + 2 mediums + 1 low; botorch #2128 (bool buffer breaks DDP broadcast, maintainer-endorsed fix direction since 2023, HIGH) + #2398 (ModelList.fantasize breaks with MultiTaskGP, maintainer-filed 27mo, HIGH); diffusers #11902 + #7354 (both maintainer-invited, claimants gone, medium). gemma REJECTED: copybara internal-first, 2/100 external merges, 15+ community PRs unreviewed. NeMo udsy19 vein fully mapped (monthly recheck: 8 more free if remaining open PRs withdrawn); botorch aged slice exhausted; diffusers ack-pool nearly tapped."
+      "text": "Batch-15: +9 \u2014 NeMo-Speech #16081 (manifest to_shards crash, freed by PR withdrawal, HIGH) + #16102 (adapter save/load no round-trip, HIGH) + 2 mediums + 1 low; botorch #2128 (bool buffer breaks DDP broadcast, maintainer-endorsed fix direction since 2023, HIGH) + #2398 (ModelList.fantasize breaks with MultiTaskGP, maintainer-filed 27mo, HIGH); diffusers #11902 + #7354 (both maintainer-invited, claimants gone, medium). gemma REJECTED: copybara internal-first, 2/100 external merges, 15+ community PRs unreviewed. NeMo udsy19 vein fully mapped (monthly recheck: 8 more free if remaining open PRs withdrawn); botorch aged slice exhausted; diffusers ack-pool nearly tapped."
     },
     {
       "ts": "2026-09-25T05:43:59+00:00",
-      "text": "Batch-16: +2 HIGH — ray #50980 (ObjectRef.future() done-callbacks run inline on the C++ GetAsync thread; any Ray call inside deadlocks the worker; P1, 19 months, uncontested) and mcp/typescript-sdk #2864 (closing legacy client mid-initialize floats a NOT_CONNECTED rejection under workerd; NOTE repo PRs new issues in ~1-3h — re-poll before authoring). Veins closed: DeepSpeed bulk backlog now actively mined by competitors; onnxruntime r3 exhausted (stale-bot survivors ~90% features, live bugs contested). ray P1-core narrowing but productive; ts-sdk polling stays."
+      "text": "Batch-16: +2 HIGH \u2014 ray #50980 (ObjectRef.future() done-callbacks run inline on the C++ GetAsync thread; any Ray call inside deadlocks the worker; P1, 19 months, uncontested) and mcp/typescript-sdk #2864 (closing legacy client mid-initialize floats a NOT_CONNECTED rejection under workerd; NOTE repo PRs new issues in ~1-3h \u2014 re-poll before authoring). Veins closed: DeepSpeed bulk backlog now actively mined by competitors; onnxruntime r3 exhausted (stale-bot survivors ~90% features, live bugs contested). ray P1-core narrowing but productive; ts-sdk polling stays."
     },
     {
       "ts": "2026-09-25T05:45:33+00:00",
-      "text": "Batch-17: 4 repos ADMITTED with clean policies (tiktoken 17/30 external merges in maintainer sweeps; gpt-oss bug-fix scope; candle 17/30; accelerate 20/30 — AGENTS.md ambiguity resolved: none exists). Yield honest near-zero: +1 medium (candle #3297 CPU set_seed no-op). Vein intel: tiktoken exhausted (60+ open PRs vs batch-merging sole maintainer — revisit after next sweep); candle near-exhausted (campaign contributors sweeping); gpt-oss tracker mass-cleaned; accelerate healthy but stale-bot keeps tracker young and fresh bugs fixed within days."
+      "text": "Batch-17: 4 repos ADMITTED with clean policies (tiktoken 17/30 external merges in maintainer sweeps; gpt-oss bug-fix scope; candle 17/30; accelerate 20/30 \u2014 AGENTS.md ambiguity resolved: none exists). Yield honest near-zero: +1 medium (candle #3297 CPU set_seed no-op). Vein intel: tiktoken exhausted (60+ open PRs vs batch-merging sole maintainer \u2014 revisit after next sweep); candle near-exhausted (campaign contributors sweeping); gpt-oss tracker mass-cleaned; accelerate healthy but stale-bot keeps tracker young and fresh bugs fixed within days."
     },
     {
       "ts": "2026-09-25T05:53:22+00:00",
-      "text": "Batch-19: honest zero candidates. llm-compressor ADMITTED (active daily merges, no AI clause — vllm's AGENTS.md verified repo-scoped; DCO + claim-before-work gate; realistic play is pouncing on new reports, not backlog mining). HELM HELD (maintenance mode, maintainer inactive — external PRs unacknowledged). MosaicML composer + llm-foundry REJECTED (wound down, CI removed). Aged-backlog era of this campaign is closing: remaining yield concentrates in re-polls and fresh-issue pouncing."
+      "text": "Batch-19: honest zero candidates. llm-compressor ADMITTED (active daily merges, no AI clause \u2014 vllm's AGENTS.md verified repo-scoped; DCO + claim-before-work gate; realistic play is pouncing on new reports, not backlog mining). HELM HELD (maintenance mode, maintainer inactive \u2014 external PRs unacknowledged). MosaicML composer + llm-foundry REJECTED (wound down, CI removed). Aged-backlog era of this campaign is closing: remaining yield concentrates in re-polls and fresh-issue pouncing."
     },
     {
       "ts": "2026-09-25T05:58:26+00:00",
@@ -4279,7 +4279,7 @@
     },
     {
       "ts": "2026-09-25T06:15:42+00:00",
-      "text": "Batch-20: +1 HIGH — NeMo-Speech #15658 (checkpoints saved before newer BoostingTreeModelConfig fields crash from_pretrained; struct-locked config bare-access at boosting_graph_batched.py:96-103, hit from 5 decoding modules; uncontested). ADMITTED: modelcontextprotocol/servers (90.6k, 27/30 external merges) and docling (67.9k, DCO, agent-positive AGENTS.md, 21/30 external) — both show same-day issue->PR farming, so they join the fresh-issue polling rotation rather than backlog mining. Speech aged backlog now exhausted; NeMo-RL farm-saturated."
+      "text": "Batch-20: +1 HIGH \u2014 NeMo-Speech #15658 (checkpoints saved before newer BoostingTreeModelConfig fields crash from_pretrained; struct-locked config bare-access at boosting_graph_batched.py:96-103, hit from 5 decoding modules; uncontested). ADMITTED: modelcontextprotocol/servers (90.6k, 27/30 external merges) and docling (67.9k, DCO, agent-positive AGENTS.md, 21/30 external) \u2014 both show same-day issue->PR farming, so they join the fresh-issue polling rotation rather than backlog mining. Speech aged backlog now exhausted; NeMo-RL farm-saturated."
     },
     {
       "ts": "2026-09-25T06:17:12+00:00",
@@ -4287,11 +4287,11 @@
     },
     {
       "ts": "2026-09-25T06:19:59+00:00",
-      "text": "Batch-21: +1 HIGH — litellm #26939 (Vertex/Gemini streaming drops per-request timeout -> 6000s hang; both streaming partials omit the timeout the enclosing scope holds while the non-streaming branch propagates it; zero competition). ADMITTED: litellm (CLA; internal Devin pipeline + ~7 external merges/day), crewAI (healthiest: 12/30 external; AI PRs require llm-generated disclosure label), pydantic-ai (conditional: maintainer must agree+assign before PR). graphrag REJECTED (maintenance mode, 0/100 external merges). All three trackers same-week farmed; the productive method is cross-reference screening for the 5-10% farmers miss."
+      "text": "Batch-21: +1 HIGH \u2014 litellm #26939 (Vertex/Gemini streaming drops per-request timeout -> 6000s hang; both streaming partials omit the timeout the enclosing scope holds while the non-streaming branch propagates it; zero competition). ADMITTED: litellm (CLA; internal Devin pipeline + ~7 external merges/day), crewAI (healthiest: 12/30 external; AI PRs require llm-generated disclosure label), pydantic-ai (conditional: maintainer must agree+assign before PR). graphrag REJECTED (maintenance mode, 0/100 external merges). All three trackers same-week farmed; the productive method is cross-reference screening for the 5-10% farmers miss."
     },
     {
       "ts": "2026-09-25T06:36:29+00:00",
-      "text": "FINAL BATCH (22): +1 HIGH — unstructured #3365 (partition_json destroys original element_id/metadata via three verified overwrite mechanisms; filed by the architecture owner, zero competition in 2+ years). ADMITTED: unstructured-io/unstructured (15.5k, welcoming, 12/30 external merges) and sgl-project/sglang CONDITIONAL (36.4k; no human-review AGENTS clause — verified clean; farm-saturated tracker, friction gates). Research phase ends: 81/100 eligible, 49 PR-qualified + 1 exception. Implementation owned by the GPT 5.6 Sol thread on the Omarchy PC via the private handoff repo."
+      "text": "FINAL BATCH (22): +1 HIGH \u2014 unstructured #3365 (partition_json destroys original element_id/metadata via three verified overwrite mechanisms; filed by the architecture owner, zero competition in 2+ years). ADMITTED: unstructured-io/unstructured (15.5k, welcoming, 12/30 external merges) and sgl-project/sglang CONDITIONAL (36.4k; no human-review AGENTS clause \u2014 verified clean; farm-saturated tracker, friction gates). Research phase ends: 81/100 eligible, 49 PR-qualified + 1 exception. Implementation owned by the GPT 5.6 Sol thread on the Omarchy PC via the private handoff repo."
     },
     {
       "ts": "2026-09-25T08:49:14+00:00",
@@ -4707,7 +4707,7 @@
     {
       "company": "Stanford CRFM",
       "fit": "medium",
-      "rationale": "Premier eval org (HELM) but repo unstaffed in maintenance mode — no acceptance path today."
+      "rationale": "Premier eval org (HELM) but repo unstaffed in maintenance mode \u2014 no acceptance path today."
     },
     {
       "company": "Databricks/MosaicML",

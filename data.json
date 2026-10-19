@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-15T08:11:51.095992+00:00",
+  "generated": "2026-10-19T06:49:18.847130+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -20,15 +20,15 @@
     "merged": 3,
     "landed_other": 2,
     "active_work": 0,
-    "last_refresh": "2026-10-15T06:43:19.278844+00:00",
+    "last_refresh": "2026-10-19T06:49:18.847130+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49,
-    "monitored_open_prs": 57,
+    "monitored_open_prs": 61,
     "monitored_drafts": 1,
-    "monitored_recent_landed": 9,
-    "monitored_recent_closed_unmerged": 7,
+    "monitored_recent_landed": 11,
+    "monitored_recent_closed_unmerged": 8,
     "author_action_items": 0,
-    "monitored_personal_project_landings": 4,
+    "monitored_personal_project_landings": 6,
     "campaign_closed_unmerged": 1,
     "deferred_closed_review_findings": 1
   },
@@ -1184,9 +1184,10 @@
       "career_assessed_at": "2026-09-24T20:38:31+00:00",
       "pr_url": "https://github.com/aaif-goose/goose/pull/12499",
       "pr_raised_at": "2026-09-24T20:59:25+00:00",
-      "outcome": "2026-10-15 Backup Plus follow-up: merged upstream dd17bf2021f3 and pushed 5f4c5b3812. Preserved the upstream subagent operation reexport and thinking recovery in the shared builder. Three regressions fail against upstream; all 129 state-machine tests, scoped all-target Clippy with warnings denied, formatting and diff checks pass on Rust 1.99.0. Independent review APPROVE; intended branch/head, PR body/reply and mergeability verified. Hosted CI is not claimed green.",
-      "last_maintained": "2026-10-15T08:11:51.095992+00:00",
-      "head": "5f4c5b3812cb2d8e7850b0e7ae44071cc919f4e4"
+      "outcome": "2026-10-19: triaged two CI failures as unchanged test races: cross-test mock-server session-ID captures and SessionEnd-before-release_session cancellation cleanup. Failed-job rerun attempted but GitHub requires repository admin rights; attempt remains1. Acknowledged independent deterministic recovery validation and requested one maintainer rerun in https://github.com/aaif-goose/goose/pull/12499#issuecomment-6261310352. No source change or claim of green CI.",
+      "last_maintained": "2026-10-19T06:49:18.847130+00:00",
+      "head": "5f4c5b3812cb2d8e7850b0e7ae44071cc919f4e4",
+      "pr_state": "open"
     },
     {
       "company": "Block/Goose",
@@ -3854,23 +3855,29 @@
       "pr_url": "https://github.com/pingdotgg/t3code/pull/19923",
       "pr_number": 19923,
       "pr_raised_at": "2026-10-15T15:26:18.133759+00:00",
-      "head": "1383e0353fef02fd0d82cc8c999fac858eef7a54",
+      "head": "25b51d885db601241eeb8f781f1601b5235cd5e9",
       "pr_state": "open",
-      "outcome": "Published one-line image cold-decoding fix with synthetic before/after proof and254 focused tests. Independent review,1431 maintained tests,five typechecks,packaging/Connect and276 OMA tests pass. Verified3158001 installed on disk; activation next normal restart."
+      "outcome": "2026-10-19: maintainer Julius took ownership and merged current main in25b51d885db601241eeb8f781f1601b5235cd5e9, preserving the author commit. Current CI succeeds; previews are skipped and a separate fingerprint attempt was cancelled. Preserved maintainer work; no duplicate push/rerun/comment.",
+      "last_maintained": "2026-10-19T06:49:18.847130+00:00"
     },
     {
       "repo": "pingdotgg/t3code",
       "number": 17956,
       "title": "HTML report links are unreadable in light mode",
       "url": "https://github.com/pingdotgg/t3code/issues/17956",
-      "status": "pr-open",
+      "status": "authored",
       "career_signal": "medium",
       "career_signal_rationale": "Small agent-facing theme guidance correction with verified cross-theme contrast reproduction; explicitly requested by Rohan.",
       "career_assessed_at": "2026-10-15T18:33:30.887870+00:00",
       "pr_url": "https://github.com/pingdotgg/t3code/pull/19981",
       "pr_raised_at": "2026-10-15T18:36:55.825842+00:00",
       "implementation_note": "Guidance-only correction for HTML link color token misuse. 12 theme/appearance browser checks;26 tests,scoped lint/format,shared typecheck and independent review pass. Saved HTML is not automatically rewritten.",
-      "head": "a044ac2f9996a2875bf21b1a18c488800b308595"
+      "head": "a044ac2f9996a2875bf21b1a18c488800b308595",
+      "pr_state": "closed",
+      "last_maintained": "2026-10-19T06:49:18.847130+00:00",
+      "outcome": "Closed by maintainer on2026-10-17: HTML generation guidance is a copy/product change requiring prior maintainer agreement. Not merged/landed; no reopen or replacement under maintenance.",
+      "closed_at": "2026-10-17T00:49:19Z",
+      "closure_reason": "Closed by maintainer on2026-10-17: HTML generation guidance is a copy/product change requiring prior maintainer agreement. Not merged/landed; no reopen or replacement under maintenance."
     },
     {
       "repo": "pingdotgg/t3code",
@@ -3889,12 +3896,12 @@
       ],
       "pr_url": "https://github.com/pingdotgg/t3code/pull/21175",
       "pr_number": 21175,
-      "head": "ae0599b053e8184697349716ba825b4ea6d017bf",
+      "head": "6e8f6eee0698482f5f1da1cd1c1cd1cede2806c8",
       "pr_state": "open",
       "pr_raised_at": "2026-10-18T11:51:54Z",
       "updated_at": "2026-10-18T12:10:56.308552+00:00",
-      "last_maintained": "2026-10-18T12:10:56.308552+00:00",
-      "outcome": "Addressed all 10 current SideChat review findings (2 Macroscope, 8 CodeRabbit); verified push and replies, all threads resolved. Product approval and hosted workflow authorization remain pending.",
+      "last_maintained": "2026-10-19T06:49:18.847130+00:00",
+      "outcome": "2026-10-19: fixed the new /side thread-context finding in ec3e6af480 and resolved current-main conflicts in 6e8f6eee0698482f5f1da1cd1c1cd1cede2806c8. Preserved thread/environment IDs and read-only context instructions, successful-only cleanup, upstream fork PR-link behavior and both MCP tests. 273 initial focused tests, then438 web and24 backend tests on merged main, web/server typechecks, scoped lint/format and independent exact-commit reviews pass. Native isolated app proof passes. Push/head/mergeability/replies/thread resolution verified; hosted workflows require maintainer authorization.",
       "replacement_of": 12794,
       "validation": "253 focused web tests;31 changed node tests;71 fork/transition/runtime checks;4 secret-request checks;scoped web/server typechecks/lint/format;exact independent APPROVE after secure-input red/green regression. Follow-up: 134 focused tests for attachment/editor fixes;8 backend and19 browser tests plus6 scoped React Compiler cases;web/server typechecks and scoped lint/format pass;native app context/header checks;independent exact-commit APPROVE."
     },
@@ -4480,6 +4487,10 @@
       "ts": "2026-10-18T11:52:07.923364+00:00",
       "repo": "pingdotgg/t3code",
       "text": "Published three user-authorized replacements: #21175 Independent SideChat composers and snapshots, #21172 In-thread conversation width control, #21173 Remaining ChatGPT credits on Codex Usage. Exact-commit independent reviews and focused checks pass; maintainer product approval/hosted CI remain pending. This is a scoped update, not a full daily sweep."
+    },
+    {
+      "ts": "2026-10-19T06:49:18.847130+00:00",
+      "text": "Oct19 live sweep:61 open/1 draft,11 recent landed (6 personal),8 closed-unmerged;0 author-side items. SideChat thread context fixed and new conflicts resolved/pushed in6e8f6eee06 (438 web/24 backend, typechecks, lint/format, independent reviews and app proof); Goose test-race rerun requires maintainer admin rights. Image PR maintainer-owned; Ocean guidance PR closed pending scope agreement. Other stale failures, authorization gates, expected skips and import queues unchanged."
     }
   ],
   "companies": [

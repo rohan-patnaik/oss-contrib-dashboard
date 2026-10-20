@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-20T06:52:29.385215+00:00",
+  "generated": "2026-10-20T07:10:04.900723+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -20,7 +20,7 @@
     "merged": 3,
     "landed_other": 2,
     "active_work": 0,
-    "last_refresh": "2026-10-20T06:52:29.385215+00:00",
+    "last_refresh": "2026-10-20T07:10:04.900723+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49,
     "monitored_open_prs": 59,
@@ -3814,11 +3814,11 @@
       "career_signal_rationale": "Useful read-only provider accounting feature with cross-client and stale-account handling. Explicit user-requested contribution.",
       "career_assessed_at": "2026-10-10T03:56:28.925301+00:00",
       "updated_at": "2026-10-18T11:52:07.923364+00:00",
-      "outcome": "2026-10-20: safely merged current main ce2815d665 in 8ef7bd0b75e4e34ffba42a8179cc63d7cdabf9c0. 25 Codex/91 provider/shared/17 web tests;web/server typechecks;scoped checks;independent exact-commit APPROVE. Intended head/ref and MERGEABLE readback verified;concise evidence reply posted;no unresolved review threads. New-head CI runs normally;fingerprint succeeds,previews skipped. Product direction/review approval remains with maintainers.",
+      "outcome": "Oct20 final: head 8ef7bd0b75e4e34ffba42a8179cc63d7cdabf9c0;133 focused tests,web/server typechecks and independent merge review pass. Hosted CI failed in unchanged SSH zombie fixture;focused local fixture passes and same-base siblings pass CI. Single failed-job rerun denied: Must have admin rights to Repository. Evidence reply posted;maintainer rerun needed. Product approval remains with maintainers.",
       "pr_url": "https://github.com/pingdotgg/t3code/pull/21173",
       "pr_number": 21173,
       "head": "8ef7bd0b75e4e34ffba42a8179cc63d7cdabf9c0",
-      "last_maintained": "2026-10-20T06:52:29.385215+00:00",
+      "last_maintained": "2026-10-20T07:10:04.900723+00:00",
       "pr_state": "open",
       "previous_prs": [
         {
@@ -3833,7 +3833,7 @@
       ],
       "pr_raised_at": "2026-10-18T11:48:01Z",
       "replacement_of": 17705,
-      "validation": "98 node and7 browser tests;web/server typechecks/scoped lint/format;synthetic refresh regression;exact independent APPROVE. Native mobile runtime not exercised. Oct20 merge: 25 Codex/91 provider/shared/17 web tests;web/server typechecks;scoped checks;independent exact-commit APPROVE."
+      "validation": "98 node and7 browser tests;web/server typechecks/scoped lint/format;synthetic refresh regression;exact independent APPROVE. Native mobile runtime not exercised. Oct20 merge: 25 Codex/91 provider/shared/17 web tests;web/server typechecks;scoped checks;independent exact-commit APPROVE. Oct20 CI triage: unchanged SSH fixture local control1pass33skip;single failed-job rerun denied admin rights."
     },
     {
       "company": "T3 Code",
@@ -3898,14 +3898,14 @@
       ],
       "pr_url": "https://github.com/pingdotgg/t3code/pull/21175",
       "pr_number": 21175,
-      "head": "9552dd8c516ed149283a90219beadebc8ef75931",
+      "head": "05c2fcd6902087c1ef438f85a86ffca2c61d63f8",
       "pr_state": "open",
       "pr_raised_at": "2026-10-18T11:51:54Z",
       "updated_at": "2026-10-18T12:10:56.308552+00:00",
-      "last_maintained": "2026-10-20T06:52:29.385215+00:00",
-      "outcome": "2026-10-20: safely merged current main ce2815d665 in 9552dd8c516ed149283a90219beadebc8ef75931. 94 backend/265 web tests;web/server typechecks;scoped checks;native app;independent exact-commit APPROVE. Intended head/ref and MERGEABLE readback verified;concise evidence reply posted;no unresolved review threads. New-head CI runs normally;fingerprint succeeds,previews skipped. Product direction/review approval remains with maintainers.",
+      "last_maintained": "2026-10-20T07:10:04.900723+00:00",
+      "outcome": "Oct20 final: head 05c2fcd6902087c1ef438f85a86ffca2c61d63f8; target-only snapshot/isolation and AltGr review fixes pushed; both review threads resolved after push. SQLite Codex/Claude regression fails before/passes after;16 focused backend tests,web/server typechecks,scoped checks,native AltGr/KeyS behavior and independent exact-commit APPROVE. Latest-head CI/review pending; product approval remains with maintainers.",
       "replacement_of": 12794,
-      "validation": "253 focused web tests;31 changed node tests;71 fork/transition/runtime checks;4 secret-request checks;scoped web/server typechecks/lint/format;exact independent APPROVE after secure-input red/green regression. Follow-up: 134 focused tests for attachment/editor fixes;8 backend and19 browser tests plus6 scoped React Compiler cases;web/server typechecks and scoped lint/format pass;native app context/header checks;independent exact-commit APPROVE. Follow-up54e55893aa:59 backend/24 browser tests, final46 projection tests;scoped checks/typechecks, native shortcut before/after and independent exact-commit APPROVE. Oct20 merge: 94 backend/265 web tests;web/server typechecks;scoped checks;native app;independent exact-commit APPROVE."
+      "validation": "253 focused web tests;31 changed node tests;71 fork/transition/runtime checks;4 secret-request checks;scoped web/server typechecks/lint/format;exact independent APPROVE after secure-input red/green regression. Follow-up: 134 focused tests for attachment/editor fixes;8 backend and19 browser tests plus6 scoped React Compiler cases;web/server typechecks and scoped lint/format pass;native app context/header checks;independent exact-commit APPROVE. Follow-up54e55893aa:59 backend/24 browser tests, final46 projection tests;scoped checks/typechecks, native shortcut before/after and independent exact-commit APPROVE. Oct20 merge: 94 backend/265 web tests;web/server typechecks;scoped checks;native app;independent exact-commit APPROVE. Oct20 review follow-up: SQL red/green16 backend tests,web/server typechecks,scoped checks,native AltGr/physicalKeyS,independent APPROVE."
     },
     {
       "repo": "pingdotgg/t3code",
@@ -3922,14 +3922,14 @@
       "competing_prs": [],
       "pr_url": "https://github.com/pingdotgg/t3code/pull/21172",
       "pr_number": 21172,
-      "head": "6cb7762115883925033aaa20e2587012a4ab154c",
+      "head": "5e05e3f46deebb491d5e8476763e90dd1c2d2dbb",
       "pr_state": "open",
       "pr_raised_at": "2026-10-18T11:47:32Z",
       "updated_at": "2026-10-18T11:52:07.923364+00:00",
-      "last_maintained": "2026-10-20T06:52:29.385215+00:00",
-      "outcome": "2026-10-20: safely merged current main ce2815d665 in 6cb7762115883925033aaa20e2587012a4ab154c. 11 browser tests;web typecheck;scoped checks;native draft/layout proof;independent exact-commit APPROVE. Intended head/ref and MERGEABLE readback verified;concise evidence reply posted;no unresolved review threads. New-head CI runs normally;fingerprint succeeds,previews skipped. Product direction/review approval remains with maintainers.",
+      "last_maintained": "2026-10-20T07:10:04.900723+00:00",
+      "outcome": "Oct20 final: head 5e05e3f46deebb491d5e8476763e90dd1c2d2dbb; CI unused-export failure fixed.11 browser tests,web typecheck,scoped Knip/lint/fmt and independent exact-commit APPROVE. GitHub CI Check succeeds;CodeRabbit pending. Product approval remains with maintainers.",
       "replacement_of": 15109,
-      "validation": "12 focused tests;web typecheck/scoped lint/format;0/50/100% layout checks with workspace and right panel at1600/1000px;exact independent APPROVE. Oct20 merge: 11 browser tests;web typecheck;scoped checks;native draft/layout proof;independent exact-commit APPROVE."
+      "validation": "12 focused tests;web typecheck/scoped lint/format;0/50/100% layout checks with workspace and right panel at1600/1000px;exact independent APPROVE. Oct20 merge: 11 browser tests;web typecheck;scoped checks;native draft/layout proof;independent exact-commit APPROVE. Oct20 CI follow-up: scoped Knip,11 browser tests,web typecheck,lint/fmt,independent APPROVE;GitHub CI Check succeeds."
     }
   ],
   "holds": [
@@ -4497,6 +4497,10 @@
     {
       "ts": "2026-10-20T06:52:29.385215+00:00",
       "text": "Oct20 live sweep:59 open/1 draft,13 recent landed (6 personal),8 closed-unmerged;0 current author-side items. T3 desktop12768 and image19923 merged by maintainers. Conflicts safely resolved and verified on SideChat21175, width21172 and credits21173 against ce2815d665;focused checks and independent exact-commit review pass. New-head CI runs normally;preview skips are expected. Goose admin-only rerun and other existing maintainer/product/import gates remain external. Six filtered notifications;no new actionable review finding."
+    },
+    {
+      "ts": "2026-10-20T07:10:04.900723+00:00",
+      "text": "Oct20 live sweep: 59 open (1 draft), 13 recent landed (6 personal), 8 closed unmerged; 0 remaining current author-side items. T3 desktop #12768 and image scrolling #19923 merged by maintainers. Three T3 conflicts resolved; SideChat target-snapshot/AltGr review defects and width unused-export CI failure fixed, tested, independently reviewed and pushed. Credits CI has an unchanged SSH test flake; failed-job rerun requires maintainer admin rights. Goose existing admin-only rerun and other maintainer/product/import gates remain external. Six filtered notifications inspected. Width current-head CI passes, CodeRabbit pending; SideChat latest fix CI/review pending; credits unchanged SSH fixture flake, rerun denied (Must have admin rights to Repository). Preview skips expected; no claim all checks green."
     }
   ],
   "companies": [

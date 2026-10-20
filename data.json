@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-20T07:18:45.250899+00:00",
+  "generated": "2026-10-20T07:20:09.849291+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -3902,8 +3902,8 @@
       "pr_state": "open",
       "pr_raised_at": "2026-10-18T11:51:54Z",
       "updated_at": "2026-10-18T12:10:56.308552+00:00",
-      "last_maintained": "2026-10-20T07:13:36.517511+00:00",
-      "outcome": "Oct20 CI readback: exact head 05c2fcd6902087c1ef438f85a86ffca2c61d63f8 has successful lint, build/typecheck, server/web tests, release smoke and final Check; previews skipped. GitHub confirms mergeable. No unresolved review threads. CodeRabbit latest review remains in progress; its description warning requires explicit maintainer product/scope approval. No code change, duplicate reply or gate bypass. Native watch stopped before handback; daily maintenance remains scheduled.",
+      "last_maintained": "2026-10-20T07:20:09.849291+00:00",
+      "outcome": "Oct20 final SideChat readback: exact head05c2fcd6902087c1ef438f85a86ffca2c61d63f8 has SUCCESS check rollup,including CodeRabbit and final CI Check;previews remain skipped. CodeRabbit explicitly accepted both target-only snapshot and AltGr fixes;all review threads resolved. GitHub confirms mergeable. No new author defect or source change needed. Explicit maintainer product/scope approval remains pending;green checks do not supply that approval. Native watch stopped before handback.",
       "replacement_of": 12794,
       "validation": "253 focused web tests;31 changed node tests;71 fork/transition/runtime checks;4 secret-request checks;scoped web/server typechecks/lint/format;exact independent APPROVE after secure-input red/green regression. Follow-up: 134 focused tests for attachment/editor fixes;8 backend and19 browser tests plus6 scoped React Compiler cases;web/server typechecks and scoped lint/format pass;native app context/header checks;independent exact-commit APPROVE. Follow-up54e55893aa:59 backend/24 browser tests, final46 projection tests;scoped checks/typechecks, native shortcut before/after and independent exact-commit APPROVE. Oct20 merge: 94 backend/265 web tests;web/server typechecks;scoped checks;native app;independent exact-commit APPROVE. Oct20 review follow-up: SQL red/green16 backend tests,web/server typechecks,scoped checks,native AltGr/physicalKeyS,independent APPROVE."
     },
@@ -4509,6 +4509,10 @@
     {
       "ts": "2026-10-20T07:18:45.250899+00:00",
       "text": "Oct20 width review follow-up: CI passed previous head5e05e3f46d, but a CodeRabbit COMMENTED outside-diff finding was valid. Fixed cross-window localStorage.clear refresh in 6210f369360ac61a99715c11c35e0746d028e2c5: shared storage listener accepts null key. Behavioral regression fails before (65 remains instead of0),passes after;20 focused storage/width tests,web typecheck,scoped lint/fmt/diff and independent exact-commit APPROVE. Intended fork and PR head readback match;GitHub mergeable. Evidence reply https://github.com/pingdotgg/t3code/pull/21172#issuecomment-6285587754. PR attribution updated for maintenance model. New-head CI/review pending;maintainer scope approval remains required. No approval bypass or duplicate PR."
+    },
+    {
+      "ts": "2026-10-20T07:20:09.849291+00:00",
+      "text": "Oct20 final SideChat readback: exact head05c2fcd6902087c1ef438f85a86ffca2c61d63f8 has SUCCESS check rollup,including CodeRabbit and final CI Check;previews remain skipped. CodeRabbit explicitly accepted both target-only snapshot and AltGr fixes;all review threads resolved. GitHub confirms mergeable. No new author defect or source change needed. Explicit maintainer product/scope approval remains pending;green checks do not supply that approval. Native watch stopped before handback."
     }
   ],
   "companies": [

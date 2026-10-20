@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-19T06:49:18.847130+00:00",
+  "generated": "2026-10-20T06:52:29.385215+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -20,12 +20,12 @@
     "merged": 3,
     "landed_other": 2,
     "active_work": 0,
-    "last_refresh": "2026-10-19T06:49:18.847130+00:00",
+    "last_refresh": "2026-10-20T06:52:29.385215+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49,
-    "monitored_open_prs": 61,
+    "monitored_open_prs": 59,
     "monitored_drafts": 1,
-    "monitored_recent_landed": 11,
+    "monitored_recent_landed": 13,
     "monitored_recent_closed_unmerged": 8,
     "author_action_items": 0,
     "monitored_personal_project_landings": 6,
@@ -3814,11 +3814,11 @@
       "career_signal_rationale": "Useful read-only provider accounting feature with cross-client and stale-account handling. Explicit user-requested contribution.",
       "career_assessed_at": "2026-10-10T03:56:28.925301+00:00",
       "updated_at": "2026-10-18T11:52:07.923364+00:00",
-      "outcome": "User-authorized replacement published; maintainer product approval and hosted checks pending.",
+      "outcome": "2026-10-20: safely merged current main ce2815d665 in 8ef7bd0b75e4e34ffba42a8179cc63d7cdabf9c0. 25 Codex/91 provider/shared/17 web tests;web/server typechecks;scoped checks;independent exact-commit APPROVE. Intended head/ref and MERGEABLE readback verified;concise evidence reply posted;no unresolved review threads. New-head CI runs normally;fingerprint succeeds,previews skipped. Product direction/review approval remains with maintainers.",
       "pr_url": "https://github.com/pingdotgg/t3code/pull/21173",
       "pr_number": 21173,
-      "head": "881a4057aca044359dbd62b302ac13095b449908",
-      "last_maintained": "2026-10-18T11:52:07.923364+00:00",
+      "head": "8ef7bd0b75e4e34ffba42a8179cc63d7cdabf9c0",
+      "last_maintained": "2026-10-20T06:52:29.385215+00:00",
       "pr_state": "open",
       "previous_prs": [
         {
@@ -3833,7 +3833,7 @@
       ],
       "pr_raised_at": "2026-10-18T11:48:01Z",
       "replacement_of": 17705,
-      "validation": "98 node and7 browser tests;web/server typechecks/scoped lint/format;synthetic refresh regression;exact independent APPROVE. Native mobile runtime not exercised."
+      "validation": "98 node and7 browser tests;web/server typechecks/scoped lint/format;synthetic refresh regression;exact independent APPROVE. Native mobile runtime not exercised. Oct20 merge: 25 Codex/91 provider/shared/17 web tests;web/server typechecks;scoped checks;independent exact-commit APPROVE."
     },
     {
       "company": "T3 Code",
@@ -3843,7 +3843,7 @@
       "title": "Large stored image attachments freeze scrolling while decoding",
       "importance": "medium",
       "difficulty": "low",
-      "status": "pr-open",
+      "status": "merged",
       "verified_at": "2026-10-15T15:20:26.462303+00:00",
       "ownership_check": "Authenticated image/scroll/decode/thumbnail searches; related composer thumbnail and broad thread hydration PRs do not address this img decoding hint. Synthetic cold-decode repro on current main.",
       "competing_prs": [],
@@ -3855,10 +3855,12 @@
       "pr_url": "https://github.com/pingdotgg/t3code/pull/19923",
       "pr_number": 19923,
       "pr_raised_at": "2026-10-15T15:26:18.133759+00:00",
-      "head": "25b51d885db601241eeb8f781f1601b5235cd5e9",
-      "pr_state": "open",
-      "outcome": "2026-10-19: maintainer Julius took ownership and merged current main in25b51d885db601241eeb8f781f1601b5235cd5e9, preserving the author commit. Current CI succeeds; previews are skipped and a separate fingerprint attempt was cancelled. Preserved maintainer work; no duplicate push/rerun/comment.",
-      "last_maintained": "2026-10-19T06:49:18.847130+00:00"
+      "head": "ee6a3c01436c2e27482df5dfbeb3e462a4b8a676",
+      "pr_state": "merged",
+      "outcome": "Merged by maintainers on 2026-10-20T04:08:50Z; upstream commit da26f1ef70eb86a2f088a2ec0cf997ae4c1c6890. Maintainer follow-up head ee6a3c01436c2e27482df5dfbeb3e462a4b8a676 preserved;no author push or duplicate reply.",
+      "last_maintained": "2026-10-20T06:52:29.385215+00:00",
+      "merged_at": "2026-10-20T04:08:50Z",
+      "merge_commit": "da26f1ef70eb86a2f088a2ec0cf997ae4c1c6890"
     },
     {
       "repo": "pingdotgg/t3code",
@@ -3896,14 +3898,14 @@
       ],
       "pr_url": "https://github.com/pingdotgg/t3code/pull/21175",
       "pr_number": 21175,
-      "head": "54e55893aa04fe3cdeeb91953747828b864f103d",
+      "head": "9552dd8c516ed149283a90219beadebc8ef75931",
       "pr_state": "open",
       "pr_raised_at": "2026-10-18T11:51:54Z",
       "updated_at": "2026-10-18T12:10:56.308552+00:00",
-      "last_maintained": "2026-10-19T07:18:30.836246+00:00",
-      "outcome": "2026-10-19 follow-up: addressed all three new CodeRabbit findings in 54e55893aa04fe3cdeeb91953747828b864f103d: bounded 256-candidate snapshot payload read preserving priority/inherited context and truthful omissions; existing/tombstoned target rejection; physical KeyS shortcut. 59 backend and24 browser tests pass; final46 projection tests, web/server typechecks, scoped lint/format/diff checks, native isolated app before/after and independent exact-commit APPROVE. Push/ref/head/mergeability and three evidence replies verified; no unresolved review threads. CodeRabbit/hosted checks still pending; no green CI claim.",
+      "last_maintained": "2026-10-20T06:52:29.385215+00:00",
+      "outcome": "2026-10-20: safely merged current main ce2815d665 in 9552dd8c516ed149283a90219beadebc8ef75931. 94 backend/265 web tests;web/server typechecks;scoped checks;native app;independent exact-commit APPROVE. Intended head/ref and MERGEABLE readback verified;concise evidence reply posted;no unresolved review threads. New-head CI runs normally;fingerprint succeeds,previews skipped. Product direction/review approval remains with maintainers.",
       "replacement_of": 12794,
-      "validation": "253 focused web tests;31 changed node tests;71 fork/transition/runtime checks;4 secret-request checks;scoped web/server typechecks/lint/format;exact independent APPROVE after secure-input red/green regression. Follow-up: 134 focused tests for attachment/editor fixes;8 backend and19 browser tests plus6 scoped React Compiler cases;web/server typechecks and scoped lint/format pass;native app context/header checks;independent exact-commit APPROVE. Follow-up54e55893aa:59 backend/24 browser tests, final46 projection tests;scoped checks/typechecks, native shortcut before/after and independent exact-commit APPROVE."
+      "validation": "253 focused web tests;31 changed node tests;71 fork/transition/runtime checks;4 secret-request checks;scoped web/server typechecks/lint/format;exact independent APPROVE after secure-input red/green regression. Follow-up: 134 focused tests for attachment/editor fixes;8 backend and19 browser tests plus6 scoped React Compiler cases;web/server typechecks and scoped lint/format pass;native app context/header checks;independent exact-commit APPROVE. Follow-up54e55893aa:59 backend/24 browser tests, final46 projection tests;scoped checks/typechecks, native shortcut before/after and independent exact-commit APPROVE. Oct20 merge: 94 backend/265 web tests;web/server typechecks;scoped checks;native app;independent exact-commit APPROVE."
     },
     {
       "repo": "pingdotgg/t3code",
@@ -3920,14 +3922,14 @@
       "competing_prs": [],
       "pr_url": "https://github.com/pingdotgg/t3code/pull/21172",
       "pr_number": 21172,
-      "head": "bea1050dd365b87817b0eaf75071d717dba1fa48",
+      "head": "6cb7762115883925033aaa20e2587012a4ab154c",
       "pr_state": "open",
       "pr_raised_at": "2026-10-18T11:47:32Z",
       "updated_at": "2026-10-18T11:52:07.923364+00:00",
-      "last_maintained": "2026-10-18T11:52:07.923364+00:00",
-      "outcome": "User-authorized replacement published; maintainer product approval and hosted checks pending.",
+      "last_maintained": "2026-10-20T06:52:29.385215+00:00",
+      "outcome": "2026-10-20: safely merged current main ce2815d665 in 6cb7762115883925033aaa20e2587012a4ab154c. 11 browser tests;web typecheck;scoped checks;native draft/layout proof;independent exact-commit APPROVE. Intended head/ref and MERGEABLE readback verified;concise evidence reply posted;no unresolved review threads. New-head CI runs normally;fingerprint succeeds,previews skipped. Product direction/review approval remains with maintainers.",
       "replacement_of": 15109,
-      "validation": "12 focused tests;web typecheck/scoped lint/format;0/50/100% layout checks with workspace and right panel at1600/1000px;exact independent APPROVE."
+      "validation": "12 focused tests;web typecheck/scoped lint/format;0/50/100% layout checks with workspace and right panel at1600/1000px;exact independent APPROVE. Oct20 merge: 11 browser tests;web typecheck;scoped checks;native draft/layout proof;independent exact-commit APPROVE."
     }
   ],
   "holds": [
@@ -4491,6 +4493,10 @@
     {
       "ts": "2026-10-19T06:49:18.847130+00:00",
       "text": "Oct19 live sweep:61 open/1 draft,11 recent landed (6 personal),8 closed-unmerged;0 author-side items. SideChat thread context fixed and new conflicts resolved/pushed in6e8f6eee06 (438 web/24 backend, typechecks, lint/format, independent reviews and app proof); Goose test-race rerun requires maintainer admin rights. Image PR maintainer-owned; Ocean guidance PR closed pending scope agreement. Other stale failures, authorization gates, expected skips and import queues unchanged."
+    },
+    {
+      "ts": "2026-10-20T06:52:29.385215+00:00",
+      "text": "Oct20 live sweep:59 open/1 draft,13 recent landed (6 personal),8 closed-unmerged;0 current author-side items. T3 desktop12768 and image19923 merged by maintainers. Conflicts safely resolved and verified on SideChat21175, width21172 and credits21173 against ce2815d665;focused checks and independent exact-commit review pass. New-head CI runs normally;preview skips are expected. Goose admin-only rerun and other existing maintainer/product/import gates remain external. Six filtered notifications;no new actionable review finding."
     }
   ],
   "companies": [

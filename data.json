@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-20T07:13:36.517511+00:00",
+  "generated": "2026-10-20T07:18:45.250899+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -3922,14 +3922,14 @@
       "competing_prs": [],
       "pr_url": "https://github.com/pingdotgg/t3code/pull/21172",
       "pr_number": 21172,
-      "head": "5e05e3f46deebb491d5e8476763e90dd1c2d2dbb",
+      "head": "6210f369360ac61a99715c11c35e0746d028e2c5",
       "pr_state": "open",
       "pr_raised_at": "2026-10-18T11:47:32Z",
       "updated_at": "2026-10-18T11:52:07.923364+00:00",
-      "last_maintained": "2026-10-20T07:10:04.900723+00:00",
-      "outcome": "Oct20 final: head 5e05e3f46deebb491d5e8476763e90dd1c2d2dbb; CI unused-export failure fixed.11 browser tests,web typecheck,scoped Knip/lint/fmt and independent exact-commit APPROVE. GitHub CI Check succeeds;CodeRabbit pending. Product approval remains with maintainers.",
+      "last_maintained": "2026-10-20T07:18:45.250899+00:00",
+      "outcome": "Oct20 width review follow-up: CI passed previous head5e05e3f46d, but a CodeRabbit COMMENTED outside-diff finding was valid. Fixed cross-window localStorage.clear refresh in 6210f369360ac61a99715c11c35e0746d028e2c5: shared storage listener accepts null key. Behavioral regression fails before (65 remains instead of0),passes after;20 focused storage/width tests,web typecheck,scoped lint/fmt/diff and independent exact-commit APPROVE. Intended fork and PR head readback match;GitHub mergeable. Evidence reply https://github.com/pingdotgg/t3code/pull/21172#issuecomment-6285587754. PR attribution updated for maintenance model. New-head CI/review pending;maintainer scope approval remains required. No approval bypass or duplicate PR.",
       "replacement_of": 15109,
-      "validation": "12 focused tests;web typecheck/scoped lint/format;0/50/100% layout checks with workspace and right panel at1600/1000px;exact independent APPROVE. Oct20 merge: 11 browser tests;web typecheck;scoped checks;native draft/layout proof;independent exact-commit APPROVE. Oct20 CI follow-up: scoped Knip,11 browser tests,web typecheck,lint/fmt,independent APPROVE;GitHub CI Check succeeds."
+      "validation": "12 focused tests;web typecheck/scoped lint/format;0/50/100% layout checks with workspace and right panel at1600/1000px;exact independent APPROVE. Oct20 merge: 11 browser tests;web typecheck;scoped checks;native draft/layout proof;independent exact-commit APPROVE. Oct20 CI follow-up: scoped Knip,11 browser tests,web typecheck,lint/fmt,independent APPROVE;GitHub CI Check succeeds. Oct20 storage-clear follow-up: red/green regression;20 focused storage/width tests,web typecheck,scoped lint/fmt,independent APPROVE."
     }
   ],
   "holds": [
@@ -4505,6 +4505,10 @@
     {
       "ts": "2026-10-20T07:13:36.517511+00:00",
       "text": "Oct20 CI readback: exact head 05c2fcd6902087c1ef438f85a86ffca2c61d63f8 has successful lint, build/typecheck, server/web tests, release smoke and final Check; previews skipped. GitHub confirms mergeable. No unresolved review threads. CodeRabbit latest review remains in progress; its description warning requires explicit maintainer product/scope approval. No code change, duplicate reply or gate bypass. Native watch stopped before handback; daily maintenance remains scheduled."
+    },
+    {
+      "ts": "2026-10-20T07:18:45.250899+00:00",
+      "text": "Oct20 width review follow-up: CI passed previous head5e05e3f46d, but a CodeRabbit COMMENTED outside-diff finding was valid. Fixed cross-window localStorage.clear refresh in 6210f369360ac61a99715c11c35e0746d028e2c5: shared storage listener accepts null key. Behavioral regression fails before (65 remains instead of0),passes after;20 focused storage/width tests,web typecheck,scoped lint/fmt/diff and independent exact-commit APPROVE. Intended fork and PR head readback match;GitHub mergeable. Evidence reply https://github.com/pingdotgg/t3code/pull/21172#issuecomment-6285587754. PR attribution updated for maintenance model. New-head CI/review pending;maintainer scope approval remains required. No approval bypass or duplicate PR."
     }
   ],
   "companies": [

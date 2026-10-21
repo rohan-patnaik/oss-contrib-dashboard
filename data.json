@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-21T07:00:29.806626+00:00",
+  "generated": "2026-10-21T07:10:15.399900+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -3814,11 +3814,11 @@
       "career_signal_rationale": "Useful read-only provider accounting feature with cross-client and stale-account handling. Explicit user-requested contribution.",
       "career_assessed_at": "2026-10-10T03:56:28.925301+00:00",
       "updated_at": "2026-10-18T11:52:07.923364+00:00",
-      "outcome": "Oct21: merged pinned main6a6c84f990 in 7cab3d342ef0805b381ec38b9f3d2a3dcd19eb6f;18 Codex/53 provider/shared/1 refresh browser tests;web/server typechecks;feature-delta lint/fmt/diff;independent exact-merge APPROVE. Prior feature fixes retained and tests follow upstream removals/disposable rendering. Fork and PR exact-head readback verified;GitHub MERGEABLE,zero unresolved threads. Latest maina93b03c8a5 clean in local merge-tree checks. New-head CI runs normally,not yet green;previews skipped,fingerprints successful (earlier duplicate fingerprint run cancelled). Maintainer product/scope approval remains pending. Old SSH fixture CI failure is on superseded8ef7bd0 head;fresh current-head CI is running. No duplicate rerun request.",
+      "outcome": "Oct21: merged pinned main6a6c84f990 in 7cab3d342ef0805b381ec38b9f3d2a3dcd19eb6f;18 Codex/53 provider/shared/1 refresh browser tests;web/server typechecks;feature-delta lint/fmt/diff;independent exact-merge APPROVE. Prior feature fixes retained and tests follow upstream removals/disposable rendering. Fork and PR exact-head readback verified;GitHub MERGEABLE,zero unresolved threads. Latest maina93b03c8a5 clean in local merge-tree checks. Current-head hosted code CI succeeds;see targeted follow-up below for pending review and aggregate status. Maintainer product/scope approval remains pending. Old SSH fixture CI failure is on superseded8ef7bd0 head and fresh current-head Test succeeds. No duplicate rerun request. Oct21 targeted CI follow-up: exact 7cab3d342ef0805b381ec38b9f3d2a3dcd19eb6f remains OPEN/MERGEABLE with zero unresolved threads. CI run39558695840 succeeds, including Lint,Build and Typecheck,Test,Test Web,all8 server shards,Release Smoke and final Check. The previous-head SSH failure is superseded. Fingerprint run39558703109 succeeds;earlier39558695578 was cancelled by the same concurrency group (GitHub annotation: higher priority waiting request). Aggregate rollup remains FAILURE from that duplicate cancellation;CodeRabbit is PENDING/review in progress. Previews skipped. Maintainer product/scope approval remains pending. No source change,rerun,duplicate public reply or author-side action needed.",
       "pr_url": "https://github.com/pingdotgg/t3code/pull/21173",
       "pr_number": 21173,
       "head": "7cab3d342ef0805b381ec38b9f3d2a3dcd19eb6f",
-      "last_maintained": "2026-10-21T07:00:29.806626+00:00",
+      "last_maintained": "2026-10-21T07:10:15.399900+00:00",
       "pr_state": "open",
       "previous_prs": [
         {
@@ -4517,6 +4517,10 @@
     {
       "ts": "2026-10-21T07:00:29.806626+00:00",
       "text": "Oct21 live sweep:59 open (1 draft),13 known/recent landed (6 personal),8 closed unmerged;no new landing. Three T3 conflicts resolved against pinned main6a6c84f990 with prior fixes preserved and feature tests adapted to upstream cleanup/disposable rendering. All293 focused tests,five scoped typechecks,lint/fmt/diff and independent exact-commit reviews pass. Intended PR heads verified. Latest upstreama93b03c8a5 is clean in local merge-tree checks. New-head hosted CI/review pending;original maintainer product/scope approval and existing external queues remain. Seven expired authorization runs changed to failure but each has0jobs/sameattempt. Three filtered notifications inspected;no new substantive author finding. Integrated native Browser snapshots timed out;focused Chromium tests pass. No new Rohan action."
+    },
+    {
+      "ts": "2026-10-21T07:10:15.399900+00:00",
+      "text": "Oct21 targeted CI follow-up: exact 7cab3d342ef0805b381ec38b9f3d2a3dcd19eb6f remains OPEN/MERGEABLE with zero unresolved threads. CI run39558695840 succeeds, including Lint,Build and Typecheck,Test,Test Web,all8 server shards,Release Smoke and final Check. The previous-head SSH failure is superseded. Fingerprint run39558703109 succeeds;earlier39558695578 was cancelled by the same concurrency group (GitHub annotation: higher priority waiting request). Aggregate rollup remains FAILURE from that duplicate cancellation;CodeRabbit is PENDING/review in progress. Previews skipped. Maintainer product/scope approval remains pending. No source change,rerun,duplicate public reply or author-side action needed."
     }
   ],
   "companies": [

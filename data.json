@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-21T07:22:36.268617+00:00",
+  "generated": "2026-10-21T07:27:47.999126+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -3922,14 +3922,14 @@
       "competing_prs": [],
       "pr_url": "https://github.com/pingdotgg/t3code/pull/21172",
       "pr_number": 21172,
-      "head": "2ea927c60b0f3505eaf771832814ab2a4a0bb296",
+      "head": "e38baeae1f92a23e880c035ca01a8fbf083dff8e",
       "pr_state": "open",
       "pr_raised_at": "2026-10-18T11:47:32Z",
       "updated_at": "2026-10-18T11:52:07.923364+00:00",
-      "last_maintained": "2026-10-21T07:00:29.806626+00:00",
-      "outcome": "Oct21: merged pinned main6a6c84f990 in 2ea927c60b0f3505eaf771832814ab2a4a0bb296;12 focused tests;web typecheck;feature-delta lint/fmt/diff;independent exact-merge APPROVE. Prior feature fixes retained and tests follow upstream removals/disposable rendering. Fork and PR exact-head readback verified;GitHub MERGEABLE,zero unresolved threads. Latest maina93b03c8a5 clean in local merge-tree checks. New-head CI runs normally,not yet green;previews skipped,fingerprints successful (earlier duplicate fingerprint run cancelled). Maintainer product/scope approval remains pending.",
+      "last_maintained": "2026-10-21T07:27:47.999126+00:00",
+      "outcome": "Oct21 width green-alert follow-up: verified 2ea927c60b0f3505eaf771832814ab2a4a0bb296 OPEN/MERGEABLE,hosted rollup SUCCESS and CodeRabbit SUCCESS/review completed,zero unresolved threads. Executed code jobs passed;previews,Rust,mobile native and release smoke skipped. CodeRabbit reviewed this exact head with no new actionable findings but auto-review then paused. Earlier COMMENTED review contained a still-valid test-quality nitpick: resize stub always targeted viewport,missing a broken replacement-column callback. Fixed only that test in e38baeae1f92a23e880c035ca01a8fbf083dff8e;production source unchanged. Mutation proof: disabling column callback passes old test,fails corrected test (expected0,got40);restored source and all12focused tests,web typecheck,scoped lint/fmt/diff pass. Independent exact-commit review APPROVE. Normally pushed to intended branch;fork/GitHub exact-head readbacks verified and concise evidence reply read back. New-head CI/review pending,not claimed green. Maintainer product/scope approval remains pending;no duplicate nudge,rerun or gate bypass.",
       "replacement_of": 15109,
-      "validation": "12 focused tests;web typecheck/scoped lint/format;0/50/100% layout checks with workspace and right panel at1600/1000px;exact independent APPROVE. Oct20 merge: 11 browser tests;web typecheck;scoped checks;native draft/layout proof;independent exact-commit APPROVE. Oct20 CI follow-up: scoped Knip,11 browser tests,web typecheck,lint/fmt,independent APPROVE;GitHub CI Check succeeds. Oct20 storage-clear follow-up: red/green regression;20 focused storage/width tests,web typecheck,scoped lint/fmt,independent APPROVE. Oct21 merge: 12 focused tests;web typecheck;feature-delta lint/fmt/diff;independent exact-merge APPROVE."
+      "validation": "12 focused tests;web typecheck/scoped lint/format;0/50/100% layout checks with workspace and right panel at1600/1000px;exact independent APPROVE. Oct20 merge: 11 browser tests;web typecheck;scoped checks;native draft/layout proof;independent exact-commit APPROVE. Oct20 CI follow-up: scoped Knip,11 browser tests,web typecheck,lint/fmt,independent APPROVE;GitHub CI Check succeeds. Oct20 storage-clear follow-up: red/green regression;20 focused storage/width tests,web typecheck,scoped lint/fmt,independent APPROVE. Oct21 merge: 12 focused tests;web typecheck;feature-delta lint/fmt/diff;independent exact-merge APPROVE. Oct21 review follow-up:12focused tests,web typecheck,scoped lint/fmt/diff;no-op column callback mutation red/green;independent exact-commit APPROVE."
     }
   ],
   "holds": [
@@ -4525,6 +4525,10 @@
     {
       "ts": "2026-10-21T07:22:36.268617+00:00",
       "text": "Oct21 SideChat CI follow-up: d489a1206c07ccffd3d6fd9590952901bcf00eab fixes both failures on cc0cccb6df46430d26a0acdbec8ccd430a731a34. Both reproduced locally. Test Server5 transferBudgetV2.integration.test.ts hung because ordinary shells contained own-property sideChatOf:undefined but the Effect JSON codec encoded it as null,so the terminal shell equality never matched. Both shell builders now omit only undefined and retain explicit null/parent IDs. Test Web immediate DOM-absence assertion raced the help popup exit;it now uses vi.waitFor with no sleeps,retries or timeout increase. Afterward46 focused backend and3browser tests pass,web/server typechecks and scoped lint/fmt/diff pass. Independent focused review approved. Normal push to intended branch and exact fork/GitHub head readbacks verified. Fresh hosted CI pending,not claimed green. Check was only the aggregate of the two failed test jobs. Maintainer product/scope approval remains pending. No duplicate rerun or unresolved review-thread action."
+    },
+    {
+      "ts": "2026-10-21T07:27:47.999126+00:00",
+      "text": "Oct21 width green-alert follow-up: verified 2ea927c60b0f3505eaf771832814ab2a4a0bb296 OPEN/MERGEABLE,hosted rollup SUCCESS and CodeRabbit SUCCESS/review completed,zero unresolved threads. Executed code jobs passed;previews,Rust,mobile native and release smoke skipped. CodeRabbit reviewed this exact head with no new actionable findings but auto-review then paused. Earlier COMMENTED review contained a still-valid test-quality nitpick: resize stub always targeted viewport,missing a broken replacement-column callback. Fixed only that test in e38baeae1f92a23e880c035ca01a8fbf083dff8e;production source unchanged. Mutation proof: disabling column callback passes old test,fails corrected test (expected0,got40);restored source and all12focused tests,web typecheck,scoped lint/fmt/diff pass. Independent exact-commit review APPROVE. Normally pushed to intended branch;fork/GitHub exact-head readbacks verified and concise evidence reply read back. New-head CI/review pending,not claimed green. Maintainer product/scope approval remains pending;no duplicate nudge,rerun or gate bypass."
     }
   ],
   "companies": [

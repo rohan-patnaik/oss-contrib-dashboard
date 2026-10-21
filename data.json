@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-21T07:33:11.165597+00:00",
+  "generated": "2026-10-21T07:34:48.786339+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -3926,8 +3926,8 @@
       "pr_state": "open",
       "pr_raised_at": "2026-10-18T11:47:32Z",
       "updated_at": "2026-10-18T11:52:07.923364+00:00",
-      "last_maintained": "2026-10-21T07:27:47.999126+00:00",
-      "outcome": "Oct21 width green-alert follow-up: verified 2ea927c60b0f3505eaf771832814ab2a4a0bb296 OPEN/MERGEABLE,hosted rollup SUCCESS and CodeRabbit SUCCESS/review completed,zero unresolved threads. Executed code jobs passed;previews,Rust,mobile native and release smoke skipped. CodeRabbit reviewed this exact head with no new actionable findings but auto-review then paused. Earlier COMMENTED review contained a still-valid test-quality nitpick: resize stub always targeted viewport,missing a broken replacement-column callback. Fixed only that test in e38baeae1f92a23e880c035ca01a8fbf083dff8e;production source unchanged. Mutation proof: disabling column callback passes old test,fails corrected test (expected0,got40);restored source and all12focused tests,web typecheck,scoped lint/fmt/diff pass. Independent exact-commit review APPROVE. Normally pushed to intended branch;fork/GitHub exact-head readbacks verified and concise evidence reply read back. New-head CI/review pending,not claimed green. Maintainer product/scope approval remains pending;no duplicate nudge,rerun or gate bypass.",
+      "last_maintained": "2026-10-21T07:34:48.786339+00:00",
+      "outcome": "Oct21 comment alert: exact e38baeae1f92a23e880c035ca01a8fbf083dff8e OPEN/MERGEABLE;hosted CI rollup SUCCESS,all executed code jobs pass;previews,Rust,mobile native and release smoke skipped. Zero unresolved threads,no new defect. Updated CodeRabbit summary auto-pauses reviews,last reviewed2ea927c,explicitly excludes currente38baeae;SUCCESS status means paused,not current-head review completion. Verified no prior current-head request,posted/read back one @coderabbitai review command: https://github.com/pingdotgg/t3code/pull/21172#issuecomment-6310644724. No automatic-review configuration changed. Existing test-only fix/local12tests/independent APPROVE remain valid. Maintainer product/scope approval remains pending. No new source change,rerun or duplicate evidence reply.",
       "replacement_of": 15109,
       "validation": "12 focused tests;web typecheck/scoped lint/format;0/50/100% layout checks with workspace and right panel at1600/1000px;exact independent APPROVE. Oct20 merge: 11 browser tests;web typecheck;scoped checks;native draft/layout proof;independent exact-commit APPROVE. Oct20 CI follow-up: scoped Knip,11 browser tests,web typecheck,lint/fmt,independent APPROVE;GitHub CI Check succeeds. Oct20 storage-clear follow-up: red/green regression;20 focused storage/width tests,web typecheck,scoped lint/fmt,independent APPROVE. Oct21 merge: 12 focused tests;web typecheck;feature-delta lint/fmt/diff;independent exact-merge APPROVE. Oct21 review follow-up:12focused tests,web typecheck,scoped lint/fmt/diff;no-op column callback mutation red/green;independent exact-commit APPROVE."
     }
@@ -4533,6 +4533,10 @@
     {
       "ts": "2026-10-21T07:33:11.165597+00:00",
       "text": "Oct21 credits review follow-up: CodeRabbit COMMENTED major web composition finding4333967723 validated against docs/internals/web-ui.md. Fixed in a3a6adc2644a8fdf61142a3b95e10f377893fb4c with one private UsageCard shell and window/credits layout variants;both quota and purchased-credit cards use it. One web file only;rendered div,class sets,children,keys and behavior preserved;mobile/backend unchanged. Existing Chromium balance refresh/clear browser test and one scoped React Compiler case pass,web typecheck/scoped lint/fmt/diff pass. Independent exact-commit review APPROVE. Normal intended-branch push and fork/GitHub exact-head readbacks verified. Evidence reply posted/read back and PRRT_kwDORLtfbc6uqHPR resolved only after push. Previous-head code CI passes;aggregate failure was already-triaged duplicate fingerprint cancellation. Fresh new-head CI/review pending,not claimed green. Maintainer product/scope approval remains pending;no new Rohan action."
+    },
+    {
+      "ts": "2026-10-21T07:34:48.786339+00:00",
+      "text": "Oct21 comment alert: exact e38baeae1f92a23e880c035ca01a8fbf083dff8e OPEN/MERGEABLE;hosted CI rollup SUCCESS,all executed code jobs pass;previews,Rust,mobile native and release smoke skipped. Zero unresolved threads,no new defect. Updated CodeRabbit summary auto-pauses reviews,last reviewed2ea927c,explicitly excludes currente38baeae;SUCCESS status means paused,not current-head review completion. Verified no prior current-head request,posted/read back one @coderabbitai review command: https://github.com/pingdotgg/t3code/pull/21172#issuecomment-6310644724. No automatic-review configuration changed. Existing test-only fix/local12tests/independent APPROVE remain valid. Maintainer product/scope approval remains pending. No new source change,rerun or duplicate evidence reply."
     }
   ],
   "companies": [

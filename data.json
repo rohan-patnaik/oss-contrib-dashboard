@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-21T07:10:15.399900+00:00",
+  "generated": "2026-10-21T07:22:36.268617+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -3898,14 +3898,14 @@
       ],
       "pr_url": "https://github.com/pingdotgg/t3code/pull/21175",
       "pr_number": 21175,
-      "head": "cc0cccb6df46430d26a0acdbec8ccd430a731a34",
+      "head": "d489a1206c07ccffd3d6fd9590952901bcf00eab",
       "pr_state": "open",
       "pr_raised_at": "2026-10-18T11:51:54Z",
       "updated_at": "2026-10-18T12:10:56.308552+00:00",
-      "last_maintained": "2026-10-21T07:00:29.806626+00:00",
-      "outcome": "Oct21: merged pinned main6a6c84f990 in cc0cccb6df46430d26a0acdbec8ccd430a731a34;58 backend/151 web tests;web/server typechecks;feature-delta lint/fmt/diff;independent exact-merge APPROVE. Prior feature fixes retained and tests follow upstream removals/disposable rendering. Fork and PR exact-head readback verified;GitHub MERGEABLE,zero unresolved threads. Latest maina93b03c8a5 clean in local merge-tree checks. New-head CI runs normally,not yet green;previews skipped,fingerprints successful (earlier duplicate fingerprint run cancelled). Maintainer product/scope approval remains pending. Integrated native Browser snapshot timed out twice;no fresh integrated pass claimed. Isolated Chromium tests pass.",
+      "last_maintained": "2026-10-21T07:22:36.268617+00:00",
+      "outcome": "Oct21 SideChat CI follow-up: d489a1206c07ccffd3d6fd9590952901bcf00eab fixes both failures on cc0cccb6df46430d26a0acdbec8ccd430a731a34. Both reproduced locally. Test Server5 transferBudgetV2.integration.test.ts hung because ordinary shells contained own-property sideChatOf:undefined but the Effect JSON codec encoded it as null,so the terminal shell equality never matched. Both shell builders now omit only undefined and retain explicit null/parent IDs. Test Web immediate DOM-absence assertion raced the help popup exit;it now uses vi.waitFor with no sleeps,retries or timeout increase. Afterward46 focused backend and3browser tests pass,web/server typechecks and scoped lint/fmt/diff pass. Independent focused review approved. Normal push to intended branch and exact fork/GitHub head readbacks verified. Fresh hosted CI pending,not claimed green. Check was only the aggregate of the two failed test jobs. Maintainer product/scope approval remains pending. No duplicate rerun or unresolved review-thread action.",
       "replacement_of": 12794,
-      "validation": "253 focused web tests;31 changed node tests;71 fork/transition/runtime checks;4 secret-request checks;scoped web/server typechecks/lint/format;exact independent APPROVE after secure-input red/green regression. Follow-up: 134 focused tests for attachment/editor fixes;8 backend and19 browser tests plus6 scoped React Compiler cases;web/server typechecks and scoped lint/format pass;native app context/header checks;independent exact-commit APPROVE. Follow-up54e55893aa:59 backend/24 browser tests, final46 projection tests;scoped checks/typechecks, native shortcut before/after and independent exact-commit APPROVE. Oct20 merge: 94 backend/265 web tests;web/server typechecks;scoped checks;native app;independent exact-commit APPROVE. Oct20 review follow-up: SQL red/green16 backend tests,web/server typechecks,scoped checks,native AltGr/physicalKeyS,independent APPROVE. Oct21 merge: 58 backend/151 web tests;web/server typechecks;feature-delta lint/fmt/diff;independent exact-merge APPROVE."
+      "validation": "253 focused web tests;31 changed node tests;71 fork/transition/runtime checks;4 secret-request checks;scoped web/server typechecks/lint/format;exact independent APPROVE after secure-input red/green regression. Follow-up: 134 focused tests for attachment/editor fixes;8 backend and19 browser tests plus6 scoped React Compiler cases;web/server typechecks and scoped lint/format pass;native app context/header checks;independent exact-commit APPROVE. Follow-up54e55893aa:59 backend/24 browser tests, final46 projection tests;scoped checks/typechecks, native shortcut before/after and independent exact-commit APPROVE. Oct20 merge: 94 backend/265 web tests;web/server typechecks;scoped checks;native app;independent exact-commit APPROVE. Oct20 review follow-up: SQL red/green16 backend tests,web/server typechecks,scoped checks,native AltGr/physicalKeyS,independent APPROVE. Oct21 merge: 58 backend/151 web tests;web/server typechecks;feature-delta lint/fmt/diff;independent exact-merge APPROVE. Oct21 CI follow-up:46 focused backend/3browser tests;web/server typechecks;scoped lint/fmt/diff;independent focused APPROVE;both failures red/green."
     },
     {
       "repo": "pingdotgg/t3code",
@@ -4521,6 +4521,10 @@
     {
       "ts": "2026-10-21T07:10:15.399900+00:00",
       "text": "Oct21 targeted CI follow-up: exact 7cab3d342ef0805b381ec38b9f3d2a3dcd19eb6f remains OPEN/MERGEABLE with zero unresolved threads. CI run39558695840 succeeds, including Lint,Build and Typecheck,Test,Test Web,all8 server shards,Release Smoke and final Check. The previous-head SSH failure is superseded. Fingerprint run39558703109 succeeds;earlier39558695578 was cancelled by the same concurrency group (GitHub annotation: higher priority waiting request). Aggregate rollup remains FAILURE from that duplicate cancellation;CodeRabbit is PENDING/review in progress. Previews skipped. Maintainer product/scope approval remains pending. No source change,rerun,duplicate public reply or author-side action needed."
+    },
+    {
+      "ts": "2026-10-21T07:22:36.268617+00:00",
+      "text": "Oct21 SideChat CI follow-up: d489a1206c07ccffd3d6fd9590952901bcf00eab fixes both failures on cc0cccb6df46430d26a0acdbec8ccd430a731a34. Both reproduced locally. Test Server5 transferBudgetV2.integration.test.ts hung because ordinary shells contained own-property sideChatOf:undefined but the Effect JSON codec encoded it as null,so the terminal shell equality never matched. Both shell builders now omit only undefined and retain explicit null/parent IDs. Test Web immediate DOM-absence assertion raced the help popup exit;it now uses vi.waitFor with no sleeps,retries or timeout increase. Afterward46 focused backend and3browser tests pass,web/server typechecks and scoped lint/fmt/diff pass. Independent focused review approved. Normal push to intended branch and exact fork/GitHub head readbacks verified. Fresh hosted CI pending,not claimed green. Check was only the aggregate of the two failed test jobs. Maintainer product/scope approval remains pending. No duplicate rerun or unresolved review-thread action."
     }
   ],
   "companies": [

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-21T07:36:59.647264+00:00",
+  "generated": "2026-10-22T08:08:51.881177+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -20,7 +20,7 @@
     "merged": 3,
     "landed_other": 2,
     "active_work": 0,
-    "last_refresh": "2026-10-21T07:00:29.806626+00:00",
+    "last_refresh": "2026-10-22T08:08:51.881177+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49,
     "monitored_open_prs": 59,
@@ -1341,9 +1341,12 @@
       "career_signal": "very_high",
       "career_signal_rationale": "Agent-runtime data-integrity fix: docker runtime's git worktrees span host/container namespaces and are prunable from the host, risking work loss — consequential execution-environment correctness requiring cross-namespace design.",
       "career_assessed_at": "2026-09-24T20:38:31+00:00",
-      "outcome": "2026-10-03: merged current main and pushed c80888fb3305cfba100bc25e38204ce3dedd417e. Preserved launch mediation, scoped worktree cleanup and browser-setting behavior; adapted regression tests to the new worktree-plan API and covered Git/non-Git workspace forwarding. All 213 affected tests, required hooks and the real source-backed Docker lifecycle pass. Correct Rohan identity, DCO and repository-required OpenHands co-author trailer. Hosted SHA verified and mergeable; description/artifact checks pass. Entire PR body including HUMAN remains verbatim.",
+      "outcome": "Merged current main and preserved host/container worktree namespace protection plus upstream container options. Independently reviewed, pushed, reply read back, mergeable. Full body/HUMAN unchanged. Hosted test workflows require maintainer authorization.",
       "pr_url": "https://github.com/OpenHands/software-agent-sdk/pull/5318",
-      "pr_raised_at": "2026-09-25T07:37:56+00:00"
+      "pr_raised_at": "2026-09-25T07:37:56+00:00",
+      "last_maintained": "2026-10-22T08:08:51.881177+00:00",
+      "head": "808d644e1c9cf46eebb76f70546b05e996952b31",
+      "validation": " Oct22: 235 focused tests and scoped hooks including Pyright pass; live Docker lifecycle fails on exact upstream and passes on candidate; public evidence download hash verified"
     },
     {
       "company": "OpenHands",
@@ -3814,11 +3817,11 @@
       "career_signal_rationale": "Useful read-only provider accounting feature with cross-client and stale-account handling. Explicit user-requested contribution.",
       "career_assessed_at": "2026-10-10T03:56:28.925301+00:00",
       "updated_at": "2026-10-18T11:52:07.923364+00:00",
-      "outcome": "Oct21 credits review follow-up: CodeRabbit COMMENTED major web composition finding4333967723 validated against docs/internals/web-ui.md. Fixed in a3a6adc2644a8fdf61142a3b95e10f377893fb4c with one private UsageCard shell and window/credits layout variants;both quota and purchased-credit cards use it. One web file only;rendered div,class sets,children,keys and behavior preserved;mobile/backend unchanged. Existing Chromium balance refresh/clear browser test and one scoped React Compiler case pass,web typecheck/scoped lint/fmt/diff pass. Independent exact-commit review APPROVE. Normal intended-branch push and fork/GitHub exact-head readbacks verified. Evidence reply posted/read back and PRRT_kwDORLtfbc6uqHPR resolved only after push. Previous-head code CI passes;aggregate failure was already-triaged duplicate fingerprint cancellation. Fresh new-head CI/review pending,not claimed green. Maintainer product/scope approval remains pending;no new Rohan action.",
+      "outcome": "Credits issue17704 closed by maintainer with request to use Ideas for the proposal; PR21173 remains open. No new discussion created under maintenance.",
       "pr_url": "https://github.com/pingdotgg/t3code/pull/21173",
       "pr_number": 21173,
       "head": "a3a6adc2644a8fdf61142a3b95e10f377893fb4c",
-      "last_maintained": "2026-10-21T07:33:11.165597+00:00",
+      "last_maintained": "2026-10-22T08:08:51.881177+00:00",
       "pr_state": "open",
       "previous_prs": [
         {
@@ -3833,7 +3836,8 @@
       ],
       "pr_raised_at": "2026-10-18T11:48:01Z",
       "replacement_of": 17705,
-      "validation": "98 node and7 browser tests;web/server typechecks/scoped lint/format;synthetic refresh regression;exact independent APPROVE. Native mobile runtime not exercised. Oct20 merge: 25 Codex/91 provider/shared/17 web tests;web/server typechecks;scoped checks;independent exact-commit APPROVE. Oct20 CI triage: unchanged SSH fixture local control1pass33skip;single failed-job rerun denied admin rights. Oct21 merge: 18 Codex/53 provider/shared/1 refresh browser tests;web/server typechecks;feature-delta lint/fmt/diff;independent exact-merge APPROVE. Oct21 composition follow-up:1refresh browser/1scoped React Compiler case;web typecheck;scoped lint/fmt/diff;class-set equivalence;independent exact-commit APPROVE."
+      "validation": "98 node and7 browser tests;web/server typechecks/scoped lint/format;synthetic refresh regression;exact independent APPROVE. Native mobile runtime not exercised. Oct20 merge: 25 Codex/91 provider/shared/17 web tests;web/server typechecks;scoped checks;independent exact-commit APPROVE. Oct20 CI triage: unchanged SSH fixture local control1pass33skip;single failed-job rerun denied admin rights. Oct21 merge: 18 Codex/53 provider/shared/1 refresh browser tests;web/server typechecks;feature-delta lint/fmt/diff;independent exact-merge APPROVE. Oct21 composition follow-up:1refresh browser/1scoped React Compiler case;web typecheck;scoped lint/fmt/diff;class-set equivalence;independent exact-commit APPROVE.",
+      "upstream_issue_state": "closed"
     },
     {
       "company": "T3 Code",
@@ -3898,14 +3902,14 @@
       ],
       "pr_url": "https://github.com/pingdotgg/t3code/pull/21175",
       "pr_number": 21175,
-      "head": "d489a1206c07ccffd3d6fd9590952901bcf00eab",
+      "head": "80ec837bb5f3d2352cf7b5ddfcde5710300c96bc",
       "pr_state": "open",
       "pr_raised_at": "2026-10-18T11:51:54Z",
       "updated_at": "2026-10-18T12:10:56.308552+00:00",
-      "last_maintained": "2026-10-21T07:36:59.647264+00:00",
-      "outcome": "Oct21 SideChat comment alert: exact d489a1206c07ccffd3d6fd9590952901bcf00eab OPEN/MERGEABLE;hosted CI rollup SUCCESS,all executed code jobs pass;skipped jobs are not failures. Zero unresolved threads,no new defect. Updated CodeRabbit summary auto-pauses reviews,last reviewed9552dd8,explicitly excludes currentd489a1206c;SUCCESS status means paused,not current-head review completion. Summary ownership concern is stale:current sideChatTransferForThread requires transfer.targetThreadId===projection.thread.id at all8 selectors;retained SQL isolation regressions and today46backend/3browser checks pass. No duplicate evidence reply or code change. Verified no prior current-head request,posted/read back one @coderabbitai review command: https://github.com/pingdotgg/t3code/pull/21175#issuecomment-6310680257. Automatic-review configuration unchanged;maintainer product/scope approval remains pending.",
+      "last_maintained": "2026-10-22T08:08:51.881177+00:00",
+      "outcome": "Merged current main, preserved new extracted right-panel/composer hooks and SideChat safeguards, and corrected typed pending-input fixture. Both commits independently reviewed; pushed and mergeability/reply verified. Product approval remains separate. Hosted head checks read back successfully.",
       "replacement_of": 12794,
-      "validation": "253 focused web tests;31 changed node tests;71 fork/transition/runtime checks;4 secret-request checks;scoped web/server typechecks/lint/format;exact independent APPROVE after secure-input red/green regression. Follow-up: 134 focused tests for attachment/editor fixes;8 backend and19 browser tests plus6 scoped React Compiler cases;web/server typechecks and scoped lint/format pass;native app context/header checks;independent exact-commit APPROVE. Follow-up54e55893aa:59 backend/24 browser tests, final46 projection tests;scoped checks/typechecks, native shortcut before/after and independent exact-commit APPROVE. Oct20 merge: 94 backend/265 web tests;web/server typechecks;scoped checks;native app;independent exact-commit APPROVE. Oct20 review follow-up: SQL red/green16 backend tests,web/server typechecks,scoped checks,native AltGr/physicalKeyS,independent APPROVE. Oct21 merge: 58 backend/151 web tests;web/server typechecks;feature-delta lint/fmt/diff;independent exact-merge APPROVE. Oct21 CI follow-up:46 focused backend/3browser tests;web/server typechecks;scoped lint/fmt/diff;independent focused APPROVE;both failures red/green."
+      "validation": "253 focused web tests;31 changed node tests;71 fork/transition/runtime checks;4 secret-request checks;scoped web/server typechecks/lint/format;exact independent APPROVE after secure-input red/green regression. Follow-up: 134 focused tests for attachment/editor fixes;8 backend and19 browser tests plus6 scoped React Compiler cases;web/server typechecks and scoped lint/format pass;native app context/header checks;independent exact-commit APPROVE. Follow-up54e55893aa:59 backend/24 browser tests, final46 projection tests;scoped checks/typechecks, native shortcut before/after and independent exact-commit APPROVE. Oct20 merge: 94 backend/265 web tests;web/server typechecks;scoped checks;native app;independent exact-commit APPROVE. Oct20 review follow-up: SQL red/green16 backend tests,web/server typechecks,scoped checks,native AltGr/physicalKeyS,independent APPROVE. Oct21 merge: 58 backend/151 web tests;web/server typechecks;feature-delta lint/fmt/diff;independent exact-merge APPROVE. Oct21 CI follow-up:46 focused backend/3browser tests;web/server typechecks;scoped lint/fmt/diff;independent focused APPROVE;both failures red/green. Oct22: 61 focused server tests; 351 adjacent tests; 12 final session browser tests; format, lint, Knip, GraphQL generation and 28 affected-package typechecks pass. Four mobile Stack.tsx implicit-any diagnostics reproduce identically on exact upstream 3b95e783; check:changed not wholly green; hosted current-head CI, including aggregate Check, passed"
     },
     {
       "repo": "pingdotgg/t3code",
@@ -3922,14 +3926,15 @@
       "competing_prs": [],
       "pr_url": "https://github.com/pingdotgg/t3code/pull/21172",
       "pr_number": 21172,
-      "head": "e38baeae1f92a23e880c035ca01a8fbf083dff8e",
+      "head": "a8ace4f3d5b57fc72877b004e827cbc708958220",
       "pr_state": "open",
       "pr_raised_at": "2026-10-18T11:47:32Z",
       "updated_at": "2026-10-18T11:52:07.923364+00:00",
-      "last_maintained": "2026-10-21T07:34:48.786339+00:00",
-      "outcome": "Oct21 comment alert: exact e38baeae1f92a23e880c035ca01a8fbf083dff8e OPEN/MERGEABLE;hosted CI rollup SUCCESS,all executed code jobs pass;previews,Rust,mobile native and release smoke skipped. Zero unresolved threads,no new defect. Updated CodeRabbit summary auto-pauses reviews,last reviewed2ea927c,explicitly excludes currente38baeae;SUCCESS status means paused,not current-head review completion. Verified no prior current-head request,posted/read back one @coderabbitai review command: https://github.com/pingdotgg/t3code/pull/21172#issuecomment-6310644724. No automatic-review configuration changed. Existing test-only fix/local12tests/independent APPROVE remain valid. Maintainer product/scope approval remains pending. No new source change,rerun or duplicate evidence reply.",
+      "last_maintained": "2026-10-22T08:08:51.881177+00:00",
+      "outcome": "Integrated current-main hook extraction while retaining width behavior and observer/null-key regression coverage. Independently reviewed, pushed and mergeability/reply verified. Product approval remains separate. Hosted head checks read back successfully. Width issue12784 closed: some portions already fixed; remaining per-thread 5-percent header control needs a narrower issue if Rohan wishes to continue. Existing PR21172 remains open.",
       "replacement_of": 15109,
-      "validation": "12 focused tests;web typecheck/scoped lint/format;0/50/100% layout checks with workspace and right panel at1600/1000px;exact independent APPROVE. Oct20 merge: 11 browser tests;web typecheck;scoped checks;native draft/layout proof;independent exact-commit APPROVE. Oct20 CI follow-up: scoped Knip,11 browser tests,web typecheck,lint/fmt,independent APPROVE;GitHub CI Check succeeds. Oct20 storage-clear follow-up: red/green regression;20 focused storage/width tests,web typecheck,scoped lint/fmt,independent APPROVE. Oct21 merge: 12 focused tests;web typecheck;feature-delta lint/fmt/diff;independent exact-merge APPROVE. Oct21 review follow-up:12focused tests,web typecheck,scoped lint/fmt/diff;no-op column callback mutation red/green;independent exact-commit APPROVE."
+      "validation": "12 focused tests;web typecheck/scoped lint/format;0/50/100% layout checks with workspace and right panel at1600/1000px;exact independent APPROVE. Oct20 merge: 11 browser tests;web typecheck;scoped checks;native draft/layout proof;independent exact-commit APPROVE. Oct20 CI follow-up: scoped Knip,11 browser tests,web typecheck,lint/fmt,independent APPROVE;GitHub CI Check succeeds. Oct20 storage-clear follow-up: red/green regression;20 focused storage/width tests,web typecheck,scoped lint/fmt,independent APPROVE. Oct21 merge: 12 focused tests;web typecheck;feature-delta lint/fmt/diff;independent exact-merge APPROVE. Oct21 review follow-up:12focused tests,web typecheck,scoped lint/fmt/diff;no-op column callback mutation red/green;independent exact-commit APPROVE. Oct22: 12 focused tests, formatting, lint, Knip and both affected-package typechecks pass. Adjacent suite 150/151; remaining MessagesTimeline maximum-update-depth failure reproduces on exact upstream with matching browser. check:changed not wholly green; hosted current-head CI, including aggregate Check, passed",
+      "upstream_issue_state": "closed"
     }
   ],
   "holds": [
@@ -4541,6 +4546,10 @@
     {
       "ts": "2026-10-21T07:36:59.647264+00:00",
       "text": "Oct21 SideChat comment alert: exact d489a1206c07ccffd3d6fd9590952901bcf00eab OPEN/MERGEABLE;hosted CI rollup SUCCESS,all executed code jobs pass;skipped jobs are not failures. Zero unresolved threads,no new defect. Updated CodeRabbit summary auto-pauses reviews,last reviewed9552dd8,explicitly excludes currentd489a1206c;SUCCESS status means paused,not current-head review completion. Summary ownership concern is stale:current sideChatTransferForThread requires transfer.targetThreadId===projection.thread.id at all8 selectors;retained SQL isolation regressions and today46backend/3browser checks pass. No duplicate evidence reply or code change. Verified no prior current-head request,posted/read back one @coderabbitai review command: https://github.com/pingdotgg/t3code/pull/21175#issuecomment-6310680257. Automatic-review configuration unchanged;maintainer product/scope approval remains pending."
+    },
+    {
+      "ts": "2026-10-22T08:08:51.881177+00:00",
+      "text": "Authenticated Oct22 sweep: 59 open PRs (1 draft), 13 known/recent landed and 8 closed unmerged. Integrated and pushed OpenHands5318, SideChat21175 and Width21172; three merge conflicts cleared. No remaining identified author-side defect requiring a code change; documented baseline failures and approval queues remain. GitHub CI passed on both updated T3 heads; OpenHands test workflows await maintainer authorization. Authorized Backup Plus disposable workspace removed after validation and publication. Maintainers: OpenHands test-workflow authorization and feature/product review; pre-existing authorization/import queues and Goose admin-only rerun unchanged. T3 CI passed on both updated heads. Rohan: decide whether to pursue the requested Ideas/narrow-issue routing outside this maintenance task."
     }
   ],
   "companies": [

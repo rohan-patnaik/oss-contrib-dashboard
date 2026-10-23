@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-23T06:53:27.171490+00:00",
+  "generated": "2026-10-23T06:58:15.850184+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -3906,8 +3906,8 @@
       "pr_state": "open",
       "pr_raised_at": "2026-10-18T11:51:54Z",
       "updated_at": "2026-10-18T12:10:56.308552+00:00",
-      "last_maintained": "2026-10-23T06:53:27.171490+00:00",
-      "outcome": "Merged main 9a638026; retained upstream SQLite reader wrappers and wrapped getSideChatSource. Exact pushed head confirmed MERGEABLE. CI running; original product/scope approval pending.",
+      "last_maintained": "2026-10-23T06:58:15.850184+00:00",
+      "outcome": "SideChat CI follow-up: Test and aggregate Check fail because the Forgejo skipped-job fixture returns an array for the branches/main endpoint. Exact PR head 314110c55a and unchanged main parent 9a638026 each reproduce 1 failure/26 passes; Forgejo package unchanged by PR. Hosted build/typecheck, lint, server shards, web tests and release smoke passed. Awaiting upstream fixture correction; no speculative retry or unrelated source change.",
       "replacement_of": 12794,
       "validation": "253 focused web tests;31 changed node tests;71 fork/transition/runtime checks;4 secret-request checks;scoped web/server typechecks/lint/format;exact independent APPROVE after secure-input red/green regression. Follow-up: 134 focused tests for attachment/editor fixes;8 backend and19 browser tests plus6 scoped React Compiler cases;web/server typechecks and scoped lint/format pass;native app context/header checks;independent exact-commit APPROVE. Follow-up54e55893aa:59 backend/24 browser tests, final46 projection tests;scoped checks/typechecks, native shortcut before/after and independent exact-commit APPROVE. Oct20 merge: 94 backend/265 web tests;web/server typechecks;scoped checks;native app;independent exact-commit APPROVE. Oct20 review follow-up: SQL red/green16 backend tests,web/server typechecks,scoped checks,native AltGr/physicalKeyS,independent APPROVE. Oct21 merge: 58 backend/151 web tests;web/server typechecks;feature-delta lint/fmt/diff;independent exact-merge APPROVE. Oct21 CI follow-up:46 focused backend/3browser tests;web/server typechecks;scoped lint/fmt/diff;independent focused APPROVE;both failures red/green. Oct22: 61 focused server tests; 351 adjacent tests; 12 final session browser tests; format, lint, Knip, GraphQL generation and 28 affected-package typechecks pass. Four mobile Stack.tsx implicit-any diagnostics reproduce identically on exact upstream 3b95e783; check:changed not wholly green; hosted current-head CI, including aggregate Check, passed Oct23: 63 focused server, 161 focused web, 17 SQLite and 354 adjacent tests passed (overlapping suites; not an aggregate count). Format, scoped lint, knip, GraphQL generation and 27 of 28 affected typecheck tasks passed. Four mobile diagnostics reproduce identically on exact upstream 9a638026; independent integration review approved."
     },
@@ -4554,6 +4554,10 @@
     {
       "ts": "2026-10-23T06:53:27.171490+00:00",
       "text": "October 23 authenticated sweep: 59 open PRs (1 draft), 13 verified landed and 8 closed unmerged. SideChat #21175 conflict resolved against current main and verified pushed at 314110c55a; no other new author-side review/CI action. Maintainers: SideChat product/scope approval, OpenHands workflow authorization, and existing authorization/import queues; Goose admin-only rerun unchanged. SideChat hosted CI running; CodeRabbit paused after prior reviews. Rohan: existing decision whether to pursue credits Ideas and narrower width issue outside maintenance; no new personal action."
+    },
+    {
+      "ts": "2026-10-23T06:58:15.850184+00:00",
+      "text": "SideChat CI follow-up: Test and aggregate Check fail because the Forgejo skipped-job fixture returns an array for the branches/main endpoint. Exact PR head 314110c55a and unchanged main parent 9a638026 each reproduce 1 failure/26 passes; Forgejo package unchanged by PR. Hosted build/typecheck, lint, server shards, web tests and release smoke passed. Awaiting upstream fixture correction; no speculative retry or unrelated source change."
     }
   ],
   "companies": [

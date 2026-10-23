@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-23T06:58:15.850184+00:00",
+  "generated": "2026-10-23T06:59:49.722415+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -30,7 +30,10 @@
     "author_action_items": 0,
     "monitored_personal_project_landings": 6,
     "campaign_closed_unmerged": 1,
-    "deferred_closed_review_findings": 1
+    "deferred_closed_review_findings": 1,
+    "maintenance_excluded_repositories": [
+      "pingdotgg/t3code"
+    ]
   },
   "repos": [
     {
@@ -3837,7 +3840,9 @@
       "pr_raised_at": "2026-10-18T11:48:01Z",
       "replacement_of": 17705,
       "validation": "98 node and7 browser tests;web/server typechecks/scoped lint/format;synthetic refresh regression;exact independent APPROVE. Native mobile runtime not exercised. Oct20 merge: 25 Codex/91 provider/shared/17 web tests;web/server typechecks;scoped checks;independent exact-commit APPROVE. Oct20 CI triage: unchanged SSH fixture local control1pass33skip;single failed-job rerun denied admin rights. Oct21 merge: 18 Codex/53 provider/shared/1 refresh browser tests;web/server typechecks;feature-delta lint/fmt/diff;independent exact-merge APPROVE. Oct21 composition follow-up:1refresh browser/1scoped React Compiler case;web typecheck;scoped lint/fmt/diff;class-set equivalence;independent exact-commit APPROVE.",
-      "upstream_issue_state": "closed"
+      "upstream_issue_state": "closed",
+      "maintenance_status": "stopped_by_user",
+      "maintenance_stopped_at": "2026-10-23T06:59:49.722415+00:00"
     },
     {
       "company": "T3 Code",
@@ -3864,7 +3869,9 @@
       "outcome": "Merged by maintainers on 2026-10-20T04:08:50Z; upstream commit da26f1ef70eb86a2f088a2ec0cf997ae4c1c6890. Maintainer follow-up head ee6a3c01436c2e27482df5dfbeb3e462a4b8a676 preserved;no author push or duplicate reply.",
       "last_maintained": "2026-10-20T06:52:29.385215+00:00",
       "merged_at": "2026-10-20T04:08:50Z",
-      "merge_commit": "da26f1ef70eb86a2f088a2ec0cf997ae4c1c6890"
+      "merge_commit": "da26f1ef70eb86a2f088a2ec0cf997ae4c1c6890",
+      "maintenance_status": "stopped_by_user",
+      "maintenance_stopped_at": "2026-10-23T06:59:49.722415+00:00"
     },
     {
       "repo": "pingdotgg/t3code",
@@ -3883,7 +3890,9 @@
       "last_maintained": "2026-10-19T06:49:18.847130+00:00",
       "outcome": "Closed by maintainer on2026-10-17: HTML generation guidance is a copy/product change requiring prior maintainer agreement. Not merged/landed; no reopen or replacement under maintenance.",
       "closed_at": "2026-10-17T00:49:19Z",
-      "closure_reason": "Closed by maintainer on2026-10-17: HTML generation guidance is a copy/product change requiring prior maintainer agreement. Not merged/landed; no reopen or replacement under maintenance."
+      "closure_reason": "Closed by maintainer on2026-10-17: HTML generation guidance is a copy/product change requiring prior maintainer agreement. Not merged/landed; no reopen or replacement under maintenance.",
+      "maintenance_status": "stopped_by_user",
+      "maintenance_stopped_at": "2026-10-23T06:59:49.722415+00:00"
     },
     {
       "repo": "pingdotgg/t3code",
@@ -3909,7 +3918,9 @@
       "last_maintained": "2026-10-23T06:58:15.850184+00:00",
       "outcome": "SideChat CI follow-up: Test and aggregate Check fail because the Forgejo skipped-job fixture returns an array for the branches/main endpoint. Exact PR head 314110c55a and unchanged main parent 9a638026 each reproduce 1 failure/26 passes; Forgejo package unchanged by PR. Hosted build/typecheck, lint, server shards, web tests and release smoke passed. Awaiting upstream fixture correction; no speculative retry or unrelated source change.",
       "replacement_of": 12794,
-      "validation": "253 focused web tests;31 changed node tests;71 fork/transition/runtime checks;4 secret-request checks;scoped web/server typechecks/lint/format;exact independent APPROVE after secure-input red/green regression. Follow-up: 134 focused tests for attachment/editor fixes;8 backend and19 browser tests plus6 scoped React Compiler cases;web/server typechecks and scoped lint/format pass;native app context/header checks;independent exact-commit APPROVE. Follow-up54e55893aa:59 backend/24 browser tests, final46 projection tests;scoped checks/typechecks, native shortcut before/after and independent exact-commit APPROVE. Oct20 merge: 94 backend/265 web tests;web/server typechecks;scoped checks;native app;independent exact-commit APPROVE. Oct20 review follow-up: SQL red/green16 backend tests,web/server typechecks,scoped checks,native AltGr/physicalKeyS,independent APPROVE. Oct21 merge: 58 backend/151 web tests;web/server typechecks;feature-delta lint/fmt/diff;independent exact-merge APPROVE. Oct21 CI follow-up:46 focused backend/3browser tests;web/server typechecks;scoped lint/fmt/diff;independent focused APPROVE;both failures red/green. Oct22: 61 focused server tests; 351 adjacent tests; 12 final session browser tests; format, lint, Knip, GraphQL generation and 28 affected-package typechecks pass. Four mobile Stack.tsx implicit-any diagnostics reproduce identically on exact upstream 3b95e783; check:changed not wholly green; hosted current-head CI, including aggregate Check, passed Oct23: 63 focused server, 161 focused web, 17 SQLite and 354 adjacent tests passed (overlapping suites; not an aggregate count). Format, scoped lint, knip, GraphQL generation and 27 of 28 affected typecheck tasks passed. Four mobile diagnostics reproduce identically on exact upstream 9a638026; independent integration review approved."
+      "validation": "253 focused web tests;31 changed node tests;71 fork/transition/runtime checks;4 secret-request checks;scoped web/server typechecks/lint/format;exact independent APPROVE after secure-input red/green regression. Follow-up: 134 focused tests for attachment/editor fixes;8 backend and19 browser tests plus6 scoped React Compiler cases;web/server typechecks and scoped lint/format pass;native app context/header checks;independent exact-commit APPROVE. Follow-up54e55893aa:59 backend/24 browser tests, final46 projection tests;scoped checks/typechecks, native shortcut before/after and independent exact-commit APPROVE. Oct20 merge: 94 backend/265 web tests;web/server typechecks;scoped checks;native app;independent exact-commit APPROVE. Oct20 review follow-up: SQL red/green16 backend tests,web/server typechecks,scoped checks,native AltGr/physicalKeyS,independent APPROVE. Oct21 merge: 58 backend/151 web tests;web/server typechecks;feature-delta lint/fmt/diff;independent exact-merge APPROVE. Oct21 CI follow-up:46 focused backend/3browser tests;web/server typechecks;scoped lint/fmt/diff;independent focused APPROVE;both failures red/green. Oct22: 61 focused server tests; 351 adjacent tests; 12 final session browser tests; format, lint, Knip, GraphQL generation and 28 affected-package typechecks pass. Four mobile Stack.tsx implicit-any diagnostics reproduce identically on exact upstream 3b95e783; check:changed not wholly green; hosted current-head CI, including aggregate Check, passed Oct23: 63 focused server, 161 focused web, 17 SQLite and 354 adjacent tests passed (overlapping suites; not an aggregate count). Format, scoped lint, knip, GraphQL generation and 27 of 28 affected typecheck tasks passed. Four mobile diagnostics reproduce identically on exact upstream 9a638026; independent integration review approved.",
+      "maintenance_status": "stopped_by_user",
+      "maintenance_stopped_at": "2026-10-23T06:59:49.722415+00:00"
     },
     {
       "repo": "pingdotgg/t3code",
@@ -3934,7 +3945,9 @@
       "outcome": "Integrated current-main hook extraction while retaining width behavior and observer/null-key regression coverage. Independently reviewed, pushed and mergeability/reply verified. Product approval remains separate. Hosted head checks read back successfully. Width issue12784 closed: some portions already fixed; remaining per-thread 5-percent header control needs a narrower issue if Rohan wishes to continue. Existing PR21172 remains open.",
       "replacement_of": 15109,
       "validation": "12 focused tests;web typecheck/scoped lint/format;0/50/100% layout checks with workspace and right panel at1600/1000px;exact independent APPROVE. Oct20 merge: 11 browser tests;web typecheck;scoped checks;native draft/layout proof;independent exact-commit APPROVE. Oct20 CI follow-up: scoped Knip,11 browser tests,web typecheck,lint/fmt,independent APPROVE;GitHub CI Check succeeds. Oct20 storage-clear follow-up: red/green regression;20 focused storage/width tests,web typecheck,scoped lint/fmt,independent APPROVE. Oct21 merge: 12 focused tests;web typecheck;feature-delta lint/fmt/diff;independent exact-merge APPROVE. Oct21 review follow-up:12focused tests,web typecheck,scoped lint/fmt/diff;no-op column callback mutation red/green;independent exact-commit APPROVE. Oct22: 12 focused tests, formatting, lint, Knip and both affected-package typechecks pass. Adjacent suite 150/151; remaining MessagesTimeline maximum-update-depth failure reproduces on exact upstream with matching browser. check:changed not wholly green; hosted current-head CI, including aggregate Check, passed",
-      "upstream_issue_state": "closed"
+      "upstream_issue_state": "closed",
+      "maintenance_status": "stopped_by_user",
+      "maintenance_stopped_at": "2026-10-23T06:59:49.722415+00:00"
     }
   ],
   "holds": [
@@ -4558,6 +4571,10 @@
     {
       "ts": "2026-10-23T06:58:15.850184+00:00",
       "text": "SideChat CI follow-up: Test and aggregate Check fail because the Forgejo skipped-job fixture returns an array for the branches/main endpoint. Exact PR head 314110c55a and unchanged main parent 9a638026 each reproduce 1 failure/26 passes; Forgejo package unchanged by PR. Hosted build/typecheck, lint, server shards, web tests and release smoke passed. Awaiting upstream fixture correction; no speculative retry or unrelated source change."
+    },
+    {
+      "ts": "2026-10-23T06:59:49.722415+00:00",
+      "text": "User stopped maintenance and monitoring of all previously raised pingdotgg/t3code PRs, including open, draft, closed and merged PRs. Exclude the repository from scheduled searches and filter notifications before processing. Ignore queued T3 alerts. No fixes, replies, reruns, reopening, replacement PRs or proposal-routing follow-ups unless explicitly reauthorized. Preserve PR states, historical records, source and artifacts. Other repositories remain scheduled daily at 12:00 Asia/Kolkata."
     }
   ],
   "companies": [

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-23T06:59:49.722415+00:00",
+  "generated": "2026-10-25T10:15:35.834911+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -20,13 +20,13 @@
     "merged": 3,
     "landed_other": 2,
     "active_work": 0,
-    "last_refresh": "2026-10-23T06:53:27.171490+00:00",
+    "last_refresh": "2026-10-25T10:15:35.834911+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49,
-    "monitored_open_prs": 59,
+    "monitored_open_prs": 56,
     "monitored_drafts": 1,
-    "monitored_recent_landed": 13,
-    "monitored_recent_closed_unmerged": 8,
+    "monitored_recent_landed": 11,
+    "monitored_recent_closed_unmerged": 2,
     "author_action_items": 0,
     "monitored_personal_project_landings": 6,
     "campaign_closed_unmerged": 1,
@@ -1232,7 +1232,10 @@
       "career_assessed_at": "2026-09-24T20:38:31+00:00",
       "pr_url": "https://github.com/aaif-goose/goose/pull/12519",
       "pr_raised_at": "2026-09-25T12:25:48+00:00",
-      "outcome": "PR #12519 open at independently approved commit 2ff8cae; one shared GLM-5.3/Kimi K3 effort policy now drives Z.AI/Anthropic formatting, Databricks, and ACP, with base failure evidence, 876 provider tests/integrations plus both ACP cases passing, and full-workspace clippy clean."
+      "outcome": "Replied once to the new stale warning to preserve active approved PR12519. Existing unrelated MCP conformance sse-retry failure and maintainer-only rerun remain unchanged; no source changes or duplicate rerun request.",
+      "last_maintained": "2026-10-25T10:15:35.834911+00:00",
+      "head": "7b91011ff04cce74163660c61da2a1173602ec2c",
+      "validation": " Oct25: Posted reply and exact body/author readback verified. No source changes."
     },
     {
       "company": "Block/Goose",
@@ -1845,9 +1848,10 @@
       "platform_plan": "Pure Python, fully CPU-testable on macOS ARM64: pytest tests/agent/test_summarize_tool_result_type_safety.py tests/agent/test_context_compressor.py -x. Reproduce in a unit test: call _summarize_tool_result('mcp__docs__fetch', '{\"uri\": \"...\"}', '<40KB payload>') at HEAD and assert the returned summary contains none of the payload (current behavior), then assert the fixed behavior preserves a bounded excerpt.",
       "pr_url": "https://github.com/NousResearch/hermes-agent/pull/125141",
       "pr_raised_at": "2026-09-27T11:26:58+00:00",
-      "outcome": "2026-10-15 Backup Plus follow-up: merged upstream 450ad5055eb3 and pushed 0b5e3b64e8. Preserved bounded MCP excerpts and upstream demotion stubs; extracted cohesive helpers to pass the file-size ratchet. Two regressions fail on upstream; 321 focused tests and all 12 canonical checks pass. Independent final review APPROVE; intended branch/head, PR body/reply and mergeability verified. Hosted CI is not claimed green.",
-      "last_maintained": "2026-10-15T08:11:51.095992+00:00",
-      "head": "0b5e3b64e84d028a8aa3784b50f39624b49ffa89"
+      "outcome": "Merged main 4ea8d23cc9f5 into ab2e07425be4555ba7195661d085036e40753308. Preserved upstream Skill Safety Rule handling and bounded MCP excerpts; GitHub confirms the pushed head is MERGEABLE. CI, Nix and Docker workflows await maintainer approval.",
+      "last_maintained": "2026-10-25T10:15:35.834911+00:00",
+      "head": "ab2e07425be4555ba7195661d085036e40753308",
+      "validation": " Oct25: 337 tests passed across seven focused compression suites; new regression failed without rule stripping and passed with it. All 12 canonical scripts/check checks passed on the exact committed tree. Independent review approved."
     },
     {
       "company": "Microsoft AI / DeepSpeed (LF)",
@@ -4575,6 +4579,10 @@
     {
       "ts": "2026-10-23T06:59:49.722415+00:00",
       "text": "User stopped maintenance and monitoring of all previously raised pingdotgg/t3code PRs, including open, draft, closed and merged PRs. Exclude the repository from scheduled searches and filter notifications before processing. Ignore queued T3 alerts. No fixes, replies, reruns, reopening, replacement PRs or proposal-routing follow-ups unless explicitly reauthorized. Preserve PR states, historical records, source and artifacts. Other repositories remain scheduled daily at 12:00 Asia/Kolkata."
+    },
+    {
+      "ts": "2026-10-25T10:15:35.834911+00:00",
+      "text": "October 25 authenticated sweep: 56 monitored open PRs (including 1 draft), 11 verified landed and 2 closed unmerged. Hermes125141 conflict fixed and pushed; Goose12519 stale warning answered. No remaining actionable author-side items. Both excluded repositories were filtered before processing. Maintainers: Hermes workflow approval, existing authorization/internal-import queues and Goose maintainer-only flaky-job rerun. Rohan: no new action required."
     }
   ],
   "companies": [

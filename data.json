@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-25T10:15:35.834911+00:00",
+  "generated": "2026-10-26T06:41:23.404150+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -20,20 +20,21 @@
     "merged": 3,
     "landed_other": 2,
     "active_work": 0,
-    "last_refresh": "2026-10-25T10:15:35.834911+00:00",
+    "last_refresh": "2026-10-26T06:41:23.404150+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49,
     "monitored_open_prs": 56,
     "monitored_drafts": 1,
-    "monitored_recent_landed": 11,
+    "monitored_recent_landed": 12,
     "monitored_recent_closed_unmerged": 2,
     "author_action_items": 0,
-    "monitored_personal_project_landings": 6,
+    "monitored_personal_project_landings": 7,
     "campaign_closed_unmerged": 1,
     "deferred_closed_review_findings": 1,
     "maintenance_excluded_repositories": [
       "pingdotgg/t3code"
-    ]
+    ],
+    "maintenance_scope_blockers": 1
   },
   "repos": [
     {
@@ -1848,10 +1849,10 @@
       "platform_plan": "Pure Python, fully CPU-testable on macOS ARM64: pytest tests/agent/test_summarize_tool_result_type_safety.py tests/agent/test_context_compressor.py -x. Reproduce in a unit test: call _summarize_tool_result('mcp__docs__fetch', '{\"uri\": \"...\"}', '<40KB payload>') at HEAD and assert the returned summary contains none of the payload (current behavior), then assert the fixed behavior preserves a bounded excerpt.",
       "pr_url": "https://github.com/NousResearch/hermes-agent/pull/125141",
       "pr_raised_at": "2026-09-27T11:26:58+00:00",
-      "outcome": "Merged main 4ea8d23cc9f5 into ab2e07425be4555ba7195661d085036e40753308. Preserved upstream Skill Safety Rule handling and bounded MCP excerpts; GitHub confirms the pushed head is MERGEABLE. CI, Nix and Docker workflows await maintainer approval.",
-      "last_maintained": "2026-10-25T10:15:35.834911+00:00",
-      "head": "ab2e07425be4555ba7195661d085036e40753308",
-      "validation": " Oct25: 337 tests passed across seven focused compression suites; new regression failed without rule stripping and passed with it. All 12 canonical scripts/check checks passed on the exact committed tree. Independent review approved."
+      "outcome": "Merged main 0107da5d2a36 into 8ffa4eb3341e3e5faf3b003881d355a3358ed328. Preserved upstream tail_cut_pricer, CompactionWindowMixin and prepared-compaction behavior alongside bounded MCP summaries. Exact pushed head verified MERGEABLE; CI, Nix and Docker await maintainer approval.",
+      "last_maintained": "2026-10-26T06:41:23.404150+00:00",
+      "head": "8ffa4eb3341e3e5faf3b003881d355a3358ed328",
+      "validation": " Oct25: 337 tests passed across seven focused compression suites; new regression failed without rule stripping and passed with it. All 12 canonical scripts/check checks passed on the exact committed tree. Independent review approved. Oct26: 393 focused tests passed across ten compression/prepared-compaction/tail-cut suites; all 13 canonical scripts/check checks pass on the exact committed tree; independent integration review approved."
     },
     {
       "company": "Microsoft AI / DeepSpeed (LF)",
@@ -4583,6 +4584,10 @@
     {
       "ts": "2026-10-25T10:15:35.834911+00:00",
       "text": "October 25 authenticated sweep: 56 monitored open PRs (including 1 draft), 11 verified landed and 2 closed unmerged. Hermes125141 conflict fixed and pushed; Goose12519 stale warning answered. No remaining actionable author-side items. Both excluded repositories were filtered before processing. Maintainers: Hermes workflow approval, existing authorization/internal-import queues and Goose maintainer-only flaky-job rerun. Rohan: no new action required."
+    },
+    {
+      "ts": "2026-10-26T06:41:23.404150+00:00",
+      "text": "October 26 authenticated sweep: 56 open PRs (including 1 draft), 12 verified landed and 2 closed unmerged. Hermes125141 conflict fixed and pushed. Azure33427 remains conflicting because an upstream fix now covers the same issue; evidence reply posted, awaiting maintainer scope guidance. One additional personal-project PR landed. Maintainers: Azure PR scope/disposition after the upstream fix; Hermes workflow approval; existing authorization/import queues and Goose admin-only flaky-job rerun. Rohan: no new legal signature or credential action. No close/abandon action performed."
     }
   ],
   "companies": [

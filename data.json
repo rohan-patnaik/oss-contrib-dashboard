@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-27T06:32:14.422022+00:00",
+  "generated": "2026-10-28T08:21:11.298288+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -20,7 +20,7 @@
     "merged": 3,
     "landed_other": 2,
     "active_work": 0,
-    "last_refresh": "2026-10-27T06:32:14.422022+00:00",
+    "last_refresh": "2026-10-28T08:21:11.298288+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49,
     "monitored_open_prs": 56,
@@ -1975,7 +1975,10 @@
       "platform_plan": "CPU-only. Same source build as #3495. Repro (must run under `timeout 60`): issue's script — IndexHNSWFlat(2, 10, faiss.METRIC_JensenShannon), add randint(0,10) data -> hangs before fix, completes after. Correctness: compare faiss.pairwise_distances(xq, yb, METRIC_JensenShannon) against scipy.spatial.distance.jensenshannon(x,y)**2 on vectors containing zeros (L1-normalized rows with sparse zeros). Regression: `pytest tests/test_extra_distances.py -x`.",
       "pr_url": "https://github.com/facebookresearch/faiss/pull/5676",
       "pr_raised_at": "2026-09-27T13:52:04+00:00",
-      "outcome": "PR #5676 open ready and mergeable at independently approved commit 2192d4f. The CPU kernel applies exact zero-side Jensen-Shannon limits, including float32 subnormals. Current main no longer literally hangs on the reporter's tiny script, but base returns NaN sparse distances and unusable HNSW labels. Focused, randomized, and 55 adjacent tests pass; Meta CLA/import checks are green. GPU and out-of-domain negatives are unchanged."
+      "outcome": "Resolved upstream test-file merge conflict at 8f5b0972, preserving the existing production fix, regressions and upstream test cleanup. Verified pushed and mergeable; hosted Build awaits maintainer approval.",
+      "last_maintained": "2026-10-28T08:21:11.298288+00:00",
+      "head": "8f5b0972fbcf310d0bf497c4368e3dd9c978abe7",
+      "validation": " Oct28: Fresh generic CPU source build; 51 distance/graph tests pass; both feature regressions fail against unchanged upstream implementation; scoped Ruff, clang-format 21 and whitespace checks pass; independent maintenance review approved."
     },
     {
       "company": "Meta",
@@ -1996,7 +1999,10 @@
       "platform_plan": "CPU-only. Same source build as #3495. Repro: index_factory(64, 'IDMap2,PQ8x8') (train/add random data), search with SearchParametersPQ(sel=IDSelectorBatch([...])) -> RuntimeError 'selector not supported' before fix; after fix, results equal brute-force search restricted to the selected ids (allowing PQ quantization error: compare against IndexPQ search over only the selected subset). Regression: `pytest tests/test_index.py -k PQ -x` and tests/test_search_params.py if present (`pytest tests/test_search_params.py`).",
       "pr_url": "https://github.com/facebookresearch/faiss/pull/5677",
       "pr_raised_at": "2026-09-27T14:10:12+00:00",
-      "outcome": "PR #5677 open ready and mergeable at independently approved commit c7faa7e. Default ST_PQ selector searches use the existing generic selector-aware scan while preserving public IndexPQ statistics; specialized modes still reject selectors. Direct and IDMap2-wrapped L2/IP selection, external IDs, empty/fewer-than-k results, restoration after errors, 56 search-parameter tests, and 47 adjacent tests pass; Meta CLA/import checks are green."
+      "outcome": "Resolved upstream test-file merge conflict at c3afe53a, preserving the existing production fix, regressions and upstream test cleanup. Verified pushed and mergeable; hosted Build awaits maintainer approval.",
+      "last_maintained": "2026-10-28T08:21:11.298288+00:00",
+      "head": "c3afe53a54277f66dd1f4004aa6f5b4fb93c7851",
+      "validation": " Oct28: Fresh generic CPU source build; 59 search-parameter/product-quantizer tests and 7 subtests pass; both feature regressions fail against unchanged upstream implementation; scoped Ruff, clang-format 21 and whitespace checks pass; independent maintenance review approved."
     },
     {
       "company": "Meta",
@@ -4588,6 +4594,11 @@
     {
       "ts": "2026-10-26T06:41:23.404150+00:00",
       "text": "October 26 authenticated sweep: 56 open PRs (including 1 draft), 12 verified landed and 2 closed unmerged. Hermes125141 conflict fixed and pushed. Azure33427 remains conflicting because an upstream fix now covers the same issue; evidence reply posted, awaiting maintainer scope guidance. One additional personal-project PR landed. Maintainers: Azure PR scope/disposition after the upstream fix; Hermes workflow approval; existing authorization/import queues and Goose admin-only flaky-job rerun. Rohan: no new legal signature or credential action. No close/abandon action performed."
+    },
+    {
+      "ts": "2026-10-28T08:21:11.298288+00:00",
+      "text": "October 28 authenticated sweep: resolved test-file merge conflicts in Faiss #5677 and #5676, validated, reviewed, pushed and confirmed mergeable. 74 old approval-gated workflow runs across 21 PRs now report failure but have zero jobs; no executed test failure or author fix inferred. 56 monitored open PRs (1 draft), 12 verified landed, 2 closed unmerged; no remaining actionable author defects. Azure33427 scope blocker remains unchanged.",
+      "repo": "facebookresearch/faiss"
     }
   ],
   "companies": [

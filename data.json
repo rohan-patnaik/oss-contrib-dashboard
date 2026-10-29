@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-28T08:21:11.298288+00:00",
+  "generated": "2026-10-29T06:42:39.897877+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -20,15 +20,15 @@
     "merged": 3,
     "landed_other": 2,
     "active_work": 0,
-    "last_refresh": "2026-10-28T08:21:11.298288+00:00",
+    "last_refresh": "2026-10-29T06:42:39.897877+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49,
     "monitored_open_prs": 56,
     "monitored_drafts": 1,
-    "monitored_recent_landed": 12,
-    "monitored_recent_closed_unmerged": 2,
+    "monitored_recent_landed": 22,
+    "monitored_recent_closed_unmerged": 3,
     "author_action_items": 0,
-    "monitored_personal_project_landings": 7,
+    "monitored_personal_project_landings": 17,
     "campaign_closed_unmerged": 1,
     "deferred_closed_review_findings": 1,
     "maintenance_excluded_repositories": [
@@ -1849,10 +1849,10 @@
       "platform_plan": "Pure Python, fully CPU-testable on macOS ARM64: pytest tests/agent/test_summarize_tool_result_type_safety.py tests/agent/test_context_compressor.py -x. Reproduce in a unit test: call _summarize_tool_result('mcp__docs__fetch', '{\"uri\": \"...\"}', '<40KB payload>') at HEAD and assert the returned summary contains none of the payload (current behavior), then assert the fixed behavior preserves a bounded excerpt.",
       "pr_url": "https://github.com/NousResearch/hermes-agent/pull/125141",
       "pr_raised_at": "2026-09-27T11:26:58+00:00",
-      "outcome": "Merged main 0107da5d2a36 into 8ffa4eb3341e3e5faf3b003881d355a3358ed328. Preserved upstream tail_cut_pricer, CompactionWindowMixin and prepared-compaction behavior alongside bounded MCP summaries. Exact pushed head verified MERGEABLE; CI, Nix and Docker await maintainer approval.",
-      "last_maintained": "2026-10-26T06:41:23.404150+00:00",
-      "head": "8ffa4eb3341e3e5faf3b003881d355a3358ed328",
-      "validation": " Oct25: 337 tests passed across seven focused compression suites; new regression failed without rule stripping and passed with it. All 12 canonical scripts/check checks passed on the exact committed tree. Independent review approved. Oct26: 393 focused tests passed across ten compression/prepared-compaction/tail-cut suites; all 13 canonical scripts/check checks pass on the exact committed tree; independent integration review approved."
+      "outcome": "Merged main ef75bc708867 into 617eef363c. Preserved upstream handoff progress floor and prepared-compaction behavior alongside bounded MCP summaries, terminal-marker validation and skill-rule stripping. Pushed head verified MERGEABLE; CI, Nix and Docker await maintainer approval.",
+      "last_maintained": "2026-10-29T06:42:39.897877+00:00",
+      "head": "617eef363cd8a6018ec144225d556930d1c6010b",
+      "validation": " Oct25: 337 tests passed across seven focused compression suites; new regression failed without rule stripping and passed with it. All 12 canonical scripts/check checks passed on the exact committed tree. Independent review approved. Oct26: 393 focused tests passed across ten compression/prepared-compaction/tail-cut suites; all 13 canonical scripts/check checks pass on the exact committed tree; independent integration review approved. Oct29: 399 tests passed in 12 files using canonical isolated runner; all 13 scripts/check checks pass on exact committed tree against ef75bc708867; independent integration review approved."
     },
     {
       "company": "Microsoft AI / DeepSpeed (LF)",
@@ -4599,6 +4599,10 @@
       "ts": "2026-10-28T08:21:11.298288+00:00",
       "text": "October 28 authenticated sweep: resolved test-file merge conflicts in Faiss #5677 and #5676, validated, reviewed, pushed and confirmed mergeable. 74 old approval-gated workflow runs across 21 PRs now report failure but have zero jobs; no executed test failure or author fix inferred. 56 monitored open PRs (1 draft), 12 verified landed, 2 closed unmerged; no remaining actionable author defects. Azure33427 scope blocker remains unchanged.",
       "repo": "facebookresearch/faiss"
+    },
+    {
+      "ts": "2026-10-29T06:42:39.897877+00:00",
+      "text": "October 29 authenticated sweep: Hermes #125141 merge conflict resolved, validated, independently reviewed and pushed; exact head confirmed mergeable. 56 monitored open PRs (1 draft), 22 verified landed (17 personal-project PRs), 3 closed unmerged. Ten new personal-site merges and one personal-site closure; external OSS landed count remains five. No new review findings or remaining actionable author defects. Azure33427 scope blocker remains unchanged."
     }
   ],
   "companies": [

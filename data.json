@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-02T06:32:26.452307+00:00",
+  "generated": "2026-11-03T06:43:39.481545+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -20,15 +20,15 @@
     "merged": 3,
     "landed_other": 2,
     "active_work": 0,
-    "last_refresh": "2026-11-02T06:32:26.452307+00:00",
+    "last_refresh": "2026-11-03T06:43:39.481545+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49,
     "monitored_open_prs": 56,
     "monitored_drafts": 1,
-    "monitored_recent_landed": 62,
+    "monitored_recent_landed": 63,
     "monitored_recent_closed_unmerged": 3,
     "author_action_items": 0,
-    "monitored_personal_project_landings": 57,
+    "monitored_personal_project_landings": 58,
     "campaign_closed_unmerged": 1,
     "deferred_closed_review_findings": 1,
     "maintenance_excluded_repositories": [
@@ -1348,12 +1348,12 @@
       "career_signal": "very_high",
       "career_signal_rationale": "Agent-runtime data-integrity fix: docker runtime's git worktrees span host/container namespaces and are prunable from the host, risking work loss — consequential execution-environment correctness requiring cross-namespace design.",
       "career_assessed_at": "2026-09-24T20:38:31+00:00",
-      "outcome": "Merged current main and preserved host/container worktree namespace protection plus upstream container options. Independently reviewed, pushed, reply read back, mergeable. Full body/HUMAN unchanged. Hosted test workflows require maintainer authorization.",
+      "outcome": "Merged current main b0789c73151a into f230e705f9a883cdf38df780f436751893ca496d, preserving upstream container leases and the host/container worktree namespace fix. Independent integration review approved; exact pushed head and reply read back, mergeable. Full body/HUMAN unchanged. Hosted code workflows require maintainer authorization.",
       "pr_url": "https://github.com/OpenHands/software-agent-sdk/pull/5318",
       "pr_raised_at": "2026-09-25T07:37:56+00:00",
-      "last_maintained": "2026-10-22T08:08:51.881177+00:00",
-      "head": "808d644e1c9cf46eebb76f70546b05e996952b31",
-      "validation": " Oct22: 235 focused tests and scoped hooks including Pyright pass; live Docker lifecycle fails on exact upstream and passes on candidate; public evidence download hash verified"
+      "last_maintained": "2026-11-03T06:43:39.481545+00:00",
+      "head": "f230e705f9a883cdf38df780f436751893ca496d",
+      "validation": " Oct22: 235 focused tests and scoped hooks including Pyright pass; live Docker lifecycle fails on exact upstream and passes on candidate; public evidence download hash verified Nov3: 303 adjacent tests passed (one opt-in skip, six unrelated deselections); separate real Docker lifecycle passes in 48.50 seconds while exact upstream reproduces the prunable registration. PR-scope and merge hooks, including Pyright, passed. Independent read-only review approved the exact committed tree against both parents. Uploaded sanitized evidence downloaded with matching SHA256 a17eb76d02a5ee83b6efc894ff879ee86f98190ed203f9eac2e1cf39250d97de."
     },
     {
       "company": "OpenHands",

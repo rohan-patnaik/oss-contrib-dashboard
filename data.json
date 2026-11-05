@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-04T07:26:03.194584+00:00",
+  "generated": "2026-11-05T06:53:43.102016+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -20,7 +20,7 @@
     "merged": 3,
     "landed_other": 2,
     "active_work": 0,
-    "last_refresh": "2026-11-04T07:26:03.194584+00:00",
+    "last_refresh": "2026-11-05T06:53:43.102016+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49,
     "monitored_open_prs": 56,
@@ -1188,11 +1188,11 @@
       "career_assessed_at": "2026-09-24T20:38:31+00:00",
       "pr_url": "https://github.com/aaif-goose/goose/pull/12499",
       "pr_raised_at": "2026-09-24T20:59:25+00:00",
-      "outcome": "Merged current main 71dd9a9aa234 into f924cd8798981536fb8723b9e01f20b2637e5b0f while retaining context relevance and thinking recovery. Fixed bounded retries for agent-only kickoffs across generated turn-context messages. Exact pushed head/reply read back, mergeable; hosted CI and MCP conformance still in progress.",
-      "last_maintained": "2026-11-04T07:26:03.194584+00:00",
-      "head": "f924cd8798981536fb8723b9e01f20b2637e5b0f",
+      "outcome": "Merged main bfe8ccd23de1d2c47a4cb2970d522f093ae7f2ba into 9752ffc55bf069b49e4c3bf05f3b6e7959409545, retaining new GDK hook adapters, configuration and ordering together with thinking recovery. Exact hosted head and comment verified, mergeable; current-head CI/MCP conformance in progress.",
+      "last_maintained": "2026-11-05T06:53:43.102016+00:00",
+      "head": "9752ffc55bf069b49e4c3bf05f3b6e7959409545",
       "pr_state": "open",
-      "validation": "Nov4: All 166 state-machine tests pass on Rust 1.99.0; scoped all-target Clippy with warnings denied, formatting and diff checks pass. Four feature regressions fail against exact upstream. The new hidden-kickoff regression fails on the original merge with five calls versus four, then passes across two turns after the retry-accounting correction. Independent integration/retry review completed; final one-line turn-context exclusion was parent-reviewed and verified by the focused and full suites."
+      "validation": "Nov4: All 166 state-machine tests pass on Rust 1.99.0; scoped all-target Clippy with warnings denied, formatting and diff checks pass. Four feature regressions fail against exact upstream. The new hidden-kickoff regression fails on the original merge with five calls versus four, then passes across two turns after the retry-accounting correction. Independent integration/retry review completed; final one-line turn-context exclusion was parent-reviewed and verified by the focused and full suites. Nov5: All 165 state-machine tests pass on Rust 1.99.0, including all four thinking-recovery regressions. Scoped all-target Clippy with warnings denied, formatting and whitespace checks pass. Independent review approves exact candidate tree 22092423abfcac87b0175165165f4e2d71502f43; committed tree matches. Recovery implementation and regression tests remain byte-identical to the published parent."
     },
     {
       "company": "Block/Goose",

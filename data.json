@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-06T06:55:48.948300+00:00",
+  "generated": "2026-11-07T06:47:18.832220+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -16,25 +16,26 @@
     },
     "reproduced": 36,
     "authored": 36,
-    "open_prs": 30,
-    "merged": 3,
+    "open_prs": 29,
+    "merged": 4,
     "landed_other": 2,
     "active_work": 0,
-    "last_refresh": "2026-11-06T06:55:48.948300+00:00",
+    "last_refresh": "2026-11-07T06:47:18.832220+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49,
-    "monitored_open_prs": 56,
+    "monitored_open_prs": 55,
     "monitored_drafts": 1,
-    "monitored_recent_landed": 63,
+    "monitored_recent_landed": 72,
     "monitored_recent_closed_unmerged": 3,
     "author_action_items": 0,
-    "monitored_personal_project_landings": 58,
+    "monitored_personal_project_landings": 66,
     "campaign_closed_unmerged": 1,
     "deferred_closed_review_findings": 1,
     "maintenance_excluded_repositories": [
       "pingdotgg/t3code"
     ],
-    "maintenance_scope_blockers": 1
+    "maintenance_scope_blockers": 1,
+    "monitored_external_oss_landings": 6
   },
   "repos": [
     {
@@ -1341,7 +1342,7 @@
       "importance": "high",
       "importance_rationale": "priority:high by maintainers: with OH_CONVERSATION_RUNTIME=docker + worktree=true, the created worktree is immediately 'prunable' from the host - routine host-side git gc/worktree prune severs the conversation's working tree, risking loss of in-progress agent work and breaking the worktree feature for every docker-runtime user.",
       "difficulty": "high",
-      "status": "pr-open",
+      "status": "merged",
       "verified_at": "2026-09-24T19:05:00Z",
       "ownership_check": "Fresh publish check 2026-09-25T07:36:43Z: issue open and unassigned; no exact-issue, prunable-worktree, namespace, or OH_CONVERSATION_WORKTREE_ROOT competitor; broad Docker PR #4883 is a distinct execution-only design for #4187.",
       "competing_prs": [],
@@ -1349,12 +1350,15 @@
       "career_signal": "very_high",
       "career_signal_rationale": "Agent-runtime data-integrity fix: docker runtime's git worktrees span host/container namespaces and are prunable from the host, risking work loss — consequential execution-environment correctness requiring cross-namespace design.",
       "career_assessed_at": "2026-09-24T20:38:31+00:00",
-      "outcome": "Merged current main 295b3baf71df into 2cc9ec8113938c80202464b949d13c91b111dbfe, preserving extracted start-helper/leases, host/container worktree namespace handling, sibling protection and cleanup. Ownership manifests remain until conversation state removal succeeds. Both parents’ regression tests retained. Exact hosted head/reply verified, mergeable; full body/HUMAN unchanged. Hosted code workflows require maintainer authorization.",
+      "outcome": "PR #5318 merged upstream on 2026-11-06T12:25:13Z after maintainer approval, final head 87d43e378c3f7102821fd79089ffc07934afd40b, merge commit 0736586c6542872175b4f2b281b39870fcda140f. Both merged PR metadata and resolving upstream commit were verified live. This sweep made no OpenHands body edits; HUMAN wording is unchanged, with line endings normalized upstream.",
       "pr_url": "https://github.com/OpenHands/software-agent-sdk/pull/5318",
       "pr_raised_at": "2026-09-25T07:37:56+00:00",
-      "last_maintained": "2026-11-06T06:55:48.948300+00:00",
-      "head": "2cc9ec8113938c80202464b949d13c91b111dbfe",
-      "validation": " Oct22: 235 focused tests and scoped hooks including Pyright pass; live Docker lifecycle fails on exact upstream and passes on candidate; public evidence download hash verified Nov3: 303 adjacent tests passed (one opt-in skip, six unrelated deselections); separate real Docker lifecycle passes in 48.50 seconds while exact upstream reproduces the prunable registration. PR-scope and merge hooks, including Pyright, passed. Independent read-only review approved the exact committed tree against both parents. Uploaded sanitized evidence downloaded with matching SHA256 a17eb76d02a5ee83b6efc894ff879ee86f98190ed203f9eac2e1cf39250d97de. Nov6: 306 adjacent tests passed (one opt-in skip, six unrelated deselections); separate real Docker lifecycle passes in 55.90 seconds while exact upstream reproduces the prunable registration. PR-scope, edited-file and merge hooks, including Pyright, pass. Independent review approves exact tree 243f870daa9150c8943c582102bd8ee906c3aa0f against both parents; committed tree matches. Sanitized public evidence download SHA256 69474b68f6054acf22e8f411f29d542ee942869c60f1f50a071a075a384fe3d9 verified. Upstream dependency changes meet the seven-day age policy; lock remains identical to upstream."
+      "last_maintained": "2026-11-07T06:47:18.832220+00:00",
+      "head": "87d43e378c3f7102821fd79089ffc07934afd40b",
+      "validation": " Oct22: 235 focused tests and scoped hooks including Pyright pass; live Docker lifecycle fails on exact upstream and passes on candidate; public evidence download hash verified Nov3: 303 adjacent tests passed (one opt-in skip, six unrelated deselections); separate real Docker lifecycle passes in 48.50 seconds while exact upstream reproduces the prunable registration. PR-scope and merge hooks, including Pyright, passed. Independent read-only review approved the exact committed tree against both parents. Uploaded sanitized evidence downloaded with matching SHA256 a17eb76d02a5ee83b6efc894ff879ee86f98190ed203f9eac2e1cf39250d97de. Nov6: 306 adjacent tests passed (one opt-in skip, six unrelated deselections); separate real Docker lifecycle passes in 55.90 seconds while exact upstream reproduces the prunable registration. PR-scope, edited-file and merge hooks, including Pyright, pass. Independent review approves exact tree 243f870daa9150c8943c582102bd8ee906c3aa0f against both parents; committed tree matches. Sanitized public evidence download SHA256 69474b68f6054acf22e8f411f29d542ee942869c60f1f50a071a075a384fe3d9 verified. Upstream dependency changes meet the seven-day age policy; lock remains identical to upstream. Nov7: Live maintainer approval, mergedAt, mergeCommit and resolving commit verified. Executed final checks succeeded; superseded review gate cancelled, later gate succeeded, and release/deployment jobs skipped. Upstream added its own follow-up fixes and macOS packaged-image evidence before merging.",
+      "pr_state": "merged",
+      "merged_at": "2026-11-06T12:25:13Z",
+      "merge_commit": "0736586c6542872175b4f2b281b39870fcda140f"
     },
     {
       "company": "OpenHands",
@@ -4604,6 +4608,10 @@
     {
       "ts": "2026-10-29T06:42:39.897877+00:00",
       "text": "October 29 authenticated sweep: Hermes #125141 merge conflict resolved, validated, independently reviewed and pushed; exact head confirmed mergeable. 56 monitored open PRs (1 draft), 22 verified landed (17 personal-project PRs), 3 closed unmerged. Ten new personal-site merges and one personal-site closure; external OSS landed count remains five. No new review findings or remaining actionable author defects. Azure33427 scope blocker remains unchanged."
+    },
+    {
+      "ts": "2026-11-07T06:47:18.832220+00:00",
+      "text": "November 7 authenticated sweep: OpenHands #5318 merged upstream with explicit commit evidence. Production-stack #1100 chart-version conflict resolved, validated, independently reviewed, DCO-signed and pushed; exact head is mergeable. Nine new verified landings: OpenHands plus eight personal Hydebus PRs. 55 monitored open PRs (one draft), 72 landed (66 personal-project and six external OSS), three closed unmerged. No remaining actionable author-side defects; unchanged Azure #33427 scope blocker awaits maintainer guidance. OpenHands: https://github.com/OpenHands/software-agent-sdk/pull/5318. Production-stack: https://github.com/vllm-project/production-stack/pull/1100. All 155 chart tests, Helm lint, schema regeneration and applicable hooks pass. Hosted code workflows await maintainer authorization; DCO and documentation pass. No new Rohan action."
     }
   ],
   "companies": [

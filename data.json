@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-09T06:34:57.872981+00:00",
+  "generated": "2026-11-10T06:32:41.002245+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -20,7 +20,7 @@
     "merged": 4,
     "landed_other": 2,
     "active_work": 0,
-    "last_refresh": "2026-11-09T06:34:57.872981+00:00",
+    "last_refresh": "2026-11-10T06:32:41.002245+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49,
     "monitored_open_prs": 55,

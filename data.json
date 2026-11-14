@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-10T06:32:41.002245+00:00",
+  "generated": "2026-11-14T08:53:47.318734+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -20,15 +20,15 @@
     "merged": 4,
     "landed_other": 2,
     "active_work": 0,
-    "last_refresh": "2026-11-10T06:32:41.002245+00:00",
+    "last_refresh": "2026-11-14T08:53:47.318734+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49,
-    "monitored_open_prs": 55,
+    "monitored_open_prs": 57,
     "monitored_drafts": 1,
-    "monitored_recent_landed": 72,
+    "monitored_recent_landed": 79,
     "monitored_recent_closed_unmerged": 3,
     "author_action_items": 0,
-    "monitored_personal_project_landings": 66,
+    "monitored_personal_project_landings": 73,
     "campaign_closed_unmerged": 1,
     "deferred_closed_review_findings": 1,
     "maintenance_excluded_repositories": [
@@ -1189,11 +1189,11 @@
       "career_assessed_at": "2026-09-24T20:38:31+00:00",
       "pr_url": "https://github.com/aaif-goose/goose/pull/12499",
       "pr_raised_at": "2026-09-24T20:59:25+00:00",
-      "outcome": "Triaged new Goose #11975 field report of thinking-only termination on released Goose 1.57.0 with ACP Desktop, local Qwen and Tool Shim. No PR-branch failure established. Replied once requesting a redacted comparison against #12499 head 9752ffc55bf069b49e4c3bf05f3b6e7959409545 and whether recovery/fallback runs. Current Rust/native-TLS CI success verified; exact reported deployment remains untested. Comment read back and existing PR link verified. No source/branch change or duplicate nudge.",
-      "last_maintained": "2026-11-09T06:34:57.872981+00:00",
-      "head": "9752ffc55bf069b49e4c3bf05f3b6e7959409545",
+      "outcome": "November 14: safely integrated upstream 2365bc5e898a in dfd973f78b91fdd9c5d4aa5d38a5aa962c499246; GitHub confirms the intended PR branch/head is mergeable. All 170 state-machine tests, scoped all-target Clippy with warnings denied, formatting and whitespace checks pass on Rust 1.99. Four recovery regressions fail against exact upstream and pass with the preserved feature. Primary-agent technical review completed; concise public validation reply and updated Testing section read back. Hosted CI and MCP conformance also pass on this exact head; all five required checks passed. Optional released ACP/Tool Shim comparison trace remains outstanding from the reporter.",
+      "last_maintained": "2026-11-14T08:53:47.318734+00:00",
+      "head": "dfd973f78b91fdd9c5d4aa5d38a5aa962c499246",
       "pr_state": "open",
-      "validation": "Nov4: All 166 state-machine tests pass on Rust 1.99.0; scoped all-target Clippy with warnings denied, formatting and diff checks pass. Four feature regressions fail against exact upstream. The new hidden-kickoff regression fails on the original merge with five calls versus four, then passes across two turns after the retry-accounting correction. Independent integration/retry review completed; final one-line turn-context exclusion was parent-reviewed and verified by the focused and full suites. Nov5: All 165 state-machine tests pass on Rust 1.99.0, including all four thinking-recovery regressions. Scoped all-target Clippy with warnings denied, formatting and whitespace checks pass. Independent review approves exact candidate tree 22092423abfcac87b0175165165f4e2d71502f43; committed tree matches. Recovery implementation and regression tests remain byte-identical to the published parent. Nov9: Read-only authenticated verification: all 55 exact PR heads and their check contexts/workflow histories are unchanged from November 7; no workflow API errors or pagination overflow. Goose #12499 head 9752ffc55bf069b49e4c3bf05f3b6e7959409545 remains mergeable, with Rust, native-TLS and MCP conformance checks successful. New issue report concerns released Goose 1.57.0, not a verified failure of this PR branch. No tests, builds, code changes, pushes to PR branches or reruns were needed. The precise ACP Desktop/local Qwen/Tool Shim combination remains unverified pending a redacted comparison trace."
+      "validation": "November 14: safely integrated upstream 2365bc5e898a in dfd973f78b91fdd9c5d4aa5d38a5aa962c499246; GitHub confirms the intended PR branch/head is mergeable. All 170 state-machine tests, scoped all-target Clippy with warnings denied, formatting and whitespace checks pass on Rust 1.99. Four recovery regressions fail against exact upstream and pass with the preserved feature. Primary-agent technical review completed; concise public validation reply and updated Testing section read back. Hosted CI and MCP conformance also pass on this exact head; all five required checks passed. Optional released ACP/Tool Shim comparison trace remains outstanding from the reporter."
     },
     {
       "company": "Block/Goose",
@@ -1833,7 +1833,11 @@
       "platform_plan": "Pure-Python gateway code, no platform credentials needed for tests. macOS ARM64: uv venv && uv pip install -e . (or repo's documented dev install); pytest tests/gateway/test_whatsapp_cloud.py tests/gateway/test_whatsapp_reply_prefix.py -x. Reproduce with a webhook-payload fixture whose context.id references a wamid absent from rich_sent_index.json: MessageEvent carries reply_to_message_id with reply_to_text=None, and _prepend_inbound_reply_context emits no pointer (assert on message_text).",
       "pr_url": "https://github.com/NousResearch/hermes-agent/pull/125116",
       "pr_raised_at": "2026-09-27T11:04:22+00:00",
-      "outcome": "PR #125116 open ready at independently approved commit e0a42ab; unresolved WhatsApp Cloud quotes retain an explicit relationship pointer, one chat can no longer consume the durable quote index, both regressions fail on base, 59 affected tests plus the Slack thread negative control pass, and missing historical text remains explicitly unavailable."
+      "outcome": "November 14: safely integrated upstream 422ad1861856 in f79f96d7ffe350ef4c505343cc8d14633392b463, preserving upstream cron reference-only quoting and the Cloud-specific unavailable-content fallback. Three feature regressions fail with upstream implementations. PM-managed Python 3.14.9 dev/test+messaging environment passes all 87 focused/adjacent tests; all 19 canonical checks pass. Contributor file unchanged. Primary-agent technical review completed; intended branch/head, mergeability, public body and reply read back. Hosted workflows require maintainer authorization and have run no jobs.",
+      "head": "f79f96d7ffe350ef4c505343cc8d14633392b463",
+      "last_maintained": "2026-11-14T08:53:47.318734+00:00",
+      "validation": "November 14: safely integrated upstream 422ad1861856 in f79f96d7ffe350ef4c505343cc8d14633392b463, preserving upstream cron reference-only quoting and the Cloud-specific unavailable-content fallback. Three feature regressions fail with upstream implementations. PM-managed Python 3.14.9 dev/test+messaging environment passes all 87 focused/adjacent tests; all 19 canonical checks pass. Contributor file unchanged. Primary-agent technical review completed; intended branch/head, mergeability, public body and reply read back. Hosted workflows require maintainer authorization and have run no jobs.",
+      "pr_state": "open"
     },
     {
       "company": "Nous",
@@ -4617,6 +4621,11 @@
       "ts": "2026-11-09T06:34:57.872981+00:00",
       "repo": "aaif-goose/goose",
       "text": "November 9 authenticated sweep: PR states, heads, feedback, conflicts and current-head workflow histories unchanged from November 7. New Goose #11975 field report triaged; one concise reply requested a redacted ACP/Tool Shim comparison against PR #12499. No verified author-side defect or code change. Counts unchanged: 55 open PRs (one draft), 72 verified landed (66 personal-project, six external OSS), three closed unmerged. Azure #33427 remains the sole maintainer scope blocker. Reply: https://github.com/aaif-goose/goose/issues/11975#issuecomment-6733860864. Current Rust/native-TLS CI success verified; the precise reported ACP/Tool Shim setup is not yet validated. No new Rohan action."
+    },
+    {
+      "ts": "2026-11-14T08:53:47.318734+00:00",
+      "repo": "campaign",
+      "text": "November 14 authenticated sweep compared with November 10: resolved and pushed current-main conflicts for Goose #12499 (dfd973f78b91) and Hermes #125116 (f79f96d7ffe3), with regression proof, focused checks and read-back validation replies. Seven newly verified personal-project merges; two new personal-project open PRs require no author action. Counts: 57 open (one draft), 79 verified landed (73 personal-project, 6 external OSS), 3 closed unmerged. Zero remaining verified author-side defects; unchanged Azure scope blocker. Anysphere #10's previously approval-gated CI run now says failure with zero jobs/checks executed, requiring maintainer workflow action. Disposable validation environments cleaned; source and evidence retained."
     }
   ],
   "companies": [

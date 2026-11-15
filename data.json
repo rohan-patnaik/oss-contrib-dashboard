@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-14T08:53:47.318734+00:00",
+  "generated": "2026-11-15T06:40:31.409684+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -20,7 +20,7 @@
     "merged": 4,
     "landed_other": 2,
     "active_work": 0,
-    "last_refresh": "2026-11-14T08:53:47.318734+00:00",
+    "last_refresh": "2026-11-15T06:40:31.409684+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49,
     "monitored_open_prs": 57,
@@ -1977,17 +1977,18 @@
       "career_signal_rationale": "Numerical correctness of a distance-metric kernel in the canonical similarity-search library, with a user-visible failure mode (unbounded hang) traced through NaN propagation into graph-search termination conditions; the fix re-enables a disabled upstream correctness test against scipy — defensible, quantitative ML-infrastructure work.",
       "career_assessed_at": "2026-09-24T22:00:00Z",
       "difficulty": "medium",
-      "status": "vetted",
+      "status": "pr-open",
       "verified_at": "2026-09-24T21:58:32Z",
       "ownership_check": "Fresh publish check 2026-09-27T13:51:28Z: issue open and unassigned; exact-issue, Jensen-Shannon, HNSW, and timeline searches found no active or linked competing implementation.",
       "competing_prs": [],
       "platform_plan": "CPU-only. Same source build as #3495. Repro (must run under `timeout 60`): issue's script — IndexHNSWFlat(2, 10, faiss.METRIC_JensenShannon), add randint(0,10) data -> hangs before fix, completes after. Correctness: compare faiss.pairwise_distances(xq, yb, METRIC_JensenShannon) against scipy.spatial.distance.jensenshannon(x,y)**2 on vectors containing zeros (L1-normalized rows with sparse zeros). Regression: `pytest tests/test_extra_distances.py -x`.",
       "pr_url": "https://github.com/facebookresearch/faiss/pull/5676",
       "pr_raised_at": "2026-09-27T13:52:04+00:00",
-      "outcome": "Resolved upstream test-file merge conflict at 8f5b0972, preserving the existing production fix, regressions and upstream test cleanup. Verified pushed and mergeable; hosted Build awaits maintainer approval.",
-      "last_maintained": "2026-10-28T08:21:11.298288+00:00",
-      "head": "8f5b0972fbcf310d0bf497c4368e3dd9c978abe7",
-      "validation": " Oct28: Fresh generic CPU source build; 51 distance/graph tests pass; both feature regressions fail against unchanged upstream implementation; scoped Ruff, clang-format 21 and whitespace checks pass; independent maintenance review approved."
+      "outcome": "Maintainer merged main into Faiss #5676 at 4fb4c7b9ca3e2729774fe5929705d5656acdc4b9 and imported the still-open PR into Meta. Internal tests/linter, CLA and import checks pass. Windows wheel setup fails in unchanged base OpenBLAS PowerShell code before compiling the feature; one evidence-backed reply posted. Await maintainer CI/import completion; not counted as landed. No author source change, push or rerun.",
+      "last_maintained": "2026-11-15T06:40:31.409684+00:00",
+      "head": "4fb4c7b9ca3e2729774fe5929705d5656acdc4b9",
+      "validation": " Oct28: Fresh generic CPU source build; 51 distance/graph tests pass; both feature regressions fail against unchanged upstream implementation; scoped Ruff, clang-format 21 and whitespace checks pass; independent maintenance review approved. November 15: Maintainer head 4fb4c7b9ca3e is imported and still open. Internal builds/tests, linter, CLA and import checks pass. The Windows wheel job fails in OpenBLAS before_all setup, before Faiss compilation; install-openblas.ps1 is byte-identical to base ebab8f784c1d. No new local tests/builds or speculative rerun; maintainer CI/import action remains.",
+      "pr_state": "open"
     },
     {
       "company": "Meta",
@@ -4626,6 +4627,11 @@
       "ts": "2026-11-14T08:53:47.318734+00:00",
       "repo": "campaign",
       "text": "November 14 authenticated sweep compared with November 10: resolved and pushed current-main conflicts for Goose #12499 (dfd973f78b91) and Hermes #125116 (f79f96d7ffe3), with regression proof, focused checks and read-back validation replies. Seven newly verified personal-project merges; two new personal-project open PRs require no author action. Counts: 57 open (one draft), 79 verified landed (73 personal-project, 6 external OSS), 3 closed unmerged. Zero remaining verified author-side defects; unchanged Azure scope blocker. Anysphere #10's previously approval-gated CI run now says failure with zero jobs/checks executed, requiring maintainer workflow action. Disposable validation environments cleaned; source and evidence retained."
+    },
+    {
+      "ts": "2026-11-15T06:40:31.409684+00:00",
+      "repo": "facebookresearch/faiss",
+      "text": "November 15 authenticated sweep: Faiss #5676 remains OPEN and is now imported into Meta after a maintainer merged main into the PR branch at 4fb4c7b9ca3e. Internal builds/tests, linter, CLA and import checks pass. The Windows-2022 wheel job fails before Faiss compilation during OpenBLAS setup; its PowerShell setup script is byte-identical to base. Posted one concise evidence note. This is maintainer CI/import work, not an author-code defect or landed PR. All other authored PRs have no material change from November 14. Counts unchanged: 57 open (one draft), 79 verified landed (73 personal-project, six external OSS), three closed unmerged; zero author-side items and unchanged Azure scope blocker. Reply: https://github.com/facebookresearch/faiss/pull/5676#issuecomment-6890447750"
     }
   ],
   "companies": [

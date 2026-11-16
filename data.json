@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-16T07:05:04.352521+00:00",
+  "generated": "2026-11-16T07:14:01.214395+00:00",
   "campaign": {
     "phase": "RESEARCH COMPLETE/STOPPED — implementation running in the GPT 5.6 Sol thread (Omarchy PC)",
     "note": "Mode change 2026-09-25: this (Fable) thread now ONLY finds and validates eligible issues, appending per-issue minimal-fix guidance to a handoff prompt; PR implementation moves to a separate GPT 5.6 Sol (high reasoning) thread on user signal. Career gate unchanged (High/VH only, plus explicit user exceptions). Counts truthful."
@@ -20,7 +20,7 @@
     "merged": 4,
     "landed_other": 2,
     "active_work": 0,
-    "last_refresh": "2026-11-16T07:05:04.352521+00:00",
+    "last_refresh": "2026-11-16T07:14:01.214395+00:00",
     "excluded_prior_repos": 26,
     "pr_qualified": 49,
     "monitored_open_prs": 57,
@@ -1189,11 +1189,11 @@
       "career_assessed_at": "2026-09-24T20:38:31+00:00",
       "pr_url": "https://github.com/aaif-goose/goose/pull/12499",
       "pr_raised_at": "2026-09-24T20:59:25+00:00",
-      "outcome": "November 16: safely integrated upstream bf6e1df335a3 in b48a81d4460bf2bba133fddb06b2221104984b61; retained shared upstream operations and unchanged bounded thinking recovery. GitHub confirms the intended branch/head is mergeable. Four recovery regressions fail behaviorally on exact upstream bf6e1df335a3 and pass with the preserved fix. All 170 state-machine tests, scoped all-target Clippy (rustls-tls,tree-sitter,scheduler,acp-http; -D warnings), cargo fmt and whitespace checks pass on Rust 1.99 / Protoc 31.1. Primary-agent review confirms the exact committed tree and both parents. Intended fork/branch/head, mergeability, PR body and concise validation reply read back. Full workspace and live-provider end-to-end tests not rerun. Hosted CI is running on the new head, not claimed green. Optional released ACP/Tool Shim comparison trace remains with the reporter.",
-      "last_maintained": "2026-11-16T07:05:04.352521+00:00",
+      "outcome": "November 16: safely integrated upstream bf6e1df335a3 in b48a81d4460bf2bba133fddb06b2221104984b61; retained shared upstream operations and unchanged bounded thinking recovery. GitHub confirms the intended branch/head is mergeable. Four recovery regressions fail behaviorally on exact upstream bf6e1df335a3 and pass with the preserved fix. All 170 state-machine tests, scoped all-target Clippy (rustls-tls,tree-sitter,scheduler,acp-http; -D warnings), cargo fmt and whitespace checks pass on Rust 1.99 / Protoc 31.1. Primary-agent review confirms the exact committed tree and both parents. Intended fork/branch/head, mergeability, PR body and concise validation reply read back. Full workspace and live-provider end-to-end tests not rerun. Hosted CI is complete on this exact head: 32 successful checks and 11 expected skips; required checks passed, including Rust/TLS builds and MCP conformance. No new reviews/comments or unresolved threads. Optional released ACP/Tool Shim comparison trace remains with the reporter. Disposable build image/toolchain/dependencies removed after verification, releasing 16.00 GB; both task mounts and own loop detached, unrelated loop preserved.",
+      "last_maintained": "2026-11-16T07:14:01.214395+00:00",
       "head": "b48a81d4460bf2bba133fddb06b2221104984b61",
       "pr_state": "open",
-      "validation": "Four recovery regressions fail behaviorally on exact upstream bf6e1df335a3 and pass with the preserved fix. All 170 state-machine tests, scoped all-target Clippy (rustls-tls,tree-sitter,scheduler,acp-http; -D warnings), cargo fmt and whitespace checks pass on Rust 1.99 / Protoc 31.1. Primary-agent review confirms the exact committed tree and both parents. Intended fork/branch/head, mergeability, PR body and concise validation reply read back. Full workspace and live-provider end-to-end tests not rerun. Hosted CI is running on the new head, not claimed green."
+      "validation": "Four recovery regressions fail behaviorally on exact upstream bf6e1df335a3 and pass with the preserved fix. All 170 state-machine tests, scoped all-target Clippy (rustls-tls,tree-sitter,scheduler,acp-http; -D warnings), cargo fmt and whitespace checks pass on Rust 1.99 / Protoc 31.1. Primary-agent review confirms the exact committed tree and both parents. Intended fork/branch/head, mergeability, PR body and concise validation reply read back. Full workspace and live-provider end-to-end tests not rerun. Hosted CI is complete on this exact head: 32 successful checks and 11 expected skips; required checks passed, including Rust/TLS builds and MCP conformance. No new reviews/comments or unresolved threads."
     },
     {
       "company": "Block/Goose",
@@ -4634,9 +4634,9 @@
       "text": "November 15 authenticated sweep: Faiss #5676 remains OPEN and is now imported into Meta after a maintainer merged main into the PR branch at 4fb4c7b9ca3e. Internal builds/tests, linter, CLA and import checks pass. The Windows-2022 wheel job fails before Faiss compilation during OpenBLAS setup; its PowerShell setup script is byte-identical to base. Posted one concise evidence note. This is maintainer CI/import work, not an author-code defect or landed PR. All other authored PRs have no material change from November 14. Counts unchanged: 57 open (one draft), 79 verified landed (73 personal-project, six external OSS), three closed unmerged; zero author-side items and unchanged Azure scope blocker. Reply: https://github.com/facebookresearch/faiss/pull/5676#issuecomment-6890447750"
     },
     {
-      "ts": "2026-11-16T07:05:04.352521+00:00",
+      "ts": "2026-11-16T07:14:01.214395+00:00",
       "repo": "aaif-goose/goose",
-      "text": "November 16: safely integrated upstream bf6e1df335a3 in b48a81d4460bf2bba133fddb06b2221104984b61; retained shared upstream operations and unchanged bounded thinking recovery. GitHub confirms the intended branch/head is mergeable. Four recovery regressions fail behaviorally on exact upstream bf6e1df335a3 and pass with the preserved fix. All 170 state-machine tests, scoped all-target Clippy (rustls-tls,tree-sitter,scheduler,acp-http; -D warnings), cargo fmt and whitespace checks pass on Rust 1.99 / Protoc 31.1. Primary-agent review confirms the exact committed tree and both parents. Intended fork/branch/head, mergeability, PR body and concise validation reply read back. Full workspace and live-provider end-to-end tests not rerun. Hosted CI is running on the new head, not claimed green. Optional released ACP/Tool Shim comparison trace remains with the reporter. Reply: https://github.com/aaif-goose/goose/pull/12499#issuecomment-6909787447"
+      "text": "November 16: safely integrated upstream bf6e1df335a3 in b48a81d4460bf2bba133fddb06b2221104984b61; retained shared upstream operations and unchanged bounded thinking recovery. GitHub confirms the intended branch/head is mergeable. Four recovery regressions fail behaviorally on exact upstream bf6e1df335a3 and pass with the preserved fix. All 170 state-machine tests, scoped all-target Clippy (rustls-tls,tree-sitter,scheduler,acp-http; -D warnings), cargo fmt and whitespace checks pass on Rust 1.99 / Protoc 31.1. Primary-agent review confirms the exact committed tree and both parents. Intended fork/branch/head, mergeability, PR body and concise validation reply read back. Full workspace and live-provider end-to-end tests not rerun. Hosted CI is complete on this exact head: 32 successful checks and 11 expected skips; required checks passed, including Rust/TLS builds and MCP conformance. No new reviews/comments or unresolved threads. Optional released ACP/Tool Shim comparison trace remains with the reporter. Disposable build image/toolchain/dependencies removed after verification, releasing 16.00 GB; both task mounts and own loop detached, unrelated loop preserved. Reply: https://github.com/aaif-goose/goose/pull/12499#issuecomment-6909787447"
     },
     {
       "ts": "2026-11-16T07:05:04.352521+00:00",
